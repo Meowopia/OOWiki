@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://meowopia.github.io/OOWiki/architecture/">
+        <link rel="canonical" href="https://meowopia.github.io/OOWiki/plugins/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../commands-permissions/">
       
       
-        <link rel="next" href="../configuration/">
+        <link rel="next" href="oocore/">
       
       
       <link rel="icon" href="../assets/logo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>架构与依赖 - OO 系列插件 Wiki</title>
+        <title>附属总览 - OO 系列插件 Wiki</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              架构与依赖
+              附属总览
             
           </span>
         </div>
@@ -241,12 +241,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../installation/" class="md-tabs__link">
           
   
@@ -263,11 +261,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../plugins/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -310,7 +310,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -369,31 +371,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -406,7 +403,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             入门
@@ -440,32 +437,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    架构与依赖
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -476,62 +451,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#oocore" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOCore 边界
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ooengine" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOEngine 边界
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      客户端安全模型
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      降级策略
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -594,26 +513,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -626,7 +550,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             附属
@@ -637,10 +561,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../plugins/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    附属总览
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -651,6 +597,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      开始位置建议
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -663,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/oocore/" class="md-nav__link">
+      <a href="oocore/" class="md-nav__link">
         
   
   
@@ -686,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/ooengine/" class="md-nav__link">
+      <a href="ooengine/" class="md-nav__link">
         
   
   
@@ -709,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/oochat/" class="md-nav__link">
+      <a href="oochat/" class="md-nav__link">
         
   
   
@@ -732,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/oogame/" class="md-nav__link">
+      <a href="oogame/" class="md-nav__link">
         
   
   
@@ -755,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/oomusic/" class="md-nav__link">
+      <a href="oomusic/" class="md-nav__link">
         
   
   
@@ -882,6 +857,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -901,36 +878,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#oocore" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOCore 边界
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ooengine" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOEngine 边界
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      客户端安全模型
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      降级策略
+      开始位置建议
     </span>
   </a>
   
@@ -949,42 +899,33 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
   
 
 
-<h1 id="_1">架构与依赖关系<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<pre class="mermaid"><code>flowchart TD
-  Client["OOEngine-Client&lt;br/&gt;Fabric / NeoForge"] &lt;--&gt; Engine["OOEngine&lt;br/&gt;UI、协议、动作"]
-  Engine --&gt; Core["OOCore&lt;br/&gt;ABI、调度、存储、兼容层"]
-  Chat["OOChat"] --&gt; Engine
-  Chat --&gt; Core
-  Game["OOGame"] --&gt; Engine
-  Game --&gt; Core
-  Music["OOMusic"] --&gt; Engine
-  Music --&gt; Core
-  Game -.可选 Bridge.-&gt; Chat
-  Music -.可选 Bridge.-&gt; Chat</code></pre>
-<h2 id="oocore">OOCore 边界<a class="headerlink" href="#oocore" title="Permanent link">&para;</a></h2>
-<p>OOCore 提供稳定模块 ABI、capability session、Paper/Folia scheduler abstraction、模块隔离存储和平台 facade。scheduler、Component/text、registry/key、player/entity/item/data component 与 plugin channel 均应通过 OOCore。</p>
-<p>当前 ABI 规则：<code>ABI_VERSION = 1</code> 在 1.x 内保持二进制兼容；新增 API 可不提升 ABI，破坏性改动必须发布新 ABI。</p>
-<h2 id="ooengine">OOEngine 边界<a class="headerlink" href="#ooengine" title="Permanent link">&para;</a></h2>
-<p>服务端将 YAML 编译成不可变 <code>UiDocument</code>。事件包含 panel id、document revision、widget id、action 和防重放 request id。客户端拒绝 panel 或 revision 不匹配的 patch。</p>
-<p>OOEngine 负责渲染与事件投递；业务模块负责业务状态和授权。模块不得直接读写 OOEngine 数据目录。</p>
-<h2 id="_2">客户端安全模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="_1">附属插件总览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>OO 生态中的附属插件均为分层职责模块。你可以按类型理解它们的边界：</p>
 <ul>
-<li>客户端消息只是 intent。</li>
-<li>Web panel 使用短期认证 session，bridge 不暴露任意命令执行。</li>
-<li>Web URL 必须匹配 exact scheme/host/port origin allowlist。</li>
-<li>VIDEO manifest 由服务端 Ed25519 签名；客户端 pin endpoint，校验 origin、大小与 SHA-256 后才交给隔离 worker。</li>
+<li><strong>运行时附属（RUNTIME）</strong>：负责能力桥接、生命周期与指令总线。</li>
+<li><strong>界面附属（UI）</strong>：负责界面、HUD 与客户端渲染相关能力。</li>
+<li><strong>业务附属（SOCIAL / GAME / MEDIA）</strong>：承担具体玩法、社交与媒体能力。</li>
 </ul>
-<h2 id="_3">降级策略<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="oo-products">
+  <a href="oocore/"><span class="oo-product-tag">RUNTIME</span><h3>OOCore</h3><p>公共 ABI、Capability、调度、存储与版本适配层。</p><b>进入文档 →</b></a>
+  <a href="ooengine/"><span class="oo-product-tag">UI ENGINE</span><h3>OOEngine</h3><p>客户端可交互界面、UI 协议与渲染能力。</p><b>进入文档 →</b></a>
+  <a href="oochat/"><span class="oo-product-tag">SOCIAL</span><h3>OOChat</h3><p>会话、消息、好友与聊天内容生命周期。</p><b>进入文档 →</b></a>
+  <a href="oogame/"><span class="oo-product-tag">GAME</span><h3>OOGame</h3><p>游戏大厅、匹配、Provider 聚合与玩法入口。</p><b>进入文档 →</b></a>
+  <a href="oomusic/"><span class="oo-product-tag">MEDIA</span><h3>OOMusic</h3><p>曲库、播放、队列、媒体权限与同步逻辑。</p><b>进入文档 →</b></a>
+</div>
+
+<h2 id="_2">开始位置建议<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>OOCore 或 OOEngine 等硬依赖缺失：模块禁用。</li>
-<li>必需 capability 缺失：注册命令、channel、provider 或 action 前 fail-fast。</li>
-<li>OOChat、地图、任务或小游戏 Provider 等可选集成缺失：只降级相关功能。</li>
+<li>如果你是首次部署：先读 <a href="../installation/">安装与升级</a>。</li>
+<li>如果你是开发者：先读 <a href="../architecture/">架构与依赖</a> 与 <a href="../development/">开发者接入</a>。</li>
 </ul>
 
 
@@ -993,8 +934,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1018,10 +964,12 @@
   
     
       
+        
+      
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 安装与升级">
+          <a href="../commands-permissions/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 命令与权限">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1031,20 +979,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                安装与升级
+                命令与权限
               </div>
             </div>
           </a>
         
         
           
-          <a href="../configuration/" class="md-footer__link md-footer__link--next" aria-label="下一页: 配置参考">
+          <a href="oocore/" class="md-footer__link md-footer__link--next" aria-label="下一页: OOCore">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                配置参考
+                OOCore
               </div>
             </div>
             <div class="md-footer__button md-icon">
