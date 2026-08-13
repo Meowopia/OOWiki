@@ -2,6 +2,16 @@
 
 OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件。
 
+## 命令
+
+使用统一 OO 命令入口打开游戏大厅：
+
+```text
+/oo game
+```
+
+该命令由 OOCore 的 module dispatcher 路由到 OOGame；OOGame 不注册冲突的独立顶级命令。控制台不可打开大厅界面。
+
 ## 能力
 
 - `OoGameProvider` 稳定玩法桥；
@@ -11,7 +21,7 @@ OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件。
 - 房间目录、排行榜、最近战绩、活动与资源状态；
 - 短期、接收者绑定、单次消费的邀请 token；
 - `oogame:*` 网络 namespace；
-- OOEngine bindings/actions 与大厅面板。
+- OOEngine bindings/actions 与大厅窗口。
 
 ## 内置玩法
 
