@@ -31,7 +31,7 @@ OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件，也是独立�
 
 ## 依赖和故障隔离
 
-OOCore `1.6.1` 与 OOEngine 是硬依赖；OOConsole `0.1.5` 为 optional。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole 接入失败只禁用 Console 贡献。完整回合状态机已通过本地验证，但不等同于正式 release；WindowController 与 command consumer migration 状态不因此升级。
+OOCore `1.6.1` 与 OOEngine 是硬依赖；OOConsole `0.1.5` 为 optional。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole 接入失败只禁用 Console 贡献。闭源门禁与 39 tests 已通过，但 binary release 仍等待第三方 NOTICE 和内部 SDK 授权收口，因此当前不宣称正式 release；WindowController 与 command consumer migration 状态不因此升级。
 
 ## OOConsole 接入（implemented）
 
