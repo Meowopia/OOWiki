@@ -11,8 +11,8 @@
 | OOMusic | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo music` 目标入口；旧 `/oomusic` 为 legacy | bundled 播放器窗口；无外部主配置 | 保留 legacy Panel 单路径，Window 迁移未验收前不混用 |
 | OOBrowser | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore；OOEngine/OOConsole 能力按状态降级 | `/oo browser` 尚未 live 验收 | 当前无生效 runtime config；示例仅 reference | 无正式二进制可升级；生产连接器未验收时保持禁用 |
 | OOChat | Extensions | `0.1.0` stable | Compatible OOCore; OOConsole optional | `/oo chat` | See product release docs | No OOEngine Window/UI in `0.1.0` |
-| OOVIP | 独立（OO） | Paused / unreleased; no GitHub Release | OOCore required; other integrations optional | `/oo vip` bootstrap | Public config and language files | Unreleased; do not deploy as stable |
-| OOReforge | 独立（OO） | Paused / unreleased; no GitHub Release | Independent Paper plugin; integrations optional | `/oo reforge` legacy route | Public config and language files | Unreleased; do not deploy as stable |
+| OOVIP | 独立（Standalone） | Paused / unreleased; no GitHub Release | OOCore required; other integrations optional | `/oo vip` bootstrap | Public config and language files | Unreleased; do not deploy as stable |
+| OOReforge | 独立（Standalone） | Paused / unreleased; no GitHub Release | Independent Paper plugin; integrations optional | `/oo reforge` legacy route | Public config and language files | Unreleased; do not deploy as stable |
 
 ## 统一支持渠道
 

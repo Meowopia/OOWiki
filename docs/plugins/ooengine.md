@@ -22,19 +22,7 @@ OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负�
 Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contribution 重复 `ownerId`，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy `PanelController`。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 `1.1.4`。
 
 !!! info "1.1.6 stable"
-    `1.1.6` å·²ä½ä¸ºé­æºäºè¿å¶ç¨³å®çåå¸ï¼`1.1.5` ä¸å¾ä½¿ç¨ã
-
-## æ´æ°æ¥å¿ / Changelog
-
-**ä¸­æ:** åå¸ `1.1.6` ç¨³å®çï¼å®ææ¬è½® Window/OOMenu ä¿®å¤ã
-
-**English:** Releases stable `1.1.6` with the current Window/OOMenu repairs.
-
-## å·²ç¥é®é¢ / Known issues
-
-Folia live acceptance å°æªå®æã / Folia live acceptance is not complete.
-
-
+    `1.1.6` 已作为闭源二进制稳定版发布；`1.1.5` 不得使用。
 
 OOMenu 是所有业务插件接入 OOEngine 窗口系统的统一表现层门面。它负责 owner-scoped window contribution、窗口发现与 open/patch/close 安全编排、namespace/limits/revision/requestId 校验、插件卸载回收，以及通用 Menu 文档、应用目录和 preset。默认、MMO、mobile、phone、Android tablet 都是同一个 Menu 系统的 preset。玩家命令仍为 `/oo engine menu`，不存在独立 `/oo menu` 模块命令。
 

@@ -2,17 +2,6 @@
 
 当前稳定版为 [`0.1.0`](https://github.com/Meowopia/OOChat/releases/tag/v0.1.0)，以闭源二进制形式发布。
 
-## 更新日志 / Changelog
-
-**中文：** 修复可选 OOConsole 缺失时的启动异常与命令别名保留字冲突。
-
-**English:** Fixes startup failure when optional OOConsole is absent and the reserved command-alias collision.
-
-## 已知问题 / Known issues
-
-`0.1.0` 不包含 OOEngine Window/UI。 / `0.1.0` does not include OOEngine Window/UI.
-
-
 OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。
 
 - **运行依赖**：`OOCore`

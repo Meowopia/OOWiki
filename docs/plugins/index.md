@@ -18,7 +18,7 @@
     <button type="button" class="is-active" data-plugin-filter="all">全部</button>
     <button type="button" data-plugin-filter="core">基础 Core</button>
     <button type="button" data-plugin-filter="extensions">附属 Extensions</button>
-    <button type="button" data-plugin-filter="independent">独立（OO）</button>
+    <button type="button" data-plugin-filter="independent">独立（Standalone）</button>
   </div>
 </div>
 
@@ -30,7 +30,7 @@
   </a>
   <a class="plugin-card" href="ooengine/" data-category="core" data-search="ooengine core window ui renderplan menu video editor hud">
     <div class="plugin-card-top"><span class="plugin-lettermark mark-violet">OE</span><span class="plugin-state state-implemented">Stable 1.1.6</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">基础 · Core</span><h2>OOEngine</h2><p>窗口、RenderPlan、资源、协议与客户端渲染引擎；新 Window facade 仍有独立 blocker。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础 · Core</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooconsole/" data-category="core" data-search="ooconsole core console editor workspace owner service admin">
@@ -55,19 +55,19 @@
   </a>
   <a class="plugin-card" href="oochat/" data-category="extensions" data-search="oochat extensions chat social friend mail 聊天 好友 邮件">
     <div class="plugin-card-top"><span class="plugin-lettermark mark-green">OH</span><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">附属 · Extensions</span><h2>OOChat</h2><p>聊天、好友、会话与邮件系统；Console adapter 尚未完成独立验收。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属 · Extensions</span><h2>OOChat</h2><p>聊天、好友、会话与邮件系统；支持 CommandV2 与可选 OOConsole，0.1.0 暂不包含 Window/UI。</p></div>
     <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
   </a>
 
   <a class="plugin-card" href="oovip/" data-category="independent" data-search="oovip independent vip membership 会员 权益">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-gold">OV</span><span class="plugin-state state-planned">Paused ? Unreleased</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">独立（OO）</span><h2>OOVIP</h2><p>会员生命周期与权益编排插件，当前暂停且未发布。</p></div>
-    <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 ?</b></div>
+    <div class="plugin-card-top"><span class="plugin-lettermark mark-gold">OV</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOVIP</h2><p>会员生命周期与权益编排插件，当前暂停且未发布。</p></div>
+    <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooreforge/" data-category="independent" data-search="ooreforge independent reforge equipment 装备 锻造">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-red">OR</span><span class="plugin-state state-planned">Paused ? Unreleased</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">独立（OO）</span><h2>OOReforge</h2><p>装备、锻造、品质与配方插件，当前暂停且未发布。</p></div>
-    <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 ?</b></div>
+    <div class="plugin-card-top"><span class="plugin-lettermark mark-red">OR</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOReforge</h2><p>装备、锻造、品质与配方插件，当前暂停且未发布。</p></div>
+    <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 →</b></div>
   </a>
 </div>
 

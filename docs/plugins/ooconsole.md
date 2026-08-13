@@ -1,12 +1,5 @@
 # OOConsole
 
-## 更新日志 / Changelog
-
-**中文：** `0.1.6` 加入 CommandV2、HTTP 登录/退出流程，并修复本版安全问题。
-
-**English:** `0.1.6` adds CommandV2 and HTTP login/logout flows and includes security fixes.
-
-
 OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。
 
 !!! info "状态拆分"
