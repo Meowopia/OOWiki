@@ -2,7 +2,7 @@
 
 OOGame 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。
 
-OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件。
+OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件，也是独立闭源专有产品。Copyright (c) 2026 Meowopia, All rights reserved；源码仅供授权维护者使用。历史已发布版本继续适用其当时的许可证，本政策不撤回旧授权，第三方组件仍按各自上游许可执行。本页只保留安装、配置、公开 API 用法与产品状态。
 
 ## 命令
 
@@ -31,15 +31,11 @@ OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件。
 
 ## 依赖和故障隔离
 
-OOCore `1.6.1` 与 OOEngine 是硬依赖；OOConsole `0.1.5` 为 optional。OOCore API SHA-256 为 `0B75544ADB6291ED259A2D347A667C76C27341A4DD63A040F9B7F65CB6F785DE`，OOConsole API SHA-256 为 `7214E11E918D08B5E41D3F66C1EA8EC5578A21B5A31D720DAB4EA7D8D0AE45DE`。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole acquire/registration 失败只禁用 Console 贡献。
-
-完整回合状态机证据对应 commit `bd82e6e`，JAR SHA-256 总调度摘要为 `5FC9...66CC`，仅作为非 release 构建证据。WindowController 与 command consumer migration 状态不因此升级。
+OOCore `1.6.1` 与 OOEngine 是硬依赖；OOConsole `0.1.5` 为 optional。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole 接入失败只禁用 Console 贡献。完整回合状态机已通过本地验证，但不等同于正式 release；WindowController 与 command consumer migration 状态不因此升级。
 
 ## OOConsole 接入（implemented）
 
-OOGame 使用 active `OOModuleSession → core.ownerServices().acquire(session, OwnerBoundOOConsole.class, capability) → lease.service().openScope() → editor registration`。旧 `openScope(String)`、ServicesManager、reflection 与 local bridge 均已禁用。
-
-关闭顺序为 registration（由 scope 持有）→ scope → lease，全部幂等。`OwnerServiceHarness` 已覆盖 owner propagation、缺 capability 拒绝、provider/consumer disable、lease requester/provider 与 100-cycle acquire/register/close，最终 sessions/leases 为 0；mutation/revision 与 foreign fixtures 同时通过。
+OOGame 的可选 OOConsole 只读贡献已完成受控生命周期验收；Console 缺失或接入失败不会影响游戏 runtime。写操作仍由 OOGame 服务端权限、revision 和业务规则校验。内部接入实现与私有测试细节不在公开 Wiki 展示。
 
 ## OOMenu 窗口接入（planned）
 

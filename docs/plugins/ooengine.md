@@ -2,7 +2,7 @@
 
 OOEngine 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；真实依赖保持 OOEngine hard-depend OOCore。
 
-OOEngine 是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。
+OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。本页只公开产品能力、安装配置边界和受控 SDK 用法，不提供内部源码、私有 artifact 访问方式或安全实现细节。
 
 !!! info "术语"
     面向用户统一称为**窗口（Window）**，扩展 OOEngine 的独立项目统一称为**插件（Plugin）**。现有 Java API 中的 `PanelController`、`panelId` 等属于稳定兼容标识，在计划好的 ABI 迁移前不会仅为改文案而破坏。
@@ -21,6 +21,9 @@ OOEngine 是 OO 系列的服务端表现引擎，负责把窗口文档、数据�
 OOEngine API/testkit `1.1.4` 已发布：API SHA-256 `43E0C7EBA6996BCEB7FEF09D9C9737888CD2771B12A1B00792CA0B5C69BD4328`，testkit SHA-256 `6C76758AC66C5024FB33FCAD234A606354399B1394BE0E1332A7464555F6FE0C`。Window/Menu/Video registration surface 已发布；这不代表 OOMenu/OOVideo server runtime accepted，bootstrap、cleanup 和 migration 仍待验收。
 
 Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contribution 重复 `ownerId`，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy `PanelController`。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 `1.1.4`。
+
+!!! warning "1.1.5 发布候选：code-prepared / unpublished"
+    `1.1.5` 的 owner-bound WindowController、OOMenu lifecycle 与配置修正已观察到完整本地门禁通过，但尚未发布 Maven 或正式二进制 release。在总调度完成 artifact 与发布核验前，消费者仍以 `1.1.4` 公开状态为准；不得把本地构建证据写成已发布或生产 runtime accepted。自 `1.1.5` 起产品计划按 proprietary / authorized binary policy 发布，不提供 sources JAR。
 
 `OOMenu`（Gradle module `:oomenu`）是 OOEngine 仓库内部的菜单子项目，不是独立插件、Mod 或仓库。它随 OOEngine 服务端产物集成发布，Java package 为 `com.zkonikishi.ooengine.menu`。
 
@@ -108,7 +111,7 @@ OOCore 处理 Minecraft/Paper/Folia 版本差异。OOEngine 与业务插件不�
 - `examples/phone-themes.yml`：当前没有 loader，仅 planned example。
 - JSON theme：没有已验收 loader；JSON 禁止注释，不得宣称可用。
 
-21 个分发 YAML 源已加入中英用途、重载、风险、类型与联系信息头；字段级完整说明仍在继续。验证包括 21-file UTF-8 striot、server 110 tests、paper JAR 与 foreign soan；paper artifact SHA-256 为 `1C409F1067F41C6604AE5C68352950EF15E8E755CE553D7212E98F5C0DA4AD88`。
+21 个分发 YAML 源已加入中英用途、重载、风险、类型与联系信息头；字段级完整说明仍在继续。验证包括 21-file UTF-8 strict、server 110 tests、paper JAR 与 foreign scan；paper artifact SHA-256 为 `1C409F1067F41C6604AE5C68352950EF15E8E755CE553D7212E98F5C0DA4AD88`。
 
 ## 联系 / Contact
 
