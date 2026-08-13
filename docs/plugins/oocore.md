@@ -27,7 +27,8 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 | 项目 | 当前稳定契约 |
 |---|---|
 | Stable | `1.6.1` |
-| Candidate | `1.7`（unpublished；正式核验前不可用于生产） |
+| Withdrawn | `1.7.0`（invalid candidate；禁止安装或依赖） |
+| Repair candidate | `1.7.1`（unpublished；正式核验前不可用于生产） |
 | Maven API | `com.zkonikishi.oo.core:oocore-api:1.6.1` |
 | Maven owner-service runtime | `com.zkonikishi.oo.core:oocore-owner-service-runtime:1.6.1` |
 | ABI | `1` |
@@ -35,7 +36,7 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 | Java | `25` |
 | 兼容目标 | Minecraft/Paper/Folia 26.1、26.1.2、26.2 |
 
-`1.6.1` 是当前公开稳定基线。`1.7` 仍为 candidate；只有完成稳定版总验收并发布正式二进制后，Wiki 才会更新安装版本和公开校验值。内部 testkit、fixture、构建门禁和开发版散列不在公开 Wiki 展示。
+`1.6.1` 是当前公开稳定基线。`1.7.0` 已撤回且不可使用；`1.7.1` 是下一修复候选。只有完成稳定版总验收并发布正式二进制后，Wiki 才会更新安装版本和公开校验值。非公开工程验证不在公开 Wiki 展示。
 
 `oocore.command-contribution.v2` 已 implemented/published。Actor 使用 host-minted Bukkit-neutral identity，提供 SenderKind、真实玩家 `Optional<UUID>`、bounded displayName 与 invocation-scoped controlled Authorization；不暴露 `CommandSender`/`Player`，不允许 command dispatch。v1 保持 binary compatible，并标记 deprecated migration。
 

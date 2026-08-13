@@ -2,7 +2,7 @@
 
 ## 命令
 
-OOCore `1.6.1` 是当前稳定基线和 `/oo` 的唯一 root owner；`1.7` 仍是 unpublished candidate。新迁移使用已发布的 `oocore.command-contribution.v2`；v1 保持 binary compatible 但 deprecated。OOEngine、OOGame 等消费者完成 v2 真实验收前保留 legacy single path，禁止双注册。
+OOCore `1.6.1` 是当前稳定基线和 `/oo` 的唯一 root owner；`1.7.0` 已 withdrawn，不得用于安装或依赖，下一修复候选为 unpublished `1.7.1`。新迁移使用已发布的 `oocore.command-contribution.v2`；v1 保持 binary compatible 但 deprecated。OOEngine、OOGame 等消费者完成 v2 真实验收前保留 legacy single path，禁止双注册。
 
 ## 表现层
 

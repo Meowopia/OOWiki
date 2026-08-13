@@ -41,12 +41,14 @@ OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费
 ## 本地验证
 
 ```powershell
-python -m pip install -r requirements.txt
+python -m pip install --requirement requirements.lock.txt
 python -m mkdocs build --clean --strict
 python -m mkdocs serve
 ```
 
 严格构建通过只证明文档可构建，不代表 `planned` 或 `blocked` 功能已经实现。发布 GitHub Pages 或 Release 前必须单独复核。
+
+依赖更新先修改 `requirements.txt`，重新解析并审查 `requirements.lock.txt` 后再运行 strict build。Pages preview 与回滚步骤见[交付运行手册](docs/pages-runbook.md)。
 
 ## 配置 / Configuration
 

@@ -4,7 +4,7 @@
 
 | 产品 | 分类 | 用户可见状态 | 安装与依赖 | 命令 | 配置 | 升级 / 回滚 |
 |---|---|---|---|---|---|---|
-| OOCore | Core | `1.6.1` stable；`1.7` candidate / unpublished | 服务器前置；按公开发行说明安装 | `/oo core` | 无用户 runtime config；managed state 禁止手改 | 升级前备份；candidate 不用于生产；保留上一稳定二进制 |
+| OOCore | Core | `1.6.1` stable；`1.7.0` withdrawn；`1.7.1` repair candidate | 服务器前置；仅按公开稳定发行说明安装 | `/oo core` | 无用户 runtime config；managed state 禁止手改 | 禁止安装或依赖 `1.7.0`；candidate 不用于生产；保留 `1.6.1` |
 | OOEngine | Core | `1.1.5` runtime not accepted；`1.1.6` repair candidate | 依赖 OOCore；客户端按 loader 安装匹配版本 | `/oo engine` legacy route available | `config.yml` 与窗口模板；credentials 为托管文件 | Window migration blocked；修复版未验收前保留 legacy 单路径 |
 | OOConsole | Core | `0.1.5` platform available；产品 UI preview | 依赖 OOCore + OOEngine | `/oo console` 尚未完成产品验收 | 当前无用户 runtime config | 保留 OOEngine Web Editor；产品工作区未验收前不得删除旧入口 |
 | OOGame | Extensions | Preview；正式闭源 binary 未发布 | 依赖 OOCore + OOEngine；OOConsole optional | `/oo game` legacy route available | 大厅模板和公开 Schema | 未发布前不覆盖现有安装；Window 迁移可回退 legacy 路径 |
