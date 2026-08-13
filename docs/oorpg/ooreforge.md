@@ -5,7 +5,7 @@
 OOReforge 负责装备、锻造、品质、配方和领域校验。OOEngine 与 OOConsole 对其保持可选；需要窗口时通过 OOMenu stable facade，需要可视化管理时通过 OOConsole Contribution。
 
 !!! warning "许可证与发布状态"
-    OOReforge 计划在未来版本转为 proprietary，但 rights-chain 审计、未来生效版本、私有仓库迁移和当前工作树构建均未完成。当前不得宣称已经具备商业闭源发布条件，也不得将计划中的闭源政策追溯应用到历史版本。公开 Wiki 只保留产品、安装、配置和支持信息，不宣传历史 remote、内部坐标、私有 artifact 或实现细节。
+    OOReforge 当前没有公开源码发布。现有 `1.3.0` 不重新许可；未来采用 proprietary 政策的具体版本仍为 TBD。权利链与当前构建门禁尚未完成，因此二进制尚未正式发布且当前 release prohibited。公开 Wiki 只保留产品、安装、配置和支持信息，不公开维护者内部审计、作者身份资料、私有坐标、私有 artifact 或实现细节。
 
 锻造、物品与经济 mutation 必须执行权限、owner、revision、requestId、库存和事务校验。客户端或 Console 不能自报物品、材料、成功率或结算结果。
 
