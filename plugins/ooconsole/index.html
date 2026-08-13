@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://meowopia.github.io/OOWiki/plugins/oogame/">
+        <link rel="canonical" href="https://meowopia.github.io/OOWiki/plugins/ooconsole/">
       
       
-        <link rel="prev" href="../ooconsole/">
+        <link rel="prev" href="../ooengine/">
       
       
-        <link rel="next" href="../oomusic/">
+        <link rel="next" href="../oogame/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>OOGame - OO 系列插件 Wiki</title>
+        <title>OOConsole - OO 系列插件 Wiki</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oogame" class="md-skip">
+        <a href="#ooconsole" class="md-skip">
           跳转至
         </a>
       
@@ -589,6 +589,8 @@
                 
   
   
+    
+  
   
   
     
@@ -604,11 +606,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
@@ -624,7 +626,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             基础（Core）
@@ -681,85 +683,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../ooconsole/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    OOConsole
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    附属（Extensions）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            附属（Extensions）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
     
   
   
@@ -777,7 +700,7 @@
   
   
   <span class="md-ellipsis">
-    OOGame
+    OOConsole
     
   </span>
   
@@ -790,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    OOGame
+    OOConsole
     
   </span>
   
@@ -815,52 +738,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      命令
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      能力
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      内置玩法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖和故障隔离
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ooconsole-implemented" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOConsole 接入（implemented）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oomenu-planned" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOMenu 窗口接入（planned）
+      固定标识
     </span>
   </a>
   
@@ -884,10 +762,132 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令与入口
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribution-planned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contribution 规范（planned）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbacplanned" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBAC（planned）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planned" class="md-nav__link">
+    <span class="md-ellipsis">
+      安全与部署（planned）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      迁移约束
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    附属（Extensions）
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            附属（Extensions）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oogame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOGame
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1313,52 +1313,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      命令
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      能力
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      内置玩法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖和故障隔离
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ooconsole-implemented" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOConsole 接入（implemented）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oomenu-planned" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOMenu 窗口接入（planned）
+      固定标识
     </span>
   </a>
   
@@ -1377,6 +1332,51 @@
   <a href="#contact" class="md-nav__link">
     <span class="md-ellipsis">
       联系 / Contact
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令与入口
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribution-planned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contribution 规范（planned）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbacplanned" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBAC（planned）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planned" class="md-nav__link">
+    <span class="md-ellipsis">
+      安全与部署（planned）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      迁移约束
     </span>
   </a>
   
@@ -1401,42 +1401,100 @@
   
 
 
-<h1 id="oogame">OOGame<a class="headerlink" href="#oogame" title="Permanent link">&para;</a></h1>
-<p>OOGame 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的<strong>附属（Extensions）</strong>。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。</p>
-<p>OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件。</p>
-<h2 id="_1">命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>使用统一 OO 命令入口打开游戏大厅：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/oo game
-</code></pre></div>
-<p>该命令当前通过 OOCore legacy module dispatcher 单路径可用。OOCore command v2 已发布，但 OOGame command consumer migration 尚未单独验收；不得双注册或按 sender name 查找玩家。真正打开玩家 Window 仍等待 OOEngine/OOMenu 修复版 facade。</p>
-<h2 id="_2">能力<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>OoGameProvider</code> 稳定玩法桥；</li>
-<li>游戏目录、分类、标签和搜索；</li>
-<li>收藏、最近游玩和玩家库；</li>
-<li>加入、排队、旁观、退出状态协调；</li>
-<li>房间目录、排行榜、最近战绩、活动与资源状态；</li>
-<li>短期、接收者绑定、单次消费的邀请 token；</li>
-<li><code>oogame:*</code> 网络 namespace；</li>
-<li>OOEngine bindings/actions 与大厅窗口。</li>
-</ul>
-<h2 id="_3">内置玩法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>provider.doudizhu</code> 实现标准三人斗地主领域规则。最新证据已覆盖完整回合状态机；视觉、名称和文案为 OOGame 自有内容。</p>
-<h2 id="_4">依赖和故障隔离<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>OOCore <code>1.6.1</code> 与 OOEngine 是硬依赖；OOConsole <code>0.1.5</code> 为 optional。OOCore API SHA-256 为 <code>0B75544ADB6291ED259A2D347A667C76C27341A4DD63A040F9B7F65CB6F785DE</code>，OOConsole API SHA-256 为 <code>7214E11E918D08B5E41D3F66C1EA8EC5578A21B5A31D720DAB4EA7D8D0AE45DE</code>。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole acquire/registration 失败只禁用 Console 贡献。</p>
-<p>完整回合状态机证据对应 commit <code>bd82e6e</code>，JAR SHA-256 总调度摘要为 <code>5FC9...66CC</code>，仅作为非 release 构建证据。WindowController 与 command consumer migration 状态不因此升级。</p>
-<h2 id="ooconsole-implemented">OOConsole 接入（implemented）<a class="headerlink" href="#ooconsole-implemented" title="Permanent link">&para;</a></h2>
-<p>OOGame 使用 active <code>OOModuleSession → core.ownerServices().acquire(session, OwnerBoundOOConsole.class, capability) → lease.service().openScope() → editor registration</code>。旧 <code>openScope(String)</code>、ServicesManager、reflection 与 local bridge 均已禁用。</p>
-<p>关闭顺序为 registration（由 scope 持有）→ scope → lease，全部幂等。<code>OwnerServiceHarness</code> 已覆盖 owner propagation、缺 capability 拒绝、provider/consumer disable、lease requester/provider 与 100-cycle acquire/register/close，最终 sessions/leases 为 0；mutation/revision 与 foreign fixtures 同时通过。</p>
-<h2 id="oomenu-planned">OOMenu 窗口接入（planned）<a class="headerlink" href="#oomenu-planned" title="Permanent link">&para;</a></h2>
-<p>OOGame 的大厅窗口和 Menu app entry 将通过 <code>ooengine-api</code> 的 OOMenu stable facade 接入。<code>1.1.4</code> 仅 registration surface published，API JAR 没有 <code>WindowController</code>，OOMenu server wiring 未验收；完整 Window migration runtime-blocked。禁止新 registry 与 legacy <code>PanelController</code> 混用。</p>
+<h1 id="ooconsole">OOConsole<a class="headerlink" href="#ooconsole" title="Permanent link">&para;</a></h1>
+<p>OOConsole 在产品、Wiki 和 OOConsole metadata 中归入<strong>基础（Core）</strong>。该分类不改变独立仓库和版本，也不创建聚合 runtime；目标运行时依赖保持 hard-depend OOCore + OOEngine。</p>
+<p>OOConsole 是独立 OO 系列管理与可视化编辑插件。<code>0.1.5</code> + OOCore <code>1.6.1</code> owner-service artifact-first 最终门禁已通过，可信链 implemented/available for migration；各消费者 adapter 仍须独立验收，不能批量标记 implemented。</p>
+<div class="admonition info">
+<p class="admonition-title">状态拆分</p>
+<p><strong><code>0.1.3</code> coordinates published</strong>：API/runtime/testkit 坐标已发布。API 与 testkit payload 仍与 <code>0.1.1</code>/<code>0.1.2</code> byte-identical，仅做 coordinate alignment；runtime 为首次发布。server runtime acceptance 仍 pending，trusted consumer identity blocked。离线 <code>openScope</code> fixture 不能外推为可信跨插件接入；消费者不得创建本地 bridge或自报 owner、principal、role。</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">0.1.4 runtime rejected</p>
+<p><code>0.1.4</code> runtime coordinate 存在，但 JAR 内 <code>plugin.yml</code> 仍声明版本 <code>0.1.3</code>，与坐标不一致，因此该版本永久 rejected、不可安装。后续 <code>0.1.5</code> 已发布并修复版本元数据。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">0.1.5 published / owner-service available</p>
+<p><code>0.1.5</code> API SHA-256：<code>7214...45DE</code>；runtime SHA-256：<code>6ED7...2A37</code>；testkit SHA-256：<code>DE2C...37CC</code>。API/testkit 与 <code>0.1.4</code> byte-identical；runtime 修复 descriptor/manifest。Owner-service artifact-first 最终门禁已通过，但 HTTP/UI、Editor 与消费者 adapter 仍逐项验收。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Intermediate harness evidence</p>
+<p>旧 <code>REAL_CORE_REGISTRY_ARTIFACT_OK</code> 仅为 intermediate 证据。当前正式 artifact-first 最终门禁已通过，输出 <code>OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK</code>。</p>
+</div>
+<h2 id="_1">固定标识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产品名</td>
+<td><code>OOConsole</code></td>
+</tr>
+<tr>
+<td>Java package</td>
+<td><code>com.zkonikishi.oo.console</code></td>
+</tr>
+<tr>
+<td>plugin/module ID</td>
+<td><code>ooconsole</code></td>
+</tr>
+<tr>
+<td>规范命令</td>
+<td><code>/oo console</code></td>
+</tr>
+<tr>
+<td>运行时硬依赖</td>
+<td><code>OOCore</code>、<code>OOEngine</code></td>
+</tr>
+<tr>
+<td>plugin descriptor</td>
+<td><code>depend: [OOCore, OOEngine]</code></td>
+</tr>
+<tr>
+<td><code>0.1.0</code> API SHA-256</td>
+<td><code>FA95DC043219DE93F42E798D4745087503DA780AA7EDAC8CD51610B6A81DA3F9</code></td>
+</tr>
+<tr>
+<td><code>0.1.0</code> testkit SHA-256</td>
+<td><code>1F022E8ABCE3AB15D9439FEC24F5C0EA6897386843374A0BCA4D6175FA2C2844</code></td>
+</tr>
+<tr>
+<td><code>0.1.1</code> API artifact</td>
+<td><code>com.zkonikishi.oo.console:ooconsole-api:0.1.1</code>（published/verified）</td>
+</tr>
+<tr>
+<td><code>0.1.1</code> API SHA-256</td>
+<td><code>AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08</code></td>
+</tr>
+<tr>
+<td><code>0.1.1</code> testkit artifact</td>
+<td><code>com.zkonikishi.oo.console:ooconsole-testkit:0.1.1</code>（published/verified）</td>
+</tr>
+<tr>
+<td><code>0.1.1</code> testkit SHA-256</td>
+<td><code>DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC</code></td>
+</tr>
+<tr>
+<td>API version</td>
+<td><code>API_VERSION = 1</code>（implemented）</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td><code>ooconsole.editor-contribution.v1</code>（compile contract published；owner-bound acquisition available；具体贡献逐项验收）</td>
+</tr>
+</tbody>
+</table>
+<p><code>0.1.2</code> API/testkit coordinates 已 published，SHA-256 仍分别为 <code>AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08</code>、<code>DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC</code>，payload 与 <code>0.1.1</code> 相同；该版本没有 runtime artifact。</p>
+<p><code>0.1.3</code> API/testkit coordinates 使用相同 payload 与 SHA-256：API <code>AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08</code>，testkit <code>DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC</code>。首次发布的 runtime artifact SHA-256 经总调度核验摘要为 <code>C233...A392</code>；依赖图、foreign scan 与 descriptor 核验通过。该发布不等于 server runtime accepted。</p>
+<p>OOCore <code>1.6.1</code> <code>oocore.owner-bound-service.v1</code> 与 OOConsole <code>0.1.5</code> 正式 artifacts 已通过 owner-service 最终门禁。旧 <code>openScope(String)</code> / <code>openScope(ownerId)</code> 仍 deprecated/unsafe，禁止 ThreadLocal、反射或本地 bridge。</p>
+<p>消费者仍需用正式 fixture 完成自身 acquire、双生命周期、关闭后 fail-fast 与 foreign scan 验收；未完成者保持 disabled/code-prepared。</p>
+<p>API <code>0.1.4</code>/<code>0.1.5</code> 的 <code>OwnerBoundOOConsole</code> compile surface 已发布；<code>0.1.5</code> + OOCore <code>1.6.1</code> 最终门禁已通过。具体消费者仍须独立完成 acquire/lifecycle/foreign 验收。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>OOGame 没有 data-folder <code>config.yml</code>、语言、TOML、properties 或生成模板。当前可编辑资源只有：</p>
-<ul>
-<li><code>panels/oogame-lobby.yml</code>：大厅 Panel 文档。修改后需重新构建并 reload/restart；action 必须保持 server-authoritative，错误 action/namespace 会导致窗口降级或操作被拒绝。</li>
-<li><code>console/oogame-lobby.schema.json</code>：OOConsole typed schema；JSON 不支持注释，说明通过 Schema <code>description/examples</code> 表达。owner-bound adapter 已 implemented，但所有 mutation 仍由 OOGame 服务端权限、revision 与业务规则校验。</li>
-</ul>
-<p>Schema 字段：<code>enabledProviders</code>（启用 Provider 列表）、<code>featuredGames</code>（推荐游戏）、<code>categories</code>（分类）、<code>matchmakingEnabled</code>（是否允许匹配）、<code>defaultRoomCapacity</code>（整数，2–128 players，默认 3）、<code>activitiesVisible</code>（显示活动）、<code>leaderboardLimit</code>（整数，1–100，默认 50）、<code>lobbyTitle</code>（字符串，1–64 characters）。这些配置只控制展示/请求意图，不能绕过服务端 Provider 权限、房间状态或匹配校验。</p>
+<p>当前没有用户可编辑的 OOConsole runtime 配置文件；HTTP/UI transport 仍为 planned。不得虚构 <code>config.yml</code>、配置键或默认值。</p>
+<p>OOConsole currently has no user-editable runtime configuration. HTTP/UI transport remains planned. Do not invent <code>config.yml</code>, keys, or defaults.</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
@@ -1445,6 +1503,75 @@
 <li><a href="https://ifdian.net/a/zkonikishi">ifdian</a></li>
 <li>QQ群 / QQ Group: 1063369777</li>
 </ul>
+<p>OOConsole 位于独立仓库、采用独立版本并发布为独立插件，但运行时必须同时依赖 OOCore 与 OOEngine。不要使用“OOEngine Console”作为产品名，也不要把 OOConsole Contribution 放进 OOEngine API。</p>
+<p>OOConsole 必须复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套实现。compile surface 发布不等于 runtime 可发现，更不等于 HTTP 服务、管理 UI、Editor、adapter 或产品工作区已经实现。</p>
+<p>Android 平板仅是 OOEngine <code>:oomenu</code> 通用 <code>menu</code> 窗口的响应式 preset。OOConsole 的 Window/Menu workspace 只通过稳定接口调用 OOMenu 与 OOEditor（<code>:ooeditor</code>），不复制 editor engine，不直接修改内部 repository、session manager、renderer 或 data folder，也不增加 Tablet workspace、导航页、模块、命令、registry、数据库或配置根。</p>
+<h2 id="_2">命令与入口<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>入口</th>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/oo console</code></td>
+<td>planned</td>
+<td>打开或显示 OOConsole 状态</td>
+</tr>
+<tr>
+<td><code>/oo console editor</code></td>
+<td>planned</td>
+<td>进入 OOConsole 的 Editor 工作区</td>
+</tr>
+<tr>
+<td><code>/oo engine admin editor</code></td>
+<td>implemented / legacy source</td>
+<td>打开玩家侧 OOEngine 编辑模式；不是 OOConsole</td>
+</tr>
+<tr>
+<td>OOConsole 顶部或侧边栏“Editor”</td>
+<td>planned</td>
+<td>Editor 快捷入口</td>
+</tr>
+</tbody>
+</table>
+<p>任何过渡 alias 都必须在实现时明确版本和移除策略；新文档与新集成只把 <code>/oo console</code> 作为规范入口。</p>
+<h2 id="contribution-planned">Contribution 规范（planned）<a class="headerlink" href="#contribution-planned" title="Permanent link">&para;</a></h2>
+<p>插件计划通过 <code>ooconsole.editor-contribution.v1</code> 注册 owner-scoped Contribution：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>owner: oochat
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>workspace: plugins/oochat
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>views: [overview, moderation, mail]
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>actions: [oochat.moderation.reload]
+</code></pre></div>
+<p>约束：</p>
+<ol>
+<li>owner 必须与已认证的插件/module ID 一致；</li>
+<li>资源 ID、路由、权限和 action 必须位于 owner namespace；</li>
+<li>DTO 必须 immutable、versioned、bounded，不得暴露运行时对象；</li>
+<li>action 由拥有资源的插件执行服务端权限与业务校验；</li>
+<li>注册返回 lifecycle handle，disable/reload 时幂等撤销；</li>
+<li>只允许 workspace、view、form、table 与受权 named action；禁止任意 HTML、JavaScript、SQL、shell、控制台命令或本地文件路径；</li>
+<li>Contribution 缺失只隐藏对应工作区，不得拖垮 OOConsole 或插件核心业务。</li>
+</ol>
+<p>首版 artifact、<code>API_VERSION=1</code> 和 Capability 已发布；具体产品 Contribution 工作区仍为 <strong>planned</strong>。Wiki 不把 SDK 可编译等同于管理功能可用。</p>
+<h2 id="rbacplanned">RBAC（planned）<a class="headerlink" href="#rbacplanned" title="Permanent link">&para;</a></h2>
+<p>权限至少拆分为：登录、查看 ControlPlane、打开 Editor、保存草稿、发布窗口、调用插件 action、查看审计、管理 OOConsole。危险权限不应包含在普通管理员通配中。</p>
+<p>每个请求同时校验：已登录身份、角色权限、owner scope、资源版本、CSRF token、request ID 和 action payload schema。前端隐藏按钮不构成授权。</p>
+<h2 id="planned">安全与部署（planned）<a class="headerlink" href="#planned" title="Permanent link">&para;</a></h2>
+<ul>
+<li>默认 <code>127.0.0.1</code>，远程部署要求 HTTPS reverse proxy；</li>
+<li>强制 Host/Origin allowlist、Secure/HttpOnly/SameSite Cookie、会话过期和登录限流；</li>
+<li>密码仅保存强 KDF hash，bootstrap token 只在本地控制台短暂显示；</li>
+<li>所有写操作记录主体、owner、action、目标、结果和 request ID；</li>
+<li>预览与发布沿用 OOEngine schema、UiLimits、资源策略和 RenderPlan，不另造渲染协议。</li>
+</ul>
+<h2 id="_3">迁移约束<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>OOEngine Web Editor 只能分阶段迁移。OOConsole 需要通过功能等价、数据兼容、RBAC、安全、审计、回滚和生产试运行验收；在此之前不得删除或破坏 OOEngine 源实现。</p>
+<p>OOConsole 仅编辑和诊断 OOVideo 配置、策略与资源引用，不自行播放、解码或持有 texture/audio sink。</p>
+<p>OOConsole 在 <code>OORPG &gt; OOQuest</code> 导航分类下配置 OOQuest Provider adapter、显示映射并展示 bounded、脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励。该导航分类不改变其工程归属：实现仍位于 <code>OOEngine &gt; :ooquest</code>。</p>
 
 
 
@@ -1480,7 +1607,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../ooconsole/" class="md-footer__link md-footer__link--prev" aria-label="上一页: OOConsole">
+          <a href="../ooengine/" class="md-footer__link md-footer__link--prev" aria-label="上一页: OOEngine">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1490,20 +1617,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                OOConsole
+                OOEngine
               </div>
             </div>
           </a>
         
         
           
-          <a href="../oomusic/" class="md-footer__link md-footer__link--next" aria-label="下一页: OOMusic">
+          <a href="../oogame/" class="md-footer__link md-footer__link--next" aria-label="下一页: OOGame">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                OOMusic
+                OOGame
               </div>
             </div>
             <div class="md-footer__button md-icon">

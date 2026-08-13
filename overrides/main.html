@@ -7,8 +7,8 @@
         <label class="md-header__button md-icon ovo-menu" for="__drawer">
           {% include ".icons/material/menu.svg" %}
         </label>
-        <a class="ovo-brand" href="{{ nav.homepage.url | url }}" aria-label="OO Wiki 首页">
-          <span class="ovo-brand-mark">OO</span>
+        <a class="ovo-brand" href="{{ nav.homepage.url | url }}" aria-label="OO 插件系列 Wiki 首页">
+          <img class="ovo-brand-mark" src="{{ 'assets/logo.svg' | url }}" alt="OO 插件系列 Logo">
           <span class="ovo-brand-name">OO Wiki</span>
         </a>
       </div>
@@ -16,7 +16,7 @@
       <div class="ovo-navbar-links">
         <a href="{{ nav.homepage.url | url }}">首页</a>
         <a href="{{ 'installation/' | url }}">文档</a>
-        <a href="{{ 'plugins/oocore/' | url }}">插件</a>
+        <a href="{{ 'plugins/' | url }}">插件</a>
         <a href="{{ 'development/' | url }}">开发者</a>
       </div>
 

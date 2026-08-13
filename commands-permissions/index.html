@@ -16,7 +16,7 @@
         <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../plugins/oocore/">
+        <link rel="next" href="../integration/">
       
       
       <link rel="icon" href="../assets/logo.svg">
@@ -94,8 +94,8 @@
         <label class="md-header__button md-icon ovo-menu" for="__drawer">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
         </label>
-        <a class="ovo-brand" href=".." aria-label="OO Wiki 首页">
-          <span class="ovo-brand-mark">OO</span>
+        <a class="ovo-brand" href=".." aria-label="OO 插件系列 Wiki 首页">
+          <img class="ovo-brand-mark" src="../assets/logo.svg" alt="OO 插件系列 Logo">
           <span class="ovo-brand-name">OO Wiki</span>
         </a>
       </div>
@@ -103,7 +103,7 @@
       <div class="ovo-navbar-links">
         <a href="..">首页</a>
         <a href="../installation/">文档</a>
-        <a href="../plugins/oocore/">插件</a>
+        <a href="../plugins/">插件</a>
         <a href="../development/">开发者</a>
       </div>
 
@@ -185,11 +185,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../plugins/oocore/" class="md-tabs__link">
+        <a href="../plugins/" class="md-tabs__link">
           
   
   
   插件
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../oorpg/" class="md-tabs__link">
+          
+  
+  
+  OORPG
 
         </a>
       </li>
@@ -475,9 +495,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oomusic" class="md-nav__link">
+  <a href="#ooconsoleplanned" class="md-nav__link">
     <span class="md-ellipsis">
-      OOMusic
+      OOConsole（planned）
     </span>
   </a>
   
@@ -490,20 +510,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OOChat">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#luckperms-metadata" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oogame-oomusic" class="md-nav__link">
     <span class="md-ellipsis">
-      LuckPerms metadata
+      OOGame 与 OOMusic
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -511,6 +525,75 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    集成边界
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    迁移规则
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    安全模型
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -573,6 +656,72 @@
   
   
     <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    插件中心
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    基础（Core）
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础（Core）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../plugins/oocore/" class="md-nav__link">
         
   
@@ -601,7 +750,7 @@
   
   
   <span class="md-ellipsis">
-    OOEngine 与客户端
+    OOEngine
     
   </span>
   
@@ -619,12 +768,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/oochat/" class="md-nav__link">
+      <a href="../plugins/ooconsole/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    OOChat
+    OOConsole
     
   </span>
   
@@ -634,6 +783,57 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    附属（Extensions）
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            附属（Extensions）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -681,6 +881,60 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/oobrowser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOBrowser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/oochat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOChat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -716,7 +970,7 @@
   
   
   <span class="md-ellipsis">
-    开发者
+    OORPG
     
   </span>
   
@@ -726,6 +980,148 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OORPG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oorpg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    分类说明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oorpg/ooquest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oorpg/oovip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOVIP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oorpg/ooreforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    开发者
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             开发者
           </label>
@@ -761,12 +1157,81 @@
   
   
     <li class="md-nav__item">
+      <a href="../source-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    开源与仓库边界
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../troubleshooting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     故障排查
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    发布流程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acceptance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    验收清单
     
   </span>
   
@@ -829,9 +1294,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oomusic" class="md-nav__link">
+  <a href="#ooconsoleplanned" class="md-nav__link">
     <span class="md-ellipsis">
-      OOMusic
+      OOConsole（planned）
     </span>
   </a>
   
@@ -844,20 +1309,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OOChat">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#luckperms-metadata" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oogame-oomusic" class="md-nav__link">
     <span class="md-ellipsis">
-      LuckPerms metadata
+      OOGame 与 OOMusic
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -881,6 +1340,11 @@
 
 
 <h1 id="_1">命令与权限<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>所有 OO 系列命令统一从 <code>/oo</code> 进入。根命令的唯一 owner 是 <strong>OOCore</strong>；其他插件不得注册或覆盖 <code>/oo</code>，只能通过已实现的 <code>oocore.command-contribution.v1</code> 贡献一级节点。旧 <code>plugin.yml</code> 自抢 <code>/oo</code> 的方式仅作为 legacy/bootstrap migration。</p>
+<div class="admonition info">
+<p class="admonition-title">command v2 已发布，消费者迁移待验收</p>
+<p>OOCore <code>1.6.1</code> 的 <code>oocore.command-contribution.v2</code> 提供 host-minted、Bukkit-neutral Actor：SenderKind、真实玩家 <code>Optional&lt;UUID&gt;</code>、bounded displayName 与 invocation-scoped controlled Authorization。它不暴露 <code>CommandSender</code>/<code>Player</code>，也不允许 command dispatch。v1 保持 binary compatible 并作为 deprecated migration surface；消费者迁移验收前仍保留 legacy single path，禁止双注册。</p>
+</div>
 <h2 id="oocore">OOCore<a class="headerlink" href="#oocore" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -891,49 +1355,92 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/oo c</code></td>
-<td>Core 入口</td>
+<td><code>/oo core</code></td>
+<td>Core 版本、ABI、adapter、scheduler、Capability 与模块诊断</td>
 </tr>
 <tr>
-<td><code>/oo c admin</code></td>
-<td>Core 管理入口</td>
+<td><code>/oo core admin</code></td>
+<td>Core 管理诊断入口</td>
 </tr>
 <tr>
 <td><code>oocore.command</code></td>
-<td>默认允许</td>
+<td>普通 Core 命令</td>
 </tr>
 <tr>
 <td><code>oocore.admin</code></td>
-<td>默认 OP</td>
+<td>Core 管理命令，默认 OP</td>
 </tr>
 </tbody>
 </table>
 <h2 id="ooengine">OOEngine<a class="headerlink" href="#ooengine" title="Permanent link">&para;</a></h2>
-<p>普通入口为 <code>ooengine.ui.command</code>。管理节点前缀为 <code>ooengine.ui.admin.*</code>，包括：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>menu open close reload editor list info debug
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>version refresh set web help
-</code></pre></div>
-<p>完整管理通配默认仅 OP。生产服建议使用 LuckPerms 按职责拆分，不要给普通维护者整个 admin wildcard。</p>
-<h2 id="oomusic">OOMusic<a class="headerlink" href="#oomusic" title="Permanent link">&para;</a></h2>
-<p>见 <a href="../plugins/oomusic/">OOMusic</a>。</p>
+<p>规范入口为 <code>/oo engine</code>。当前通过 OOCore legacy <code>OOModule.execute</code> 单路径 available；command v2 actor blocker 已解除，但 OOEngine 迁移仍 in progress，完成真实验收前禁止双注册。现有证据为源码与 command-router unit fixture，不等同于本轮真实 Paper boot matrix 验收。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/oo engine [menu|quests|map|open|close|list|info|version]</code></td>
+<td><code>ooengine.ui.command</code></td>
+</tr>
+<tr>
+<td><code>/oo engine reload</code>（legacy route）</td>
+<td><code>ooengine.ui.admin.reload</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin reload</code></td>
+<td><code>ooengine.ui.admin.reload</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin editor</code></td>
+<td><code>ooengine.ui.admin.editor</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin open</code></td>
+<td><code>ooengine.ui.admin.open</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin close</code></td>
+<td><code>ooengine.ui.admin.close</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin list</code></td>
+<td><code>ooengine.ui.admin.list</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin info</code></td>
+<td><code>ooengine.ui.admin.info</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin debug</code></td>
+<td><code>ooengine.ui.admin.debug</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin refresh</code></td>
+<td><code>ooengine.ui.admin.refresh</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin set</code></td>
+<td><code>ooengine.ui.admin.set</code></td>
+</tr>
+<tr>
+<td><code>/oo engine admin web</code></td>
+<td><code>ooengine.ui.admin.web</code></td>
+</tr>
+</tbody>
+</table>
+<p>完整管理通配仅应授予受信任管理员。生产服使用 LuckPerms 按职责拆分，特别是 editor、web、set 和 debug。</p>
+<p>历史独立入口与缩写不得写入新脚本、Wiki 或插件集成；所有新调用只使用 <code>/oo engine</code>。</p>
+<h2 id="ooconsoleplanned">OOConsole（planned）<a class="headerlink" href="#ooconsoleplanned" title="Permanent link">&para;</a></h2>
+<p>OOConsole 的规范入口计划为 <code>/oo console</code>，Editor 快捷入口计划为 <code>/oo console editor</code>。OOConsole <code>0.1.5</code> owner-service 链已验收，但 consumer command migration 与产品命令仍未单独验收；不能把目标设计当成当前可用命令。</p>
+<p>当前 <strong>implemented</strong> 的 <code>/oo engine admin editor</code> 仍属于 OOEngine 玩家侧编辑模式；在 OOConsole 完成迁移验收前继续保留。正式产品名是 <strong>OOConsole</strong>，不是“OOEngine Console”。</p>
 <h2 id="oochat">OOChat<a class="headerlink" href="#oochat" title="Permanent link">&para;</a></h2>
-<p>OOChat 权限使用 <code>owopia.oo.*</code> namespace，主要分为：</p>
-<ul>
-<li>基础：<code>use</code>、<code>settings</code>、profile、theme；</li>
-<li>频道：<code>channel.&lt;id&gt;.view/send/join/manage</code>；</li>
-<li>社交：friend、block、direct、group；</li>
-<li>邮件：mail、attachment 与 admin mail；</li>
-<li>审核：moderation、audit、spy；</li>
-<li>编辑器：editor.open/preview/publish/rollback；</li>
-<li>危险能力：console command、owner delete、owner identity、bypass。</li>
-</ul>
-<p>危险节点不应包含在普通管理通配中。完整节点表见 <code>OOChat/docs/PERMISSIONS.md</code>。</p>
-<h3 id="luckperms-metadata">LuckPerms metadata<a class="headerlink" href="#luckperms-metadata" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>owopia-oo-friend-limit=200
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>owopia-oo-group-limit=20
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>owopia-oo-message-length=512
-</code></pre></div>
-<p>支持 <code>server</code>、<code>world</code>、<code>owopia-channel</code>、guild/town/region/plot 等服务端权威 context。</p>
+<p>OOChat 使用 <code>oochat.*</code> namespace。主要类别包括基础聊天、频道、私聊/群组、邮件、审核、编辑器和危险管理能力。危险权限不得混入普通管理通配，完整表见 OOChat 仓库的 <code>docs/PERMISSIONS.md</code>。</p>
+<h2 id="oogame-oomusic">OOGame 与 OOMusic<a class="headerlink" href="#oogame-oomusic" title="Permanent link">&para;</a></h2>
+<p>插件命令采用 <code>/oo game ...</code>、<code>/oo music ...</code> 等形式，但 <code>/oo</code> 仍由 OOCore 独占。插件只能等待正式一级节点 contribution API，禁止注册冲突的根命令或自造本地 dispatcher bridge。</p>
 
 
 
@@ -986,13 +1493,13 @@
         
         
           
-          <a href="../plugins/oocore/" class="md-footer__link md-footer__link--next" aria-label="下一页: OOCore">
+          <a href="../integration/" class="md-footer__link md-footer__link--next" aria-label="下一页: 集成边界">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                OOCore
+                集成边界
               </div>
             </div>
             <div class="md-footer__button md-icon">
