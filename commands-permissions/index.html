@@ -984,7 +984,7 @@
 <p>OOConsole 的规范入口计划为 <code>/oo console</code>，Editor 快捷入口计划为 <code>/oo console editor</code>。OOConsole <code>0.1.5</code> owner-service 链已验收，但 consumer command migration 与产品命令仍未单独验收；不能把目标设计当成当前可用命令。</p>
 <p>当前 <strong>implemented</strong> 的 <code>/oo engine admin editor</code> 仍属于 OOEngine 玩家侧编辑模式；在 OOConsole 完成迁移验收前继续保留。正式产品名是 <strong>OOConsole</strong>，不是“OOEngine Console”。</p>
 <h2 id="oochat">OOChat<a class="headerlink" href="#oochat" title="Permanent link">&para;</a></h2>
-<p>OOChat 使用 <code>oochat.*</code> namespace。主要类别包括基础聊天、频道、私聊/群组、邮件、审核、编辑器和危险管理能力。危险权限不得混入普通管理通配，完整表见 OOChat 仓库的 <code>docs/PERMISSIONS.md</code>。</p>
+<p>OOChat 使用 <code>oochat.*</code> namespace。主要类别包括常规聊天、频道、私聊/群组、邮件、审核、编辑器和危险管理能力。危险权限不得混入普通管理通配，完整表见 OOChat 仓库的 <code>docs/PERMISSIONS.md</code>。</p>
 <h2 id="oogame-oomusic">OOGame 与 OOMusic<a class="headerlink" href="#oogame-oomusic" title="Permanent link">&para;</a></h2>
 <p>插件命令采用 <code>/oo game ...</code>、<code>/oo music ...</code> 等形式，但 <code>/oo</code> 仍由 OOCore 独占。插件只能等待正式一级节点 contribution API，禁止注册冲突的根命令或自造本地 dispatcher bridge。</p>
 
