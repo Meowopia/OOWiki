@@ -1,4 +1,4 @@
-# 安装与升级
+﻿# 安装与升级
 
 ## 安装顺序
 
@@ -43,7 +43,7 @@ plugins/OOEngine/panels/
 
 ## 首次检查
 
-- `/plugins` 中 OOCore、OOEngine 及附属插件均为启用状态。
+- `/plugins` 中 OOCore、OOEngine 及插件均为启用状态。
 - 控制台不存在 missing capability、ABI mismatch 或 protocol mismatch。
 - `/oo c` 可用。
 - 客户端按 `M` 能打开菜单。
@@ -53,10 +53,12 @@ plugins/OOEngine/panels/
 
 1. 备份插件 JAR、`plugins/OOEngine/`、模块数据目录和外部数据库。
 2. 阅读目标版本 release notes 与兼容矩阵。
-3. 先升级 OOCore，再升级 OOEngine，最后升级附属插件和客户端。
+3. 先升级 OOCore，再升级 OOEngine，最后升级插件和客户端。
 4. 保留旧 JAR 和数据快照，验证通过后再清理。
 5. 不要在运行中覆盖 JAR；完整停服后操作。
 
 ## 回滚
 
 停止服务器，恢复整套兼容 JAR 与对应数据快照。若升级包含 schema migration，不要只替换 JAR 而沿用已迁移数据库。
+
+

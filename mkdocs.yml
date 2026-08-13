@@ -1,4 +1,4 @@
-site_name: OO 系列插件 Wiki
+﻿site_name: OO 系列插件 Wiki
 site_description: Meowopia OO 系列 Minecraft 插件统一中文文档
 site_url: https://meowopia.github.io/OOWiki/
 repo_url: https://github.com/Meowopia/OOWiki
@@ -23,22 +23,22 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep purple
-      accent: purple
+      primary: indigo
+      accent: pink
       toggle:
         icon: material/weather-night
         name: 切换到深色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep purple
-      accent: purple
+      primary: indigo
+      accent: pink
       toggle:
         icon: material/weather-sunny
         name: 切换到浅色模式
 
 nav:
   - 首页: index.md
-  - 入门:
+  - 文档:
       - 安装与升级: installation.md
       - 架构与依赖: architecture.md
       - 配置参考: configuration.md
