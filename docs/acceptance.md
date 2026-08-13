@@ -11,9 +11,6 @@
 | OOMusic | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo music` 目标入口；旧 `/oomusic` 为 legacy | bundled 播放器窗口；无外部主配置 | 保留 legacy Panel 单路径，Window 迁移未验收前不混用 |
 | OOBrowser | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore；OOEngine/OOConsole 能力按状态降级 | `/oo browser` 尚未 live 验收 | 当前无生效 runtime config；示例仅 reference | 无正式二进制可升级；生产连接器未验收时保持禁用 |
 | OOChat | Extensions | `0.1.0` stable | Compatible OOCore; OOConsole optional | `/oo chat` | See product release docs | No OOEngine Window/UI in `0.1.0` |
-| OOQuest | OORPG | Planned | 未来随 OOEngine 对应能力交付 | 无独立根命令 | 尚无用户配置 | 未发布，无升级操作 |
-| OOVIP | OORPG | Paused / unreleased; no GitHub Release | Provider 按实际环境选择 | `/oo vip` bootstrap | 主配置、语言和受控自定义流程 | 发布前不作为稳定版部署；升级前备份数据库与配置 |
-| OOReforge | OORPG | Paused / unreleased; no GitHub Release | 独立 Paper 插件；OOEngine/OOConsole optional | `/oo reforge` legacy route available | `config.yml`、中英文语言文件 | `1.3.0` 历史许可不变；未来版本发布后按迁移说明升级 |
 
 ## 统一支持渠道
 

@@ -34,7 +34,6 @@ OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费
 
 - **基础（Core）**：OOCore、OOEngine、OOConsole。
 - **附属（Extensions）**：OOGame、OOMusic、OOBrowser、OOChat。
-- **OORPG**：OOQuest、OOVIP、OOReforge。
 
 分类仅用于产品、Wiki 与未来 OOConsole 导航，不创建聚合 runtime、模块、Maven group、package、数据库或额外依赖。
 

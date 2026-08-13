@@ -18,7 +18,6 @@
     <button type="button" class="is-active" data-plugin-filter="all">全部</button>
     <button type="button" data-plugin-filter="core">基础 Core</button>
     <button type="button" data-plugin-filter="extensions">附属 Extensions</button>
-    <button type="button" data-plugin-filter="oorpg">OORPG</button>
   </div>
 </div>
 
@@ -57,21 +56,6 @@
     <div class="plugin-card-top"><span class="plugin-lettermark mark-green">OH</span><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属 · Extensions</span><h2>OOChat</h2><p>聊天、好友、会话与邮件系统；Console adapter 尚未完成独立验收。</p></div>
     <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
-  </a>
-  <a class="plugin-card" href="../oorpg/ooquest/" data-category="oorpg" data-search="ooquest oorpg quest task betonquest typewriter 任务 剧情">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-blue">OQ</span><span class="plugin-state state-planned">Planned</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">OORPG</span><h2>OOQuest</h2><p>第三方任务 Provider 的统一只读与 mutation 协调契约，工程归属 OOEngine。</p></div>
-    <div class="plugin-card-footer"><span>任务接入</span><b>查看文档 →</b></div>
-  </a>
-  <a class="plugin-card" href="../oorpg/oovip/" data-category="oorpg" data-search="oovip oorpg vip member membership 权益 会员">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-gold">OV</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">OORPG</span><h2>OOVIP</h2><p>会员生命周期与权益编排层，中文 catalog 已完成本地验证。</p></div>
-    <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 →</b></div>
-  </a>
-  <a class="plugin-card" href="../oorpg/ooreforge/" data-category="oorpg" data-search="ooreforge oorpg reforge equipment forge 装备 锻造 品质">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-red">OR</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">OORPG</span><h2>OOReforge</h2><p>装备、锻造、品质与配方领域；Console adapter 等待当前构建证据。</p></div>
-    <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 →</b></div>
   </a>
 </div>
 
