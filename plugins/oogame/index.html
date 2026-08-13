@@ -1277,6 +1277,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1403,7 +1426,7 @@
 
 <h1 id="oogame">OOGame<a class="headerlink" href="#oogame" title="Permanent link">&para;</a></h1>
 <p>OOGame 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的<strong>附属（Extensions）</strong>。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。</p>
-<p>OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件。</p>
+<p>OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件，也是独立闭源专有产品。Copyright (c) 2026 Meowopia, All rights reserved；源码仅供授权维护者使用。历史已发布版本继续适用其当时的许可证，本政策不撤回旧授权，第三方组件仍按各自上游许可执行。本页只保留安装、配置、公开 API 用法与产品状态。</p>
 <h2 id="_1">命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>使用统一 OO 命令入口打开游戏大厅：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/oo game
@@ -1423,11 +1446,9 @@
 <h2 id="_3">内置玩法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>provider.doudizhu</code> 实现标准三人斗地主领域规则。最新证据已覆盖完整回合状态机；视觉、名称和文案为 OOGame 自有内容。</p>
 <h2 id="_4">依赖和故障隔离<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>OOCore <code>1.6.1</code> 与 OOEngine 是硬依赖；OOConsole <code>0.1.5</code> 为 optional。OOCore API SHA-256 为 <code>0B75544ADB6291ED259A2D347A667C76C27341A4DD63A040F9B7F65CB6F785DE</code>，OOConsole API SHA-256 为 <code>7214E11E918D08B5E41D3F66C1EA8EC5578A21B5A31D720DAB4EA7D8D0AE45DE</code>。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole acquire/registration 失败只禁用 Console 贡献。</p>
-<p>完整回合状态机证据对应 commit <code>bd82e6e</code>，JAR SHA-256 总调度摘要为 <code>5FC9...66CC</code>，仅作为非 release 构建证据。WindowController 与 command consumer migration 状态不因此升级。</p>
+<p>OOCore <code>1.6.1</code> 与 OOEngine 是硬依赖；OOConsole <code>0.1.5</code> 为 optional。小游戏 Provider 缺失或异常不会拖垮其他游戏；OOConsole 接入失败只禁用 Console 贡献。首批多人状态一致性修正已完成，当前 13 suites / 42 tests 通过，工程继续稳定化。正式闭源 binary 尚未发布；WindowController 与 command consumer migration 状态不因此升级。内部故障细节、开发版散列和私有实现不在公开 Wiki 展示。</p>
 <h2 id="ooconsole-implemented">OOConsole 接入（implemented）<a class="headerlink" href="#ooconsole-implemented" title="Permanent link">&para;</a></h2>
-<p>OOGame 使用 active <code>OOModuleSession → core.ownerServices().acquire(session, OwnerBoundOOConsole.class, capability) → lease.service().openScope() → editor registration</code>。旧 <code>openScope(String)</code>、ServicesManager、reflection 与 local bridge 均已禁用。</p>
-<p>关闭顺序为 registration（由 scope 持有）→ scope → lease，全部幂等。<code>OwnerServiceHarness</code> 已覆盖 owner propagation、缺 capability 拒绝、provider/consumer disable、lease requester/provider 与 100-cycle acquire/register/close，最终 sessions/leases 为 0；mutation/revision 与 foreign fixtures 同时通过。</p>
+<p>OOGame 的可选 OOConsole 只读贡献已完成受控生命周期验收；Console 缺失或接入失败不会影响游戏 runtime。写操作仍由 OOGame 服务端权限、revision 和业务规则校验。内部接入实现与私有测试细节不在公开 Wiki 展示。</p>
 <h2 id="oomenu-planned">OOMenu 窗口接入（planned）<a class="headerlink" href="#oomenu-planned" title="Permanent link">&para;</a></h2>
 <p>OOGame 的大厅窗口和 Menu app entry 将通过 <code>ooengine-api</code> 的 OOMenu stable facade 接入。<code>1.1.4</code> 仅 registration surface published，API JAR 没有 <code>WindowController</code>，OOMenu server wiring 未验收；完整 Window migration runtime-blocked。禁止新 registry 与 legacy <code>PanelController</code> 混用。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>

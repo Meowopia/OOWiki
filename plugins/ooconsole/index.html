@@ -736,6 +736,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新日志 / Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       固定标识
@@ -1277,6 +1286,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1309,6 +1341,15 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新日志 / Changelog
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
@@ -1402,11 +1443,13 @@
 
 
 <h1 id="ooconsole">OOConsole<a class="headerlink" href="#ooconsole" title="Permanent link">&para;</a></h1>
-<p>OOConsole 在产品、Wiki 和 OOConsole metadata 中归入<strong>基础（Core）</strong>。该分类不改变独立仓库和版本，也不创建聚合 runtime；目标运行时依赖保持 hard-depend OOCore + OOEngine。</p>
-<p>OOConsole 是独立 OO 系列管理与可视化编辑插件。<code>0.1.5</code> + OOCore <code>1.6.1</code> owner-service artifact-first 最终门禁已通过，可信链 implemented/available for migration；各消费者 adapter 仍须独立验收，不能批量标记 implemented。</p>
+<h2 id="changelog">更新日志 / Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h2>
+<p><strong>中文：</strong> <code>0.1.6</code> 加入 CommandV2、HTTP 登录/退出流程，并修复本版安全问题。</p>
+<p><strong>English:</strong> <code>0.1.6</code> adds CommandV2 and HTTP login/logout flows and includes security fixes.</p>
+<p>OOConsole 是独立 OO 系列管理与可视化编辑插件。<code>0.1.5</code> + OOCore <code>1.6.1</code> owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。</p>
 <div class="admonition info">
 <p class="admonition-title">状态拆分</p>
-<p><strong><code>0.1.3</code> coordinates published</strong>：API/runtime/testkit 坐标已发布。API 与 testkit payload 仍与 <code>0.1.1</code>/<code>0.1.2</code> byte-identical，仅做 coordinate alignment；runtime 为首次发布。server runtime acceptance 仍 pending，trusted consumer identity blocked。离线 <code>openScope</code> fixture 不能外推为可信跨插件接入；消费者不得创建本地 bridge或自报 owner、principal、role。</p>
+<p><code>0.1.3</code> 已发布历史 SDK/runtime 交付物，但产品 runtime acceptance 当时仍 pending。消费者不得把 SDK 可用外推为产品 UI 或工作区已经实现。</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">0.1.4 runtime rejected</p>
@@ -1414,11 +1457,6 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">0.1.5 published / owner-service available</p>
-<p><code>0.1.5</code> API SHA-256：<code>7214...45DE</code>；runtime SHA-256：<code>6ED7...2A37</code>；testkit SHA-256：<code>DE2C...37CC</code>。API/testkit 与 <code>0.1.4</code> byte-identical；runtime 修复 descriptor/manifest。Owner-service artifact-first 最终门禁已通过，但 HTTP/UI、Editor 与消费者 adapter 仍逐项验收。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Intermediate harness evidence</p>
-<p>旧 <code>REAL_CORE_REGISTRY_ARTIFACT_OK</code> 仅为 intermediate 证据。当前正式 artifact-first 最终门禁已通过，输出 <code>OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK</code>。</p>
 </div>
 <h2 id="_1">固定标识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
@@ -1454,30 +1492,6 @@
 <td><code>depend: [OOCore, OOEngine]</code></td>
 </tr>
 <tr>
-<td><code>0.1.0</code> API SHA-256</td>
-<td><code>FA95DC043219DE93F42E798D4745087503DA780AA7EDAC8CD51610B6A81DA3F9</code></td>
-</tr>
-<tr>
-<td><code>0.1.0</code> testkit SHA-256</td>
-<td><code>1F022E8ABCE3AB15D9439FEC24F5C0EA6897386843374A0BCA4D6175FA2C2844</code></td>
-</tr>
-<tr>
-<td><code>0.1.1</code> API artifact</td>
-<td><code>com.zkonikishi.oo.console:ooconsole-api:0.1.1</code>（published/verified）</td>
-</tr>
-<tr>
-<td><code>0.1.1</code> API SHA-256</td>
-<td><code>AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08</code></td>
-</tr>
-<tr>
-<td><code>0.1.1</code> testkit artifact</td>
-<td><code>com.zkonikishi.oo.console:ooconsole-testkit:0.1.1</code>（published/verified）</td>
-</tr>
-<tr>
-<td><code>0.1.1</code> testkit SHA-256</td>
-<td><code>DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC</code></td>
-</tr>
-<tr>
 <td>API version</td>
 <td><code>API_VERSION = 1</code>（implemented）</td>
 </tr>
@@ -1487,10 +1501,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>0.1.2</code> API/testkit coordinates 已 published，SHA-256 仍分别为 <code>AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08</code>、<code>DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC</code>，payload 与 <code>0.1.1</code> 相同；该版本没有 runtime artifact。</p>
-<p><code>0.1.3</code> API/testkit coordinates 使用相同 payload 与 SHA-256：API <code>AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08</code>，testkit <code>DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC</code>。首次发布的 runtime artifact SHA-256 经总调度核验摘要为 <code>C233...A392</code>；依赖图、foreign scan 与 descriptor 核验通过。该发布不等于 server runtime accepted。</p>
 <p>OOCore <code>1.6.1</code> <code>oocore.owner-bound-service.v1</code> 与 OOConsole <code>0.1.5</code> 正式 artifacts 已通过 owner-service 最终门禁。旧 <code>openScope(String)</code> / <code>openScope(ownerId)</code> 仍 deprecated/unsafe，禁止 ThreadLocal、反射或本地 bridge。</p>
-<p>消费者仍需用正式 fixture 完成自身 acquire、双生命周期、关闭后 fail-fast 与 foreign scan 验收；未完成者保持 disabled/code-prepared。</p>
 <p>API <code>0.1.4</code>/<code>0.1.5</code> 的 <code>OwnerBoundOOConsole</code> compile surface 已发布；<code>0.1.5</code> + OOCore <code>1.6.1</code> 最终门禁已通过。具体消费者仍须独立完成 acquire/lifecycle/foreign 验收。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>当前没有用户可编辑的 OOConsole runtime 配置文件；HTTP/UI transport 仍为 planned。不得虚构 <code>config.yml</code>、配置键或默认值。</p>

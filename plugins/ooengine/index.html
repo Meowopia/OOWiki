@@ -731,6 +731,30 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      æ´æ°æ¥å¿ / Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a2cee-known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      å·²ç¥é®é¢ / Known issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="å·²ç¥é®é¢ / Known issues">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#oovideo" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1430,6 +1454,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1481,6 +1528,30 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      æ´æ°æ¥å¿ / Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a2cee-known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      å·²ç¥é®é¢ / Known issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="å·²ç¥é®é¢ / Known issues">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#oovideo" class="md-nav__link">
@@ -1709,7 +1780,7 @@
 
 <h1 id="ooengine-ooengine-client">OOEngine 与 OOEngine-Client<a class="headerlink" href="#ooengine-ooengine-client" title="Permanent link">&para;</a></h1>
 <p>OOEngine 在产品、Wiki 和 OOConsole metadata 中归入<strong>基础（Core）</strong>。该分类不改变独立仓库和版本，也不创建聚合 runtime；真实依赖保持 OOEngine hard-depend OOCore。</p>
-<p>OOEngine 是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。</p>
+<p>OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。本页只公开产品能力、安装配置边界和受控 SDK 用法，不提供内部源码、私有 artifact 访问方式或安全实现细节。</p>
 <div class="admonition info">
 <p class="admonition-title">术语</p>
 <p>面向用户统一称为<strong>窗口（Window）</strong>，扩展 OOEngine 的独立项目统一称为<strong>插件（Plugin）</strong>。现有 Java API 中的 <code>PanelController</code>、<code>panelId</code> 等属于稳定兼容标识，在计划好的 ABI 迁移前不会仅为改文案而破坏。</p>
@@ -1747,9 +1818,16 @@
 </tbody>
 </table>
 <h3 id="oomenu">OOMenu 子项目<a class="headerlink" href="#oomenu" title="Permanent link">&para;</a></h3>
-<p>OOEngine API/testkit <code>1.1.4</code> 已发布：API SHA-256 <code>43E0C7EBA6996BCEB7FEF09D9C9737888CD2771B12A1B00792CA0B5C69BD4328</code>，testkit SHA-256 <code>6C76758AC66C5024FB33FCAD234A606354399B1394BE0E1332A7464555F6FE0C</code>。Window/Menu/Video registration surface 已发布；这不代表 OOMenu/OOVideo server runtime accepted，bootstrap、cleanup 和 migration 仍待验收。</p>
 <p>Window facade 在 <code>1.1.4</code> 中不完整：缺少 <code>WindowController</code>，Contribution 重复 <code>ownerId</code>，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy <code>PanelController</code>。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 <code>1.1.4</code>。</p>
-<p><code>OOMenu</code>（Gradle module <code>:oomenu</code>）是 OOEngine 仓库内部的菜单子项目，不是独立插件、Mod 或仓库。它随 OOEngine 服务端产物集成发布，Java package 为 <code>com.zkonikishi.ooengine.menu</code>。</p>
+<div class="admonition info">
+<p class="admonition-title">1.1.6 stable</p>
+<p><code>1.1.6</code> å·²ä½ä¸ºé­æºäºè¿å¶ç¨³å®çåå¸ï¼<code>1.1.5</code> ä¸å¾ä½¿ç¨ã</p>
+</div>
+<h2 id="a-changelog">æ´æ°æ¥å¿ / Changelog<a class="headerlink" href="#a-changelog" title="Permanent link">&para;</a></h2>
+<p><strong>ä¸­æ:</strong> åå¸ <code>1.1.6</code> ç¨³å®çï¼å®ææ¬è½® Window/OOMenu ä¿®å¤ã</p>
+<p><strong>English:</strong> Releases stable <code>1.1.6</code> with the current Window/OOMenu repairs.</p>
+<h2 id="a2cee-known-issues">å·²ç¥é®é¢ / Known issues<a class="headerlink" href="#a2cee-known-issues" title="Permanent link">&para;</a></h2>
+<p>Folia live acceptance å°æªå®æã / Folia live acceptance is not complete.</p>
 <p>OOMenu 是所有业务插件接入 OOEngine 窗口系统的统一表现层门面。它负责 owner-scoped window contribution、窗口发现与 open/patch/close 安全编排、namespace/limits/revision/requestId 校验、插件卸载回收，以及通用 Menu 文档、应用目录和 preset。默认、MMO、mobile、phone、Android tablet 都是同一个 Menu 系统的 preset。玩家命令仍为 <code>/oo engine menu</code>，不存在独立 <code>/oo menu</code> 模块命令。</p>
 <p>OOEngine core 继续拥有 <code>UiDocument</code>、RenderPlan、layout/expression/timeline、资源生命周期、协议与客户端 renderer；OOMenu 只消费这些能力，不复制引擎。公开契约仍由 <code>ooengine-api</code> 发布，实现归 <code>:oomenu</code>，因此插件只编译依赖 stable API，不编译依赖内部子项目。</p>
 <p>依赖方向固定为：</p>
@@ -1760,7 +1838,6 @@
 </code></pre></div>
 <p>现有 API v1 中的 <code>PanelController</code>、<code>PanelContributionRegistry</code> 与 <code>ExtensionScope.panel(...)</code> 暂时作为带退场版本的兼容 adapter，由 runtime 委托给 OOMenu；新插件不得直接依赖 OOEngine 的 <code>PanelRepository</code>、session manager、renderer、server/common implementation 或 data folder。</p>
 <h3 id="oovideo">OOVideo 子项目<a class="headerlink" href="#oovideo" title="Permanent link">&para;</a></h3>
-<p><code>OOVideo</code>（Gradle module <code>:oovideo</code>）是插件使用 OOEngine 视频表现能力的统一 facade implementation，不是独立插件、Mod 或仓库。Java package 为 <code>com.zkonikishi.ooengine.video</code>，公开稳定契约由 <code>ooengine-api</code> 暴露。</p>
 <p>OOVideo 负责签名 video descriptor/manifest、来源策略、播放状态、seek、timeline 同步、窗口/surface 绑定、Capability negotiation、poster fallback、owner/session 生命周期、解码 worker、frame/audio delivery、client sink，以及尺寸、码率、时长、并发和资源预算。</p>
 <p>历史 <code>OOMedia</code> 名称、<code>:media</code> module、<code>oomedia-worker</code> 和 <code>Media*</code> API 全部归并到 OOVideo，不再作为长期并列层或对外产品。迁移期只保留 deprecated compatibility adapter，并内部委托 OOVideo；业务插件不得直接调用 FFmpeg、worker、texture/audio sink 或内部 video implementation。OOBrowser 只负责 Chromium/Web surface，不能另建第二套通用视频协议。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Plugin
@@ -1770,22 +1847,19 @@
 </code></pre></div>
 <p>迁移还必须覆盖旧配置、环境变量、签名 pin、缓存和 worker artifact，并保持服务器 UID 隔离；只有 Fabric/NeoForge/FCL、MP4/WebM、签名、资源释放和长跑门禁通过后才能删除兼容壳。新接入只能使用 OOVideo。当前不增加独立 <code>/oo video</code> 模块命令。</p>
 <h3 id="ooquest-planned">OOQuest 子项目（planned）<a class="headerlink" href="#ooquest-planned" title="Permanent link">&para;</a></h3>
-<p><code>OOQuest</code>（Gradle module <code>:ooquest</code>）是第三方任务 Provider 的统一 facade implementation，package <code>com.zkonikishi.ooengine.quest</code>，不是独立 Paper 插件、任务引擎或仓库。Capability 目标为 <code>ooengine.quest.v1</code>，公开 contract 从 <code>ooengine-api</code> 发布。</p>
 <p>产品与 Console 导航分类写作 <code>OORPG &gt; OOQuest</code>；构建、依赖与生命周期图仍写作 <code>OOEngine &gt; :ooquest</code>。不得因此创建独立 OORPG artifact/group/package 或把源码移出 OOEngine。</p>
 <p>它适配 BetonQuest、Typewriter、Quests、BeautyQuests、MMO/Mythio 任务源及未来 Provider，但不复制第三方数据库/状态机，也不裁定任务业务真相。Provider 始终负责权限、前置条件、推进和奖励事务。</p>
 <p>任务 ID 使用 provider-owner namespace，snapshot 带 provider revision。accept/track/untrack/submit/abandon 携带 requestId、expectedRevision、actor UUID，并返回新 revision 与明确 code。客户端只提交 intent，不得上报完成度、奖励或状态；禁止 command/script/path/SQL。</p>
 <p>任务窗口统一经 OOMenu Window facade，HUD tracker 归未来 OOHUD，OOConsole 只配置 adapter/显示映射与诊断。Typewriter 对话本身继续归对话/OOChat 边界。</p>
 <p>common 中旧 <code>com.zkonikishi.ooengine.api.quest.*</code> 自 <code>1.1.4</code> 作为 deprecated compatibility shim 迁入 <code>ooengine-api</code> 并委托 OOQuest；整个 API 1.x 保持兼容，最早 API 2.0 删除。发布前消费者只等待，不自造 bridge。</p>
 <h3 id="ooeditor-planned">OOEditor 子项目（planned）<a class="headerlink" href="#ooeditor-planned" title="Permanent link">&para;</a></h3>
-<p>OOEditor 是 OOEngine 仓库子项目 <code>:ooeditor</code>，package <code>com.zkonikishi.ooengine.editor</code>。它负责 <code>UiDocument</code> 结构化编辑、validation、operation、revision diff、preview compile、screenshot request 和 publish candidate，不是独立插件。OOConsole 调用 OOEditor stable interface，不得复制 editor engine。</p>
 <h3 id="oohud-planned">OOHUD 子项目（planned）<a class="headerlink" href="#oohud-planned" title="Permanent link">&para;</a></h3>
-<p>OOHUD 是 OOEngine 仓库子项目 <code>:oohud</code>，package <code>com.zkonikishi.ooengine.hud</code>，统一 HUD、Tab、Scoreboard、BossBar、Toast、Subtitle 与 notification overlay。planned Capability 为 <code>ooengine.hud-contribution.v1</code>。新设计、API 和文档不再使用旧 overlay 产品或 Capability 名称。</p>
 <h3 id="oomodel-bettermodel-adapterplanned">OOModel 与 BetterModel adapter（planned）<a class="headerlink" href="#oomodel-bettermodel-adapterplanned" title="Permanent link">&para;</a></h3>
 <p>OOModel 计划通过 BetterModel 官方 Bukkit API 提供 optional adapter：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;io.github.toxicity188:bettermodel-bukkit-api:&lt;compatible-version&gt;&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>BetterModel 官方项目采用 MIT 许可，是 server-based Bedrock/BlockBench model engine，基于 item-display packet，并公开 cubes、meshes、null objects、locators、animation、Molang、IK、player skin/custom armor、resource-pack generation 和 entity sync 等能力。OOModel 只使用其官方 API，不复制、内嵌或反射内部实现，也不强制安装 BetterModel。缺失或版本不兼容时只禁用 adapter，不影响 OOEngine/OOModel 其他 Provider。<a href="https://github.com/toxicity188/BetterModel">BetterModel 官方仓库</a></p>
-<p>adapter 实现前必须锁定 Capability 与 fixture，管理 tracker 生命周期，并覆盖 entity/player quit、ohunk unload、plugin disable 清理、Folia 线程策略及 resource-pack 冲突策略。当前没有已核验代码、测试或 artifact，因此状态仅为 <strong>planned</strong>。</p>
+<p>adapter 实现前必须锁定 Capability，管理 tracker 生命周期，并覆盖 entity/player quit、chunk unload、plugin disable 清理、Folia 线程策略及 resource-pack 冲突策略。当前没有已核验正式产物，因此状态仅为 <strong>planned</strong>。</p>
 <h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>服务端安装匹配版本的 <code>OOCore</code> 和 <code>OOEngine</code>。</li>
@@ -1803,7 +1877,6 @@
 <li><code>examples/phone-themes.yml</code>：当前没有 loader，仅 planned example。</li>
 <li>JSON theme：没有已验收 loader；JSON 禁止注释，不得宣称可用。</li>
 </ul>
-<p>21 个分发 YAML 源已加入中英用途、重载、风险、类型与联系信息头；字段级完整说明仍在继续。验证包括 21-file UTF-8 striot、server 110 tests、paper JAR 与 foreign soan；paper artifact SHA-256 为 <code>1C409F1067F41C6604AE5C68352950EF15E8E755CE553D7212E98F5C0DA4AD88</code>。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
@@ -1813,7 +1886,6 @@
 <li>QQ群 / QQ Group: 1063369777</li>
 </ul>
 <h2 id="_3">常用命令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>规范入口只有 <code>/oo engine</code>。当前由 OOCore legacy <code>OOModule.execute</code> 单路径 available，禁止与 command v1 双注册。源码和 <code>OOEngineCommandRouterTest</code> unit fixture 覆盖 menu、map、journal、open、admin reload 等解析与权限映射，但这不等同于本轮真实 Paper boot matrix 验收。由于 v1 Context 没有 host-authenticated player UUID，stable command migration 仍 blocked，等待未发布的 v2 host-minted actor 与 controlled authorization gateway；不得通过名字查玩家，也不得暴露 Bukkit <code>CommandSender</code> handle。</p>
 <table>
 <thead>
 <tr>
@@ -1933,7 +2005,6 @@
 <h3 id="menu-android">Menu 预设：Android 平板<a class="headerlink" href="#menu-android" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">OOMenu 归属</p>
-<p>OOMenu 目标实现位于 OOEngine 仓库内 Gradle module <code>:oomenu</code>，package <code>com.zkonikishi.ooengine.menu</code>，随 OOEngine server artifact 集成发布。它不是独立插件、Mod、仓库或产品依赖，不注册 <code>/oo menu</code>；玩家仍使用 <code>/oo engine menu</code>。</p>
 </div>
 <p>Android 平板只是 OOEngine 通用 <code>menu</code> 窗口的一种主题与响应式布局 preset，与 MMO、mobile、phone presets 同级。它不是独立插件、模块、窗口分类、Console workspace 或导航点；不得创建 tablet module、command、registry、database、config root 或 tablet 专用 Capability。OOEngine 仍通过同一个 Menu 系统负责平板机身、安全区、状态栏、桌面分页、Dock、应用图标布局、窗口切换动画、横竖屏、GUI Scale 和主题资源。</p>
 <p>平板内的应用仍由各插件拥有：</p>
@@ -1974,9 +2045,7 @@
 </tbody>
 </table>
 <p>插件应用入口只能通过未来的通用 owner-scoped Menu contribution 注册，不得修改 Menu/平板窗口文件、写入 OOEngine data folder 或复制菜单实现。贡献数据应限制为应用 ID、显示名、受控图标资源、目标窗口、排序、可见性和 bounded badge snapshot；点击结果仍由 OOEngine 的服务端权威 action/session 校验。</p>
-<p><code>1.1.4</code> 首发目标中，窗口 Capability 为 <code>ooengine.window-contribution.v1</code>，入口 <code>ExtensionScope.window(WindowContribution)</code>；目标 <code>WindowController</code> 尚未包含在 <code>1.1.4</code> API JAR；Menu app entry Capability 为 <code>ooengine.menu-contribution.v1</code>，入口 <code>ExtensionScope.menu(MenuContribution)</code>。两者由 <code>ooengine-api</code> 暴露、<code>:oomenu</code> 实现；API/testkit artifact 已 <strong>published</strong>；server runtime wiring 仍 pending。不得继续使用 launcher/tablet 专用贡献名。</p>
 <p>平板预设不得独立持久化另一套应用目录；玩家的主题、壁纸、应用排序和方向偏好继续归通用 Menu 配置与玩家偏好模型。</p>
-<p><code>:oomenu</code> 负责 default/MMO/mobile/phone/Android-tablet presets、MenuContribution registry/validation、应用目录合成、玩家偏好模型和 menu fixtures。<code>UiDocument</code>、RenderPlan、resources、session、action 继续由 OOEngine core 拥有；<code>:oomenu</code> 只能消费稳定内部接口，不得复制 renderer、schema 或资源生命周期。</p>
 <h3 id="oomenuplanned">插件窗口接入统一经 OOMenu（planned）<a class="headerlink" href="#oomenuplanned" title="Permanent link">&para;</a></h3>
 <p>以后 OOChat、OOGame、OOMusic、OOBrowser 等插件使用窗口能力时，只编译依赖 <code>ooengine-api</code> 暴露的 OOMenu Window/Menu facade contract。runtime 路径固定为：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Plugin → ooengine-api facade → :oomenu implementation → OOEngine core
@@ -1993,7 +2062,6 @@
 </code></pre></div>
 <p>Web、Fabric、NeoForge 必须消费同一个版本化 RenderPlan schema。后端不支持的能力必须明确报告，不能静默产生另一套布局或换行结果。</p>
 <h2 id="oovideo-facadeplanned">OOVideo 视频 facade（planned）<a class="headerlink" href="#oovideo-facadeplanned" title="Permanent link">&para;</a></h2>
-<p>OOVideo 目标实现位于 OOEngine 仓库内 Gradle module <code>:oovideo</code>，package <code>com.zkonikishi.ooengine.video</code>，正式 Capability <code>ooengine.video.v1</code>。它不是独立插件、Mod、仓库或命令模块，不注册 <code>/oo video</code>。稳定 contract 由 <code>ooengine-api</code> 暴露，实现随 OOEngine/Client 对应产物发布。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Plugin → ooengine-api (OOVideo contract)
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>       → :oovideo
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>       → OOVideo Worker + OOEngine RenderPlan/resources/protocol + client backend
@@ -2017,38 +2085,23 @@
 </div>
 <h2 id="_6">字体与文字一致性<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>服务器和三个预览/渲染端必须使用同一 <code>TextMetricsProvider</code> 结果：glyph advance、kerning、ascent/descent、baseline、grapheme、emoji、CJK 禁则与 fallback。布局阶段决定换行，renderer 不得再自行执行另一套换行算法。</p>
-<p>字体资源按 SHA-256 内容寻址并按服务器 UID 隔离。切服、退出、资源替换时必须释放对应 atlas、texture 和磁盘引用。</p>
 <h2 id="_7">资源安全<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>支持的资源必须经过 MIME 与魔数双重验证；</li>
 <li>图片验证尺寸、像素总量、帧数和解压比例；</li>
-<li>使用 SHA-256 manifest、原子写入和 UID 隔离缓存；</li>
 <li>设置磁盘/显存配额、LRU、并发和下载大小限制；</li>
 <li>外部媒体需要协议白名单、签名、精确 origin 与 worker 沙箱；</li>
 <li>插件不能传任意本地路径，也不能覆盖其他 owner 的资源；</li>
 <li>player quit、server switch、插件 disable 后清理 session、listener、task、texture 和 framebuffer。</li>
 </ul>
 <h2 id="sdk">插件 SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
-<p>稳定坐标：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">repositories</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">exclusiveContent</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="n">forRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">maven</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uri</span><span class="p">(</span><span class="s">&quot;D:/Servers/Plugin/Meowopia/.repository&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="n">filter</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">            </span><span class="n">includeGroup</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.ooengine&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">            </span><span class="n">includeGroup</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.oo.core&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.oo.core:oocore-api:1.6.1&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.ooengine:ooengine-api:1.1.4&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// API published；runtime wiring 尚未验收</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.ooengine:ooengine-testkit:1.1.4&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// API published；runtime wiring 尚未验收</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+<p>公开 SDK 用法：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">}</span>
 </code></pre></div>
 <p>接入要求：</p>
 <ol>
-<li>从 Paper <code>ServioesManager</code> 获取 <code>OOCoreApi</code> 和 <code>OOEngineApi</code>；</li>
+<li>从 Paper <code>ServicesManager</code> 获取 <code>OOCoreApi</code> 和 <code>OOEngineApi</code>；</li>
 <li>校验 ABI、handshake 和 API version；</li>
 <li>对每项所需 Capability 单独 <code>require</code>，不得只依赖模糊 umbrella；</li>
 <li>使用 <code>openScope("plugin-id")</code> 统一持有 binding、action、window contribution；</li>
@@ -2065,7 +2118,6 @@
 <h2 id="_8">验收<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>稳定发布前至少执行：</p>
 <ul>
-<li>单元、协议、插件 fixture 和真实客户端启动；</li>
 <li>Web 重复截图像素 diff 为 0；</li>
 <li>Fabric/NeoForge 指定帧截图并记录诚实容差；</li>
 <li>GUI Scale 1–4、常见宽高比和 FCL/OpenGL ES；</li>
@@ -2078,7 +2130,6 @@
 <ul>
 <li><code>/oo engine</code> 提示未知模块：确认 OOEngine 已成功向 OOCore 注册 <code>engine</code> module，并先检查 <code>/oo core</code>。</li>
 <li>窗口打不开：确认玩家安装匹配版本的 OOEngine-Client，并检查 <code>ooengine:main</code> channel。</li>
-<li>字体或图片串服：清查 server UID、manifest SHA-256 和缓存 scope，不能共用未隔离目录。</li>
 <li>Folia 异步异常：业务插件不得直接猜线程，必须经 OOCore scheduler facade。</li>
 <li>编辑器能预览但客户端不同：检查是否由两端自行布局/换行，所有端必须消费同一 RenderPlan。</li>
 </ul>

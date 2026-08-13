@@ -1125,6 +1125,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    发布流程
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1136,6 +1149,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      公开稳定版门禁
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-body-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release body policy
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1155,6 +1205,29 @@
   
   <span class="md-ellipsis">
     验收清单
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
     
   </span>
   
@@ -1192,6 +1265,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      公开稳定版门禁
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-body-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release body policy
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1210,14 +1309,28 @@
 
 
 <h1 id="_1">发布流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">公开稳定版门禁<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>每个 OO 产品只有同时满足以下公开条件，Wiki 才会标记为 <strong>stable / released</strong>：</p>
+<ul>
+<li>功能范围、支持平台与已知限制明确；</li>
+<li>产品测试、生命周期、线程与 Paper/Folia 兼容门禁通过；</li>
+<li>用户配置具备中英说明和统一支持联系方式；</li>
+<li>闭源许可证、第三方 NOTICE、升级与回滚说明完成；</li>
+<li>正式二进制经过维护者核验，并提供公开下载页和校验值；</li>
+<li>完成声明的平台启动矩阵，或明确列出尚未验收的平台。</li>
+</ul>
+<p>本 Wiki 只公开产品状态、安装、配置、支持、公开 API 用法、正式下载页和正式二进制校验值。非公开工程材料、开发期验证数据与敏感实现均不得进入公开页面。</p>
 <ol>
 <li>冻结本次文档范围，确认未覆盖共享未提交改动。</li>
-<li>核验版本、坐标、Capability、命令、测试结果与 SHA-256。</li>
+<li>核验版本、公开 Capability、命令、测试结论与正式二进制 SHA-256。</li>
 <li>运行 UTF-8、断链、旧命名扫描和 <code>python -m mkdocs build --clean --strict</code>。</li>
 <li>审查 diff，明确 <code>implemented</code>、<code>published</code>、<code>code-prepared</code>、<code>planned</code>、<code>blocked</code>。</li>
 <li>由维护者批准后再提交、推送和发布 Pages；严格构建不会自动授权发布。</li>
 </ol>
 <p>禁止伪造 badge、release、artifact、测试或提交身份。本仓库不从文档 CI 自动创建 GitHub Release。</p>
+<h2 id="release-body-policy">Release body policy<a class="headerlink" href="#release-body-policy" title="Permanent link">&para;</a></h2>
+<p>Server-plugin stable releases contain only a concise bilingual <strong>更新日志 / Changelog</strong> and, when required, <strong>已知问题 / Known issues</strong>. They do not include Minecraft, Paper/Folia, or Java test-environment sections and do not include build-validation logs.</p>
+<p>The only exception is the <strong>OOEngine Client Mod</strong>. Its release must additionally state prerequisite plugins, compatible OOConsole versions, and applicable/tested Minecraft and Java environments.</p>
 
 
 

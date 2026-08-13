@@ -1033,9 +1033,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ooconsolecode-prepared-blocked" class="md-nav__link">
+  <a href="#ooconsoleplanned-blocked" class="md-nav__link">
     <span class="md-ellipsis">
-      OOConsole（code-prepared / blocked）
+      OOConsole（planned / blocked）
     </span>
   </a>
   
@@ -1242,6 +1242,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1285,9 +1308,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ooconsolecode-prepared-blocked" class="md-nav__link">
+  <a href="#ooconsoleplanned-blocked" class="md-nav__link">
     <span class="md-ellipsis">
-      OOConsole（code-prepared / blocked）
+      OOConsole（planned / blocked）
     </span>
   </a>
   
@@ -1342,11 +1365,15 @@
 <h1 id="ooreforge">OOReforge<a class="headerlink" href="#ooreforge" title="Permanent link">&para;</a></h1>
 <p><strong>分类：OORPG。工程归属：独立 Paper 插件。状态：legacy route available；v2/Console integration blocked。</strong></p>
 <p>OOReforge 负责装备、锻造、品质、配方和领域校验。OOEngine 与 OOConsole 对其保持可选；需要窗口时通过 OOMenu stable facade，需要可视化管理时通过 OOConsole Contribution。</p>
+<div class="admonition warning">
+<p class="admonition-title">许可证与发布状态</p>
+<p>OOReforge 源码不公开，未来版本将采用 proprietary 许可，目前正在准备正式发布。现有 <code>1.3.0</code> 及历史既有授权不受追溯变更，第三方依赖和工具继续遵守各自上游许可证。公开 Wiki 只保留产品、安装、配置和支持信息，不公开内部声明、私有坐标、私有 artifact 或实现细节。</p>
+</div>
 <p>锻造、物品与经济 mutation 必须执行权限、owner、revision、requestId、库存和事务校验。客户端或 Console 不能自报物品、材料、成功率或结算结果。</p>
 <h2 id="_1">命令状态<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Canonical command 为 <code>/oo reforge</code>，<code>/oo</code> 的唯一 owner 是 OOCore。当前 OOReforge <code>1.3.0</code> 通过 legacy <code>OOModule.execute</code> 单路径 available；OOCore <code>1.6.1</code> command v2 consumer migration 尚未完成，不能标记 implemented，也不得双注册。</p>
-<h2 id="ooconsolecode-prepared-blocked">OOConsole（code-prepared / blocked）<a class="headerlink" href="#ooconsolecode-prepared-blocked" title="Permanent link">&para;</a></h2>
-<p>OOReforge typed adapter 已按 OOCore <code>1.6.1</code> / OOConsole <code>0.1.5</code> 正式 owner-bound 路径 code-prepared，静态边界检查通过；但当前 Gradle 构建受共享 distribution lock 阻塞，尚无本轮 acquire/lifecycle/foreign 测试与 JAR SHA，因此继续 disabled，不能标 implemented。严禁反射、ThreadLocal、自报 owner 或本地 bridge。</p>
+<h2 id="ooconsoleplanned-blocked">OOConsole（planned / blocked）<a class="headerlink" href="#ooconsoleplanned-blocked" title="Permanent link">&para;</a></h2>
+<p>OOReforge 的可选 OOConsole 接入仍等待当前工作树的完整构建和生命周期验收，因此继续 disabled，不能标 implemented。公开页不披露其内部接入实现或私有测试细节。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>用户可编辑资源仅包括：</p>
 <ul>
@@ -1356,7 +1383,7 @@
 </ul>
 <p>文件已包含中英用途、重载/重启、风险、UTF-8、placeholder、Provider 状态和联系说明。默认显示文本由服主维护，不会随着 <code>language</code> 自动翻译；切换语言前应检查自定义文本和 placeholder 兼容性。</p>
 <h2 id="_2">验证状态<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>本轮 Gradle 验证受共享 Gradle <code>9.6.1</code> distribution exclusive lock 阻塞，不能引用旧 141 tests 或旧 JAR SHA 作为当前工作树证据；真实 Paper A/B 验收仍 blocked。</p>
+<p>当前工作树尚未完成完整构建门禁，不能引用旧 tests 或旧 JAR SHA 作为现状证据；真实 Paper A/B 验收仍 blocked。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>

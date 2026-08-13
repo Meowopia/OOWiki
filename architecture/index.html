@@ -1287,6 +1287,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1464,7 +1487,7 @@
   Browser --&gt; Engine</code></pre>
 <div class="admonition warning">
 <p class="admonition-title">实现状态</p>
-<p>OOCore <code>1.6.1</code> 与 OOConsole <code>0.1.5</code> owner-service artifact-first 门禁已通过，可信链 implemented/available for migration。各消费者仍需单独完成 acquire/lifecycle/foreign 验收；HTTP/UI、Editor 迁移和产品工作区仍为 <strong>planned/code-prepared</strong>。Window blocker独立保留。</p>
+<p>OOCore <code>1.6.1</code> 与 OOConsole <code>0.1.5</code> owner-bound 平台链已验收，可供消费者迁移。各消费者仍需完成自身产品验收；HTTP/UI、Editor 迁移和产品工作区仍为 <strong>planned/code-prepared</strong>。Window blocker 独立保留。</p>
 </div>
 <h2 id="_3">边界与所有权<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table>
@@ -1573,7 +1596,7 @@
 <h2 id="_5">迁移顺序<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>implemented</strong>：保留并维护 OOEngine Web Editor，继续修复安全问题。</li>
-<li><strong>implemented / available for migration</strong>：OOConsole <code>0.1.5</code> + OOCore <code>1.6.1</code> owner-service artifact-first 最终门禁通过，输出 <code>OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK</code>。消费者 adapter 只有完成自身 acquire/lifecycle/foreign 验收后才能升级为 implemented。</li>
+<li><strong>implemented / available for migration</strong>：OOConsole <code>0.1.5</code> + OOCore <code>1.6.1</code> owner-bound 平台链已验收。消费者 adapter 只有完成自身产品验收后才能升级为 implemented。</li>
 <li><strong>implemented / per-plugin</strong>：OOCore 已发布只读 ControlPlane DTO Capability；OOGame、OOMusic、OOBrowser adapter 已验收，其他插件逐项状态见产品页，未验收者仍待接入。</li>
 <li><strong>planned</strong>：将 Web Editor 迁入 OOConsole 的 <code>editor</code> 工作区，做数据与行为兼容验收。</li>
 <li><strong>planned</strong>：只有迁移、回滚、权限和安全验收通过后，才允许废弃 OOEngine 内置入口；删除源实现必须另行决策。</li>

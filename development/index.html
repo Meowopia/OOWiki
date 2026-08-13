@@ -1374,6 +1374,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1604,22 +1627,9 @@
 
 
 <h1 id="_1">开发者接入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>本文面向开发 OO 系列插件、OOEngine 窗口和 renderer backend 的维护者。代码包统一使用 <code>com.zkonikishi.oo.core</code>、<code>com.zkonikishi.ooengine</code>、<code>com.zkonikishi.oochat</code> 等正式 namespace。</p>
+<p>本文只说明闭源 OO 产品的公开 SDK 接入边界。内部源码、构建环境、私有 repository、testkit 和发布脚本不在 OOWiki 提供。</p>
 <h2 id="_2">开发环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Windows PowerShell；</li>
-<li>Java 25，安装根目录为 <code>D:\Program Files\Microsoft\Java</code>；</li>
-<li>Gradle Wrapper 优先，禁止依赖开发者机器上的偶然全局配置；</li>
-<li>本地 Maven 仓库：<code>D:\Servers\Plugin\Meowopia\.repository</code>。</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">$jdk</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span> <span class="s1">&#39;D:\Program Files\Microsoft\Java&#39;</span> <span class="n">-Directory</span> <span class="p">|</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="nb">Where-Object</span> <span class="n">Name</span> <span class="o">-Match</span> <span class="s1">&#39;25&#39;</span> <span class="p">|</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="nb">Sort-Object</span> <span class="n">Name</span> <span class="n">-Descending</span> <span class="p">|</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">1</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">$env:JAVA_HOME</span> <span class="p">=</span> <span class="nv">$jdk</span><span class="p">.</span><span class="n">FullName</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">$env:Path</span> <span class="p">=</span> <span class="s2">&quot;$env:JAVA_HOME\bin;$env:Path&quot;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">java</span> <span class="n">-version</span>
-</code></pre></div>
+<p>消费者使用 Java 25 与项目自带 Gradle Wrapper。SDK repository、凭据和授权方式仅以产品公开分发说明为准。</p>
 <h2 id="_3">仓库边界<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1681,69 +1691,41 @@
 </table>
 <p>OOCore 和 OOEngine 版本号不要求一致。兼容性由 ABI、handshake、API version、Capability 和 schema negotiation 决定，不允许通过比较产品版本字符串猜测。</p>
 <h2 id="_4">构建<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># OOCore</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Set-Location</span> <span class="n">D</span><span class="p">:\</span><span class="n">Servers</span><span class="p">\</span><span class="n">Plugin</span><span class="p">\</span><span class="n">Meowopia</span><span class="p">\</span><span class="n">OOCore</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">powershell</span> <span class="n">-NoProfile</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">build-oocore</span><span class="p">.</span><span class="n">ps1</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c"># OOEngine</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">Set-Location</span> <span class="n">D</span><span class="p">:\</span><span class="n">Servers</span><span class="p">\</span><span class="n">Plugin</span><span class="p">\</span><span class="n">Meowopia</span><span class="p">\</span><span class="n">OOEngine</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">.\</span><span class="n">gradlew</span><span class="p">.</span><span class="n">bat</span> <span class="n">test</span> <span class="n">release</span> <span class="p">-</span><span class="n">-offline</span> <span class="p">-</span><span class="n">-console</span><span class="p">=</span><span class="n">plain</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c"># OOEngine-Client</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">Set-Location</span> <span class="n">D</span><span class="p">:\</span><span class="n">Servers</span><span class="p">\</span><span class="n">Plugin</span><span class="p">\</span><span class="n">Meowopia</span><span class="p">\</span><span class="n">OOEngine-Client</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">.\</span><span class="n">gradlew</span><span class="p">.</span><span class="n">bat</span> <span class="n">clean</span> <span class="n">check</span> <span class="n">distributionChecksums</span> <span class="p">-</span><span class="n">-console</span><span class="p">=</span><span class="n">plain</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c"># Wiki</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nb">Set-Location</span> <span class="n">D</span><span class="p">:\</span><span class="n">Servers</span><span class="p">\</span><span class="n">Plugin</span><span class="p">\</span><span class="n">Meowopia</span><span class="p">\</span><span class="n">OOWiki</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">mkdocs</span> <span class="n">build</span> <span class="p">-</span><span class="n">-strict</span>
-</code></pre></div>
-<p>JVM 清理必须使用严格的 <strong>PID ownership</strong>。本任务必须在启动时记录 PID、build marker、完整 CommandLine、ParentProcessId/祖先链和启动时间；终止前再次核验全部证据。“运行后新出现 PID”单一条件无效。任一证据缺失或无法证明 ownership 时不得终止，只记录 blocked。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c"># 示例：仅管理本任务显式启动的进程</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">$owned</span> <span class="p">=</span> <span class="nb">Start-Process</span> <span class="n">-FilePath</span> <span class="nv">$javaExe</span> <span class="n">-ArgumentList</span> <span class="nv">$args</span> <span class="n">-PassThru</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">try</span> <span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="nb">Wait-Process</span> <span class="n">-Id</span> <span class="nv">$owned</span><span class="p">.</span><span class="n">Id</span> <span class="n">-Timeout</span> <span class="n">300</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  <span class="nv">$process</span> <span class="p">=</span> <span class="nb">Get-Process</span> <span class="n">-Id</span> <span class="nv">$owned</span><span class="p">.</span><span class="n">Id</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  <span class="k">if</span> <span class="p">(</span><span class="nv">$process</span><span class="p">)</span> <span class="p">{</span> <span class="nb">Stop-Process</span> <span class="n">-Id</span> <span class="nv">$owned</span><span class="p">.</span><span class="n">Id</span> <span class="n">-Force</span> <span class="p">}</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
-</code></pre></div>
-<p>Gradle daemon、IDE、测试服或共享工作区中的其他 Java 进程可能属于并行任务。优先让 wrapper/daemon 自然退出；超时且无法证明 ownership 时只记录 blocked。禁止对 <code>java</code>/<code>javaw</code> 做全局名称匹配的 <code>Stop-Process</code>。任何被外部终止干扰的 test/build 证据立即作废，环境稳定后必须重跑。</p>
+<p>插件内部构建和发布流程属于维护者资料。第三方消费者只需按公开 SDK 文档编译自己的插件，不得复制 provider、runtime 或私有 bridge。</p>
 <h2 id="oocore">OOCore 接入<a class="headerlink" href="#oocore" title="Permanent link">&para;</a></h2>
 <p>正式 API：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.oo.core:oocore-api:1.6.1&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.oo.core:oocore-api:1.6.1&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>OOCore <code>1.6.1</code> 已正式发布。当前 ABI 与 handshake 均为 1。新插件逐项声明所需 platform Capability：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oocore.scheduler.region.v1
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oocore.component.v1
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>oocore.registry-key.v1
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>oocore.player-entity-item.v1
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>oocore.data-component.v1
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>oocore.plugin-channel.v1
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>oocore.raw-packet.v1        # optional，默认缺失
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>oocore.control-plane.read.v1 # implemented，只读 bounded DTO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>oocore.scheduler.region.v1
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oocore.component.v1
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oocore.registry-key.v1
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>oocore.player-entity-item.v1
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>oocore.data-component.v1
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>oocore.plugin-channel.v1
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>oocore.raw-packet.v1        # optional，默认缺失
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>oocore.control-plane.read.v1 # implemented，只读 bounded DTO
 </code></pre></div>
 <p>禁止把 Paper/NMS/CraftBukkit 版本分支复制进业务插件。26.1、26.1.2、26.2 的差异由 OOCore provider 处理；unsupported version 必须 fail-fast。</p>
 <p>所有 task、listener、channel、service 和外部句柄都由 <code>OOModuleSession.own(...)</code> 或 bounded lifecycle scope 持有。disable、注册失败和 reload 必须幂等撤销。</p>
 <h2 id="ooengine">OOEngine 插件接入<a class="headerlink" href="#ooengine" title="Permanent link">&para;</a></h2>
 <p>正式 API：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.ooengine:ooengine-api:1.1.4&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// API published；runtime wiring 尚未验收，发布前消费者只等待</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">testImplementation</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.ooengine:ooengine-testkit:1.1.4&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// API published；runtime wiring 尚未验收</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;com.zkonikishi.ooengine:ooengine-api:1.1.4&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// API published；runtime wiring 尚未验收，发布前消费者只等待</span>
 </code></pre></div>
 <p>基本流程：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">OOEngineApi</span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">services</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">OOEngineApi</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">engine</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">engine</span><span class="p">.</span><span class="na">apiVersion</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">OOEngineApi</span><span class="p">.</span><span class="na">API_VERSION</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;OOEngine API unavailable or incompatible&quot;</span><span class="p">);</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">engine</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">OOEngineCapabilities</span><span class="p">.</span><span class="na">EXTENSION_BINDING_ACTION_V1</span><span class="p">);</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">engine</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">OOEngineCapabilities</span><span class="p">.</span><span class="na">PANEL_CONTROLLER_V1</span><span class="p">);</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">engine</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">OOEngineCapabilities</span><span class="p">.</span><span class="na">PANEL_CONTRIBUTION_V1</span><span class="p">);</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ExtensionScope</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">engine</span><span class="p">.</span><span class="na">openScope</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">binding</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">playerId</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">immutableSnapshot</span><span class="p">(</span><span class="n">playerId</span><span class="p">));</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">handleAuthoritatively</span><span class="p">(</span><span class="n">request</span><span class="p">));</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">panel</span><span class="p">(</span><span class="s">&quot;example:main&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">yamlBytes</span><span class="p">,</span><span class="w"> </span><span class="n">ReplacePolicy</span><span class="p">.</span><span class="na">REJECT</span><span class="p">);</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">OOEngineApi</span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">services</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">OOEngineApi</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">engine</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">engine</span><span class="p">.</span><span class="na">apiVersion</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">OOEngineApi</span><span class="p">.</span><span class="na">API_VERSION</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;OOEngine API unavailable or incompatible&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">engine</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">OOEngineCapabilities</span><span class="p">.</span><span class="na">EXTENSION_BINDING_ACTION_V1</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">engine</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">OOEngineCapabilities</span><span class="p">.</span><span class="na">PANEL_CONTROLLER_V1</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">engine</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">OOEngineCapabilities</span><span class="p">.</span><span class="na">PANEL_CONTRIBUTION_V1</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ExtensionScope</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">engine</span><span class="p">.</span><span class="na">openScope</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">binding</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">playerId</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">immutableSnapshot</span><span class="p">(</span><span class="n">playerId</span><span class="p">));</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">handleAuthoritatively</span><span class="p">(</span><span class="n">request</span><span class="p">));</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">panel</span><span class="p">(</span><span class="s">&quot;example:main&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">yamlBytes</span><span class="p">,</span><span class="w"> </span><span class="n">ReplacePolicy</span><span class="p">.</span><span class="na">REJECT</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Legacy API 示例</p>
@@ -1762,7 +1744,7 @@
 <h2 id="renderplan-backend">RenderPlan backend 约束<a class="headerlink" href="#renderplan-backend" title="Permanent link">&para;</a></h2>
 <p>新增 Web/Fabric/NeoForge backend 时只能实现公共 backend interface：Texture、Text、Mask、Model、Media。业务布局、timeline、表达式和 fallback 规则必须留在公共 renderer core。</p>
 <p>每帧顺序固定：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>UiDocument → Style/Layout → Expression → Timeline Sample → immutable RenderPlan → Executor
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>UiDocument → Style/Layout → Expression → Timeline Sample → immutable RenderPlan → Executor
 </code></pre></div>
 <p>Executor 必须验证 schema version、Capability、节点/栈深/字符串/资源上限，并拒绝 NaN/Infinity。未知 draw payload 安全跳过并产生可诊断警告。</p>
 <h2 id="fixture">测试 fixture<a class="headerlink" href="#fixture" title="Permanent link">&para;</a></h2>
@@ -1780,7 +1762,7 @@
 <p>涉及 renderer 的改动还必须做指定帧 screenshot diff 和性能/显存/堆验收，不能只用单元测试宣称视觉引擎完成。</p>
 <h2 id="ooconsole-contributionplanned">OOConsole Contribution（planned）<a class="headerlink" href="#ooconsole-contributionplanned" title="Permanent link">&para;</a></h2>
 <p>OOConsole 位于独立仓库并采用独立版本：package <code>com.zkonikishi.oo.console</code>，plugin/module ID <code>ooconsole</code>，规划命令 <code>/oo console</code>（planned）。目标 runtime 硬依赖 OOCore 与 OOEngine，plugin descriptor 必须声明 <code>depend: [OOCore, OOEngine]</code>。它复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套。Contribution stable API/Capability 归 OOConsole，不得加入 OOEngine API。</p>
-<p>OOConsole <code>0.1.5</code> + OOCore <code>1.6.1</code> owner-service artifact-first 最终门禁已通过（<code>OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK</code>）。新消费者只使用 owner-bound acquisition；旧 <code>openScope(String)</code> deprecated/unsafe。每个 adapter 必须独立通过 acquire/lifecycle/foreign 验收，不能由平台门禁批量推导为 implemented。</p>
+<p>OOConsole <code>0.1.5</code> + OOCore <code>1.6.1</code> owner-bound 平台链已验收，可供消费者迁移。每个 adapter 必须独立完成自身产品验收，不能由平台状态批量推导为 implemented。</p>
 <p>OOChat、OOGame、OOMusic、OOBrowser、OOReforge 等业务插件只通过 owner-scoped OOConsole Contribution 接入管理工作区，并遵守：</p>
 <ul>
 <li>owner/module ID 与路由、资源、权限、action namespace 一致；</li>
@@ -1831,7 +1813,7 @@
 <p>OOEditor：<code>:ooeditor</code> / <code>com.zkonikishi.ooengine.editor</code>。只实现结构化编辑、校验、operation、revision diff、preview compile、screenshot request 与 publish candidate。OOConsole 必须复用它，禁止复制 editor engine。</p>
 <p>OOHUD：<code>:oohud</code> / <code>com.zkonikishi.ooengine.hud</code>。唯一 planned Capability 名称为 <code>ooengine.hud-contribution.v1</code>；禁止新增旧 overlay 命名的 Capability 或产品名。</p>
 <p>OOModel 的 BetterModel adapter 只允许：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;io.github.toxicity188:bettermodel-bukkit-api:&lt;compatible-version&gt;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">&quot;io.github.toxicity188:bettermodel-bukkit-api:&lt;compatible-version&gt;&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>禁止 shade/内嵌 BetterModel、反射 internal class 或声明硬依赖。adapter 缺失/不兼容只降级自身。测试至少覆盖 Capability/fixture、tracker owner scope、entity/player quit、chunk unload、plugin disable、Folia execution policy 与 resource-pack 冲突；未有代码、测试、artifact 前保持 <strong>planned</strong>。</p>
 <h2 id="_5">变更与发布规则<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>

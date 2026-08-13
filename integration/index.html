@@ -1224,6 +1224,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1305,14 +1328,12 @@
 
 <h1 id="_1">集成边界<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>OOCore <code>1.6.1</code> 是 <code>/oo</code> 的唯一 root owner。新迁移使用已发布的 <code>oocore.command-contribution.v2</code> host-minted Actor 与 controlled Authorization；v1 保持 binary compatible 但 deprecated。OOEngine、OOGame 等消费者完成 v2 真实验收前保留 legacy single path，禁止双注册、按名字查玩家或暴露 Bukkit handles。</p>
+<p>OOCore <code>1.7.1</code> 是当前稳定基线和 <code>/oo</code> 的唯一 root owner；<code>1.7.0</code> 已 withdrawn。OOCore 是运行时硬依赖，但兼容性按 ABI、handshake 与 Capability 协商，不按精确 SemVer 判断。</p>
 <h2 id="_3">表现层<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>OOEngine <code>1.1.4</code> 的以下目标接口仍为 <strong>planned</strong>：OOMenu 的 <code>ooengine.window-contribution.v1</code>、<code>ooengine.menu-contribution.v1</code>，以及 OOVideo 的 <code>ooengine.video.v1</code>。业务插件不得自造本地 bridge 或直接依赖 OOEngine server implementation。</p>
+<p>OOEngine <code>1.1.6</code> 是当前 stable binary release；Folia live acceptance 尚未完成，列为已知限制。</p>
 <p>OOEditor（<code>:ooeditor</code>）和 OOHUD（<code>:oohud</code>）是 OOEngine 仓库子项目，不是独立插件。OOConsole 复用 OOEditor；HUD 贡献的规划名称仅为 <code>ooengine.hud-contribution.v1</code>。</p>
 <h2 id="console">Console<a class="headerlink" href="#console" title="Permanent link">&para;</a></h2>
-<p>OOConsole <code>0.1.5</code> 已使用 OOCore <code>1.6.1</code> 正式 owner-service artifacts 通过最终门禁：<code>OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK</code>。可信 owner-service 链已 implemented/available for migration；业务插件 adapter 仍须逐个完成 acquire/lifecycle/foreign 验收，未完成前保持 disabled/code-prepared。</p>
-<p>旧 intermediate harness 只作历史证据；当前最终证据来自 OOCore <code>1.6.1</code> production authority/registry artifact-first 门禁。<code>0.1.4</code> runtime 仍保持 rejected。</p>
-<p>OOCore <code>1.6.1</code> 的 <code>oocore.owner-bound-service.v1</code> 与 OOConsole <code>0.1.5</code> owner-bound acquisition 已通过最终门禁。旧 <code>openScope(String)</code> / <code>openScope(ownerId)</code> 仍 deprecated/unsafe，禁止 ThreadLocal、反射或本地 bridge。</p>
+<p>OOConsole <code>0.1.6</code> 是当前 stable binary release，本版包含 CommandV2、HTTP login/logout 与安全修复。</p>
 
 
 

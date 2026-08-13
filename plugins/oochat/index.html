@@ -882,6 +882,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新日志 / Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题 / Known issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       生态分类
@@ -912,6 +930,15 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       文档状态（本任务）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系 / Contact
     </span>
   </a>
   
@@ -1241,6 +1268,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1273,6 +1323,24 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新日志 / Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题 / Known issues
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
@@ -1310,6 +1378,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系 / Contact
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1330,7 +1407,12 @@
 
 
 <h1 id="oochat">OOChat<a class="headerlink" href="#oochat" title="Permanent link">&para;</a></h1>
-<p>OOChat 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的<strong>附属（Extensions）</strong>。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。</p>
+<p>当前稳定版为 <a href="https://github.com/Meowopia/OOChat/releases/tag/v0.1.0"><code>0.1.0</code></a>，以闭源二进制形式发布。</p>
+<h2 id="changelog">更新日志 / Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h2>
+<p><strong>中文：</strong> 修复可选 OOConsole 缺失时的启动异常与命令别名保留字冲突。</p>
+<p><strong>English:</strong> Fixes startup failure when optional OOConsole is absent and the reserved command-alias collision.</p>
+<h2 id="known-issues">已知问题 / Known issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
+<p><code>0.1.0</code> 不包含 OOEngine Window/UI。 / <code>0.1.0</code> does not include OOEngine Window/UI.</p>
 <p>OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。</p>
 <ul>
 <li><strong>运行依赖</strong>：<code>OOCore</code></li>
@@ -1338,7 +1420,7 @@
 <li><strong>主命令</strong>：<code>/oo chat</code></li>
 </ul>
 <h2 id="_1">生态分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>本插件归为通用聊天域，但在导航上属于 <code>OORPG</code> 生态联动群组（与 OOQuest/OOVIP/OOReforge 协同）。</p>
+<p>本插件是通用聊天域产品，官方导航固定属于<strong>附属（Extensions）</strong>。它可以与 OORPG 产品协同，但不会因此改变分类或依赖边界。</p>
 <h2 id="_2">定位与边界<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>负责世界/公会/私聊/群聊/频道/附近/多世界/城镇/地皮等消息通道、管理员通知、邮件（含附件）、历史回溯、过滤/撤回等逻辑。</li>
@@ -1356,6 +1438,14 @@
 <li>本仓库：实施计划已接入 OOChat 领域核心 + OOCore 稳定 facade。</li>
 <li>可视化编辑：planned，等待通过已发布的 OOConsole SDK 接入；当前没有已实现的 OOChat 产品工作区。</li>
 <li>OOMenu/OOVideo/OOQuest：本插件仅消费，不建模独立桥接实现。</li>
+</ul>
+<h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<ul>
+<li>作者 / Author: zkonikishi</li>
+<li>QQ: 276098266</li>
+<li>Discord: <a href="https://discord.gg/KPq2fZHFK">https://discord.gg/KPq2fZHFK</a></li>
+<li><a href="https://ifdian.net/a/zkonikishi">ifdian</a></li>
+<li>QQ群 / QQ Group: 1063369777</li>
 </ul>
 
 
