@@ -1,6 +1,6 @@
 # OOEngine 与 OOEngine-Client
 
-OOEngine 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；真实依赖保持 OOEngine hard-depend OOCore。
+OOEngine 在产品、Wiki 和 OOConsole metadata 中归入**核心（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；真实依赖保持 OOEngine hard-depend OOCore。
 
 OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。本页只公开产品能力、安装配置边界和受控 SDK 用法，不提供内部源码、私有 artifact 访问方式或安全实现细节。
 

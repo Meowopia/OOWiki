@@ -32,7 +32,7 @@ OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费
 
 ## 产品分类
 
-- **基础（Core）**：OOCore、OOEngine、OOConsole。
+- **核心（Core）**：OOCore、OOEngine、OOConsole。
 - **附属（Extensions）**：OOGame、OOMusic、OOBrowser、OOChat。
 - **独立（Standalone）**：OOVIP、OOReforge。
 
