@@ -11,7 +11,7 @@ OOMusic 是服务端协调的音乐产品，通过 OOEngine 提供窗口和迷�
 - 队列、播放/暂停、seek、音量、上下曲、repeat、shuffle；
 - 主持人控制的同步听房间与服务端时钟；
 - 歌曲、歌单和同步听邀请的 OOChat Bridge；
-- bounded `LyricsDocument`，歌词结构、行数、文本长度与时间轴输入均受上限约束；
+- **implemented/tested** 的 bounded `LyricsDocument`、`LyricsTimeline` 与 `LyricsService`，歌词结构、行数、文本长度和时间轴输入均受上限约束；
 - `oomusic:*` 网络 namespace。
 
 ## 源安全
@@ -30,7 +30,7 @@ OOMusic 是服务端协调的音乐产品，通过 OOEngine 提供窗口和迷�
 
 实际 Paper/Folia 插件产物来自 `ooengine-adapter` 模块，并硬依赖 OOCore `1.6.1` 与 OOEngine。OOConsole API/testkit 使用 `0.1.5` optional dependency。
 
-最新验证为 22 tests，包含 bounded `LyricsDocument`；JAR SHA-256 摘要为 `C022...6438`，仅为 snapshot 构建证据，不是 release。OOMusic 及父目录没有 Git repository；本地归档 manifest SHA-256 为 `E53B...0D9B`，zip SHA-256 为 `E770...FB34`，只用于可追溯归档，不等同于 Git commit 或 release。WindowController 与 command migration 状态保持不变。
+`LyricsTimeline` / `LyricsService` 完整 Gradle 验证已由总调度代跑通过：13 suites、25 tests、0 failures/errors/skipped。新 snapshot JAR size `80961` bytes，SHA-256 摘要为 `1036F4...0E72`，不是 release；此前歌词 tests pending/旧 snapshot 证据已作废。OOMusic 及父目录没有 Git repository；WindowController、command migration 与 legacy Panel 单路径状态保持不变。
 
 ## OOConsole 接入（implemented）
 
