@@ -28,7 +28,7 @@ OOCore 使用独立品牌资源 `docs/assets/oocore-logo-1024.png`；该文件�
 - `planned`：设计已锁定，尚无可用实现。
 - `blocked`：存在明确阻塞，不能宣称可用。
 
-OOConsole `0.1.5` + OOCore `1.6.1` owner-service artifact-first 最终门禁已通过（`OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK`），可信 owner-service 链 available for migration。各消费者仍须独立通过 acquire/lifecycle/foreign 验收；未完成前 adapter 保持 disabled，不能批量标为 implemented。
+OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移。各消费者仍须完成自身产品验收；未完成前保持 disabled，不能批量标为 implemented。
 
 ## 产品分类
 

@@ -1,23 +1,10 @@
 # 开发者接入
 
-本文面向开发 OO 系列插件、OOEngine 窗口和 renderer backend 的维护者。代码包统一使用 `com.zkonikishi.oo.core`、`com.zkonikishi.ooengine`、`com.zkonikishi.oochat` 等正式 namespace。
+本文只说明闭源 OO 产品的公开 SDK 接入边界。内部源码、构建环境、私有 repository、testkit 和发布脚本不在 OOWiki 提供。
 
 ## 开发环境
 
-- Windows PowerShell；
-- Java 25，安装根目录为 `D:\Program Files\Microsoft\Java`；
-- Gradle Wrapper 优先，禁止依赖开发者机器上的偶然全局配置；
-- 本地 Maven 仓库：`D:\Servers\Plugin\Meowopia\.repository`。
-
-```powershell
-$jdk = Get-ChildItem 'D:\Program Files\Microsoft\Java' -Directory |
-  Where-Object Name -Match '25' |
-  Sort-Object Name -Descending |
-  Select-Object -First 1
-$env:JAVA_HOME = $jdk.FullName
-$env:Path = "$env:JAVA_HOME\bin;$env:Path"
-java -version
-```
+消费者使用 Java 25 与项目自带 Gradle Wrapper。SDK repository、凭据和授权方式仅以产品公开分发说明为准。
 
 ## 仓库边界
 
@@ -40,39 +27,7 @@ OOCore 和 OOEngine 版本号不要求一致。兼容性由 ABI、handshake、AP
 
 ## 构建
 
-```powershell
-# OOCore
-Set-Location D:\Servers\Plugin\Meowopia\OOCore
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-oocore.ps1
-
-# OOEngine
-Set-Location D:\Servers\Plugin\Meowopia\OOEngine
-.\gradlew.bat test release --offline --console=plain
-
-# OOEngine-Client
-Set-Location D:\Servers\Plugin\Meowopia\OOEngine-Client
-.\gradlew.bat clean check distributionChecksums --console=plain
-
-# Wiki
-Set-Location D:\Servers\Plugin\Meowopia\OOWiki
-python -m pip install -r requirements.txt
-python -m mkdocs build --strict
-```
-
-JVM 清理必须使用严格的 **PID ownership**。本任务必须在启动时记录 PID、build marker、完整 CommandLine、ParentProcessId/祖先链和启动时间；终止前再次核验全部证据。“运行后新出现 PID”单一条件无效。任一证据缺失或无法证明 ownership 时不得终止，只记录 blocked。
-
-```powershell
-# 示例：仅管理本任务显式启动的进程
-$owned = Start-Process -FilePath $javaExe -ArgumentList $args -PassThru
-try {
-  Wait-Process -Id $owned.Id -Timeout 300
-} finally {
-  $process = Get-Process -Id $owned.Id -ErrorAction SilentlyContinue
-  if ($process) { Stop-Process -Id $owned.Id -Force }
-}
-```
-
-Gradle daemon、IDE、测试服或共享工作区中的其他 Java 进程可能属于并行任务。优先让 wrapper/daemon 自然退出；超时且无法证明 ownership 时只记录 blocked。禁止对 `java`/`javaw` 做全局名称匹配的 `Stop-Process`。任何被外部终止干扰的 test/build 证据立即作废，环境稳定后必须重跑。
+插件内部构建和发布流程属于维护者资料。第三方消费者只需按公开 SDK 文档编译自己的插件，不得复制 provider、runtime 或私有 bridge。
 
 ## OOCore 接入
 
@@ -105,7 +60,6 @@ oocore.control-plane.read.v1 # implemented，只读 bounded DTO
 
 ```kotlin
 compileOnly("com.zkonikishi.ooengine:ooengine-api:1.1.4") // API published；runtime wiring 尚未验收，发布前消费者只等待
-testImplementation("com.zkonikishi.ooengine:ooengine-testkit:1.1.4") // API published；runtime wiring 尚未验收
 ```
 
 基本流程：
@@ -171,7 +125,7 @@ Executor 必须验证 schema version、Capability、节点/栈深/字符串/资�
 
 OOConsole 位于独立仓库并采用独立版本：package `com.zkonikishi.oo.console`，plugin/module ID `ooconsole`，规划命令 `/oo console`（planned）。目标 runtime 硬依赖 OOCore 与 OOEngine，plugin descriptor 必须声明 `depend: [OOCore, OOEngine]`。它复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套。Contribution stable API/Capability 归 OOConsole，不得加入 OOEngine API。
 
-OOConsole `0.1.5` + OOCore `1.6.1` owner-service artifact-first 最终门禁已通过（`OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK`）。新消费者只使用 owner-bound acquisition；旧 `openScope(String)` deprecated/unsafe。每个 adapter 必须独立通过 acquire/lifecycle/foreign 验收，不能由平台门禁批量推导为 implemented。
+OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移。每个 adapter 必须独立完成自身产品验收，不能由平台状态批量推导为 implemented。
 
 OOChat、OOGame、OOMusic、OOBrowser、OOReforge 等业务插件只通过 owner-scoped OOConsole Contribution 接入管理工作区，并遵守：
 

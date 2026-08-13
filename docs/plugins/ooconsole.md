@@ -2,19 +2,16 @@
 
 OOConsole 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；目标运行时依赖保持 hard-depend OOCore + OOEngine。
 
-OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `1.6.1` owner-service artifact-first 最终门禁已通过，可信链 implemented/available for migration；各消费者 adapter 仍须独立验收，不能批量标记 implemented。
+OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。
 
 !!! info "状态拆分"
-    **`0.1.3` coordinates published**：API/runtime/testkit 坐标已发布。API 与 testkit payload 仍与 `0.1.1`/`0.1.2` byte-identical，仅做 coordinate alignment；runtime 为首次发布。server runtime acceptance 仍 pending，trusted consumer identity blocked。离线 `openScope` fixture 不能外推为可信跨插件接入；消费者不得创建本地 bridge或自报 owner、principal、role。
+    `0.1.3` 已发布历史 SDK/runtime 交付物，但产品 runtime acceptance 当时仍 pending。消费者不得把 SDK 可用外推为产品 UI 或工作区已经实现。
 
 !!! danger "0.1.4 runtime rejected"
     `0.1.4` runtime coordinate 存在，但 JAR 内 `plugin.yml` 仍声明版本 `0.1.3`，与坐标不一致，因此该版本永久 rejected、不可安装。后续 `0.1.5` 已发布并修复版本元数据。
 
 !!! info "0.1.5 published / owner-service available"
-    `0.1.5` API SHA-256：`7214...45DE`；runtime SHA-256：`6ED7...2A37`；testkit SHA-256：`DE2C...37CC`。API/testkit 与 `0.1.4` byte-identical；runtime 修复 descriptor/manifest。Owner-service artifact-first 最终门禁已通过，但 HTTP/UI、Editor 与消费者 adapter 仍逐项验收。
-
-!!! note "Intermediate harness evidence"
-    旧 `REAL_CORE_REGISTRY_ARTIFACT_OK` 仅为 intermediate 证据。当前正式 artifact-first 最终门禁已通过，输出 `OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK`。
+    `0.1.5` owner-bound 平台链已验收，可供消费者迁移；HTTP/UI、Editor 与消费者 adapter 仍逐项验收。内部 testkit、fixture 与构建门禁不在公开 Wiki 展示。
 
 ## 固定标识
 

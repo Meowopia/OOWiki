@@ -91,7 +91,7 @@ compileOnly("io.github.toxicity188:bettermodel-bukkit-api:<compatible-version>")
 
 BetterModel 官方项目采用 MIT 许可，是 server-based Bedrock/BlockBench model engine，基于 item-display packet，并公开 cubes、meshes、null objects、locators、animation、Molang、IK、player skin/custom armor、resource-pack generation 和 entity sync 等能力。OOModel 只使用其官方 API，不复制、内嵌或反射内部实现，也不强制安装 BetterModel。缺失或版本不兼容时只禁用 adapter，不影响 OOEngine/OOModel 其他 Provider。[BetterModel 官方仓库](https://github.com/toxicity188/BetterModel)
 
-adapter 实现前必须锁定 Capability 与 fixture，管理 tracker 生命周期，并覆盖 entity/player quit、ohunk unload、plugin disable 清理、Folia 线程策略及 resource-pack 冲突策略。当前没有已核验代码、测试或 artifact，因此状态仅为 **planned**。
+adapter 实现前必须锁定 Capability，管理 tracker 生命周期，并覆盖 entity/player quit、chunk unload、plugin disable 清理、Folia 线程策略及 resource-pack 冲突策略。当前没有已核验正式产物，因此状态仅为 **planned**。
 
 ## 安装
 
@@ -288,7 +288,7 @@ SDK repository 仅以产品公开分发文档为准；Wiki 不提供内部 repos
 
 接入要求：
 
-1. 从 Paper `ServioesManager` 获取 `OOCoreApi` 和 `OOEngineApi`；
+1. 从 Paper `ServicesManager` 获取 `OOCoreApi` 和 `OOEngineApi`；
 2. 校验 ABI、handshake 和 API version；
 3. 对每项所需 Capability 单独 `require`，不得只依赖模糊 umbrella；
 4. 使用 `openScope("plugin-id")` 统一持有 binding、action、window contribution；

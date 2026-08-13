@@ -37,7 +37,7 @@ flowchart TB
 ```
 
 !!! warning "实现状态"
-    OOCore `1.6.1` 与 OOConsole `0.1.5` owner-service artifact-first 门禁已通过，可信链 implemented/available for migration。各消费者仍需单独完成 acquire/lifecycle/foreign 验收；HTTP/UI、Editor 迁移和产品工作区仍为 **planned/code-prepared**。Window blocker独立保留。
+    OOCore `1.6.1` 与 OOConsole `0.1.5` owner-bound 平台链已验收，可供消费者迁移。各消费者仍需完成自身产品验收；HTTP/UI、Editor 迁移和产品工作区仍为 **planned/code-prepared**。Window blocker 独立保留。
 
 ## 边界与所有权
 
@@ -152,7 +152,7 @@ OOChat、OOGame、OOMusic、OOBrowser、OOReforge 以及后续 OO 系列插件�
 ## 迁移顺序
 
 1. **implemented**：保留并维护 OOEngine Web Editor，继续修复安全问题。
-2. **implemented / available for migration**：OOConsole `0.1.5` + OOCore `1.6.1` owner-service artifact-first 最终门禁通过，输出 `OFFICIAL_OWNER_SERVICE_ARTIFACT_015_OK`。消费者 adapter 只有完成自身 acquire/lifecycle/foreign 验收后才能升级为 implemented。
+2. **implemented / available for migration**：OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收。消费者 adapter 只有完成自身产品验收后才能升级为 implemented。
 3. **implemented / per-plugin**：OOCore 已发布只读 ControlPlane DTO Capability；OOGame、OOMusic、OOBrowser adapter 已验收，其他插件逐项状态见产品页，未验收者仍待接入。
 4. **planned**：将 Web Editor 迁入 OOConsole 的 `editor` 工作区，做数据与行为兼容验收。
 5. **planned**：只有迁移、回滚、权限和安全验收通过后，才允许废弃 OOEngine 内置入口；删除源实现必须另行决策。
