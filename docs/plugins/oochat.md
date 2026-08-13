@@ -1,5 +1,7 @@
 # OOChat
 
+**分类：附属（Extensions）。**
+
 当前稳定版为 [`0.1.0`](https://github.com/Meowopia/OOChat/releases/tag/v0.1.0)，以闭源二进制形式发布。
 
 OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。

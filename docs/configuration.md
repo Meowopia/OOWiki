@@ -15,7 +15,7 @@ features:
   media: true
 ```
 
-所有模块可单独关闭。`features.enabled: false` 时仅保留基础原生窗口与协议。
+所有模块可单独关闭。`features.enabled: false` 时仅保留最小原生窗口与协议。
 
 ## Web allowlist
 

@@ -16,26 +16,26 @@
   </label>
   <div class="plugin-hub-filters" aria-label="插件分类筛选">
     <button type="button" class="is-active" data-plugin-filter="all">全部</button>
-    <button type="button" data-plugin-filter="core">基础 Core</button>
+    <button type="button" data-plugin-filter="core">基础（Core）</button>
     <button type="button" data-plugin-filter="extensions">附属 Extensions</button>
     <button type="button" data-plugin-filter="independent">独立（Standalone）</button>
   </div>
 </div>
 
 <div class="plugin-card-grid" data-plugin-grid>
-  <a class="plugin-card" href="oocore/" data-category="core" data-search="oocore core 核心 生命周期 命令 capability">
+  <a class="plugin-card" href="oocore/" data-category="core" data-search="oocore 核心 core 生命周期 命令 capability">
     <div class="plugin-card-top"><img src="../assets/oocore-logo-1024.png" alt="OOCore Logo"><span class="plugin-state state-implemented">Stable 1.7.1</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">基础 · Core</span><h2>OOCore</h2><p>OO 生态的平台前置，统一生命周期、命令、Capability 与可信 owner-service。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOCore</h2><p>OO 生态的平台前置，统一生命周期、命令、Capability 与可信 owner-service。</p></div>
     <div class="plugin-card-footer"><span>平台核心</span><b>查看文档 →</b></div>
   </a>
-  <a class="plugin-card" href="ooengine/" data-category="core" data-search="ooengine core window ui renderplan menu video editor hud">
+  <a class="plugin-card" href="ooengine/" data-category="core" data-search="ooengine 核心 core window ui renderplan menu video editor hud">
     <div class="plugin-card-top"><span class="plugin-lettermark mark-violet">OE</span><span class="plugin-state state-implemented">Stable 1.1.6</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">基础 · Core</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>
-  <a class="plugin-card" href="ooconsole/" data-category="core" data-search="ooconsole core console editor workspace owner service admin">
+  <a class="plugin-card" href="ooconsole/" data-category="core" data-search="ooconsole 核心 core console editor workspace owner service admin">
     <div class="plugin-card-top"><span class="plugin-lettermark mark-indigo">OC</span><span class="plugin-state state-implemented">Stable 0.1.6</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">基础 · Core</span><h2>OOConsole</h2><p>统一管理与可视化编辑入口；owner-service 已验收，产品工作区仍逐项建设。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>统一管理与可视化编辑入口；owner-service 已验收，产品工作区仍逐项建设。</p></div>
     <div class="plugin-card-footer"><span>管理平台</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oogame/" data-category="extensions" data-search="oogame extensions game lobby 斗地主 房间 匹配">

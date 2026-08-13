@@ -4,7 +4,7 @@
 
 该紫粉渐变圆角方形与白色等大双圆标记为 **OOCore 官方 Logo**。
 
-OOCore 在产品、Wiki 和 OOConsole metadata 中归入**核心（Core）**。该分类不创建聚合插件、runtime、Maven group、package、数据库或额外硬依赖；OOCore 仍是独立版本和仓库的平台前置。
+OOCore 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不创建聚合插件、runtime、Maven group、package、数据库或额外硬依赖；OOCore 仍是独立版本和仓库的平台前置。
 
 OOCore 是 OO 系列服务端插件的独立平台内核，也是 Minecraft/Paper/Folia 兼容防火墙。它不负责窗口或渲染，而是让 OOEngine、OOChat、OOGame、OOMusic 等插件面对稳定 API 编程；服务端版本变化原则上只需更新 OOCore provider。
 
@@ -14,7 +14,7 @@ OOCore 是 OO 系列服务端插件的独立平台内核，也是 Minecraft/Pape
 - ABI、handshake、Capability negotiation 与 typed service registry；
 - Paper/Folia global、async、region、entity scheduler 语义；
 - Component、registry/key、player/entity/item、data component 和 plugin channel facade；
-- 服务器 UID、基础存储、健康诊断和兼容矩阵；
+- 服务器 UID、平台存储、健康诊断和兼容矩阵；
 - Minecraft 版本探测、单一 adapter/provider 选择与 unsupported fail-fast；
 - owner-bound 资源释放，避免 task、listener、channel、service 和 session 泄漏。
 

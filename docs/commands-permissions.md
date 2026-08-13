@@ -45,7 +45,7 @@ OOConsole 的规范入口计划为 `/oo console`，Editor 快捷入口计划为 
 
 ## OOChat
 
-OOChat 使用 `oochat.*` namespace。主要类别包括基础聊天、频道、私聊/群组、邮件、审核、编辑器和危险管理能力。危险权限不得混入普通管理通配，完整表见 OOChat 仓库的 `docs/PERMISSIONS.md`。
+OOChat 使用 `oochat.*` namespace。主要类别包括常规聊天、频道、私聊/群组、邮件、审核、编辑器和危险管理能力。危险权限不得混入普通管理通配，完整表见 OOChat 仓库的 `docs/PERMISSIONS.md`。
 
 ## OOGame 与 OOMusic
 

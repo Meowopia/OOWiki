@@ -4,13 +4,13 @@
 
 | 产品 | 分类 | 用户可见状态 | 安装与依赖 | 命令 | 配置 | 升级 / 回滚 |
 |---|---|---|---|---|---|---|
-| OOCore | Core | `1.7.1` stable; `1.7.0` withdrawn | Runtime hard dependency; ABI/handshake/Capability negotiation, no exact SemVer pin | `/oo core` | No user runtime config | Do not use `1.7.0`; keep previous stable binary |
-| OOEngine | Core | `1.1.6` stable | Compatible OOCore; matching client loader | `/oo engine` | `config.yml` and window templates | Back up first; Folia live acceptance pending |
-| OOConsole | Core | `0.1.6` stable | Compatible OOCore + OOEngine | `/oo console` | No user runtime config | Keep previous stable binary |
-| OOGame | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo game` legacy route available | 大厅模板和公开 Schema | 未发布前不覆盖现有安装；Window 迁移可回退 legacy 路径 |
-| OOMusic | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo music` 目标入口；旧 `/oomusic` 为 legacy | bundled 播放器窗口；无外部主配置 | 保留 legacy Panel 单路径，Window 迁移未验收前不混用 |
-| OOBrowser | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore；OOEngine/OOConsole 能力按状态降级 | `/oo browser` 尚未 live 验收 | 当前无生效 runtime config；示例仅 reference | 无正式二进制可升级；生产连接器未验收时保持禁用 |
-| OOChat | Extensions | `0.1.0` stable | Compatible OOCore; OOConsole optional | `/oo chat` | See product release docs | No OOEngine Window/UI in `0.1.0` |
+| OOCore | 基础（Core） | `1.7.1` stable; `1.7.0` withdrawn | Runtime hard dependency; ABI/handshake/Capability negotiation, no exact SemVer pin | `/oo core` | No user runtime config | Do not use `1.7.0`; keep previous stable binary |
+| OOEngine | 基础（Core） | `1.1.6` stable | Compatible OOCore; matching client loader | `/oo engine` | `config.yml` and window templates | Back up first; Folia live acceptance pending |
+| OOConsole | 基础（Core） | `0.1.6` stable | Compatible OOCore + OOEngine | `/oo console` | No user runtime config | Keep previous stable binary |
+| OOGame | 附属（Extensions） | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo game` legacy route available | 大厅模板和公开 Schema | 未发布前不覆盖现有安装；Window 迁移可回退 legacy 路径 |
+| OOMusic | 附属（Extensions） | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo music` 目标入口；旧 `/oomusic` 为 legacy | bundled 播放器窗口；无外部主配置 | 保留 legacy Panel 单路径，Window 迁移未验收前不混用 |
+| OOBrowser | 附属（Extensions） | Paused / unreleased; no GitHub Release | 依赖 OOCore；OOEngine/OOConsole 能力按状态降级 | `/oo browser` 尚未 live 验收 | 当前无生效 runtime config；示例仅 reference | 无正式二进制可升级；生产连接器未验收时保持禁用 |
+| OOChat | 附属（Extensions） | `0.1.0` stable | Compatible OOCore; OOConsole optional | `/oo chat` | See product release docs | No OOEngine Window/UI in `0.1.0` |
 | OOVIP | 独立（Standalone） | Paused / unreleased; no GitHub Release | OOCore required; other integrations optional | `/oo vip` bootstrap | Public config and language files | Unreleased; do not deploy as stable |
 | OOReforge | 独立（Standalone） | Paused / unreleased; no GitHub Release | Independent Paper plugin; integrations optional | `/oo reforge` legacy route | Public config and language files | Unreleased; do not deploy as stable |
 
