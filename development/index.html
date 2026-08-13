@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://meowopia.github.io/OOWiki/development/">
       
       
-        <link rel="prev" href="../plugins/oochat/">
+        <link rel="prev" href="../plugins/ooreforge/">
       
       
         <link rel="next" href="../source-policy/">
@@ -103,7 +103,7 @@
       <div class="ovo-navbar-links">
         <a href="..">首页</a>
         <a href="../installation/">文档</a>
-        <a href="../plugins/">插件</a>
+        <a href="../plugins/">插件中心</a>
         <a href="./">开发者</a>
       </div>
 
@@ -187,7 +187,7 @@
           
   
   
-  插件
+  插件中心
 
         </a>
       </li>
@@ -522,7 +522,7 @@
   
   
   <span class="md-ellipsis">
-    插件
+    插件中心
     
   </span>
   
@@ -533,7 +533,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            插件
+            插件中心
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -559,49 +559,6 @@
   
 
               
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    基础（Core）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            基础（Core）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -671,57 +628,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    附属（Extensions）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            附属（Extensions）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -815,9 +721,70 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/ooquest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/oovip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOVIP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/ooreforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1498,8 +1465,8 @@
 <td>第三方任务 Provider 的统一 stable facade implementation；不拥有第三方任务业务真相</td>
 </tr>
 <tr>
-<td>OOEngine <code>:ooquest</code>（OORPG 分类）</td>
-<td>工程上属于 OOEngine，产品导航归 OORPG；提供 versioned snapshot、权威 action、事件与 provider 隔离，不实现任务业务引擎</td>
+<td>OOEngine <code>:ooquest</code>（独立项目 分类）</td>
+<td>工程上属于 OOEngine，产品导航归 独立项目；提供 versioned snapshot、权威 action、事件与 provider 隔离，不实现任务业务引擎</td>
 </tr>
 <tr>
 <td>OOEngine <code>:ooeditor</code></td>
@@ -1632,7 +1599,7 @@
 <p>API/testkit 正式发布前，消费者只能等待并审计当前接入，不得自造本地 facade 或 bridge。</p>
 <h2 id="ooquest-planned">OOQuest 接入（planned）<a class="headerlink" href="#ooquest-planned" title="Permanent link">&para;</a></h2>
 <p>首版目标 Capability 为 <code>ooengine.quest.v1</code>，公开 contract 从 <code>ooengine-api 1.1.4</code> 发布，实现位于 <code>:ooquest</code>，package <code>com.zkonikishi.ooengine.quest</code>。消费者使用 owner-fixed <code>ExtensionScope.quest(QuestContribution/QuestProvider)</code> 或等价 <code>OOQuestScope</code>，以及 <code>QuestService</code>/<code>QuestController</code>。</p>
-<p>工程归属固定为 OOEngine 仓库及其生命周期，构建路径为 <code>OOEngine &gt; :ooquest</code>；产品/生态和 OOConsole 导航归档为 <code>OORPG &gt; OOQuest</code>。禁止建立独立 OORPG artifact/group/package、Paper 插件或仓库。</p>
+<p>工程归属固定为 OOEngine 仓库及其生命周期，构建路径为 <code>OOEngine &gt; :ooquest</code>；产品/生态和 OOConsole 导航归档为 <code>OOEngine &gt; :ooquest</code>。禁止建立独立 独立项目 artifact/group/package、Paper 插件或仓库。</p>
 <p>DTO 使用 immutable、bounded 的 <code>QuestSnapshot</code>、<code>QuestJournal</code>、<code>QuestEntry</code>、<code>QuestObjective</code>、<code>QuestProgress</code>、<code>QuestActionRequest</code>、<code>QuestActionResult</code>、<code>QuestEvent</code>。任务 ID 必须 provider-owner namespaced；snapshot 带 provider revision。mutation 使用 requestId、expectedRevision、actor UUID，Provider 二次执行 RBAC/前置条件校验并返回新 revision 和明确 code。</p>
 <p>生命周期与线程要求：owner-scoped registration；disable/reload/quit/switch 幂等释放；声明 sync/async/entity execution policy；支持 timeout/cancel；不持有 <code>Player</code>/<code>Plugin</code>；订阅 bounded、有 backpressure，按 revision 拒绝乱序事件。</p>
 <p>安全边界：客户端仅发送 intent，不能自报进度、奖励或状态；禁止 command/script/path/SQL；推进与奖励由权威 Provider 事务处理；诊断 DTO 必须脱敏、有界。任务窗口走 OOMenu，HUD 走未来 OOHUD，OOConsole 仅做 adapter/显示映射配置和诊断，Typewriter 对话不混入 Quest 状态接口。</p>
@@ -1707,7 +1674,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../plugins/oochat/" class="md-footer__link md-footer__link--prev" aria-label="上一页: OOChat">
+          <a href="../plugins/ooreforge/" class="md-footer__link md-footer__link--prev" aria-label="上一页: OOReforge">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1717,7 +1684,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                OOChat
+                OOReforge
               </div>
             </div>
           </a>

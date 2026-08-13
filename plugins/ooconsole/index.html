@@ -103,7 +103,7 @@
       <div class="ovo-navbar-links">
         <a href="../..">首页</a>
         <a href="../../installation/">文档</a>
-        <a href="../">插件</a>
+        <a href="../">插件中心</a>
         <a href="../../development/">开发者</a>
       </div>
 
@@ -189,7 +189,7 @@
           
   
   
-  插件
+  插件中心
 
         </a>
       </li>
@@ -527,7 +527,7 @@
   
   
   <span class="md-ellipsis">
-    插件
+    插件中心
     
   </span>
   
@@ -538,7 +538,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            插件
+            插件中心
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -564,54 +564,6 @@
   
 
               
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    基础（Core）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            基础（Core）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -805,60 +757,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    附属（Extensions）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            附属（Extensions）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -951,9 +849,70 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ooquest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oovip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOVIP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ooreforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1420,7 +1379,7 @@
 <h2 id="_3">迁移约束<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>OOEngine Web Editor 只能分阶段迁移。OOConsole 需要通过功能等价、数据兼容、RBAC、安全、审计、回滚和生产试运行验收；在此之前不得删除或破坏 OOEngine 源实现。</p>
 <p>OOConsole 仅编辑和诊断 OOVideo 配置、策略与资源引用，不自行播放、解码或持有 texture/audio sink。</p>
-<p>OOConsole 在 <code>OORPG &gt; OOQuest</code> 导航分类下配置 OOQuest Provider adapter、显示映射并展示 bounded、脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励。该导航分类不改变其工程归属：实现仍位于 <code>OOEngine &gt; :ooquest</code>。</p>
+<p>OOConsole 仅消费 OOEngine 内部 OOQuest 接口，用于配置 Provider adapter、显示映射和脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励，也不为 OOQuest 创建独立插件页面或产品分类。</p>
 
 
 

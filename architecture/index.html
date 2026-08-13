@@ -103,7 +103,7 @@
       <div class="ovo-navbar-links">
         <a href="..">首页</a>
         <a href="../installation/">文档</a>
-        <a href="../plugins/">插件</a>
+        <a href="../plugins/">插件中心</a>
         <a href="../development/">开发者</a>
       </div>
 
@@ -189,7 +189,7 @@
           
   
   
-  插件
+  插件中心
 
         </a>
       </li>
@@ -659,7 +659,7 @@
   
   
   <span class="md-ellipsis">
-    插件
+    插件中心
     
   </span>
   
@@ -670,7 +670,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            插件
+            插件中心
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -696,49 +696,6 @@
   
 
               
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    基础（Core）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            基础（Core）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -808,57 +765,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    附属（Extensions）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            附属（Extensions）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -952,9 +858,70 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/ooquest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/oovip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOVIP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/ooreforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1393,7 +1360,7 @@
 <p>OOQuest 是 OOEngine 仓库内的 Gradle module <code>:ooquest</code>，Java package <code>com.zkonikishi.ooengine.quest</code>，不是独立 Paper 插件、任务引擎或仓库。公开 stable contract 从 <code>ooengine-api</code> 发布，实现归 <code>:ooquest</code>。首版目标 Capability 为 <code>ooengine.quest.v1</code>。</p>
 <div class="admonition info">
 <p class="admonition-title">双重归属</p>
-<p>工程与生命周期归属：<code>OOEngine &gt; :ooquest</code>。产品与生态导航归属：<code>OORPG &gt; OOQuest</code>。这只是分类视角不同，不会产生独立 OORPG artifact、group、package、仓库或插件。</p>
+<p>OOQuest 只是 OOEngine 内部的任务接入接口，工程、生命周期和文档归属均为 <code>OOEngine &gt; :ooquest</code>。它不是独立插件，也不建立额外产品分类、artifact、group、package 或仓库。</p>
 </div>
 <p>OOQuest 统一适配 BetonQuest、Typewriter、Quests、BeautyQuests、MMO/Mythic 任务源及未来 Provider，供 OOMenu、未来 OOHUD 和 OOConsole 消费。第三方 Provider 始终是任务状态、前置条件、推进与奖励的权威源；OOQuest 不复制数据库或状态机，也不存储或裁定业务真相。</p>
 <p>公开 API 目标包括 owner-fixed <code>ExtensionScope.quest(QuestContribution/QuestProvider)</code> 或 <code>OOQuestScope</code>、<code>QuestService</code>/<code>QuestController</code>，以及 immutable、bounded 的 <code>QuestSnapshot</code>、<code>QuestJournal</code>、<code>QuestEntry</code>、<code>QuestObjective</code>、<code>QuestProgress</code>、<code>QuestActionRequest</code>、<code>QuestActionResult</code>、<code>QuestEvent</code>。任务 ID 必须使用 provider-owner namespace；snapshot 携带 provider revision。</p>

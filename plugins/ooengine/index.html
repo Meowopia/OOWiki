@@ -103,7 +103,7 @@
       <div class="ovo-navbar-links">
         <a href="../..">首页</a>
         <a href="../../installation/">文档</a>
-        <a href="../">插件</a>
+        <a href="../">插件中心</a>
         <a href="../../development/">开发者</a>
       </div>
 
@@ -189,7 +189,7 @@
           
   
   
-  插件
+  插件中心
 
         </a>
       </li>
@@ -527,7 +527,7 @@
   
   
   <span class="md-ellipsis">
-    插件
+    插件中心
     
   </span>
   
@@ -538,7 +538,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            插件
+            插件中心
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -564,54 +564,6 @@
   
 
               
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    基础（Core）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            基础（Core）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -973,60 +925,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    附属（Extensions）
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            附属（Extensions）
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -1119,9 +1017,70 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ooquest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oovip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOVIP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ooreforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1685,7 +1644,7 @@
 </code></pre></div>
 <p>迁移还必须覆盖旧配置、环境变量、签名 pin、缓存和 worker artifact，并保持服务器 UID 隔离；只有 Fabric/NeoForge/FCL、MP4/WebM、签名、资源释放和长跑门禁通过后才能删除兼容壳。新接入只能使用 OOVideo。当前不增加独立 <code>/oo video</code> 模块命令。</p>
 <h3 id="ooquest-planned">OOQuest 子项目（planned）<a class="headerlink" href="#ooquest-planned" title="Permanent link">&para;</a></h3>
-<p>产品与 Console 导航分类写作 <code>OORPG &gt; OOQuest</code>；构建、依赖与生命周期图仍写作 <code>OOEngine &gt; :ooquest</code>。不得因此创建独立 OORPG artifact/group/package 或把源码移出 OOEngine。</p>
+<p>OOQuest 只作为 OOEngine 内部任务接入接口存在，构建、依赖、生命周期和文档均归属 <code>OOEngine &gt; :ooquest</code>。它不是独立插件，也不建立额外产品分类或独立 artifact/group/package。</p>
 <p>它适配 BetonQuest、Typewriter、Quests、BeautyQuests、MMO/Mythio 任务源及未来 Provider，但不复制第三方数据库/状态机，也不裁定任务业务真相。Provider 始终负责权限、前置条件、推进和奖励事务。</p>
 <p>任务 ID 使用 provider-owner namespace，snapshot 带 provider revision。accept/track/untrack/submit/abandon 携带 requestId、expectedRevision、actor UUID，并返回新 revision 与明确 code。客户端只提交 intent，不得上报完成度、奖励或状态；禁止 command/script/path/SQL。</p>
 <p>任务窗口统一经 OOMenu Window facade，HUD tracker 归未来 OOHUD，OOConsole 只配置 adapter/显示映射与诊断。Typewriter 对话本身继续归对话/OOChat 边界。</p>
