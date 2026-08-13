@@ -1,87 +1,45 @@
-﻿---
-hide:
-  - navigation
-  - toc
-  - footer
----
+# OO 系列插件 Wiki
 
-<section class="hero">
-  <div class="hero-copy">
-    <p class="hero-kicker">MEOWOPIA · MINECRAFT PLUGIN SUITE</p>
-    <h1><span>OO 系列插件</span><br>开箱即用的服务端生态</h1>
-    <p class="hero-lead">面向 Paper/Folia 与 Fabric/NeoForge 的服务端权威架构、UI、聊天、小游戏与音乐能力平台。统一能力模型、统一部署体验、可维护的插件总线。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="installation/">开始部署</a>
-      <a class="btn btn-ghost" href="https://github.com/Meowopia/OOWiki">GitHub 仓库</a>
-    </div>
-  </div>
-  <div class="hero-art" aria-hidden="true">
-    <div class="hero-orb hero-orb-a"></div>
-    <div class="hero-orb hero-orb-b"></div>
-    <div class="hero-glass">
-      <div class="oo-mark">OO</div>
-    </div>
-  </div>
-</section>
+这里是 OO 系列插件的统一中文文档入口。文档以当前仓库中的实现、插件描述文件和架构约束为准。
 
-<section class="feature-grid">
-  <article>
-    <h3>服务端权威</h3>
-    <p>指令与核心行为全部由服务端校验与执行业务流程，避免作弊与客户端越权。</p>
-  </article>
-  <article>
-    <h3>统一兼容层</h3>
-    <p>OOCore 统一各版本差异与平台 API，通过 capability 与 ABI 适配扩展功能。</p>
-  </article>
-  <article>
-    <h3>原生交互体验</h3>
-    <p>OOEngine 提供 Screen/HUD/动作协议，客户端以统一协议进行高性能渲染。</p>
-  </article>
-</section>
+## 产品组成
 
-<section class="section-title">
-  <p>插件产品栈</p>
-  <h2>从核心到扩展，一套文档打通全部插件</h2>
-</section>
+| 项目 | 类型 | 作用 | 运行时依赖 |
+|---|---|---|---|
+| **OOCore** | Paper/Folia 插件 | OO 系列公共运行时、模块注册、调度、存储与兼容层 | 无 |
+| **OOEngine** | Paper/Folia 插件 | 服务端权威的 UI、面板、HUD、动作与集成框架 | OOCore |
+| **OOEngine-Client** | Fabric/NeoForge 客户端 | 原生 Screen/HUD、媒体、模型与交互渲染 | 对应版本 OOEngine |
+| **OOChat** | Paper/Folia 附属插件 | 聊天、会话、社交、邮件、审核与消息历史 | OOCore、OOEngine |
+| **OOGame** | Paper/Folia 附属插件 | 小游戏大厅、目录、房间、匹配、邀请及 Provider 桥 | OOCore、OOEngine；OOChat 可选 |
+| **OOMusic** | Paper/Folia 附属插件 | 音乐目录、队列、歌单、同步听与播放控制 | OOCore、OOEngine；OOChat 可选 |
 
-<div class="product-grid">
-  <a href="plugins/oocore/" class="product-card">
-    <span class="chip">RUNTIME</span>
-    <h3>OOCore</h3>
-    <p>核心能力层，承载统一命令、生命周期、能力协商与数据服务。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/ooengine/" class="product-card">
-    <span class="chip">UI ENGINE</span>
-    <h3>OOEngine</h3>
-    <p>服务端 UI、HUD 与动作协议，适配 Fabric/NeoForge 客户端。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/oochat/" class="product-card">
-    <span class="chip">SOCIAL</span>
-    <h3>OOChat</h3>
-    <p>聊天、会话、邮件、好友等社交能力体系化落地。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/oogame/" class="product-card">
-    <span class="chip">GAME</span>
-    <h3>OOGame</h3>
-    <p>小游戏大厅、房间/匹配、邀请与 Provider 聚合能力。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/oomusic/" class="product-card">
-    <span class="chip">MEDIA</span>
-    <h3>OOMusic</h3>
-    <p>曲库、队列、歌单、共享会话与同步听的媒体能力。</p>
-    <strong>进入文档 →</strong>
-  </a>
-</div>
+## 快速导航
 
-<section class="cta">
-  <div>
-    <p>GET STARTED</p>
-    <h2>准备部署 OO 系列？</h2>
-    <p>从安装、配置到首轮联调，按文档顺序完成，低风险上线。</p>
-  </div>
-  <a class="btn btn-primary" href="installation/">查看安装指南</a>
-</section>
+- [安装与升级](installation.md)
+- [架构与依赖关系](architecture.md)
+- [OOCore](plugins/oocore.md)
+- [OOEngine 与客户端](plugins/ooengine.md)
+- [OOChat](plugins/oochat.md)
+- [OOGame](plugins/oogame.md)
+- [OOMusic](plugins/oomusic.md)
+- [配置参考](configuration.md)
+- [命令与权限](commands-permissions.md)
+- [开发者接入](development.md)
+- [故障排查](troubleshooting.md)
+
+## 关键原则
+
+1. **服务端权威**：客户端只发送 intent，不能决定权限、收件人、冷却、奖励或最终状态。
+2. **兼容集中在 OOCore**：附属插件不得直接依赖 CraftBukkit/NMS，也不得自行判断服务端版本。
+3. **UI 集中在 OOEngine**：附属插件提供 bindings、actions 和状态，不再实现第二套渲染器。
+4. **版本独立**：各服务端插件独立发布；部署时应按兼容矩阵选择版本，而不是只看版本号是否相同。
+5. **故障隔离**：可选 Provider 或 Bridge 故障只降级对应功能，必需 Capability 缺失则启动时 fail-fast。
+
+## 当前基线
+
+- 构建工具链：Java 25（OOMusic 的纯领域模块当前可用 Java 21，但实际 OO 服务端部署按 Java 25 统一）。
+- 主要服务端：Paper / Folia。
+- 当前描述文件基线：Minecraft API `26.2`。
+- 客户端：与 Minecraft 版本匹配的 Fabric 或 NeoForge 包，二选一。
+
+> 仓库中仍可能存在 `ooengine` 旧标识。它仅用于配置、协议、资源 namespace 或 Java package 兼容，不代表旧产品名。
