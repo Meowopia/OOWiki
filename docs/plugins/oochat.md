@@ -10,7 +10,7 @@ OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。
 
 ## 生态分类
 
-本插件归为通用聊天域，但在导航上属于 `OORPG` 生态联动群组（与 OOQuest/OOVIP/OOReforge 协同）。
+本插件是通用聊天域产品，官方导航固定属于**附属（Extensions）**。它可以与 OORPG 产品协同，但不会因此改变分类或依赖边界。
 
 ## 定位与边界
 
@@ -29,3 +29,11 @@ OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。
 - 本仓库：实施计划已接入 OOChat 领域核心 + OOCore 稳定 facade。
 - 可视化编辑：planned，等待通过已发布的 OOConsole SDK 接入；当前没有已实现的 OOChat 产品工作区。
 - OOMenu/OOVideo/OOQuest：本插件仅消费，不建模独立桥接实现。
+
+## 联系 / Contact
+
+- 作者 / Author: zkonikishi
+- QQ: 276098266
+- Discord: <https://discord.gg/KPq2fZHFK>
+- [ifdian](https://ifdian.net/a/zkonikishi)
+- QQ群 / QQ Group: 1063369777

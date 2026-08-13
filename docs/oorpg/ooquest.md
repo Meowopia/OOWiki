@@ -7,3 +7,11 @@ OOQuest 是任务插件接入 OOEngine 的统一接口层，对接 BetonQuest、
 计划 Capability 为 `ooengine.quest.v1`。任务窗口由 OOMenu 展示，追踪信息由 OOHUD 消费，OOConsole 只提供配置和脱敏诊断。
 
 客户端只能提交 accept、track、untrack、submit、abandon 等 intent；完成度、奖励和最终状态由权威 Provider 校验。
+
+## 联系 / Contact
+
+- 作者 / Author: zkonikishi
+- QQ: 276098266
+- Discord: <https://discord.gg/KPq2fZHFK>
+- [ifdian](https://ifdian.net/a/zkonikishi)
+- QQ群 / QQ Group: 1063369777
