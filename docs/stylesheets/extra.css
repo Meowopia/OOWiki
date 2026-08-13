@@ -36,3 +36,7 @@
   .plugin-wiki-page .md-sidebar--secondary{order:0;margin-left:0;margin-right:1.2rem}
   .plugin-wiki-page .md-content{order:1}
 }
+
+/* Accepted public plugin branding. */
+.plugin-page-banner{display:block;width:100%;height:auto;aspect-ratio:1200/630;margin:.8rem 0 1.8rem;border:1px solid var(--ovo-line);border-radius:18px;object-fit:cover;box-shadow:0 18px 48px rgba(76,29,149,.12)}
+@media(max-width:620px){.plugin-page-banner{margin:.55rem 0 1.25rem;border-radius:12px}}

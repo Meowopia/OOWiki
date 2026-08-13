@@ -1,5 +1,7 @@
 # OOVIP
 
+<img class="plugin-page-banner" src="../../assets/branding/oovip/banner-1200x630.png" alt="OOVIP 会员生命周期与权益品牌横幅" loading="lazy" decoding="async">
+
 **分类：独立（Standalone）。状态：paused / unreleased。**
 
 OOVIP 是会员生命周期与权益编排层，不重写 LuckPerms、PlayerPoints、YuPay、GUI 或时装 Provider。membership domain skeleton、V1 schema 与 SQLite 校验已实现；JDBC transaction/outbox/idempotency、provider adapter、claims/PAPI/GUI API 仍 planned。`/oo vip` 当前仅 bootstrap，尚未达到正式 release 门禁。

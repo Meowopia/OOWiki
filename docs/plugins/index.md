@@ -24,48 +24,48 @@
 
 <div class="plugin-card-grid" data-plugin-grid>
   <a class="plugin-card" href="oocore/" data-category="core" data-search="oocore 核心 core 生命周期 命令 capability">
-    <div class="plugin-card-top"><img src="../assets/oocore-logo-1024.png" alt="OOCore Logo"><span class="plugin-state state-implemented">Stable 1.7.1</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/oocore/logo-1024.png" alt="OOCore Logo" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.7.1</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOCore</h2><p>OO 生态的平台前置，统一生命周期、命令、Capability 与可信 owner-service。</p></div>
     <div class="plugin-card-footer"><span>平台核心</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooengine/" data-category="core" data-search="ooengine 核心 core window ui renderplan menu video editor hud">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-violet">OE</span><span class="plugin-state state-implemented">Stable 1.1.6</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/ooengine/logo-1024.png" alt="OOEngine Logo" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.1.6</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooconsole/" data-category="core" data-search="ooconsole 核心 core console editor workspace owner service admin">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-indigo">OC</span><span class="plugin-state state-implemented">Stable 0.1.6</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/ooconsole/logo-1024.png" alt="OOConsole Logo" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.6</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>统一管理与可视化编辑入口；owner-service 已验收，产品工作区仍逐项建设。</p></div>
     <div class="plugin-card-footer"><span>管理平台</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oogame/" data-category="extensions" data-search="oogame extensions game lobby 斗地主 房间 匹配">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-orange">OG</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/oogame/logo-1024.png" alt="OOGame Logo" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOGame</h2><p>小游戏大厅、Provider 聚合、房间、活动与完整回合状态机。</p></div>
     <div class="plugin-card-footer"><span>游戏大厅</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oomusic/" data-category="extensions" data-search="oomusic extensions music lyrics timeline 歌词 音乐 播放">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-pink">OM</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/oomusic/logo-1024.png" alt="OOMusic Logo" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOMusic</h2><p>曲库、队列、同步听与 bounded LyricsDocument / LyricsTimeline 服务。</p></div>
     <div class="plugin-card-footer"><span>音乐服务</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oobrowser/" data-category="extensions" data-search="oobrowser extensions browser chromium mcef dns pin web">
     <div class="plugin-card-top"><span class="plugin-lettermark mark-cyan">OB</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOBrowser</h2><p>受策略控制的 Web surface 与 DNS pin transport；live Chromium connector 仍 planned。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOBrowser</h2><p>受策略控制的 Web surface 与 DNS pin transport；当前图标为占位，非最终品牌资产。</p></div>
     <div class="plugin-card-footer"><span>浏览器表面</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oochat/" data-category="extensions" data-search="oochat extensions chat social friend mail 聊天 好友 邮件">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-green">OH</span><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/oochat/logo-1024.png" alt="OOChat Logo" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOChat</h2><p>聊天、好友、会话与邮件系统；支持 CommandV2 与可选 OOConsole，0.1.0 暂不包含 Window/UI。</p></div>
     <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
   </a>
 
   <a class="plugin-card" href="oovip/" data-category="independent" data-search="oovip independent vip membership 会员 权益">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-gold">OV</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/oovip/logo-1024.png" alt="OOVIP Logo" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOVIP</h2><p>会员生命周期与权益编排插件，当前暂停且未发布。</p></div>
     <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooreforge/" data-category="independent" data-search="ooreforge independent reforge equipment 装备 锻造">
-    <div class="plugin-card-top"><span class="plugin-lettermark mark-red">OR</span><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/ooreforge/logo-1024.png" alt="OOReforge Logo" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOReforge</h2><p>装备、锻造、品质与配方插件，当前暂停且未发布。</p></div>
     <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 →</b></div>
   </a>

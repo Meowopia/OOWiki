@@ -1,5 +1,7 @@
 # OOConsole
 
+<img class="plugin-page-banner" src="../../assets/branding/ooconsole/banner-1200x630.png" alt="OOConsole 管理与可视化编辑品牌横幅" loading="lazy" decoding="async">
+
 **分类：基础（Core）。**
 
 OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。

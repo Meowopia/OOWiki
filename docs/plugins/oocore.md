@@ -1,8 +1,6 @@
 # OOCore
 
-![OOCore Logo](../assets/oocore-logo-1024.png){ width="160" loading="lazy" }
-
-该紫粉渐变圆角方形与白色等大双圆标记为 **OOCore 官方 Logo**。
+<img class="plugin-page-banner" src="../../assets/branding/oocore/banner-1200x630.png" alt="OOCore 平台核心品牌横幅" loading="lazy" decoding="async">
 
 OOCore 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不创建聚合插件、runtime、Maven group、package、数据库或额外硬依赖；OOCore 仍是独立版本和仓库的平台前置。
 

@@ -1,5 +1,7 @@
 # OOChat
 
+<img class="plugin-page-banner" src="../../assets/branding/oochat/banner-1200x630.png" alt="OOChat 聊天与消息服务品牌横幅" loading="lazy" decoding="async">
+
 **分类：附属（Extensions）。**
 
 当前稳定版为 [`0.1.0`](https://github.com/Meowopia/OOChat/releases/tag/v0.1.0)，以闭源二进制形式发布。

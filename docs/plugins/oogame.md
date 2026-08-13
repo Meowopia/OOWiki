@@ -1,5 +1,7 @@
 # OOGame
 
+<img class="plugin-page-banner" src="../../assets/branding/oogame/banner-1200x630.png" alt="OOGame 小游戏大厅品牌横幅" loading="lazy" decoding="async">
+
 OOGame 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。
 
 OOGame 是 OOEngine 的小游戏大厅与 Provider 聚合插件，也是独立闭源专有产品。Copyright (c) 2026 Meowopia, All rights reserved；源码仅供授权维护者使用。历史已发布版本继续适用其当时的许可证，本政策不撤回旧授权，第三方组件仍按各自上游许可执行。本页只保留安装、配置、公开 API 用法与产品状态。

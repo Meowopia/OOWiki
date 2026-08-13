@@ -1,5 +1,7 @@
 # OOReforge
 
+<img class="plugin-page-banner" src="../../assets/branding/ooreforge/banner-1200x630.png" alt="OOReforge 装备锻造与重铸品牌横幅" loading="lazy" decoding="async">
+
 **分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：paused / unreleased。**
 
 OOReforge 负责装备、锻造、品质、配方和领域校验。OOEngine 与 OOConsole 对其保持可选；需要窗口时通过 OOMenu stable facade，需要可视化管理时通过 OOConsole Contribution。
