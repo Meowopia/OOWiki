@@ -1,125 +1,98 @@
-﻿---
+---
 hide:
   - navigation
   - toc
   - footer
 ---
 
-<section class="hero">
-  <div class="hero-copy">
-    <p class="hero-kicker">MEOWOPIA · MINECRAFT PLUGIN SUITE</p>
-    <h1><span>OO 系列插件</span><br>开箱即用的服务端生态</h1>
-    <p class="hero-lead">面向 Paper/Folia 与 Fabric/NeoForge 的服务端权威架构、UI、聊天、小游戏与音乐能力平台。统一能力模型、统一部署体验、可维护的插件总线。</p>
-    <div class="hero-badges" aria-label="核心能力">
-      <span>Server Native</span>
-      <span>Cross Version</span>
-      <span>Capability Based</span>
-      <span>Plugin Ecosystem</span>
+<section class="ovo-hero">
+  <div class="ovo-glow ovo-glow-left"></div>
+  <div class="ovo-glow ovo-glow-right"></div>
+  <a class="ovo-notice" href="installation/">
+    <span>NEW</span> OO 系列统一文档现已上线 <b>→</b>
+  </a>
+  <p class="ovo-eyebrow">MEOWOPIA · MINECRAFT PLUGIN ECOSYSTEM</p>
+  <h1>为 Minecraft 服务器打造<br><em>完整、现代的插件体验</em></h1>
+  <p class="ovo-lead">OO 系列提供核心能力、原生 UI、社交、小游戏与音乐服务。<br>从安装到开发，一套 Wiki 带你快速完成部署。</p>
+  <div class="ovo-actions">
+    <a class="ovo-btn ovo-btn-primary" href="installation/">开始使用 <span>→</span></a>
+    <a class="ovo-btn ovo-btn-secondary" href="https://github.com/Meowopia/OOWiki">GitHub</a>
+  </div>
+
+  <div class="ovo-preview" aria-label="OO 系列插件预览">
+    <div class="preview-bar">
+      <div class="preview-brand"><span class="preview-logo">OO</span><b>控制台</b></div>
+      <div class="preview-search">⌕ 搜索插件、命令或文档</div>
+      <div class="preview-status"><i></i> 服务运行中</div>
     </div>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="installation/">开始部署</a>
-      <a class="btn btn-ghost" href="https://github.com/Meowopia/OOWiki">GitHub 仓库</a>
+    <div class="preview-body">
+      <aside>
+        <span class="active">⌂ 概览</span><span>◇ 插件管理</span><span>⌘ 服务配置</span><span>♧ 开发者</span>
+      </aside>
+      <main>
+        <p class="preview-kicker">SERVER OVERVIEW</p>
+        <h3>欢迎使用 OO 系列</h3>
+        <div class="preview-metrics">
+          <div><small>已加载插件</small><strong>5</strong><b>全部正常</b></div>
+          <div><small>核心状态</small><strong>Online</strong><b>OOCore</b></div>
+          <div><small>兼容平台</small><strong>4</strong><b>Paper · Folia</b></div>
+        </div>
+        <div class="preview-console"><span>OOCore</span> Capability registry ready · 5 providers connected</div>
+      </main>
     </div>
   </div>
-  <div class="hero-art" aria-hidden="true">
-    <div class="hero-orb hero-orb-a"></div>
-    <div class="hero-orb hero-orb-b"></div>
-    <div class="hero-glass">
-      <div class="oo-mark">OO</div>
-    </div>
-  </div>
 </section>
 
-<section class="feature-grid">
-  <article>
-    <h3>服务端权威</h3>
-    <p>指令与核心行为全部由服务端校验与执行业务流程，避免作弊与客户端越权。</p>
-  </article>
-  <article>
-    <h3>统一兼容层</h3>
-    <p>OOCore 统一各版本差异与平台 API，通过 capability 与 ABI 适配扩展功能。</p>
-  </article>
-  <article>
-    <h3>原生交互体验</h3>
-    <p>OOEngine 提供 Screen/HUD/动作协议，客户端以统一协议进行高性能渲染。</p>
-  </article>
+<section class="ovo-section ovo-intro">
+  <p class="ovo-eyebrow">WHY OO</p>
+  <h2>专注能力，而不是重复造轮子</h2>
+  <p>统一底层、清晰边界、原生体验，让服务器功能可以像积木一样组合。</p>
 </section>
 
-<section class="section-title">
-  <p>文档导航</p>
-  <h2>先把重点文档吃透，再开始扩展</h2>
-</section>
-
-<div class="quick-grid">
-  <a href="installation/" class="quick-card">
-    <strong>安装与升级</strong>
-    <p>按步骤完成环境搭建、依赖加载与首次联调。</p>
-  </a>
-  <a href="architecture/" class="quick-card">
-    <strong>架构与依赖</strong>
-    <p>能力模型、平台适配与模块关系一图读懂。</p>
-  </a>
-  <a href="configuration/" class="quick-card">
-    <strong>配置参考</strong>
-    <p>关键配置项与常见生产环境参数建议。</p>
-  </a>
-  <a href="commands-permissions/" class="quick-card">
-    <strong>命令与权限</strong>
-    <p>指令列表、权限树与典型运维场景。</p>
-  </a>
-  <a href="development/" class="quick-card">
-    <strong>开发者接入</strong>
-    <p>接入流程、SDK 说明、事件回调与扩展方式。</p>
-  </a>
-  <a href="troubleshooting/" class="quick-card">
-    <strong>故障排查</strong>
-    <p>按现象快速定位并提供标准化修复步骤。</p>
-  </a>
+<div class="ovo-feature-grid">
+  <article class="ovo-feature ovo-feature-wide">
+    <span class="feature-icon">⌁</span>
+    <div><h3>统一能力架构</h3><p>OOCore 统一生命周期、命令、数据与 capability 协商，各插件只关注自己的业务能力。</p></div>
+    <div class="feature-code"><i>OOCore</i><span>Capability Bus</span><b>OOEngine</b><b>OOChat</b><b>OOGame</b></div>
+  </article>
+  <article class="ovo-feature">
+    <span class="feature-icon">⚡</span><h3>开箱即用</h3><p>清晰的安装流程与生产配置参考，几分钟内完成首次部署。</p>
+  </article>
+  <article class="ovo-feature">
+    <span class="feature-icon">◫</span><h3>原生交互</h3><p>Screen、HUD 与动作协议，为玩家提供一致且流畅的客户端体验。</p>
+  </article>
+  <article class="ovo-feature">
+    <span class="feature-icon">◎</span><h3>跨平台兼容</h3><p>面向 Paper、Folia、Fabric 与 NeoForge，隔离平台和版本差异。</p>
+  </article>
 </div>
 
-<section class="section-title">
-  <p>插件产品栈</p>
-  <h2>从核心到扩展，一套文档打通全部插件</h2>
+<section class="ovo-section">
+  <p class="ovo-eyebrow">PLUGIN ECOSYSTEM</p>
+  <h2>一个核心，连接所有插件</h2>
+  <p>每个组件独立工作，也能通过统一能力总线协同运行。</p>
 </section>
 
-<div class="product-grid">
-  <a href="plugins/oocore/" class="product-card">
-    <span class="chip">RUNTIME</span>
-    <h3>OOCore</h3>
-    <p>核心能力层，承载统一命令、生命周期、能力协商与数据服务。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/ooengine/" class="product-card">
-    <span class="chip">UI ENGINE</span>
-    <h3>OOEngine</h3>
-    <p>服务端 UI、HUD 与动作协议，适配 Fabric/NeoForge 客户端。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/oochat/" class="product-card">
-    <span class="chip">SOCIAL</span>
-    <h3>OOChat</h3>
-    <p>聊天、会话、邮件、好友等社交能力体系化落地。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/oogame/" class="product-card">
-    <span class="chip">GAME</span>
-    <h3>OOGame</h3>
-    <p>小游戏大厅、房间/匹配、邀请与 Provider 聚合能力。</p>
-    <strong>进入文档 →</strong>
-  </a>
-  <a href="plugins/oomusic/" class="product-card">
-    <span class="chip">MEDIA</span>
-    <h3>OOMusic</h3>
-    <p>曲库、队列、歌单、共享会话与同步听的媒体能力。</p>
-    <strong>进入文档 →</strong>
-  </a>
+<div class="ovo-plugin-grid">
+  <a href="plugins/oocore/"><span>CORE</span><i>01</i><h3>OOCore</h3><p>插件生态的核心运行时与能力底座。</p><b>查看文档 →</b></a>
+  <a href="plugins/ooengine/"><span>UI ENGINE</span><i>02</i><h3>OOEngine</h3><p>Screen、HUD 与客户端动作协议。</p><b>查看文档 →</b></a>
+  <a href="plugins/oochat/"><span>SOCIAL</span><i>03</i><h3>OOChat</h3><p>聊天、好友、会话与邮件系统。</p><b>查看文档 →</b></a>
+  <a href="plugins/oogame/"><span>GAME</span><i>04</i><h3>OOGame</h3><p>大厅、房间、匹配与小游戏聚合。</p><b>查看文档 →</b></a>
+  <a href="plugins/oomusic/"><span>MEDIA</span><i>05</i><h3>OOMusic</h3><p>曲库、歌单与多人同步收听。</p><b>查看文档 →</b></a>
 </div>
 
-<section class="cta">
-  <div>
-    <p>GET STARTED</p>
-    <h2>准备部署 OO 系列？</h2>
-    <p>从安装、配置到首轮联调，按文档顺序完成，低风险上线。</p>
+<section class="ovo-docs">
+  <div><p class="ovo-eyebrow">DOCUMENTATION</p><h2>从这里开始</h2><p>部署、配置、开发与排障，所有关键资料都在这里。</p></div>
+  <div class="ovo-doc-links">
+    <a href="installation/"><span>01</span><b>安装与升级</b><i>→</i></a>
+    <a href="architecture/"><span>02</span><b>架构与依赖</b><i>→</i></a>
+    <a href="configuration/"><span>03</span><b>配置参考</b><i>→</i></a>
+    <a href="development/"><span>04</span><b>开发者接入</b><i>→</i></a>
   </div>
-  <a class="btn btn-primary" href="installation/">查看安装指南</a>
+</section>
+
+<section class="ovo-cta">
+  <div class="ovo-cta-logo">OO</div>
+  <h2>准备好构建你的服务器了吗？</h2>
+  <p>现在开始部署 OO 系列插件。</p>
+  <a class="ovo-btn ovo-btn-primary" href="installation/">阅读安装指南 <span>→</span></a>
 </section>
