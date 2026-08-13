@@ -12,7 +12,6 @@
 
 `0.1.0` 不包含 OOEngine Window/UI。 / `0.1.0` does not include OOEngine Window/UI.
 
-**已验证环境 / Verified environment:** Minecraft 26.2 ? Paper 26.2-92 ? Microsoft Java 25.0.4.7
 
 OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。
 

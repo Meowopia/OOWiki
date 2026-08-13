@@ -20,3 +20,9 @@
 5. 由维护者批准后再提交、推送和发布 Pages；严格构建不会自动授权发布。
 
 禁止伪造 badge、release、artifact、测试或提交身份。本仓库不从文档 CI 自动创建 GitHub Release。
+
+## Release body policy
+
+Server-plugin stable releases contain only a concise bilingual **更新日志 / Changelog** and, when required, **已知问题 / Known issues**. They do not include Minecraft, Paper/Folia, or Java test-environment sections and do not include build-validation logs.
+
+The only exception is the **OOEngine Client Mod**. Its release must additionally state prerequisite plugins, compatible OOConsole versions, and applicable/tested Minecraft and Java environments.

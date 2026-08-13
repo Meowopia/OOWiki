@@ -35,7 +35,9 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 | Java | `25` |
 | 兼容目标 | Minecraft/Paper/Folia 26.1、26.1.2、26.2 |
 
-`1.7.1` æ¯å½åå¬å¼ç¨³å®çï¼`1.7.0` å·²æ¤åä¸ä¸å¯ä½¿ç¨ãOOCore æ¯è¿è¡æ¶ç¡¬ä¾èµï¼ä½å¼å®¹æ§æ ABIãhandshake ä¸ Capability ååï¼ä¸è¦æ±ç²¾ç¡® SemVer ç¸ç­ã
+`1.7.1` æ¯å½åå
+¬å¼ç¨³å®çï¼`1.7.0` å·²æ¤åä¸ä¸å¯ä½¿ç¨ãOOCore æ¯è¿è¡æ¶ç¡¬ä¾èµï¼ä½å
+¼å®¹æ§æ ABIãhandshake ä¸ Capability ååï¼ä¸è¦æ±ç²¾ç¡® SemVer ç¸ç­ã
 
 `oocore.command-contribution.v2` 已 implemented/published。Actor 使用 host-minted Bukkit-neutral identity，提供 SenderKind、真实玩家 `Optional<UUID>`、bounded displayName 与 invocation-scoped controlled Authorization；不暴露 `CommandSender`/`Player`，不允许 command dispatch。v1 保持 binary compatible，并标记 deprecated migration。
 
@@ -158,4 +160,3 @@ OOConsole 是独立插件并硬依赖 OOCore 与 OOEngine；业务插件对 OOCo
 
 **English:** Releases stable `1.7.1`, replacing withdrawn `1.7.0`.
 
-**å·²éªè¯ç¯å¢ / Verified environment:** Minecraft 26.2 ? Paper 26.2-92 ? Microsoft Java 25.0.4.7

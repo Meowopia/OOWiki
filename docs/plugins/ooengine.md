@@ -35,7 +35,6 @@ Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contributio
 
 Folia live acceptance å°æªå®æã / Folia live acceptance is not complete.
 
-**å·²éªè¯ç¯å¢ / Verified environment:** Minecraft 26.2 ? Paper 26.2-87 ? Java 25
 
 `OOMenu`（Gradle module `:oomenu`）是 OOEngine 仓库内部的菜单子项目，不是独立插件、Mod 或仓库。它随 OOEngine 服务端产物集成发布，Java package 为 `com.zkonikishi.ooengine.menu`。
 
