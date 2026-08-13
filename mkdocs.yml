@@ -59,6 +59,7 @@ nav:
       - 迁移规则: migration.md
       - 安全模型: security.md
   - 插件:
+      - 插件中心: plugins/index.md
       - 基础（Core）:
           - OOCore: plugins/oocore.md
           - OOEngine: plugins/ooengine.md
