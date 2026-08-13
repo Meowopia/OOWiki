@@ -1,0 +1,6 @@
+:root { --md-primary-fg-color: #6d45d6; --md-accent-fg-color: #d13b83; }
+.md-header { background: linear-gradient(90deg, #5b35c5, #9c3fb0); }
+.md-typeset h1 { font-weight: 750; letter-spacing: -.025em; }
+.md-typeset h2 { font-weight: 680; }
+.md-typeset table:not([class]) { border-radius: .5rem; overflow: hidden; }
+.md-typeset code { border-radius: .25rem; }
