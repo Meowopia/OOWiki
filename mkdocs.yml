@@ -1,0 +1,84 @@
+site_name: OO 系列插件 Wiki
+site_description: Meowopia OO 系列 Minecraft 插件统一中文文档
+site_url: https://meowopia.github.io/OOWiki/
+repo_url: https://github.com/Meowopia/OOWiki
+repo_name: Meowopia/OOWiki
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: zh
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+nav:
+  - 首页: index.md
+  - 入门:
+      - 安装与升级: installation.md
+      - 架构与依赖: architecture.md
+      - 配置参考: configuration.md
+      - 命令与权限: commands-permissions.md
+  - 插件:
+      - OOCore: plugins/oocore.md
+      - OOEngine 与客户端: plugins/ooengine.md
+      - OOChat: plugins/oochat.md
+      - OOGame: plugins/oogame.md
+      - OOMusic: plugins/oomusic.md
+  - 开发者:
+      - 开发者接入: development.md
+      - 故障排查: troubleshooting.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2026 Meowopia
