@@ -822,15 +822,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#a-changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      æ´æ°æ¥å¿ / Changelog
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -902,9 +893,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>1.7.1</code> æ¯å½åå
-¬å¼ç¨³å®çï¼<code>1.7.0</code> å·²æ¤åä¸ä¸å¯ä½¿ç¨ãOOCore æ¯è¿è¡æ¶ç¡¬ä¾èµï¼ä½å
-¼å®¹æ§æ ABIãhandshake ä¸ Capability ååï¼ä¸è¦æ±ç²¾ç¡® SemVer ç¸ç­ã</p>
+<p><code>1.7.1</code> 是当前公开稳定版，<code>1.7.0</code> 已撤回且不可使用。OOCore 是运行时硬依赖，但兼容性按 ABI、handshake 与 Capability 协商，不要求精确 SemVer 相等。</p>
 <p><code>oocore.command-contribution.v2</code> 已 implemented/published。Actor 使用 host-minted Bukkit-neutral identity，提供 SenderKind、真实玩家 <code>Optional&lt;UUID&gt;</code>、bounded displayName 与 invocation-scoped controlled Authorization；不暴露 <code>CommandSender</code>/<code>Player</code>，不允许 command dispatch。v1 保持 binary compatible，并标记 deprecated migration。</p>
 <p><code>oocore.owner-bound-service.v1</code> 已 implemented/published，用于 Core 验证的 owner-bound typed service acquisition。它绑定 provider/requester 双生命周期，lease 关闭后泄漏的 service 引用也会 fail-fast；不信任字符串 <code>ownerId</code>，不暴露 session 或 Bukkit handle。旧 registry ABI 继续保留。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
@@ -1015,9 +1004,6 @@
 <h2 id="ooconsole-planned">OOConsole 集成（planned）<a class="headerlink" href="#ooconsole-planned" title="Permanent link">&para;</a></h2>
 <p>OOCore 提供 <code>oocore.control-plane.read.v1</code> 只读 Capability，向未来的独立 OOConsole 暴露 bounded、immutable、脱敏的健康状态、兼容 adapter、Capability、模块/服务和 lifecycle 资源计数。OOCore 不提供 HTTP、UI、Editor 或任意 mutation 转发。</p>
 <p>OOConsole 是独立插件并硬依赖 OOCore 与 OOEngine；业务插件对 OOConsole 保持 optional。OOConsole <code>0.1.5</code> + OOCore <code>1.6.1</code> owner-service 最终门禁已通过，平台可信链 available for migration；各 adapter 仍须独立验收。HTTP/UI、Editor 迁移和产品工作区仍为 planned/code-prepared。</p>
-<h2 id="a-changelog">æ´æ°æ¥å¿ / Changelog<a class="headerlink" href="#a-changelog" title="Permanent link">&para;</a></h2>
-<p><strong>ä¸­æ:</strong> åå¸ <code>1.7.1</code> ç¨³å®çï¼æ¿ä»£å·²æ¤åç <code>1.7.0</code>ã</p>
-<p><strong>English:</strong> Releases stable <code>1.7.1</code>, replacing withdrawn <code>1.7.0</code>.</p>
 
 
 

@@ -742,30 +742,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      æ´æ°æ¥å¿ / Changelog
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a2cee-known-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      å·²ç¥é®é¢ / Known issues
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="å·²ç¥é®é¢ / Known issues">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#oovideo" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1034,13 +1010,8 @@
 <p>Window facade 在 <code>1.1.4</code> 中不完整：缺少 <code>WindowController</code>，Contribution 重复 <code>ownerId</code>，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy <code>PanelController</code>。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 <code>1.1.4</code>。</p>
 <div class="admonition info">
 <p class="admonition-title">1.1.6 stable</p>
-<p><code>1.1.6</code> å·²ä½ä¸ºé­æºäºè¿å¶ç¨³å®çåå¸ï¼<code>1.1.5</code> ä¸å¾ä½¿ç¨ã</p>
+<p><code>1.1.6</code> 已作为闭源二进制稳定版发布；<code>1.1.5</code> 不得使用。</p>
 </div>
-<h2 id="a-changelog">æ´æ°æ¥å¿ / Changelog<a class="headerlink" href="#a-changelog" title="Permanent link">&para;</a></h2>
-<p><strong>ä¸­æ:</strong> åå¸ <code>1.1.6</code> ç¨³å®çï¼å®ææ¬è½® Window/OOMenu ä¿®å¤ã</p>
-<p><strong>English:</strong> Releases stable <code>1.1.6</code> with the current Window/OOMenu repairs.</p>
-<h2 id="a2cee-known-issues">å·²ç¥é®é¢ / Known issues<a class="headerlink" href="#a2cee-known-issues" title="Permanent link">&para;</a></h2>
-<p>Folia live acceptance å°æªå®æã / Folia live acceptance is not complete.</p>
 <p>OOMenu 是所有业务插件接入 OOEngine 窗口系统的统一表现层门面。它负责 owner-scoped window contribution、窗口发现与 open/patch/close 安全编排、namespace/limits/revision/requestId 校验、插件卸载回收，以及通用 Menu 文档、应用目录和 preset。默认、MMO、mobile、phone、Android tablet 都是同一个 Menu 系统的 preset。玩家命令仍为 <code>/oo engine menu</code>，不存在独立 <code>/oo menu</code> 模块命令。</p>
 <p>OOEngine core 继续拥有 <code>UiDocument</code>、RenderPlan、layout/expression/timeline、资源生命周期、协议与客户端 renderer；OOMenu 只消费这些能力，不复制引擎。公开契约仍由 <code>ooengine-api</code> 发布，实现归 <code>:oomenu</code>，因此插件只编译依赖 stable API，不编译依赖内部子项目。</p>
 <p>依赖方向固定为：</p>
