@@ -111,4 +111,4 @@ OOEngine Web Editor 只能分阶段迁移。OOConsole 需要通过功能等价�
 
 OOConsole 仅编辑和诊断 OOVideo 配置、策略与资源引用，不自行播放、解码或持有 texture/audio sink。
 
-OOConsole 在 `OORPG > OOQuest` 导航分类下配置 OOQuest Provider adapter、显示映射并展示 bounded、脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励。该导航分类不改变其工程归属：实现仍位于 `OOEngine > :ooquest`。
+OOConsole 仅消费 OOEngine 内部 OOQuest 接口，用于配置 Provider adapter、显示映射和脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励，也不为 OOQuest 创建独立插件页面或产品分类。

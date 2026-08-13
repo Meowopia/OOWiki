@@ -70,7 +70,7 @@ Plugin
 ### OOQuest 子项目（planned）
 
 
-产品与 Console 导航分类写作 `OORPG > OOQuest`；构建、依赖与生命周期图仍写作 `OOEngine > :ooquest`。不得因此创建独立 OORPG artifact/group/package 或把源码移出 OOEngine。
+OOQuest 只作为 OOEngine 内部任务接入接口存在，构建、依赖、生命周期和文档均归属 `OOEngine > :ooquest`。它不是独立插件，也不建立额外产品分类或独立 artifact/group/package。
 
 它适配 BetonQuest、Typewriter、Quests、BeautyQuests、MMO/Mythio 任务源及未来 Provider，但不复制第三方数据库/状态机，也不裁定任务业务真相。Provider 始终负责权限、前置条件、推进和奖励事务。
 

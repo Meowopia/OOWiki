@@ -100,7 +100,7 @@ OOBrowser 只负责 Chromium/Web surface。网页视频进入 OOEngine video sur
 OOQuest 是 OOEngine 仓库内的 Gradle module `:ooquest`，Java package `com.zkonikishi.ooengine.quest`，不是独立 Paper 插件、任务引擎或仓库。公开 stable contract 从 `ooengine-api` 发布，实现归 `:ooquest`。首版目标 Capability 为 `ooengine.quest.v1`。
 
 !!! info "双重归属"
-    工程与生命周期归属：`OOEngine > :ooquest`。产品与生态导航归属：`OORPG > OOQuest`。这只是分类视角不同，不会产生独立 OORPG artifact、group、package、仓库或插件。
+    OOQuest 只是 OOEngine 内部的任务接入接口，工程、生命周期和文档归属均为 `OOEngine > :ooquest`。它不是独立插件，也不建立额外产品分类、artifact、group、package 或仓库。
 
 OOQuest 统一适配 BetonQuest、Typewriter、Quests、BeautyQuests、MMO/Mythic 任务源及未来 Provider，供 OOMenu、未来 OOHUD 和 OOConsole 消费。第三方 Provider 始终是任务状态、前置条件、推进与奖励的权威源；OOQuest 不复制数据库或状态机，也不存储或裁定业务真相。
 

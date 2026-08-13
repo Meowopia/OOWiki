@@ -15,7 +15,7 @@
 | OOEngine `:oomenu` | 所有业务插件接入 OOEngine 窗口系统的统一 facade implementation，并负责 Menu preset、应用目录和玩家菜单偏好；不是独立插件 |
 | OOEngine `:oovideo` | 完整视频子项目：稳定 facade、策略、worker、解码、frame/audio delivery 与客户端 backend；历史 OOMedia 仅保留迁移兼容壳 |
 | OOEngine `:ooquest` | 第三方任务 Provider 的统一 stable facade implementation；不拥有第三方任务业务真相 |
-| OOEngine `:ooquest`（OORPG 分类） | 工程上属于 OOEngine，产品导航归 OORPG；提供 versioned snapshot、权威 action、事件与 provider 隔离，不实现任务业务引擎 |
+| OOEngine `:ooquest`（独立项目 分类） | 工程上属于 OOEngine，产品导航归 独立项目；提供 versioned snapshot、权威 action、事件与 provider 隔离，不实现任务业务引擎 |
 | OOEngine `:ooeditor` | `UiDocument` 结构化编辑、validation/operation、revision diff、preview compile、screenshot request、publish candidate；不是独立插件 |
 | OOEngine `:oohud` | HUD/Tab/Scoreboard/BossBar/Toast/Subtitle/notification overlay 的统一 facade implementation |
 | OOEngine `:oomodel` | 模型 Provider facade；BetterModel 仅通过官方 API optional adapter 接入 |
@@ -172,7 +172,7 @@ API/testkit 正式发布前，消费者只能等待并审计当前接入，不�
 
 首版目标 Capability 为 `ooengine.quest.v1`，公开 contract 从 `ooengine-api 1.1.4` 发布，实现位于 `:ooquest`，package `com.zkonikishi.ooengine.quest`。消费者使用 owner-fixed `ExtensionScope.quest(QuestContribution/QuestProvider)` 或等价 `OOQuestScope`，以及 `QuestService`/`QuestController`。
 
-工程归属固定为 OOEngine 仓库及其生命周期，构建路径为 `OOEngine > :ooquest`；产品/生态和 OOConsole 导航归档为 `OORPG > OOQuest`。禁止建立独立 OORPG artifact/group/package、Paper 插件或仓库。
+工程归属固定为 OOEngine 仓库及其生命周期，构建路径为 `OOEngine > :ooquest`；产品/生态和 OOConsole 导航归档为 `OOEngine > :ooquest`。禁止建立独立 独立项目 artifact/group/package、Paper 插件或仓库。
 
 DTO 使用 immutable、bounded 的 `QuestSnapshot`、`QuestJournal`、`QuestEntry`、`QuestObjective`、`QuestProgress`、`QuestActionRequest`、`QuestActionResult`、`QuestEvent`。任务 ID 必须 provider-owner namespaced；snapshot 带 provider revision。mutation 使用 requestId、expectedRevision、actor UUID，Provider 二次执行 RBAC/前置条件校验并返回新 revision 和明确 code。
 

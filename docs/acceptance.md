@@ -22,7 +22,7 @@
 
 ## 发布前公开检查
 
-- [ ] Core / Extensions / OORPG 分类与导航一致。
+- [ ] Core / Extensions / 独立项目 分类与导航一致。
 - [ ] Stable、Candidate、Preview、Planned 没有互相混写。
 - [ ] 安装、依赖、命令、配置和回滚说明与产品页一致。
 - [ ] 每个产品页包含五项支持联系方式。

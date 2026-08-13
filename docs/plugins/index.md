@@ -14,11 +14,6 @@
     <span aria-hidden="true">⌕</span>
     <input type="search" placeholder="搜索插件、能力或分类…" aria-label="搜索插件" data-plugin-search>
   </label>
-  <div class="plugin-hub-filters" aria-label="插件分类筛选">
-    <button type="button" class="is-active" data-plugin-filter="all">全部</button>
-    <button type="button" data-plugin-filter="core">基础 Core</button>
-    <button type="button" data-plugin-filter="extensions">附属 Extensions</button>
-  </div>
 </div>
 
 <div class="plugin-card-grid" data-plugin-grid>
@@ -56,6 +51,22 @@
     <div class="plugin-card-top"><span class="plugin-lettermark mark-green">OH</span><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属 · Extensions</span><h2>OOChat</h2><p>聊天、好友、会话与邮件系统；Console adapter 尚未完成独立验收。</p></div>
     <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
+  </a>
+
+  <a class="plugin-card" href="ooquest/" data-category="project" data-search="ooquest quest task provider interface 任务 接口">
+    <div class="plugin-card-top"><span class="plugin-lettermark mark-blue">OQ</span><span class="plugin-state state-planned">Paused ? Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">OOEngine 内部接口</span><h2>OOQuest</h2><p>OOEngine 的任务 Provider 接入接口，不是独立插件。</p></div>
+    <div class="plugin-card-footer"><span>任务接入</span><b>查看文档 ?</b></div>
+  </a>
+  <a class="plugin-card" href="oovip/" data-category="project" data-search="oovip vip membership 会员 权益">
+    <div class="plugin-card-top"><span class="plugin-lettermark mark-gold">OV</span><span class="plugin-state state-planned">Paused ? Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">独立项目</span><h2>OOVIP</h2><p>会员生命周期与权益编排插件，当前暂停且未发布。</p></div>
+    <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 ?</b></div>
+  </a>
+  <a class="plugin-card" href="ooreforge/" data-category="project" data-search="ooreforge reforge equipment 装备 锻造">
+    <div class="plugin-card-top"><span class="plugin-lettermark mark-red">OR</span><span class="plugin-state state-planned">Paused ? Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">独立项目</span><h2>OOReforge</h2><p>装备、锻造、品质与配方插件，当前暂停且未发布。</p></div>
+    <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 ?</b></div>
   </a>
 </div>
 
