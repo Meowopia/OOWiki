@@ -18,7 +18,6 @@ OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负�
 
 ### OOMenu 子项目
 
-OOEngine API/testkit `1.1.4` 已发布：API SHA-256 `43E0C7EBA6996BCEB7FEF09D9C9737888CD2771B12A1B00792CA0B5C69BD4328`，testkit SHA-256 `6C76758AC66C5024FB33FCAD234A606354399B1394BE0E1332A7464555F6FE0C`。Window/Menu/Video registration surface 已发布；这不代表 OOMenu/OOVideo server runtime accepted，bootstrap、cleanup 和 migration 仍待验收。
 
 Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contribution 重复 `ownerId`，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy `PanelController`。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 `1.1.4`。
 
@@ -36,7 +35,6 @@ Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contributio
 Folia live acceptance å°æªå®æã / Folia live acceptance is not complete.
 
 
-`OOMenu`（Gradle module `:oomenu`）是 OOEngine 仓库内部的菜单子项目，不是独立插件、Mod 或仓库。它随 OOEngine 服务端产物集成发布，Java package 为 `com.zkonikishi.ooengine.menu`。
 
 OOMenu 是所有业务插件接入 OOEngine 窗口系统的统一表现层门面。它负责 owner-scoped window contribution、窗口发现与 open/patch/close 安全编排、namespace/limits/revision/requestId 校验、插件卸载回收，以及通用 Menu 文档、应用目录和 preset。默认、MMO、mobile、phone、Android tablet 都是同一个 Menu 系统的 preset。玩家命令仍为 `/oo engine menu`，不存在独立 `/oo menu` 模块命令。
 
@@ -55,7 +53,6 @@ OOChat / OOGame / OOMusic / OOBrowser / other plugins
 
 ### OOVideo 子项目
 
-`OOVideo`（Gradle module `:oovideo`）是插件使用 OOEngine 视频表现能力的统一 facade implementation，不是独立插件、Mod 或仓库。Java package 为 `com.zkonikishi.ooengine.video`，公开稳定契约由 `ooengine-api` 暴露。
 
 OOVideo 负责签名 video descriptor/manifest、来源策略、播放状态、seek、timeline 同步、窗口/surface 绑定、Capability negotiation、poster fallback、owner/session 生命周期、解码 worker、frame/audio delivery、client sink，以及尺寸、码率、时长、并发和资源预算。
 
@@ -72,7 +69,6 @@ Plugin
 
 ### OOQuest 子项目（planned）
 
-`OOQuest`（Gradle module `:ooquest`）是第三方任务 Provider 的统一 facade implementation，package `com.zkonikishi.ooengine.quest`，不是独立 Paper 插件、任务引擎或仓库。Capability 目标为 `ooengine.quest.v1`，公开 contract 从 `ooengine-api` 发布。
 
 产品与 Console 导航分类写作 `OORPG > OOQuest`；构建、依赖与生命周期图仍写作 `OOEngine > :ooquest`。不得因此创建独立 OORPG artifact/group/package 或把源码移出 OOEngine。
 
@@ -86,11 +82,9 @@ common 中旧 `com.zkonikishi.ooengine.api.quest.*` 自 `1.1.4` 作为 deprecate
 
 ### OOEditor 子项目（planned）
 
-OOEditor 是 OOEngine 仓库子项目 `:ooeditor`，package `com.zkonikishi.ooengine.editor`。它负责 `UiDocument` 结构化编辑、validation、operation、revision diff、preview compile、screenshot request 和 publish candidate，不是独立插件。OOConsole 调用 OOEditor stable interface，不得复制 editor engine。
 
 ### OOHUD 子项目（planned）
 
-OOHUD 是 OOEngine 仓库子项目 `:oohud`，package `com.zkonikishi.ooengine.hud`，统一 HUD、Tab、Scoreboard、BossBar、Toast、Subtitle 与 notification overlay。planned Capability 为 `ooengine.hud-contribution.v1`。新设计、API 和文档不再使用旧 overlay 产品或 Capability 名称。
 
 ### OOModel 与 BetterModel adapter（planned）
 
@@ -122,7 +116,6 @@ OOCore 处理 Minecraft/Paper/Folia 版本差异。OOEngine 与业务插件不�
 - `examples/phone-themes.yml`：当前没有 loader，仅 planned example。
 - JSON theme：没有已验收 loader；JSON 禁止注释，不得宣称可用。
 
-21 个分发 YAML 源已加入中英用途、重载、风险、类型与联系信息头；字段级完整说明仍在继续。验证包括 21-file UTF-8 strict、server 110 tests、paper JAR 与 foreign scan；paper artifact SHA-256 为 `1C409F1067F41C6604AE5C68352950EF15E8E755CE553D7212E98F5C0DA4AD88`。
 
 ## 联系 / Contact
 
@@ -134,7 +127,6 @@ OOCore 处理 Minecraft/Paper/Folia 版本差异。OOEngine 与业务插件不�
 
 ## 常用命令
 
-规范入口只有 `/oo engine`。当前由 OOCore legacy `OOModule.execute` 单路径 available，禁止与 command v1 双注册。源码和 `OOEngineCommandRouterTest` unit fixture 覆盖 menu、map、journal、open、admin reload 等解析与权限映射，但这不等同于本轮真实 Paper boot matrix 验收。由于 v1 Context 没有 host-authenticated player UUID，stable command migration 仍 blocked，等待未发布的 v2 host-minted actor 与 controlled authorization gateway；不得通过名字查玩家，也不得暴露 Bukkit `CommandSender` handle。
 
 | 命令 | 说明 | 权限 |
 |---|---|---|
@@ -192,7 +184,6 @@ panel:
 ### Menu 预设：Android 平板
 
 !!! info "OOMenu 归属"
-    OOMenu 目标实现位于 OOEngine 仓库内 Gradle module `:oomenu`，package `com.zkonikishi.ooengine.menu`，随 OOEngine server artifact 集成发布。它不是独立插件、Mod、仓库或产品依赖，不注册 `/oo menu`；玩家仍使用 `/oo engine menu`。
 
 Android 平板只是 OOEngine 通用 `menu` 窗口的一种主题与响应式布局 preset，与 MMO、mobile、phone presets 同级。它不是独立插件、模块、窗口分类、Console workspace 或导航点；不得创建 tablet module、command、registry、database、config root 或 tablet 专用 Capability。OOEngine 仍通过同一个 Menu 系统负责平板机身、安全区、状态栏、桌面分页、Dock、应用图标布局、窗口切换动画、横竖屏、GUI Scale 和主题资源。
 
@@ -208,11 +199,9 @@ Android 平板只是 OOEngine 通用 `menu` 窗口的一种主题与响应式布
 
 插件应用入口只能通过未来的通用 owner-scoped Menu contribution 注册，不得修改 Menu/平板窗口文件、写入 OOEngine data folder 或复制菜单实现。贡献数据应限制为应用 ID、显示名、受控图标资源、目标窗口、排序、可见性和 bounded badge snapshot；点击结果仍由 OOEngine 的服务端权威 action/session 校验。
 
-`1.1.4` 首发目标中，窗口 Capability 为 `ooengine.window-contribution.v1`，入口 `ExtensionScope.window(WindowContribution)`；目标 `WindowController` 尚未包含在 `1.1.4` API JAR；Menu app entry Capability 为 `ooengine.menu-contribution.v1`，入口 `ExtensionScope.menu(MenuContribution)`。两者由 `ooengine-api` 暴露、`:oomenu` 实现；API/testkit artifact 已 **published**；server runtime wiring 仍 pending。不得继续使用 launcher/tablet 专用贡献名。
 
 平板预设不得独立持久化另一套应用目录；玩家的主题、壁纸、应用排序和方向偏好继续归通用 Menu 配置与玩家偏好模型。
 
-`:oomenu` 负责 default/MMO/mobile/phone/Android-tablet presets、MenuContribution registry/validation、应用目录合成、玩家偏好模型和 menu fixtures。`UiDocument`、RenderPlan、resources、session、action 继续由 OOEngine core 拥有；`:oomenu` 只能消费稳定内部接口，不得复制 renderer、schema 或资源生命周期。
 
 ### 插件窗口接入统一经 OOMenu（planned）
 
@@ -241,7 +230,6 @@ Web、Fabric、NeoForge 必须消费同一个版本化 RenderPlan schema。后�
 
 ## OOVideo 视频 facade（planned）
 
-OOVideo 目标实现位于 OOEngine 仓库内 Gradle module `:oovideo`，package `com.zkonikishi.ooengine.video`，正式 Capability `ooengine.video.v1`。它不是独立插件、Mod、仓库或命令模块，不注册 `/oo video`。稳定 contract 由 `ooengine-api` 暴露，实现随 OOEngine/Client 对应产物发布。
 
 ```text
 Plugin → ooengine-api (OOVideo contract)
@@ -272,13 +260,11 @@ OOBrowser 只负责 Chromium/Web surface。网页视频进入 OOEngine video sur
 
 服务器和三个预览/渲染端必须使用同一 `TextMetricsProvider` 结果：glyph advance、kerning、ascent/descent、baseline、grapheme、emoji、CJK 禁则与 fallback。布局阶段决定换行，renderer 不得再自行执行另一套换行算法。
 
-字体资源按 SHA-256 内容寻址并按服务器 UID 隔离。切服、退出、资源替换时必须释放对应 atlas、texture 和磁盘引用。
 
 ## 资源安全
 
 - 支持的资源必须经过 MIME 与魔数双重验证；
 - 图片验证尺寸、像素总量、帧数和解压比例；
-- 使用 SHA-256 manifest、原子写入和 UID 隔离缓存；
 - 设置磁盘/显存配额、LRU、并发和下载大小限制；
 - 外部媒体需要协议白名单、签名、精确 origin 与 worker 沙箱；
 - 插件不能传任意本地路径，也不能覆盖其他 owner 的资源；
@@ -290,12 +276,9 @@ OOBrowser 只负责 Chromium/Web surface。网页视频进入 OOEngine video sur
 
 ```kotlin
 dependencies {
-    compileOnly("com.zkonikishi.oo.core:oocore-api:1.6.1")
-    compileOnly("com.zkonikishi.ooengine:ooengine-api:1.1.4") // API published；runtime wiring 尚未验收
 }
 ```
 
-SDK repository 仅以产品公开分发文档为准；Wiki 不提供内部 repository 或 testkit 访问方式。
 
 接入要求：
 
@@ -322,7 +305,6 @@ SDK repository 仅以产品公开分发文档为准；Wiki 不提供内部 repos
 
 稳定发布前至少执行：
 
-- 单元、协议、插件 fixture 和真实客户端启动；
 - Web 重复截图像素 diff 为 0；
 - Fabric/NeoForge 指定帧截图并记录诚实容差；
 - GUI Scale 1–4、常见宽高比和 FCL/OpenGL ES；
@@ -335,6 +317,5 @@ SDK repository 仅以产品公开分发文档为准；Wiki 不提供内部 repos
 
 - `/oo engine` 提示未知模块：确认 OOEngine 已成功向 OOCore 注册 `engine` module，并先检查 `/oo core`。
 - 窗口打不开：确认玩家安装匹配版本的 OOEngine-Client，并检查 `ooengine:main` channel。
-- 字体或图片串服：清查 server UID、manifest SHA-256 和缓存 scope，不能共用未隔离目录。
 - Folia 异步异常：业务插件不得直接猜线程，必须经 OOCore scheduler facade。
 - 编辑器能预览但客户端不同：检查是否由两端自行布局/换行，所有端必须消费同一 RenderPlan。

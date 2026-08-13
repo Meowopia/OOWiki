@@ -16,7 +16,6 @@ OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `
     `0.1.4` runtime coordinate 存在，但 JAR 内 `plugin.yml` 仍声明版本 `0.1.3`，与坐标不一致，因此该版本永久 rejected、不可安装。后续 `0.1.5` 已发布并修复版本元数据。
 
 !!! info "0.1.5 published / owner-service available"
-    `0.1.5` owner-bound 平台链已验收，可供消费者迁移；HTTP/UI、Editor 与消费者 adapter 仍逐项验收。内部 testkit、fixture 与构建门禁不在公开 Wiki 展示。
 
 ## 固定标识
 
@@ -28,22 +27,13 @@ OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `
 | 规范命令 | `/oo console` |
 | 运行时硬依赖 | `OOCore`、`OOEngine` |
 | plugin descriptor | `depend: [OOCore, OOEngine]` |
-| `0.1.0` API SHA-256 | `FA95DC043219DE93F42E798D4745087503DA780AA7EDAC8CD51610B6A81DA3F9` |
-| `0.1.0` testkit SHA-256 | `1F022E8ABCE3AB15D9439FEC24F5C0EA6897386843374A0BCA4D6175FA2C2844` |
-| `0.1.1` API artifact | `com.zkonikishi.oo.console:ooconsole-api:0.1.1`（published/verified） |
-| `0.1.1` API SHA-256 | `AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08` |
-| `0.1.1` testkit artifact | `com.zkonikishi.oo.console:ooconsole-testkit:0.1.1`（published/verified） |
-| `0.1.1` testkit SHA-256 | `DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC` |
 | API version | `API_VERSION = 1`（implemented） |
 | Capability | `ooconsole.editor-contribution.v1`（compile contract published；owner-bound acquisition available；具体贡献逐项验收） |
 
-`0.1.2` API/testkit coordinates 已 published，SHA-256 仍分别为 `AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08`、`DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC`，payload 与 `0.1.1` 相同；该版本没有 runtime artifact。
 
-`0.1.3` API/testkit coordinates 使用相同 payload 与 SHA-256：API `AFA5ACD65D2C35DBD16F260FE6F87836927E395C466009065D0337BD33B2DD08`，testkit `DE2CDE134313105263B211C92BDE71C1A0D8121C7B377225BA0B1C5D9C4137CC`。首次发布的 runtime artifact SHA-256 经总调度核验摘要为 `C233...A392`；依赖图、foreign scan 与 descriptor 核验通过。该发布不等于 server runtime accepted。
 
 OOCore `1.6.1` `oocore.owner-bound-service.v1` 与 OOConsole `0.1.5` 正式 artifacts 已通过 owner-service 最终门禁。旧 `openScope(String)` / `openScope(ownerId)` 仍 deprecated/unsafe，禁止 ThreadLocal、反射或本地 bridge。
 
-消费者仍需用正式 fixture 完成自身 acquire、双生命周期、关闭后 fail-fast 与 foreign scan 验收；未完成者保持 disabled/code-prepared。
 
 API `0.1.4`/`0.1.5` 的 `OwnerBoundOOConsole` compile surface 已发布；`0.1.5` + OOCore `1.6.1` 最终门禁已通过。具体消费者仍须独立完成 acquire/lifecycle/foreign 验收。
 

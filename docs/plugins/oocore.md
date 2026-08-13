@@ -28,8 +28,6 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 |---|---|
 | Stable | `1.7.1` |
 | Withdrawn | `1.7.0`（invalid candidate；禁止安装或依赖） |
-| Maven API | `com.zkonikishi.oo.core:oocore-api:1.6.1` |
-| Maven owner-service runtime | `com.zkonikishi.oo.core:oocore-owner-service-runtime:1.6.1` |
 | ABI | `1` |
 | Handshake | `1` |
 | Java | `25` |
@@ -115,7 +113,6 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.zkonikishi.oo.core:oocore-api:1.6.1")
 }
 ```
 
