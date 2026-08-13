@@ -275,25 +275,16 @@ OOBrowser 只负责 Chromium/Web surface。网页视频进入 OOEngine video sur
 
 ## 插件 SDK
 
-稳定坐标：
+公开 SDK 用法：
 
 ```kotlin
-repositories {
-    exclusiveContent {
-        forRepository { maven { url = uri("D:/Servers/Plugin/Meowopia/.repository") } }
-        filter {
-            includeGroup("com.zkonikishi.ooengine")
-            includeGroup("com.zkonikishi.oo.core")
-        }
-    }
-}
-
 dependencies {
     compileOnly("com.zkonikishi.oo.core:oocore-api:1.6.1")
     compileOnly("com.zkonikishi.ooengine:ooengine-api:1.1.4") // API published；runtime wiring 尚未验收
-    testImplementation("com.zkonikishi.ooengine:ooengine-testkit:1.1.4") // API published；runtime wiring 尚未验收
 }
 ```
+
+SDK repository 仅以产品公开分发文档为准；Wiki 不提供内部 repository 或 testkit 访问方式。
 
 接入要求：
 
