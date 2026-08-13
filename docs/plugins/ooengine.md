@@ -22,8 +22,20 @@ OOEngine API/testkit `1.1.4` 已发布：API SHA-256 `43E0C7EBA6996BCEB7FEF09D9C
 
 Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contribution 重复 `ownerId`，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy `PanelController`。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 `1.1.4`。
 
-!!! warning "Window migration blocked"
-    `1.1.5` 没有通过 runtime 发布验收，不得作为服务端稳定版本或生产依赖。Window owner-bound 路径仍 blocked，`1.1.6` 为 repair candidate；在正式产物与 runtime 验收完成前，消费者继续使用当前公开稳定基线和 legacy 单路径。未来正式版本按 proprietary / authorized binary policy 发布，不提供源码包。
+!!! info "1.1.6 stable"
+    `1.1.6` å·²ä½ä¸ºé­æºäºè¿å¶ç¨³å®çåå¸ï¼`1.1.5` ä¸å¾ä½¿ç¨ã
+
+## æ´æ°æ¥å¿ / Changelog
+
+**ä¸­æ:** åå¸ `1.1.6` ç¨³å®çï¼å®ææ¬è½® Window/OOMenu ä¿®å¤ã
+
+**English:** Releases stable `1.1.6` with the current Window/OOMenu repairs.
+
+## å·²ç¥é®é¢ / Known issues
+
+Folia live acceptance å°æªå®æã / Folia live acceptance is not complete.
+
+**å·²éªè¯ç¯å¢ / Verified environment:** Minecraft 26.2 ? Paper 26.2-87 ? Java 25
 
 `OOMenu`（Gradle module `:oomenu`）是 OOEngine 仓库内部的菜单子项目，不是独立插件、Mod 或仓库。它随 OOEngine 服务端产物集成发布，Java package 为 `com.zkonikishi.ooengine.menu`。
 

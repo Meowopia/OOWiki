@@ -1,6 +1,12 @@
 # OOConsole
 
-OOConsole 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；目标运行时依赖保持 hard-depend OOCore + OOEngine。
+## 更新日志 / Changelog
+
+**中文：** `0.1.6` 加入 CommandV2、HTTP 登录/退出流程，并修复本版安全问题。
+
+**English:** `0.1.6` adds CommandV2 and HTTP login/logout flows and includes security fixes.
+
+**已验证环境 / Verified environment:** Minecraft 26.2 ? Paper 26.2-92 ? Microsoft Java 25.0.4.7
 
 OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。
 

@@ -26,9 +26,8 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 
 | 项目 | 当前稳定契约 |
 |---|---|
-| Stable | `1.6.1` |
+| Stable | `1.7.1` |
 | Withdrawn | `1.7.0`（invalid candidate；禁止安装或依赖） |
-| Repair candidate | `1.7.1`（unpublished；正式核验前不可用于生产） |
 | Maven API | `com.zkonikishi.oo.core:oocore-api:1.6.1` |
 | Maven owner-service runtime | `com.zkonikishi.oo.core:oocore-owner-service-runtime:1.6.1` |
 | ABI | `1` |
@@ -36,7 +35,7 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 | Java | `25` |
 | 兼容目标 | Minecraft/Paper/Folia 26.1、26.1.2、26.2 |
 
-`1.6.1` 是当前公开稳定基线。`1.7.0` 已撤回且不可使用；`1.7.1` 是下一修复候选。只有完成稳定版总验收并发布正式二进制后，Wiki 才会更新安装版本和公开校验值。非公开工程验证不在公开 Wiki 展示。
+`1.7.1` æ¯å½åå¬å¼ç¨³å®çï¼`1.7.0` å·²æ¤åä¸ä¸å¯ä½¿ç¨ãOOCore æ¯è¿è¡æ¶ç¡¬ä¾èµï¼ä½å¼å®¹æ§æ ABIãhandshake ä¸ Capability ååï¼ä¸è¦æ±ç²¾ç¡® SemVer ç¸ç­ã
 
 `oocore.command-contribution.v2` 已 implemented/published。Actor 使用 host-minted Bukkit-neutral identity，提供 SenderKind、真实玩家 `Optional<UUID>`、bounded displayName 与 invocation-scoped controlled Authorization；不暴露 `CommandSender`/`Player`，不允许 command dispatch。v1 保持 binary compatible，并标记 deprecated migration。
 
@@ -151,3 +150,12 @@ API artifact 只包含 `com/zkonikishi/oo/core/api/**`，不包含 `OOCorePlugin
 OOCore 提供 `oocore.control-plane.read.v1` 只读 Capability，向未来的独立 OOConsole 暴露 bounded、immutable、脱敏的健康状态、兼容 adapter、Capability、模块/服务和 lifecycle 资源计数。OOCore 不提供 HTTP、UI、Editor 或任意 mutation 转发。
 
 OOConsole 是独立插件并硬依赖 OOCore 与 OOEngine；业务插件对 OOConsole 保持 optional。OOConsole `0.1.5` + OOCore `1.6.1` owner-service 最终门禁已通过，平台可信链 available for migration；各 adapter 仍须独立验收。HTTP/UI、Editor 迁移和产品工作区仍为 planned/code-prepared。
+
+
+## æ´æ°æ¥å¿ / Changelog
+
+**ä¸­æ:** åå¸ `1.7.1` ç¨³å®çï¼æ¿ä»£å·²æ¤åç `1.7.0`ã
+
+**English:** Releases stable `1.7.1`, replacing withdrawn `1.7.0`.
+
+**å·²éªè¯ç¯å¢ / Verified environment:** Minecraft 26.2 ? Paper 26.2-92 ? Microsoft Java 25.0.4.7
