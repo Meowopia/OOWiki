@@ -12,7 +12,7 @@ python -m mkdocs serve --dev-addr 127.0.0.1:8000
 
 检查范围：
 
-1. 首页、插件中心及平铺的插件导航；
+1. 首页、插件页及插件卡片链接；
 2. 桌面和移动端等高卡牌、搜索与分类筛选；
 3. 深浅色主题、Logo、404、中文排版和外链；
 4. 页面状态与公开稳定版验收矩阵一致；
@@ -35,7 +35,7 @@ Preview 完成后停止本地服务器；`site/` 是可再生输出，不提交�
 1. 确认工作树干净，`main` 已推送且 Docs workflow 通过。
 2. 再次从 lock file 安装依赖并执行 strict build。
 3. 经维护者批准后更新 `gh-pages`；禁止在普通 PR workflow 自动部署。
-4. 等待 GitHub Pages deployment 成功，再检查首页、插件中心和本次修改页面。
+4. 等待 GitHub Pages deployment 成功，再检查首页、插件页和本次修改页面。
 
 ## 回滚方案
 

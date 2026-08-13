@@ -1,4 +1,4 @@
-# 插件中心
+# 插件
 
 <section class="plugin-hub-hero">
   <div>
