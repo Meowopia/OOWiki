@@ -28,14 +28,18 @@ OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
 |---|---|
 | Stable | `1.6.1` |
 | Maven API | `com.zkonikishi.oo.core:oocore-api:1.6.1` |
-| Maven runtime | `com.zkonikishi.oo.core:oocore-runtime:1.6.1` |
+| Maven owner-service runtime | `com.zkonikishi.oo.core:oocore-owner-service-runtime:1.6.1` |
 | Maven testkit | `com.zkonikishi.oo.core:oocore-testkit:1.6.1` |
 | ABI | `1` |
 | Handshake | `1` |
 | Java | `25` |
 | 兼容目标 | Minecraft/Paper/Folia 26.1、26.1.2、26.2 |
 
-已核验 `1.6.1` SHA-256：API `0B7554...85DE`；runtime `1C929A...DBDBC`；testkit `5AC5AF...1499`。`OwnerServiceHarness` 可走真实 production authority/registry 路径，供消费者进行 owner-service 集成验收。
+已核验 `1.6.1` SHA-256：API `0B75544ADB6291ED259A2D347A667C76C27341A4DD63A040F9B7F65CB6F785DE`；owner-service runtime `1C929ABD0AC1D8164AA62B562376DA05A70B316C92422E4D4ECA6BB1623DBDBC`；testkit `5AC5AFC16B7CD44B2C7924A17605CE1A305E296D5B45445CAF7BACEBCF281499`。
+
+Plugin 与 testkit 共享生产 `ModuleSessionAuthority` / `DefaultOOOwnerServiceRegistry`。`OwnerServiceHarness` 必须 artifact-first 并走生产 authority/registry 路径；fake 或 synthetic Session 只能作中间测试，不能作为最终验收。OOConsole `0.1.5` 最终 harness 已由总调度独立通过，OOC-OCON-004/005 已闭环。
+
+收口验证：27 tests、owner fixture 3 tests；build 脚本已纳入 command-v2、owner-service 与 OOConsole artifact-first gates，三 artifact SHA 保持不变。
 
 `oocore.command-contribution.v2` 已 implemented/published。Actor 使用 host-minted Bukkit-neutral identity，提供 SenderKind、真实玩家 `Optional<UUID>`、bounded displayName 与 invocation-scoped controlled Authorization；不暴露 `CommandSender`/`Player`，不允许 command dispatch。v1 保持 binary compatible，并标记 deprecated migration。
 
