@@ -1,5 +1,7 @@
 # OOWiki
 
+> **开源边界 / Open-source scope**：本仓库及其文档源码 **OOWiki** 按仓库中的 [MIT License](LICENSE) 开源。OOCore、OOEngine、OOConsole、OOChat、OOGame、OOMusic、OOBrowser、OOReforge、OOVIP 等 OO 产品当前为闭源专有软件；其产品页、安装与配置文档、公开二进制发布信息和受控 SDK 说明不代表产品源码开源。
+
 OO 系列产品的统一中文文档站，使用 MkDocs Material 构建。
 
 站点标签、favicon 与顶部导航使用的 `docs/assets/logo.svg` 是 **OO 插件系列统一 Logo**，不只代表 OOWiki；各插件页面可复用该系列标识，但不得将它误写成某个单独插件的专属 Logo。
@@ -10,6 +12,12 @@ OOCore 使用独立品牌资源 `docs/assets/oocore-logo-1024.png`；该文件�
 - 文档源码：[`docs/`](docs/)
 - 架构状态：[架构与依赖](docs/architecture.md)
 - 贡献方式：[CONTRIBUTING.md](CONTRIBUTING.md)
+
+## 仓库与许可证 / Repository and licensing
+
+- 本仓库只承载 OOWiki 文档、主题和站点资源，不承载其他 OO 产品的内部源码、私有安全实现或私有 artifact 获取方式。
+- 其他 OO 项目只链接经批准公开的产品页、安装/配置说明、二进制发布与受控 SDK 文档。
+- 历史版本曾经公开时所适用的许可证及第三方许可证继续按其原始条款生效；当前政策不追溯撤回既有授权。
 - 安全问题：[SECURITY.md](SECURITY.md)
 
 ## 文档状态

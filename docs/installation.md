@@ -20,7 +20,7 @@ plugins/
 
 ## OOEngine 窗口
 
-首次启动会创建默认窗口。示例位于源码仓库：
+首次启动会创建默认窗口。公开示例以产品发行包和本 Wiki 的配置说明为准；闭源产品不提供源码仓库入口：
 
 ```text
 OOEngine/examples/panels/

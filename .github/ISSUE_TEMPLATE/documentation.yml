@@ -21,4 +21,4 @@ body:
     id: evidence
     attributes:
       label: 证据
-      description: 提供源码、artifact、测试或发布记录；请勿提交敏感信息。
+      description: 提供公开产品页、公开 artifact 摘要、测试或发布记录；不得提交闭源产品源码、私有 artifact 访问方式或敏感信息。
