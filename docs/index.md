@@ -10,6 +10,12 @@ hide:
     <p class="hero-kicker">MEOWOPIA · MINECRAFT PLUGIN SUITE</p>
     <h1><span>OO 系列插件</span><br>开箱即用的服务端生态</h1>
     <p class="hero-lead">面向 Paper/Folia 与 Fabric/NeoForge 的服务端权威架构、UI、聊天、小游戏与音乐能力平台。统一能力模型、统一部署体验、可维护的插件总线。</p>
+    <div class="hero-badges" aria-label="核心能力">
+      <span>Server Native</span>
+      <span>Cross Version</span>
+      <span>Capability Based</span>
+      <span>Plugin Ecosystem</span>
+    </div>
     <div class="hero-actions">
       <a class="btn btn-primary" href="installation/">开始部署</a>
       <a class="btn btn-ghost" href="https://github.com/Meowopia/OOWiki">GitHub 仓库</a>
@@ -38,6 +44,38 @@ hide:
     <p>OOEngine 提供 Screen/HUD/动作协议，客户端以统一协议进行高性能渲染。</p>
   </article>
 </section>
+
+<section class="section-title">
+  <p>文档导航</p>
+  <h2>先把重点文档吃透，再开始扩展</h2>
+</section>
+
+<div class="quick-grid">
+  <a href="installation/" class="quick-card">
+    <strong>安装与升级</strong>
+    <p>按步骤完成环境搭建、依赖加载与首次联调。</p>
+  </a>
+  <a href="architecture/" class="quick-card">
+    <strong>架构与依赖</strong>
+    <p>能力模型、平台适配与模块关系一图读懂。</p>
+  </a>
+  <a href="configuration/" class="quick-card">
+    <strong>配置参考</strong>
+    <p>关键配置项与常见生产环境参数建议。</p>
+  </a>
+  <a href="commands-permissions/" class="quick-card">
+    <strong>命令与权限</strong>
+    <p>指令列表、权限树与典型运维场景。</p>
+  </a>
+  <a href="development/" class="quick-card">
+    <strong>开发者接入</strong>
+    <p>接入流程、SDK 说明、事件回调与扩展方式。</p>
+  </a>
+  <a href="troubleshooting/" class="quick-card">
+    <strong>故障排查</strong>
+    <p>按现象快速定位并提供标准化修复步骤。</p>
+  </a>
+</div>
 
 <section class="section-title">
   <p>插件产品栈</p>

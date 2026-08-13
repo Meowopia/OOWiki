@@ -65,6 +65,23 @@
   font-size: 1.05rem;
 }
 
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-badges span {
+  font-size: .74rem;
+  font-weight: 700;
+  padding: .38rem .72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  color: #dbeafe;
+  background: linear-gradient(90deg, rgba(139,92,246,.15), rgba(236,72,153,.15));
+}
+
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 
 .btn {
@@ -149,6 +166,43 @@
   display: grid;
   gap: 1rem;
   margin: 2rem 0 4rem;
+}
+
+.quick-grid {
+  display: grid;
+  gap: .8rem;
+  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.quick-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--oo-line);
+  border-radius: 14px;
+  padding: 1rem 1.05rem;
+  background: linear-gradient(180deg, rgba(168, 85, 247, .08), rgba(255,255,255,0));
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.quick-card strong {
+  display: inline-block;
+  margin-bottom: .45rem;
+  font-size: 1.02rem;
+  color: var(--md-default-fg-color);
+}
+
+.quick-card p {
+  margin: 0;
+  color: var(--oo-sub);
+  line-height: 1.65;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, .56);
+  box-shadow: 0 16px 44px rgba(88, 28, 135, .16);
 }
 
 .feature-grid {
@@ -253,6 +307,7 @@
   .hero h1 { font-size: 2.3rem; }
   .feature-grid,
   .product-grid,
+  .quick-grid,
   .cta { grid-template-columns: 1fr; }
   .cta { flex-direction: column; align-items: flex-start; }
   .hero-glass { width: 180px; height: 102px; border-radius: 20px; }
