@@ -1,5 +1,7 @@
 # OOBrowser
 
+![OOBrowser 品牌横幅](../assets/branding/oobrowser/banner-1200x630.png){ loading=lazy }
+
 OOBrowser 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不创建 runtime、父插件、Maven group、package、共享仓库或万能 Core。
 
 OOBrowser 是闭源专有产品，保留独立 plugin/module identity、版本、生命周期和依赖边界。Copyright (c) 2026 Meowopia, All rights reserved；源码仅供授权维护者使用。历史版本继续适用其当时的许可证，第三方组件仍按各自上游许可执行。本页只公开产品能力、安装配置边界与支持信息，不提供内部源码、私有 artifact 访问方式或安全实现细节。它只负责 Chromium/Web surface；网页视频若进入 OOEngine video surface，仍必须经过 OOVideo policy，不能形成第二套通用视频协议。
