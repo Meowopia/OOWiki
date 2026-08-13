@@ -9,6 +9,7 @@ docs_dir: docs
 
 theme:
   name: material
+  custom_dir: docs/overrides
   language: zh
   logo: assets/logo.svg
   favicon: assets/logo.svg

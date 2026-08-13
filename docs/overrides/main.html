@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <header class="md-header ovo-navbar" data-md-component="header">
+    <nav class="ovo-navbar-inner md-grid" aria-label="顶部导航">
+      <div class="ovo-navbar-start">
+        <label class="md-header__button md-icon ovo-menu" for="__drawer">
+          {% include ".icons/material/menu.svg" %}
+        </label>
+        <a class="ovo-brand" href="{{ nav.homepage.url | url }}" aria-label="OO Wiki 首页">
+          <span class="ovo-brand-mark">OO</span>
+          <span class="ovo-brand-name">OO Wiki</span>
+        </a>
+      </div>
+
+      <div class="ovo-navbar-links">
+        <a href="{{ nav.homepage.url | url }}">首页</a>
+        <a href="{{ 'installation/' | url }}">文档</a>
+        <a href="{{ 'plugins/oocore/' | url }}">插件</a>
+        <a href="{{ 'development/' | url }}">开发者</a>
+      </div>
+
+      <div class="ovo-navbar-actions">
+        {% if 'search' in config.plugins %}
+          <label class="md-header__button md-icon ovo-nav-icon" for="__search" title="搜索">
+            {% include ".icons/material/magnify.svg" %}
+          </label>
+        {% endif %}
+        {% for option in config.theme.palette %}
+          <label class="md-header__button md-icon ovo-nav-icon" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 }}" hidden>
+            {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
+          </label>
+        {% endfor %}
+        <a class="ovo-github" href="{{ config.repo_url }}" target="_blank" rel="noopener">
+          {% include ".icons/fontawesome/brands/github.svg" %}<span>GitHub</span>
+        </a>
+        <a class="ovo-nav-start" href="{{ 'installation/' | url }}">开始使用</a>
+      </div>
+    </nav>
+  </header>
+{% endblock %}
