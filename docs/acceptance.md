@@ -11,6 +11,8 @@
 | OOMusic | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore + OOEngine；OOConsole optional | `/oo music` 目标入口；旧 `/oomusic` 为 legacy | bundled 播放器窗口；无外部主配置 | 保留 legacy Panel 单路径，Window 迁移未验收前不混用 |
 | OOBrowser | Extensions | Paused / unreleased; no GitHub Release | 依赖 OOCore；OOEngine/OOConsole 能力按状态降级 | `/oo browser` 尚未 live 验收 | 当前无生效 runtime config；示例仅 reference | 无正式二进制可升级；生产连接器未验收时保持禁用 |
 | OOChat | Extensions | `0.1.0` stable | Compatible OOCore; OOConsole optional | `/oo chat` | See product release docs | No OOEngine Window/UI in `0.1.0` |
+| OOVIP | ???? | Paused / unreleased; no GitHub Release | ?? OOCore?????? optional | `/oo vip` bootstrap | ???????? | ???????????? |
+| OOReforge | ???? | Paused / unreleased; no GitHub Release | ?? Paper ?????? optional | `/oo reforge` legacy route | ???????? | ???????????? |
 
 ## 统一支持渠道
 
@@ -22,7 +24,7 @@
 
 ## 发布前公开检查
 
-- [ ] Core / Extensions / 独立项目 分类与导航一致。
+- [ ] Core、Extensions、独立插件三个固定分类及成员一致；侧边导航保持平铺。
 - [ ] Stable、Candidate、Preview、Planned 没有互相混写。
 - [ ] 安装、依赖、命令、配置和回滚说明与产品页一致。
 - [ ] 每个产品页包含五项支持联系方式。

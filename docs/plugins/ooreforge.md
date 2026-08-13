@@ -1,6 +1,6 @@
 ﻿# OOReforge
 
-**独立 Paper 插件。状态：paused / unreleased。**
+**分类：独立插件。项目形态：独立 Paper 插件。状态：paused / unreleased。**
 
 OOReforge 负责装备、锻造、品质、配方和领域校验。OOEngine 与 OOConsole 对其保持可选；需要窗口时通过 OOMenu stable facade，需要可视化管理时通过 OOConsole Contribution。
 

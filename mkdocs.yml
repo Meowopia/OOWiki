@@ -67,7 +67,6 @@ nav:
       - OOMusic: plugins/oomusic.md
       - OOBrowser: plugins/oobrowser.md
       - OOChat: plugins/oochat.md
-      - OOQuest: plugins/ooquest.md
       - OOVIP: plugins/oovip.md
       - OOReforge: plugins/ooreforge.md
   - 开发者:
