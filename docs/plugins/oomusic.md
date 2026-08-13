@@ -30,13 +30,13 @@ OOMusic 是服务端协调的音乐产品，通过 OOEngine 提供窗口和迷�
 
 实际 Paper/Folia 插件产物来自 `ooengine-adapter` 模块，并硬依赖 OOCore `1.6.1` 与 OOEngine。OOConsole API/testkit 使用 `0.1.5` optional dependency。
 
-`LyricsTimeline` / `LyricsService` 完整 Gradle 验证已由总调度代跑通过：13 suites、25 tests、0 failures/errors/skipped。新 snapshot JAR size `80961` bytes，SHA-256 摘要为 `1036F4...0E72`，不是 release；此前歌词 tests pending/旧 snapshot 证据已作废。OOMusic 及父目录没有 Git repository；WindowController、command migration 与 legacy Panel 单路径状态保持不变。
+`LyricsTimeline` / `LyricsService` 已通过完整本地验证，但当前仍不是正式 release。WindowController、command migration 与 legacy Panel 单路径状态保持不变；开发版 artifact 和内部仓库信息不在公开 Wiki 展示。
 
 ## OOConsole 接入（implemented）
 
 OOMusic 已移除 ServicesManager 与旧 `OOConsoleApi.openScope(String)` 路径。生产接入严格使用 active `OOModuleSession → core.ownerServices().acquire(session, OwnerBoundOOConsole.class, OwnerBoundOOConsole.CAPABILITY) → lease.service().openScope()`。
 
-Attach 校验 `lease.requesterId == oomusic`；关闭顺序为 registration（由 scope 持有）→ scope → lease，并保持幂等。OOConsole 仍为 optional，acquire 失败只禁用可视配置。cross-owner denial、owner propagation、100-cycle scope/lease close 与 foreign fixture 已通过；不使用 Bukkit handle、name lookup、反射或本地 bridge。
+OOConsole 仍为 optional，接入失败只禁用可视配置；生命周期和 owner 隔离已经完成本地验收。内部接入和测试实现不在公开 Wiki 展示。
 
 ## OOMenu 窗口接入（planned）
 

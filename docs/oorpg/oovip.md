@@ -2,7 +2,7 @@
 
 **分类：OORPG。状态：domain skeleton implemented；runtime integration/release blocked。**
 
-OOVIP 是会员生命周期与权益编排层，不重写 LuckPerms、PlayerPoints、YuPay、GUI 或时装 Provider。membership domain skeleton、V1 schema、SQLite verifier 与 7 domain fixtures 已实现；JDBC transaction/outbox/idempotency、provider adapter、claims/PAPI/GUI API 仍 planned。`/oo vip` 当前仅 bootstrap，正式命令迁移受 command v2 actor/auth 阻塞；不得把 bootstrap artifact 当 release。
+OOVIP 是会员生命周期与权益编排层，不重写 LuckPerms、PlayerPoints、YuPay、GUI 或时装 Provider。membership domain skeleton、V1 schema 与 SQLite 校验已实现；JDBC transaction/outbox/idempotency、provider adapter、claims/PAPI/GUI API 仍 planned。`/oo vip` 当前仅 bootstrap，尚未达到正式 release 门禁。
 
 OOCore command v2 consumer migration尚未完成；Window 接入因 OOEngine/OOMenu runtime wiring 不完整而 blocked。OOConsole owner-service 平台链已 available for migration，但 OOVIP 尚未完成自身 adapter 验收。上述状态不因配置或中文 catalog 验收而升级。
 
@@ -18,9 +18,9 @@ OOCore command v2 consumer migration尚未完成；Window 接入因 OOEngine/OOM
 
 ## 中文本地化
 
-`zh_CN.yml` 与 `zh_CN_16.yml` 已完成逐键人工中文翻译，状态为 **implemented and fixture-validated**，不再是 English fallback。翻译保留全部 key、placeholder multiset、legacy/hex color token、`/oo vip` 命令以及列表/hover 结构；统一术语为会员、会员组、会员仓库、授予和有效期。
+`zh_CN.yml` 与 `zh_CN_16.yml` 已完成逐键人工中文翻译并通过本地验证，不再是 English fallback。翻译保留全部 key、placeholder、颜色 token、`/oo vip` 命令以及列表/hover 结构；统一术语为会员、会员组、会员仓库、授予和有效期。
 
-验证证据：Bukkit `YamlConfiguration` 5 tests 全绿；key-set equality、placeholder/color-token equality、中文覆盖门槛、8 YAML parse、LP/PEX variant、JavaScript read 与 foreign scan PASS。当前 bootstrap artifact SHA-256 为 `420F73A936A8375B380C3A39E33CEC6CFFE39EA711C126E65980F503741440BF`，仍为 **non-release**，不得作为正式下载或 release 证据。
+当前 bootstrap artifact 仍为 **non-release**，不得作为正式下载或 release 证据。内部测试、开发版散列和构建细节不在公开 Wiki 展示。
 
 ## 联系 / Contact
 

@@ -113,7 +113,7 @@ OOScheduler 提供生命周期安全的 owned cancellation：
 
 ```kotlin
 repositories {
-    maven { url = uri("D:/Servers/Plugin/Meowopia/.repository") }
+    // 使用产品公开文档指定的受控 SDK repository。
 }
 
 dependencies {
@@ -134,12 +134,7 @@ API artifact 只包含 `com/zkonikishi/oo/core/api/**`，不包含 `OOCorePlugin
 
 ## 构建与发布
 
-```powershell
-Set-Location D:\Servers\Plugin\Meowopia\OOCore
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-oocore.ps1
-```
-
-构建使用 `D:\Program Files\Microsoft\Java` 下的 JDK 25，并执行测试、API 发布、API SHA256、release checksum，以及只配置 `.repository` 的空插件 resolve/compile fixture。JVM 仅按本任务 marker、完整 CommandLine、祖先链、启动时间与 ledger 核验 ownership；禁止全局 Java/javaw 为 0 门禁。
+正式发布会执行兼容测试、API 校验、release checksum 与消费者编译验证。内部构建命令、进程 ledger 和私有 repository 不在公开 Wiki 展示。
 
 ## 验收重点
 
