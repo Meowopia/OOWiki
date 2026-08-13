@@ -15,7 +15,7 @@ features:
   media: true
 ```
 
-所有模块可单独关闭。`features.enabled: false` 时仅保留基础原生面板与协议。
+所有模块可单独关闭。`features.enabled: false` 时仅保留基础原生窗口与协议。
 
 ## Web allowlist
 
@@ -28,7 +28,7 @@ web-view:
 
 origin 必须精确包含 scheme、host 和非默认 port。空列表表示全部拒绝。
 
-## Web Editor
+## OOEngine Web Editor（implemented）
 
 ```yaml
 web-editor:
@@ -43,6 +43,8 @@ web-editor:
 
 默认仅回环访问。公开部署必须使用 HTTPS reverse proxy，启用 secure cookie，并显式配置 allowed hosts/origins。首次设置 token 只输出到本地服务器控制台。
 
+该配置属于现有 OOEngine Web Editor。OOConsole SDK 已发布，但 OOConsole runtime 的 HTTP/UI 配置、RBAC 和产品工作区尚未实现/发布；迁移完成前不得删除此配置或源实现，也不得把目标 runtime 配置写成可用项。
+
 ## 地图
 
 启用一个 Provider，并同时把地图 origin 加入 `web-view.allowed-origins`。支持 BlueMap、dynmap、squaremap、Pl3xMap；第一个已安装且启用的 Provider 生效。
@@ -54,7 +56,7 @@ persistence:
   enabled: true
   driver: sqlite               # sqlite/mysql/mariadb/postgresql
   scope: local                 # local/network
-  sqlite-file: "storage/ooengine.db"
+  sqlite-file: "storage/oo engine.db"
   password: "${ENV:OOENGINE_DB_PASSWORD}"
 ```
 
@@ -64,6 +66,6 @@ persistence:
 
 `resource-bridge.sources` 可接目录或 ZIP，例如 Nexo、CraftEngine、ItemsAdder 或自定义插件输出。路径应位于管理员可控位置。
 
-## 面板 YAML
+## 窗口 YAML
 
-面板存放于 `plugins/OOEngine/panels/`。修改后使用管理 reload/refresh 能力；上线前先在测试服校验 widget id、action、binding 和 revision 行为。
+窗口存放于 `plugins/OOEngine/panels/`。修改后使用管理 reload/refresh 能力；上线前先在测试服校验 widget id、action、binding 和 revision 行为。

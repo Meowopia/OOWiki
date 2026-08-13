@@ -1,10 +1,20 @@
-﻿site_name: OO 系列插件 Wiki
+# OOWiki site configuration / OOWiki 站点配置
+# Purpose / 用途: MkDocs Material navigation, rendering and search configuration.
+# Reload / 重载: rerun `python -m mkdocs build --clean --strict`; Pages changes require an approved deployment.
+# Risk / 风险: navigation paths must exist; Python/YAML tags below are trusted build input. Never place secrets here.
+# Author / 作者: zkonikishi
+# QQ: 276098266
+# Discord: https://discord.gg/KPq2fZHFK
+# ifdian: https://ifdian.net/a/zkonikishi
+# QQ Group / QQ群: 1063369777
+site_name: OO 系列插件 Wiki
 site_description: Meowopia OO 系列 Minecraft 插件统一中文文档
 site_url: https://meowopia.github.io/OOWiki/
 repo_url: https://github.com/Meowopia/OOWiki
 repo_name: Meowopia/OOWiki
 edit_uri: edit/main/docs/
 
+# Documentation source / 文档源目录 (relative path; default: docs)
 docs_dir: docs
 
 theme:
@@ -37,6 +47,7 @@ theme:
         icon: material/weather-sunny
         name: 切换到浅色模式
 
+# Navigation tree / 导航树 (ordered mapping; paths must exist under docs_dir)
 nav:
   - 首页: index.md
   - 文档:
@@ -44,16 +55,31 @@ nav:
       - 架构与依赖: architecture.md
       - 配置参考: configuration.md
       - 命令与权限: commands-permissions.md
+      - 集成边界: integration.md
+      - 迁移规则: migration.md
+      - 安全模型: security.md
   - 插件:
-      - OOCore: plugins/oocore.md
-      - OOEngine 与客户端: plugins/ooengine.md
-      - OOChat: plugins/oochat.md
-      - OOGame: plugins/oogame.md
-      - OOMusic: plugins/oomusic.md
+      - 基础（Core）:
+          - OOCore: plugins/oocore.md
+          - OOEngine: plugins/ooengine.md
+          - OOConsole: plugins/ooconsole.md
+      - 附属（Extensions）:
+          - OOGame: plugins/oogame.md
+          - OOMusic: plugins/oomusic.md
+          - OOBrowser: plugins/oobrowser.md
+          - OOChat: plugins/oochat.md
+  - OORPG:
+      - 分类说明: oorpg/index.md
+      - OOQuest: oorpg/ooquest.md
+      - OOVIP: oorpg/oovip.md
+      - OOReforge: oorpg/ooreforge.md
   - 开发者:
       - 开发者接入: development.md
       - 故障排查: troubleshooting.md
+      - 发布流程: release.md
+      - 验收清单: acceptance.md
 
+# Markdown features / Markdown 功能 (list; changes affect rendered HTML)
 markdown_extensions:
   - admonition
   - attr_list
@@ -73,12 +99,14 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
+# Build plugins / 构建插件 (list; search indexes zh/en content)
 plugins:
   - search:
       lang:
         - zh
         - en
 
+# Global custom styles / 全局自定义样式 (paths relative to docs_dir)
 extra_css:
   - stylesheets/extra.css
 

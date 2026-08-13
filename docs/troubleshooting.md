@@ -1,4 +1,4 @@
-﻿# 故障排查
+# 故障排查
 
 ## 插件未启用
 
@@ -16,9 +16,9 @@
 1. 确认客户端安装了正确 Minecraft 版本和正确 loader 的 OOEngine-Client。
 2. 检查协议版本错误和 mod 加载日志。
 3. 检查玩家是否有 `ooengine.ui.command`。
-4. 尝试服务端命令打开 `menu`，区分 keybind 与面板问题。
+4. 尝试服务端命令打开 `menu`，区分 keybind 与窗口问题。
 
-## 面板不更新
+## 窗口不更新
 
 检查 panel id、客户端当前 document revision、patch 的 base revision 和 widget id。revision 不匹配时客户端按设计拒绝 patch，应重新发送完整 snapshot。
 
@@ -37,6 +37,8 @@
 - SQLite 文件目录是否可写。
 
 ## 视频无法播放
+
+视频表现统一经 OOVideo policy；不要让业务插件直接探测或调用 OOVideo Worker/FFmpeg。旧 OOMedia 配置、cache 或 pin 迁移失败时应回滚，不得在旧目录和 OOVideo 目录同时运行两套 session/cache。
 
 - 客户端是否为 `full` 发行包；
 - manifest 签名、endpoint pin、HTTPS origin、SHA-256、大小和 expiry 是否通过；

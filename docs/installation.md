@@ -1,8 +1,8 @@
-﻿# 安装与升级
+# 安装与升级
 
 ## 安装顺序
 
-1. 停止服务器并备份 `plugins/`、数据库和自定义面板。
+1. 停止服务器并备份 `plugins/`、数据库和自定义窗口。
 2. 安装 `OOCore-<version>.jar`。
 3. 安装 `OOEngine-<version>.jar`。
 4. 按需安装 `OOChat`、`OOGame`、`OOMusic`。
@@ -18,9 +18,9 @@ plugins/
 └─ OOMusic-<version>.jar      # 可选
 ```
 
-## OOEngine 面板
+## OOEngine 窗口
 
-首次启动会创建默认面板。示例位于源码仓库：
+首次启动会创建默认窗口。示例位于源码仓库：
 
 ```text
 OOEngine/examples/panels/
@@ -32,20 +32,20 @@ OOEngine/examples/panels/
 plugins/OOEngine/panels/
 ```
 
-玩家按 `M` 请求打开菜单，`F8` 切换面板编辑器；也可使用 `/ooengine open menu`（实际可用命令以当前构建注册结果为准）。
+玩家按 `M` 请求打开菜单，`F8` 切换窗口编辑器；也可使用 `/oo engine open menu`（实际可用命令以当前构建注册结果为准）。
 
 ## 客户端选择
 
 - Fabric 与 NeoForge 只安装一个。
 - Minecraft 小版本、loader 和 OOEngine 协议版本必须匹配。
-- `slim`：不含 FFmpeg/OOMedia，视频使用 poster fallback。
-- `full`：包含隔离的 OOMedia worker，支持签名媒体播放。
+- `slim`：不含 OOVideo Worker，视频 surface 使用 poster fallback。
+- `full`：OOVideo 可经策略校验后使用隔离的 OOVideo Worker/FFmpeg decode；业务插件不能直接调用 worker。
 
 ## 首次检查
 
 - `/plugins` 中 OOCore、OOEngine 及插件均为启用状态。
 - 控制台不存在 missing capability、ABI mismatch 或 protocol mismatch。
-- `/oo c` 可用。
+- `/oo core` 可用。
 - 客户端按 `M` 能打开菜单。
 - Folia 环境中没有错误的全局线程或跨 region 调用。
 
