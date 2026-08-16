@@ -7,7 +7,7 @@ OOEngine 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**�
 OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。本页只公开产品能力、安装配置边界和受控 SDK 用法，不提供内部源码、私有 artifact 访问方式或安全实现细节。
 
 !!! info "术语"
-    面向用户统一称为**窗口（Window）**，扩展 OOEngine 的独立项目统一称为**插件（Plugin）**。现有 Java API 中的 `PanelController`、`panelId` 等属于稳定兼容标识，在计划好的 ABI 迁移前不会仅为改文案而破坏。
+    面向用户统一称为**窗口（Window）**，扩展 OOEngine 的其他 OO 产品统一称为**插件（Plugin）**。现有 Java API 中的 `PanelController`、`panelId` 等属于稳定兼容标识，在计划好的 ABI 迁移前不会仅为改文案而破坏。
 
 ## 组件边界
 

@@ -1,5 +1,7 @@
 # 集成边界
 
+Provider 与 Contribution 接入统一遵循 [OO 生态愿景](vision.md#extension-fallback)：权威状态留在领域 Provider，缺失可选能力只降级对应功能，不自建 bridge 或复制实现。
+
 ## 命令
 
 OOCore `1.7.1` 是当前稳定基线和 `/oo` 的唯一 root owner；`1.7.0` 已 withdrawn。OOCore 是运行时硬依赖，但兼容性按 ABI、handshake 与 Capability 协商，不按精确 SemVer 判断。

@@ -1,5 +1,7 @@
 # 开发者接入
 
+开发前先阅读 [OO 生态愿景](vision.md)。所有公开 Provider、Contribution 和配置扩展都必须遵守其中的组合、安全、证据与 fallback 原则。
+
 本文只说明闭源 OO 产品的公开 SDK 接入边界。内部源码、构建环境、私有 repository、testkit 和发布脚本不在 OOWiki 提供。
 
 ## 开发环境
@@ -15,7 +17,6 @@
 | OOEngine `:oomenu` | 所有业务插件接入 OOEngine 窗口系统的统一 facade implementation，并负责 Menu preset、应用目录和玩家菜单偏好；不是独立插件 |
 | OOEngine `:oovideo` | 完整视频子项目：稳定 facade、策略、worker、解码、frame/audio delivery 与客户端 backend；历史 OOMedia 仅保留迁移兼容壳 |
 | OOEngine `:ooquest` | 第三方任务 Provider 的统一 stable facade implementation；不拥有第三方任务业务真相 |
-| OOEngine `:ooquest`（独立项目 分类） | 工程上属于 OOEngine，产品导航归 独立项目；提供 versioned snapshot、权威 action、事件与 provider 隔离，不实现任务业务引擎 |
 | OOEngine `:ooeditor` | `UiDocument` 结构化编辑、validation/operation、revision diff、preview compile、screenshot request、publish candidate；不是独立插件 |
 | OOEngine `:oohud` | HUD/Tab/Scoreboard/BossBar/Toast/Subtitle/notification overlay 的统一 facade implementation |
 | OOEngine `:oomodel` | 模型 Provider facade；BetterModel 仅通过官方 API optional adapter 接入 |
@@ -123,6 +124,8 @@ Executor 必须验证 schema version、Capability、节点/栈深/字符串/资�
 
 ## OOConsole Contribution（planned）
 
+Contribution 必须同时满足 [OO 生态愿景](vision.md#extension-fallback)中的 owner scope、受控声明、证据分级与降级要求。
+
 OOConsole 位于独立仓库并采用独立版本：package `com.zkonikishi.oo.console`，plugin/module ID `ooconsole`，规划命令 `/oo console`（planned）。目标 runtime 硬依赖 OOCore 与 OOEngine，plugin descriptor 必须声明 `depend: [OOCore, OOEngine]`。它复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套。Contribution stable API/Capability 归 OOConsole，不得加入 OOEngine API。
 
 OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移。每个 adapter 必须独立完成自身产品验收，不能由平台状态批量推导为 implemented。
@@ -172,7 +175,7 @@ API/testkit 正式发布前，消费者只能等待并审计当前接入，不�
 
 首版目标 Capability 为 `ooengine.quest.v1`，公开 contract 从 `ooengine-api 1.1.4` 发布，实现位于 `:ooquest`，package `com.zkonikishi.ooengine.quest`。消费者使用 owner-fixed `ExtensionScope.quest(QuestContribution/QuestProvider)` 或等价 `OOQuestScope`，以及 `QuestService`/`QuestController`。
 
-工程归属固定为 OOEngine 仓库及其生命周期，构建路径为 `OOEngine > :ooquest`；产品/生态和 OOConsole 导航归档为 `OOEngine > :ooquest`。禁止建立独立 独立项目 artifact/group/package、Paper 插件或仓库。
+工程归属固定为 OOEngine 仓库及其生命周期，构建路径与产品文档归档均为 `OOEngine > :ooquest`。禁止建立独立 artifact/group/package、Paper 插件、插件中心卡片或仓库。
 
 DTO 使用 immutable、bounded 的 `QuestSnapshot`、`QuestJournal`、`QuestEntry`、`QuestObjective`、`QuestProgress`、`QuestActionRequest`、`QuestActionResult`、`QuestEvent`。任务 ID 必须 provider-owner namespaced；snapshot 带 provider revision。mutation 使用 requestId、expectedRevision、actor UUID，Provider 二次执行 RBAC/前置条件校验并返回新 revision 和明确 code。
 

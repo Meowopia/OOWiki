@@ -38,6 +38,8 @@ OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费
 
 分类仅用于产品与 Wiki 展示，不创建聚合 runtime、模块、Maven group、package、数据库或额外依赖。侧边导航平铺展示全部条目。
 
+完整的组合原则、安全不变量、扩展点和降级规则见 [OO 生态愿景](docs/vision.md)。
+
 ## 本地验证
 
 ```powershell

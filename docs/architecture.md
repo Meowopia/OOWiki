@@ -1,5 +1,9 @@
 # 架构与依赖关系
 
+## OO 生态愿景
+
+本页的职责和依赖边界以 [OO 生态愿景](vision.md)为上位原则：框架契约优先、配置驱动、owner-bound 组合、安全不变量不可绕过，并为缺失的可选能力提供局部降级。架构图只描述经核验的公开边界；Implemented、Code-prepared、Planned 与 Blocked 不得互相替代。
+
 ## 总体架构
 
 ```mermaid

@@ -51,6 +51,7 @@ theme:
 nav:
   - 首页: index.md
   - 文档:
+      - OO 生态愿景: vision.md
       - 安装与升级: installation.md
       - 架构与依赖: architecture.md
       - 配置参考: configuration.md

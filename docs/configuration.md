@@ -1,5 +1,7 @@
 # 配置参考
 
+配置设计遵循 [OO 生态愿景](vision.md#configuration-driven)：使用安全默认值、版本化 Schema、校验、迁移与回滚；未接入 loader 的示例不得写成已生效配置。
+
 ## OOEngine 常用项
 
 ```yaml
