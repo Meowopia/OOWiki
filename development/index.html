@@ -163,7 +163,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../installation/" class="md-tabs__link">
+        <a href="../vision/" class="md-tabs__link">
           
   
   
@@ -324,6 +324,29 @@
             文档
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OO 生态愿景
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1150,6 +1173,7 @@
 
 
 <h1 id="_1">开发者接入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>开发前先阅读 <a href="../vision/">OO 生态愿景</a>。所有公开 Provider、Contribution 和配置扩展都必须遵守其中的组合、安全、证据与 fallback 原则。</p>
 <p>本文只说明闭源 OO 产品的公开 SDK 接入边界。内部源码、构建环境、私有 repository、testkit 和发布脚本不在 OOWiki 提供。</p>
 <h2 id="_2">开发环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>消费者使用 Java 25 与项目自带 Gradle Wrapper。SDK repository、凭据和授权方式仅以产品公开分发说明为准。</p>
@@ -1181,10 +1205,6 @@
 <tr>
 <td>OOEngine <code>:ooquest</code></td>
 <td>第三方任务 Provider 的统一 stable facade implementation；不拥有第三方任务业务真相</td>
-</tr>
-<tr>
-<td>OOEngine <code>:ooquest</code>（独立项目 分类）</td>
-<td>工程上属于 OOEngine，产品导航归 独立项目；提供 versioned snapshot、权威 action、事件与 provider 隔离，不实现任务业务引擎</td>
 </tr>
 <tr>
 <td>OOEngine <code>:ooeditor</code></td>
@@ -1284,6 +1304,7 @@
 </ol>
 <p>涉及 renderer 的改动还必须做指定帧 screenshot diff 和性能/显存/堆验收，不能只用单元测试宣称视觉引擎完成。</p>
 <h2 id="ooconsole-contributionplanned">OOConsole Contribution（planned）<a class="headerlink" href="#ooconsole-contributionplanned" title="Permanent link">&para;</a></h2>
+<p>Contribution 必须同时满足 <a href="../vision/#extension-fallback">OO 生态愿景</a>中的 owner scope、受控声明、证据分级与降级要求。</p>
 <p>OOConsole 位于独立仓库并采用独立版本：package <code>com.zkonikishi.oo.console</code>，plugin/module ID <code>ooconsole</code>，规划命令 <code>/oo console</code>（planned）。目标 runtime 硬依赖 OOCore 与 OOEngine，plugin descriptor 必须声明 <code>depend: [OOCore, OOEngine]</code>。它复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套。Contribution stable API/Capability 归 OOConsole，不得加入 OOEngine API。</p>
 <p>OOConsole <code>0.1.5</code> + OOCore <code>1.6.1</code> owner-bound 平台链已验收，可供消费者迁移。每个 adapter 必须独立完成自身产品验收，不能由平台状态批量推导为 implemented。</p>
 <p>OOChat、OOGame、OOMusic、OOBrowser、OOReforge 等业务插件只通过 owner-scoped OOConsole Contribution 接入管理工作区，并遵守：</p>
@@ -1317,7 +1338,7 @@
 <p>API/testkit 正式发布前，消费者只能等待并审计当前接入，不得自造本地 facade 或 bridge。</p>
 <h2 id="ooquest-planned">OOQuest 接入（planned）<a class="headerlink" href="#ooquest-planned" title="Permanent link">&para;</a></h2>
 <p>首版目标 Capability 为 <code>ooengine.quest.v1</code>，公开 contract 从 <code>ooengine-api 1.1.4</code> 发布，实现位于 <code>:ooquest</code>，package <code>com.zkonikishi.ooengine.quest</code>。消费者使用 owner-fixed <code>ExtensionScope.quest(QuestContribution/QuestProvider)</code> 或等价 <code>OOQuestScope</code>，以及 <code>QuestService</code>/<code>QuestController</code>。</p>
-<p>工程归属固定为 OOEngine 仓库及其生命周期，构建路径为 <code>OOEngine &gt; :ooquest</code>；产品/生态和 OOConsole 导航归档为 <code>OOEngine &gt; :ooquest</code>。禁止建立独立 独立项目 artifact/group/package、Paper 插件或仓库。</p>
+<p>工程归属固定为 OOEngine 仓库及其生命周期，构建路径与产品文档归档均为 <code>OOEngine &gt; :ooquest</code>。禁止建立独立 artifact/group/package、Paper 插件、插件中心卡片或仓库。</p>
 <p>DTO 使用 immutable、bounded 的 <code>QuestSnapshot</code>、<code>QuestJournal</code>、<code>QuestEntry</code>、<code>QuestObjective</code>、<code>QuestProgress</code>、<code>QuestActionRequest</code>、<code>QuestActionResult</code>、<code>QuestEvent</code>。任务 ID 必须 provider-owner namespaced；snapshot 带 provider revision。mutation 使用 requestId、expectedRevision、actor UUID，Provider 二次执行 RBAC/前置条件校验并返回新 revision 和明确 code。</p>
 <p>生命周期与线程要求：owner-scoped registration；disable/reload/quit/switch 幂等释放；声明 sync/async/entity execution policy；支持 timeout/cancel；不持有 <code>Player</code>/<code>Plugin</code>；订阅 bounded、有 backpressure，按 revision 拒绝乱序事件。</p>
 <p>安全边界：客户端仅发送 intent，不能自报进度、奖励或状态；禁止 command/script/path/SQL；推进与奖励由权威 Provider 事务处理；诊断 DTO 必须脱敏、有界。任务窗口走 OOMenu，HUD 走未来 OOHUD，OOConsole 仅做 adapter/显示映射配置和诊断，Typewriter 对话不混入 Quest 状态接口。</p>

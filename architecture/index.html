@@ -165,7 +165,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../installation/" class="md-tabs__link">
+        <a href="../vision/" class="md-tabs__link">
           
   
   
@@ -337,6 +337,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OO 生态愿景
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../installation/" class="md-nav__link">
         
   
@@ -408,6 +431,15 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oo" class="md-nav__link">
+    <span class="md-ellipsis">
+      OO 生态愿景
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
@@ -867,6 +899,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#oo" class="md-nav__link">
+    <span class="md-ellipsis">
+      OO 生态愿景
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       总体架构
@@ -976,6 +1017,8 @@
 
 
 <h1 id="_1">架构与依赖关系<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="oo">OO 生态愿景<a class="headerlink" href="#oo" title="Permanent link">&para;</a></h2>
+<p>本页的职责和依赖边界以 <a href="../vision/">OO 生态愿景</a>为上位原则：框架契约优先、配置驱动、owner-bound 组合、安全不变量不可绕过，并为缺失的可选能力提供局部降级。架构图只描述经核验的公开边界；Implemented、Code-prepared、Planned 与 Blocked 不得互相替代。</p>
 <h2 id="_2">总体架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TB
   Admin["管理员浏览器"] --&gt; Console["OOConsole 0.1.5&lt;br/&gt;owner-service available&lt;br/&gt;product workspaces planned"]
