@@ -1,311 +1,424 @@
-# OOEngine 与 OOEngine-Client
+# OOEngine 与 OOEngine-Client {#ooengine-ooengine-client}
 
-<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooengine/banner-1200x630.webp" alt="OOEngine 窗口与渲染引擎品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooengine/banner-1200x630.webp" alt="喵托邦 / Meowopia — OOEngine 界面与交互" loading="lazy" decoding="async">
 
-OOEngine 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；真实依赖保持 OOEngine hard-depend OOCore。
+**OOEngine 为 Minecraft 服务器提供可配置的窗口与交互表现，OOEngine-Client 负责在玩家客户端显示和操作这些窗口。**
 
-OOEngine 是闭源专有产品，也是 OO 系列的服务端表现引擎，负责把窗口文档、数据绑定、交互动作、资源清单和渲染计划安全地交付给客户端。OOEngine-Client 是 Fabric/NeoForge 原生渲染端。两者都强依赖 OOCore 提供生命周期、调度、服务注册和 Minecraft 版本适配。本页只公开产品能力、安装配置边界和受控 SDK 用法，不提供内部源码、私有 artifact 访问方式或安全实现细节。
+喵托邦 / Meowopia · 基础（Core）。OOEngine 是闭源专有产品；品牌画面表达产品定位，不代表所有展示效果都已实现。
 
-!!! info "术语"
-    面向用户统一称为**窗口（Window）**，扩展 OOEngine 的其他 OO 产品统一称为**插件（Plugin）**。现有 Java API 中的 `PanelController`、`panelId` 等属于稳定兼容标识，在计划好的 ABI 迁移前不会仅为改文案而破坏。
+!!! info "当前正式版"
+    服务端 **OOEngine 1.2.0**，客户端 **OOEngine-Client 1.2.0**，客户端目标为 **Minecraft 26.2**。安装时选择对应的 Fabric 或 NeoForge 包，不要同时安装两个 loader 包。维护分支和 SNAPSHOT 不是正式发布。
 
-## 组件边界
+## 产品作用 {#_1}
 
-| 组件 | 职责 | 不负责 |
+OOEngine 适合把服务器功能组织成玩家可以点击、查看和操作的窗口，例如个人信息、功能菜单和由其他插件提供数据的界面。服主可以修改窗口文件与资源；实际玩家数据、任务进度和奖励仍由服务端及相应玩法插件决定。
+
+- **服务端装 OOEngine 和 OOCore**：加载配置与窗口，处理交互、权限和资源交付。
+- **玩家装 OOEngine-Client**：根据 Minecraft 版本选择 Fabric 或 NeoForge，显示窗口、文字与图形并处理输入。
+- **没有客户端 Mod 时**：不能按完整原生窗口体验验收。完整原版客户端替代显示仍未完成。
+- **OOCore 不是客户端 Mod**：不要把 OOCore JAR 放进玩家的 `mods/`。
+
+## 已实现功能 / Implemented {#features}
+
+<span id="oomenu"></span>
+<span id="oohud-planned"></span>
+<span id="_5"></span>
+
+以下以正式 **1.2.0** 为范围。原生窗口需要服务端与对应客户端正确安装；有条件的集成仍需要相应提供方。维护分支已经编写但尚未发布的功能不计入本表。
+
+| 内容 | 服主可以做什么 | 使用边界 |
 |---|---|---|
-| OOCore | 生命周期、Paper/Folia 调度、Capability、服务注册、服务器版本适配 | 窗口、RenderPlan、客户端渲染 |
-| OOEngine | 窗口编译、绑定、动作、资源、会话、现有 Web Editor、协议 | 直接维护各 Minecraft 版本差异；OOConsole Contribution API |
-| OOEngine-Client | Fabric/NeoForge renderer、输入、纹理/字体/遮罩 backend | 服务端业务数据和权限判定 |
-| OOEngine 插件 | 注册自己的窗口、binding、action | 写入 OOEngine 私有目录或复制 renderer |
+| YAML 窗口 | 调整文本、按钮、布局、颜色与已有动作；打开、刷新、关闭窗口 | 从随包模板开始修改，不代表任意网页组件都可直接使用 |
+| 默认个人信息与菜单模板 | 使用个人信息、手机、网游、手游风格入口 | 布局模板不会自动安装其按钮所指向的玩法插件 |
+| 字体和资源 | 使用服务器交付的字体与受控资源，减少不同服务器资源混用 | 缺失资源、字体 fallback 和客户端版本仍会影响效果 |
+| HUD、Tab、计分板显示 | 显示服务器或已接入插件提供的信息 | 有显示配置不等于已有真实数据 Provider；不要把示例数据当作实时玩法数据 |
+| Web Editor | 在浏览器中查看、编辑窗口文档 | 初次设置默认仅在服务器本机进行；不是完整的统一服管后台 |
+| UI v2 设置窗口 | 体验首批控件、键盘操作、保存/取消与窗口动效 | 当前是有限范围实现，不是完整控件库，也不替代 Minecraft 的 `server.properties` |
 
-### OOMenu 子项目
+### 字体与文字 {#_6}
 
+正式客户端包含字体资源与文本显示支持。使用自定义字体前确认资源可读、字体授权允许分发，并在实际使用的客户端检查中文、换行和 GUI Scale。不要把“支持字体交付”理解成任意字体、emoji、全部排版效果在所有后端都已完全一致。
 
-Window facade 在 `1.1.4` 中不完整：缺少 `WindowController`，Contribution 重复 `ownerId`，scope-derived owner validation 与 OOMenu server bootstrap/cleanup 未验收。因此 Window migration 为 runtime-blocked，禁止混用新 Window registration 与 legacy `PanelController`。Menu/Video 也仍需同等级完整性审计；后续只能 additive 修复，不覆盖 `1.1.4`。
+### 菜单预设 {#menu-android}
 
-!!! info "1.1.6 stable"
-    `1.1.6` 已作为闭源二进制稳定版发布；`1.1.5` 不得使用。
+默认提供 `menu`、`menu-phone`、`menu-mmo`、`menu-mobile` 等窗口。它们是同一插件的内容模板，不是额外插件。可以先运行 `/oo engine open menu` 查看样式入口。
 
-OOMenu 是所有业务插件接入 OOEngine 窗口系统的统一表现层门面。它负责 owner-scoped window contribution、窗口发现与 open/patch/close 安全编排、namespace/limits/revision/requestId 校验、插件卸载回收，以及通用 Menu 文档、应用目录和 preset。默认、MMO、mobile、phone、Android tablet 都是同一个 Menu 系统的 preset。玩家命令仍为 `/oo engine menu`，不存在独立 `/oo menu` 模块命令。
+Android 平板形态属于菜单主题方向；完整桌面分页、壁纸管理、Dock 和全部移动端适配不能仅凭概念图视为已交付。
 
-OOEngine core 继续拥有 `UiDocument`、RenderPlan、layout/expression/timeline、资源生命周期、协议与客户端 renderer；OOMenu 只消费这些能力，不复制引擎。公开契约仍由 `ooengine-api` 发布，实现归 `:oomenu`，因此插件只编译依赖 stable API，不编译依赖内部子项目。
+## 安装 {#_2}
 
-依赖方向固定为：
+### 准备环境
 
-```text
-OOChat / OOGame / OOMusic / OOBrowser / other plugins
-  → ooengine-api（OOMenu window/menu facade contract）
-  → :oomenu implementation
-  → OOEngine core / RenderPlan / resources / protocol
+| 位置 | 必要条件 |
+|---|---|
+| 服务端 | Paper 26.2、Java 25、OOCore、OOEngine |
+| Fabric 客户端 | Minecraft 26.2、Java 25、匹配的 Fabric Loader 与 Fabric API、Fabric 版 OOEngine-Client |
+| NeoForge 客户端 | Minecraft 26.2、Java 25、匹配的 NeoForge、NeoForge 版 OOEngine-Client |
+
+**OOCore 是 OOEngine 的必要运行前置。** 1.2.0 的最低已验证基线为 **OOCore 1.7.2**，不是“只能安装这一版”的精确锁定。运行时还需要兼容的接口与调度、平台、通信及可信服务能力；未来版本是否可用，以兼容说明和启动检查为准，不能仅凭版本数字更大就认定兼容。不要使用已撤回的 OOCore 1.7.0。
+
+Folia 实机尚未验收。OOCore 支持某个平台，并不自动代表 OOEngine 已完成该平台验收。
+
+### 安装步骤
+
+1. 正常停止服务器，备份已有插件数据。
+2. 将 `OOCore-1.7.2.jar`（或明确兼容的后续版本）和 `OOEngine-1.2.0.jar` 放进服务器 `plugins/`。同一插件只保留一个版本的 JAR。
+3. 玩家把对应的 `OOEngine-Client-Fabric-26.2-1.2.0.jar` 或 `OOEngine-Client-NeoForge-26.2-1.2.0.jar` 放进自己的 `mods/`，同时满足对应 loader 的依赖。
+4. 启动服务器，确认 OOCore、OOEngine 成功启用。初次启动会创建主配置和缺失的默认窗口模板，不会自动覆盖同名已有模板。
+5. 用管理员执行 `/oo core`、`/oo engine info`、`/oo engine list` 检查状态；玩家安装客户端后执行 `/oo engine open menu` 测试。
+6. 需要改主配置时，先正常停服，修改后重新启动。不要在线替换 JAR。
+
+正式下载与版本说明：[OOEngine Release](https://github.com/Meowopia/OOEngine/releases/tag/v1.2.0)、[OOEngine-Client Release](https://github.com/Meowopia/OOEngine-Client/releases/tag/v1.2.0)。私有仓库下载需要项目授予的访问权限；不要把访问凭据发到群聊或日志中。
+
+[OOCore 安装说明](oocore.md) · [通用安装与升级](../installation.md)
+
+## 配置 / Configuration {#configuration}
+
+以下均为相对于服务器目录的路径，不是额外下载地址。
+
+| 文件或目录 | 用途 | 修改与生效方式 |
+|---|---|---|
+| `plugins/OOEngine/config.yml` | 功能、编辑器、显示刷新频率、存储和集成配置 | 建议停服修改后重启；当前窗口重载命令不会重新读取整份主配置 |
+| `plugins/OOEngine/panels/*.yml` | 用户窗口文档 | 默认有文件监听；也可手动 `/oo engine reload`。重新打开窗口核对效果 |
+| `plugins/OOEngine/assets/` | 本地窗口资源 | 放入可信资源并更新窗口引用；重开窗口检查交付，无法确认缓存更新时重启验证 |
+| `plugins/OOEngine/settings-v2.properties` | 内置 UI v2 设置窗口保存的数据 | 由窗口操作维护，不是通用配置模板；不要边运行边手改版本或数据 |
+| `plugins/OOEngine/web-editor-credentials.yml` | Web Editor 完成设置后保存的登录资料 | 程序维护，**不要手改、公开或提交** |
+| `plugins/OOEngine/editor/setup-token.txt` | Web Editor 首次设置的一次性凭据 | 仅服务器管理员本地读取；不要转发，完成设置后由程序处理 |
+| `plugins/OOEngine/storage/` | 默认本地持久化数据 | 停服后备份；不要多服共用同一个活动 SQLite 文件 |
+
+### 主配置重点
+
+| 配置项 | 默认或作用 | 注意事项 |
+|---|---|---|
+| `open-on-join` | 空字符串，不自动打开窗口 | 可填写 `/oo engine list` 中已有的窗口 ID，例如 `menu` |
+| `open-on-join-delay-ticks` | `20` tick，约 1 秒 | 范围 1–1200；过早打开时客户端可能还未准备好 |
+| `features.*` | 各项功能开关 | 开关为 true 不代表第三方插件已经安装或能力已验收 |
+| `features.kcp` | `false` | 当前是占位，不是可用的 KCP 传输；不要为“优化延迟”而打开 |
+| `web-editor.enabled`、`bind`、`port` | 默认启用，`127.0.0.1:18081` | 与 `features.web-editor` 一同控制；改监听地址、端口或安全配置后重启 |
+| `hud`、`tab`、`scoreboard` | 显示开关与刷新间隔 | 间隔越短，CPU 和网络开销越高；tick 约为 1/20 秒 |
+| `quest-tracker`、`integrations` | 任务显示及可选集成 | 以实际已安装、受支持的提供方为准 |
+| `resource-bridge` | 默认不启用外部资源目录桥接 | 仅配置服主信任的本地资源来源，不照搬他人的磁盘路径 |
+| `persistence` | 默认本地 SQLite | 外部数据库不是首次使用的必要条件；数据库密码使用环境变量引用 |
+
+下面是**合并到现有配置对应位置**的例子，不要用它覆盖整份 `config.yml`：
+
+```yaml
+# 加入后打开菜单 / Open the menu after joining
+open-on-join: "menu"
+# 单位 tick，20 约为 1 秒 / Ticks; 20 is approximately one second
+open-on-join-delay-ticks: 20
+
+# 保持编辑器本机访问 / Keep the editor local-only
+web-editor:
+  enabled: true
+  bind: "127.0.0.1"
+  port: 18081
 ```
 
-现有 API v1 中的 `PanelController`、`PanelContributionRegistry` 与 `ExtensionScope.panel(...)` 暂时作为带退场版本的兼容 adapter，由 runtime 委托给 OOMenu；新插件不得直接依赖 OOEngine 的 `PanelRepository`、session manager、renderer、server/common implementation 或 data folder。
+主配置修改后重启。**`/oo engine reload` 当前只重新加载窗口目录，不是全插件配置热重载。** `.yml` 是当前监听器自动处理的后缀；使用 `.yaml` 等兼容源格式时请手动重载并检查结果。
 
-### OOVideo 子项目
+JSON 主题包不是当前已确认的通用窗口配置入口；不要把 JSON、概念主题文件或 UI v2 开发示例直接丢进 `panels/` 并认为会加载。JSON 本身也不支持注释。
 
+## 命令 {#_3}
 
-OOVideo 负责签名 video descriptor/manifest、来源策略、播放状态、seek、timeline 同步、窗口/surface 绑定、Capability negotiation、poster fallback、owner/session 生命周期、解码 worker、frame/audio delivery、client sink，以及尺寸、码率、时长、并发和资源预算。
+根命令由 OOCore 提供，用户入口统一为 **`/oo engine`**。以下对应正式 **1.2.0** 的命令处理行为。`<参数>` 必填，`[参数]` 可省略；`<窗口>` 使用文档 ID，不带 `.yml`；`<玩家>` 为在线玩家的准确名称。表中示例玩家 `Alex` 需替换为实际在线玩家。
 
-历史 `OOMedia` 名称、`:media` module、`oomedia-worker` 和 `Media*` API 全部归并到 OOVideo，不再作为长期并列层或对外产品。迁移期只保留 deprecated compatibility adapter，并内部委托 OOVideo；业务插件不得直接调用 FFmpeg、worker、texture/audio sink 或内部 video implementation。OOBrowser 只负责 Chromium/Web surface，不能另建第二套通用视频协议。
+### 玩家入口与兼容管理入口
 
-```text
-Plugin
-  → ooengine-api（OOVideo contract）
-  → :oovideo
-  → decoder worker / RenderPlan / resources / protocol / client backend
+| 完整命令 | 用途与默认值 | 精确权限 | 执行者 | 最小示例 |
+|---|---|---|---|---|
+| `/oo engine`、`/oo engine menu` | 打开自己的 `personal-info`；不是样式选择菜单 | `ooengine.ui.command` | 玩家 | `/oo engine` |
+| `/oo engine open [窗口]` | 打开自己的窗口；省略为 `personal-info` | `ooengine.ui.command` | 玩家 | `/oo engine open menu` |
+| `/oo engine close` | 关闭自己的活动窗口 | `ooengine.ui.command` | 玩家 | `/oo engine close` |
+| `/oo engine quests`、`/oo engine journal` | 打开全部任务日志；数据需要任务提供方 | `ooengine.ui.command` | 玩家 | `/oo engine quests` |
+| `/oo engine map` | 尝试打开已配置地图；受网页能力限制 | `ooengine.ui.command` | 玩家 | `/oo engine map` |
+| `/oo engine list` | 列出已加载窗口 ID | `ooengine.ui.command` | 玩家/控制台 | `/oo engine list` |
+| `/oo engine info`、`/oo engine status` | 状态、版本与联系信息 | `ooengine.ui.command` | 玩家/控制台 | `/oo engine info` |
+| `/oo engine version` | 版本与联系信息 | `ooengine.ui.command` | 玩家/控制台 | `/oo engine version` |
+| `/oo engine refresh [窗口]` | 为自己重新发送窗口文档；省略为 `personal-info`，不是任意当前窗口 ID | `ooengine.ui.command` | 玩家 | `/oo engine refresh personal-info` |
+| `/oo engine reload` | 只重新加载窗口目录 | `ooengine.ui.admin.reload` | 玩家/控制台 | `/oo engine reload` |
+| `/oo engine editor [窗口]` | 打开游戏内编辑目标；省略为 `personal-info` | `ooengine.ui.admin.editor` | 玩家 | `/oo engine editor personal-info` |
+| `/oo engine debug` | 查看集成状态 | `ooengine.ui.admin.debug` | 玩家/控制台 | `/oo engine debug` |
+| `/oo engine set <控件> <属性> <值...>` | 修改自己活动窗口的一项属性；值允许空格；不保存为窗口文件 | `ooengine.ui.admin.set` | 玩家 | `/oo engine set greeting text Hello` |
+
+公共 `open`/`menu` 不接受代开目标；控制台为玩家开窗请使用下列 `admin` 入口。`set` 示例需要当前窗口存在 `greeting` 控件。
+
+### 管理员入口
+
+| 完整命令 | 用途与默认值 | 精确权限 | 执行者 | 最小示例 |
+|---|---|---|---|---|
+| `/oo engine admin`、`/oo engine admin help` | 显示管理帮助 | `ooengine.ui.admin.help` | 玩家/控制台 | `/oo engine admin help` |
+| `/oo engine admin menu [玩家]` | 为目标打开 `personal-info`；玩家省略目标时为自己，控制台必须填写目标 | `ooengine.ui.admin.menu` | 玩家/控制台 | `/oo engine admin menu Alex` |
+| `/oo engine admin open [窗口] [玩家]` | 默认窗口 `personal-info`；玩家省略目标时为自己；控制台需按顺序给出窗口和目标 | `ooengine.ui.admin.open` | 玩家/控制台 | `/oo engine admin open menu Alex` |
+| `/oo engine admin close [玩家]` | 关闭目标窗口；玩家省略目标时为自己，控制台必须填写目标 | `ooengine.ui.admin.close` | 玩家/控制台 | `/oo engine admin close Alex` |
+| `/oo engine admin quests` | 打开自己的任务日志，不支持代开 | `ooengine.ui.admin.quests` | 玩家 | `/oo engine admin quests` |
+| `/oo engine admin journal` | 同上，但当前版本使用不同权限节点 | `ooengine.ui.admin.journal` | 玩家 | `/oo engine admin journal` |
+| `/oo engine admin map [玩家]` | 尝试打开目标的已配置地图；目标省略规则同 close | `ooengine.ui.admin.map` | 玩家/控制台 | `/oo engine admin map Alex` |
+| `/oo engine admin reload` | 重新加载窗口目录，不重读主配置 | `ooengine.ui.admin.reload` | 玩家/控制台 | `/oo engine admin reload` |
+| `/oo engine admin editor [窗口]` | 编辑目标默认 `personal-info`；仍需客户端编辑入口 | `ooengine.ui.admin.editor` | 玩家 | `/oo engine admin editor personal-info` |
+| `/oo engine admin list` | 列出已加载窗口 | `ooengine.ui.admin.list` | 玩家/控制台 | `/oo engine admin list` |
+| `/oo engine admin info`、`/oo engine admin status` | 状态与联系信息；status 使用 info 权限 | `ooengine.ui.admin.info` | 玩家/控制台 | `/oo engine admin info` |
+| `/oo engine admin version` | 版本与联系信息 | `ooengine.ui.admin.version` | 玩家/控制台 | `/oo engine admin version` |
+| `/oo engine admin debug` | 集成状态 | `ooengine.ui.admin.debug` | 玩家/控制台 | `/oo engine admin debug` |
+| `/oo engine admin refresh [窗口]` | 为自己重新发送文档；默认 `personal-info`，不支持代刷 | `ooengine.ui.admin.refresh` | 玩家 | `/oo engine admin refresh personal-info` |
+| `/oo engine admin set <控件> <属性> <值...>` | 修改自己活动窗口属性，不写回文件 | `ooengine.ui.admin.set` | 玩家 | `/oo engine admin set greeting text Hello` |
+| `/oo engine admin web <玩家> <URL> [transparent]` | 请求打开网页；透明参数为 `true`/`false`，默认 `false` | `ooengine.ui.admin.web` | 玩家/控制台 | `/oo engine admin web Alex https://example.com/ false` |
+
+地图和 Web 行仅说明命令入口确实存在，**不是网页已能显示的承诺**。1.2.0 两个主客户端均不执行旧网页打开消息；不要仅安装 WebGUI 就认为这些入口可用，也不要为测试随意放开 URL 来源限制。示例域名不是已授权来源。
+
+当前没有独立 `/oo engine help` 公共子命令；管理帮助是 `/oo engine admin help`。兼容解析器中的旧别名不等于发行包注册了可直接执行的旧根命令，本页统一使用 `/oo engine`。
+
+## 权限 {#permissions}
+
+以下将发行包显式声明和处理代码额外检查分开。权限插件中的显式拒绝/授权仍会影响结果，不建议通过 OP 代替最小权限配置。
+
+| 精确节点 | 对应功能 | 发行包默认值 | 显式继承关系 |
+|---|---|---|---|
+| `ooengine.ui.command` | 公共窗口、列表、状态、版本、任务、地图与 refresh 命令 | `true`，普通玩家可用 | 不属于下列管理通配权限 |
+| `ooengine.ui.admin.*` | 下列 13 个显式管理子权限 | `op` | 只声明下列 13 项 children，不是任意新后缀自动授权 |
+| `ooengine.ui.admin.menu` | 管理 menu | `op` | `ooengine.ui.admin.*` → 此节点 |
+| `ooengine.ui.admin.open` | 管理 open | `op` | 同上 |
+| `ooengine.ui.admin.close` | 管理 close | `op` | 同上 |
+| `ooengine.ui.admin.reload` | 窗口重载 | `op` | 同上 |
+| `ooengine.ui.admin.editor` | 编辑命令入口 | `op` | 同上 |
+| `ooengine.ui.admin.list` | 管理 list | `op` | 同上 |
+| `ooengine.ui.admin.info` | 管理 info/status | `op` | 同上 |
+| `ooengine.ui.admin.debug` | debug | `op` | 同上 |
+| `ooengine.ui.admin.version` | 管理 version | `op` | 同上 |
+| `ooengine.ui.admin.refresh` | 管理 refresh | `op` | 同上 |
+| `ooengine.ui.admin.set` | 活动窗口属性 patch | `op` | 同上 |
+| `ooengine.ui.admin.web` | 管理 Web 请求 | `op` | 同上 |
+| `ooengine.ui.admin.help` | 管理帮助 | `op` | 同上 |
+| `ooengine.ui.admin.quests` | admin quests | **未显式声明** | 不在上述 children 中 |
+| `ooengine.ui.admin.journal` | admin journal | **未显式声明** | 不在上述 children 中 |
+| `ooengine.ui.admin.map` | admin map | **未显式声明** | 不在上述 children 中 |
+| `ooengine.admin.editor` | 客户端游戏内编辑保存 | **未显式声明** | 与 `ooengine.ui.admin.editor` 不同，不在上述 children 中 |
+| `ooengine.admin` | F7 设置窗口及其保存动作 | **未显式声明** | 不在上述 children 中 |
+
+“未显式声明”表示插件没有为该节点写明默认值或继承；实际未注册节点行为受服务器与权限插件策略影响，不能据此承诺普通玩家默认有权限。需要使用时给可信管理员**显式授予准确节点**。尤其不要假定打开编辑命令权限自动包含编辑保存权限，也不要杜撰 `ooengine.*` 为本插件已声明的通配权限。
+
+权限只授权入口，不替代客户端、数据提供方、资源来源与功能开关条件。其他插件贡献的业务动作还可能有它们自己的权限要求，以其文档为准。
+
+### 客户端按键 {#client-keys}
+
+| 按键 | Fabric 1.2.0 | NeoForge 1.2.0 |
+|---|---|---|
+| M | 请求个人信息窗口 | 请求个人信息窗口 |
+| F7 | 请求内置 UI v2 设置窗口 | 请求内置 UI v2 设置窗口 |
+| F8 | 当前原生窗口的游戏内编辑模式 | 未提供同等入口 |
+| 波浪号所在键（GRAVE） | 物品栏/技能栏切换；需要相应服务器功能与数据 | 未提供同等入口 |
+
+按键可能被其他 Mod 占用，可在 Minecraft 按键设置中检查。F7 设置窗口需要服务器权限 `ooengine.admin`；它保存自身界面设置，不是全服配置管理器。Fabric 游戏内编辑的保存检查另需 `ooengine.admin.editor`，与打开编辑窗口的命令权限不同；只授权给可信管理员。
+
+## 窗口文件 {#_4}
+
+首次生成的模板包括 `menu.yml`、`menu-phone.yml`、`menu-mmo.yml`、`menu-mobile.yml`、`personal-info.yml`、`quest-journal.yml`、`model-preview.yml`。保留默认模板作参照，先复制一份再修改。
+
+将下面内容保存为 `plugins/OOEngine/panels/hello.yml`，然后执行 `/oo engine reload` 和 `/oo engine open hello`：
+
+```yaml
+panel:
+  id: hello
+  title: "示例窗口 / Hello"
+  size: 420x240
+  anchor: center
+  modal: true
+  close-on-esc: true
+layout:
+  type: column
+  padding: 24
+  gap: 12
+widgets:
+  - type: text
+    id: greeting
+    text: "欢迎来到喵托邦 / Welcome to Meowopia"
+    size: 18
+  - type: button
+    id: close
+    text: "关闭 / Close"
+    width: 120
+    height: 36
+    on-click: close
 ```
 
-迁移还必须覆盖旧配置、环境变量、签名 pin、缓存和 worker artifact，并保持服务器 UID 隔离；只有 Fabric/NeoForge/FCL、MP4/WebM、签名、资源释放和长跑门禁通过后才能删除兼容壳。新接入只能使用 OOVideo。当前不增加独立 `/oo video` 模块命令。
+顶层控件列表是 **`widgets`**；嵌套容器才使用 `children`。窗口 ID 应唯一；不同内容不要复用相同 ID。插件注册的窗口应遵守该插件自己的命名空间。
 
-### OOQuest 子项目（planned）
+语法或布局错误可能使相应窗口未被加载。重载后先查控制台错误及 `/oo engine list`，修复或恢复备份，再重新打开；不要把“重载命令返回”当作每一份文件都成功加载。
 
+## 变量与占位符 {#variables}
 
-OOQuest 只作为 OOEngine 内部任务接入接口存在，构建、依赖、生命周期和文档均归属 `OOEngine > :ooquest`。它不是独立插件，也不建立额外产品分类或独立 artifact/group/package。
+OOEngine 1.2.0 的窗口绑定、消息步骤、数据库环境引用不是同一套变量系统。**不要把内部字段名、别的插件占位符或规划功能当作所有配置位置都可用的变量。** 以下示例输出是说明格式，不是预设玩家属性。
 
-它适配 BetonQuest、Typewriter、Quests、BeautyQuests、MMO/Mythio 任务源及未来 Provider，但不复制第三方数据库/状态机，也不裁定任务业务真相。Provider 始终负责权限、前置条件、推进和奖励事务。
+### 内置窗口绑定
 
-任务 ID 使用 provider-owner namespace，snapshot 带 provider revision。accept/track/untrack/submit/abandon 携带 requestId、expectedRevision、actor UUID，并返回新 revision 与明确 code。客户端只提交 intent，不得上报完成度、奖励或状态；禁止 command/script/path/SQL。
+写法为 `${名称}`，大小写及下划线必须一致。在服务端为某玩家生成/刷新普通窗口文档时替换控件属性字符串，可用于 `text`、`label` 等显示值；不是每帧自动读取，也不是 PAPI expansion。使用这组内置变量不需要 PlaceholderAPI。
 
-任务窗口统一经 OOMenu Window facade，HUD tracker 归未来 OOHUD，OOConsole 只配置 adapter/显示映射与诊断。Typewriter 对话本身继续归对话/OOChat 边界。
+| 精确写法 | 含义 | 显示示例 | 作用域/前置 |
+|---|---|---|---|
+| `${player.name}` | 当前窗口玩家名称 | `Alex` | 当前玩家 |
+| `${player.uuid}` | 当前玩家 UUID | `123e4567-e89b-42d3-a456-426614174000` | 当前玩家 |
+| `${player.health}` | 当前生命值，数值不是心形图标数 | `20` | 当前玩家 |
+| `${player.max_health}` | 最大生命值 | `20` | 当前玩家 |
+| `${player.food}` | 饥饿值 | `20` | 当前玩家 |
+| `${player.level}` | 原版经验等级，不是 RPG 职业等级 | `12` | 当前玩家 |
+| `${player.experience_percent}` | 当前级经验进度乘 100；不附加 `%` | `50` | 当前玩家 |
+| `${player.armor}` | 盔甲属性值 | `10` | 玩家属性存在；缺失显示 `—` |
+| `${player.armor_toughness}` | 盔甲韧性属性 | `2` | 同上 |
+| `${player.attack_damage}` | 攻击伤害属性 | `1` | 同上，不等于完整技能最终伤害 |
+| `${player.attack_speed}` | 攻击速度属性 | `4` | 同上 |
+| `${player.movement_speed}` | 移动速度属性 | `0.1` | 同上，不是方块/秒测速 |
+| `${player.knockback_resistance}` | 击退抗性属性乘 100，附带 `%` | `0%` | 同上 |
+| `${player.luck}` | 幸运属性 | `0` | 同上 |
+| `${player.world}` | 世界名称 | `world` | 当前玩家 |
+| `${player.x}`、`${player.y}`、`${player.z}` | 所在方块的整数坐标 | `100`、`64`、`-20` | 当前玩家；不是带小数位置 |
+| `${server.online}` | 当前服务器在线人数 | `8` | 当前玩家所在服务器 |
+| `${server.max_players}` | 服务器最大人数设置 | `100` | 当前服务器 |
 
-common 中旧 `com.zkonikishi.ooengine.api.quest.*` 自 `1.1.4` 作为 deprecated compatibility shim 迁入 `ooengine-api` 并委托 OOQuest；整个 API 1.x 保持兼容，最早 API 2.0 删除。发布前消费者只等待，不自造 bridge。
+整数按整数显示，非整数通常保留一位小数；不要据显示文本推算高精度数值。变量值不会自动修改玩家状态。
 
-### OOEditor 子项目（planned）
+复制到已有 `widgets:` 列表中的最小示例：
 
-
-### OOHUD 子项目（planned）
-
-
-### OOModel 与 BetterModel adapter（planned）
-
-OOModel 计划通过 BetterModel 官方 Bukkit API 提供 optional adapter：
-
-```kotlin
-compileOnly("io.github.toxicity188:bettermodel-bukkit-api:<compatible-version>")
+```yaml
+- type: text
+  id: player-summary
+  text: "${player.name} | HP ${player.health}/${player.max_health} | EXP ${player.experience_percent}%"
 ```
 
-BetterModel 官方项目采用 MIT 许可，是 server-based Bedrock/BlockBench model engine，基于 item-display packet，并公开 cubes、meshes、null objects、locators、animation、Molang、IK、player skin/custom armor、resource-pack generation 和 entity sync 等能力。OOModel 只使用其官方 API，不复制、内嵌或反射内部实现，也不强制安装 BetterModel。缺失或版本不兼容时只禁用 adapter，不影响 OOEngine/OOModel 其他 Provider。[BetterModel 官方仓库](https://github.com/toxicity188/BetterModel)
+`${profile.rating.visible}`、`${profile.rating.label}`、`${profile.rating.value}` 分别取自 `personal-info.rating.enabled`、`label`、`value`；默认例子为 `false`、`声望`、`—`。它们是个人信息的**配置展示值**，不是自动接入的声望系统。`visible` 是字符串布尔值，可用于模板中支持可见性条件的属性。
 
-adapter 实现前必须锁定 Capability，管理 tracker 生命周期，并覆盖 entity/player quit、chunk unload、plugin disable 清理、Folia 线程策略及 resource-pack 冲突策略。当前没有已核验正式产物，因此状态仅为 **planned**。
+无法解析的 `${...}` 会在若干常见控件的 `text`、`label`、`value`、`max` 字段降为 `—`；其他属性不保证有同样 fallback。先检查变量拼写、配置及提供方，再重新打开/刷新窗口。
 
-## 安装
+### 可选 RPG 资料绑定
 
-1. 服务端安装匹配版本的 `OOCore` 和 `OOEngine`。
-2. 玩家安装与 Minecraft 版本、loader 对应的 `OOEngine-Client`，Fabric 与 NeoForge 包不能混用。
-3. 首次启动后检查 `plugins/OOEngine/config.yml`。
-4. 执行 `/oo core` 确认 OOCore adapter 与 Capability 正常。
-5. 执行 `/oo engine info` 检查 OOEngine，再用 `/oo engine open menu` 打开默认窗口。
+下面 `${rpg.*}` 是已启用 MythicRPG 时的可选只读资料绑定。需要兼容的提供方资料及当前玩家档案；显示的是可读取的已保存资料，不保证等同于每一刻的最终战斗数值。缺失资料时不保证这些键存在。
 
-OOCore 处理 Minecraft/Paper/Folia 版本差异。OOEngine 与业务插件不得自行判断 26.1、26.1.2、26.2；服务器升级时优先更新 OOCore provider。
+| 写法 | 含义与示例 | 作用域/前置 |
+|---|---|---|
+| `${rpg.profile_id}` | 当前档案 ID，例如 `main` | 当前玩家 MythicRPG 档案 |
+| `${rpg.archetype}` | 职业/角色标识，例如 `Warrior`；空值可显示 `冒险者` | 同上 |
+| `${rpg.level}` | 档案等级，例如 `12` | 同上，与原版 level 不同 |
+| `${rpg.experience}` | 档案经验，例如 `150` | 同上 |
+| `${rpg.mana}` | 已保存资源中的法力值，例如 `80`；无匹配资源时 `—` | 同上；需提供方存在法力资源 |
+| `${rpg.attribute_points}` | 已获点数减已花点数，最低 0，例如 `3` | 同上 |
+| `${rpg.spent_attribute_points}` | 已花属性点，例如 `7` | 同上 |
+| `${rpg.learned_skills}` | 已记录技能数量，例如 `4` | 同上 |
+| `${rpg.resources.<资源键>}` | 指定已存在资源，如 `${rpg.resources.Mana}` → `80` | 键名由提供方确定，不是字面量 `<资源键>` |
+| `${rpg.stats.<属性键>}` | 指定已存在基础属性及可合并修正值 | 键名/含义由提供方确定，不承诺全部最终战斗加成 |
 
-## 配置 / Configuration
+部分属性还可生成简化键，如 `${rpg.strength}`、`${rpg.intelligence}`、`${rpg.vitality}`、`${rpg.spirit}`、`${rpg.magic_attack}`、`${rpg.physical_attack}`、`${rpg.critical}`、`${rpg.cooldown}`、`${rpg.resistance}`、`${rpg.power}`；只有资料中存在对应属性时才会出现，不保证是百分数，也不保证全部有值。
 
-- `plugins/OOEngine/config.yml`：runtime 主配置。
-- `plugins/OOEngine/panels/*.yml`：首次安装窗口模板。
-- `web-editor-oredentials.yml`：安全原子生成文件，禁止手工修改或提交。
-- `examples/phone-themes.yml`：当前没有 loader，仅 planned example。
-- JSON theme：没有已验收 loader；JSON 禁止注释，不得宣称可用。
+其他插件可提供自己的 `${命名空间.键}` 绑定，但具体键只能以该插件实际支持说明为准。例如安装 MMOCore 不等于本版自动提供 `${mmocore.level}` 这一固定键。
 
+### PlaceholderAPI 与消息模板的区别
 
-## 联系 / Contact
+| 类型 | 精确形式与例子 | 当前支持边界 |
+|---|---|---|
+| OOEngine 自己向 PAPI 注册的 expansion | 不提供 `%ooengine_...%` 固定表 | **当前版本暂无对外 PAPI expansion**；不能把窗口绑定复制成 `%ooengine_player_name%` |
+| 消费其他插件 PAPI 占位符 | `%扩展_参数%`；具体键由对应 expansion 定义 | 需要 PlaceholderAPI 与相应 expansion，但 1.2.0 的常见显示字段存在先降级、后解析的顺序问题，可能直接显示 `—`；不将其列为可靠的文本绑定方案。优先使用上方内置 `${...}` |
+| 已配置窗口步骤中的消息模板 | `${player.name}`、`${player.uuid}` | `type: message` 的 `text` 等步骤参数执行时替换；例 `你好 ${player.name}` → `你好 Alex`；不是所有 UI 绑定键都能用 |
+| 同一消息步骤的事件值 | `${event.<键>}`，如 `${event.value}` | 只有相应事件确实带有该键时才能替换；缺键不承诺 fallback。事件文本是输入，不是权限、物品、任务进度或奖励事实 |
+| 数据库密码环境引用 | `${ENV:OOENGINE_DB_PASSWORD}` | 仅 `persistence.password` 的环境引用；由服务器进程环境提供。不填写真实密码示例，不用于窗口显示 |
+
+消息步骤是服主审核的窗口内容，不是允许玩家提交任意脚本的入口。不要把未经校验的事件文本拼入高权限操作；不要把环境变量密钥或密码展示给玩家。普通 UI v2 控件字段也不应直接套用上述普通窗口替换规则。
+
+## Web Editor 与 OOConsole {#web-editor-ooconsole}
+
+<span id="ooeditor-planned"></span>
+
+OOEngine 1.2.0 随包提供 Web Editor。默认地址为服务器本机的 `http://127.0.0.1:18081/`；在自己电脑上访问 `127.0.0.1` 不会连接到远程服务器。
+
+首次设置：
+
+1. 保持本机监听和 `allow-remote: false`，确认编辑器已成功启动。
+2. 管理员在服务器本地读取 `plugins/OOEngine/editor/setup-token.txt`，在设置页面完成账号设置。**令牌不是从公开日志获取，也不要转发。**
+3. 日后正常登录；程序维护 `web-editor-credentials.yml`。该文件不是手写密码配置。
+4. 编辑前备份窗口文件；保存后检查服务端加载结果，再用实际客户端确认显示和点击。
+
+如需远程管理，先完成本机初始化，再按[安全说明](../security.md)配置可信 HTTPS 反向代理、安全 Cookie 和精确 Host/Origin 白名单。不要仅把监听地址改成 `0.0.0.0` 就开放到公网。
+
+[OOConsole](ooconsole.md) 是独立管理产品，**不是安装 OOEngine 的必要前置**。OOEngine-Client 1.2.0 的正式说明没有声明已经验收的 OOConsole 兼容版本；不要把维护分支接线或管理界面演示当作正式兼容承诺。
+
+## 其他插件接入 {#sdk}
+
+<span id="oomenuplanned"></span>
+<span id="ooquest-planned"></span>
+
+其他插件可以通过正式受支持接口贡献自己的窗口与交互。服主应安装其明确支持的版本，按插件文档启用集成；不要通过复制私有目录或修改插件内部实现来连接两个产品。
+
+任务、对话、属性等显示依赖实际提供数据的插件。安装 OOEngine 本身不会自动提供任务内容、职业系统、经济或奖励规则。未安装或不兼容的可选提供方，不应被理解成对应玩法已可用。
+
+开发接入说明见[开发者文档](../development.md)。本页不提供私有 SDK 下载地址、内部实现或凭据。
+
+## 资源与备份 {#_7}
+
+- 只加载来源可信、允许分发的窗口、字体、图片和模型；不要把陌生资源包当作可信配置执行。
+- 不要为解决下载问题而关闭来源限制，或在资源 URL 中写入密码。
+- 不要复制不同服务器的身份与安全文件来“共用缓存”。备份应包含整个 `plugins/OOEngine/`，而不只是主配置。
+- 编辑器凭据、一次性令牌、签名私钥、数据库密码和授权信息不得发到公开问题区。
+- 完整原版客户端 fallback、视频/浏览器能力和各平台支持范围，以对应正式发行说明为准。
+
+## 未实现功能 / Not implemented {#renderplan-20}
+
+<span id="oovideo"></span>
+<span id="oovideo-facadeplanned"></span>
+<span id="oomodel-bettermodel-adapterplanned"></span>
+
+- **Folia**：实机尚未验收，不按正式支持平台推荐。
+- **控件和高级效果**：UI v2 是首批有限范围实现。完整控件集、全部遮罩/材质效果与完整原版客户端替代显示尚未完成，不能照着规划清单承诺效果。
+- **双 loader 差异**：Fabric 的 F8 编辑、GRAVE 技能切换和 `config/ooengine-client.json` 配置存储没有全部对等迁移到 NeoForge。
+- **减少动态效果**：正式客户端 1.2.0 使用 JVM 属性 `-Dooengine.reducedMotion=true` 控制 UI v2 的减少动效分支。读取原版动效滑块的改动仍属于未发布维护代码，不包含在 1.2.0 中。
+- **网页**：两端主客户端不会执行旧网页打开消息；仅安装或检测到 WebGUI，不代表所有网页入口可用。
+- **视频和移动端**：不要把仅含主 JAR 的正式下载等同于完整外部视频运行环境。完整解码环境、FCL 和 OpenGL ES 的适用性需要单独确认。
+- **第三方模型**：BetterModel 等适配规划不等于已随当前正式版交付；不要为尚未发布的适配额外安装不必要依赖。
+
+## 未来计划 / Roadmap {#roadmap}
+
+以下为已有规划方向，不是发布日期或版本承诺；是否交付以之后的正式发行说明为准。
+
+| 方向 | 后续工作与依赖 |
+|---|---|
+| 减少动效与可访问性 | 将未发布维护代码中的原版动效偏好接入完成实际客户端验证；保持两种 loader 行为一致，不覆盖玩家偏好 |
+| 双客户端一致性 | 在共享行为与安全配置迁移明确后，逐项处理编辑按键、技能栏和配置保存差异；网页只在真实提供方可用后声明支持 |
+| 窗口与创作能力 | 按已有表现引擎规划分批完善控件、资源和效果；先保证窗口格式、显示和交互兼容，不把概念图或开发样例当成成品 |
+| 平台适用范围 | 在独立环境完成 Folia 等适用平台验证；通过前继续保留未验收标注 |
+
+## 升级与回退 {#upgrade}
+
+1. 停止服务器并退出客户端，备份插件配置、窗口、资源、存储和安全资料。
+2. 核对服务端、客户端 Mod、Minecraft/loader 和 OOCore 的兼容说明；客户端与服务端不保证永远同号。
+3. 只替换需要升级的 JAR，移走旧版重复 JAR。不要删除整个插件目录来“重新生成配置”。
+4. 对比新默认配置，保留已有自定义值；不要直接覆盖自己的窗口模板。
+5. 先在测试服检查窗口打开、按钮操作、关闭、重连和资源加载，再用于正式服务器。
+6. 回退时恢复旧 JAR **及其对应的数据目录备份**。涉及数据变更时，不要只回退二进制而保留不匹配的数据。
+
+## 上线前自检 {#_8}
+
+- OOCore、OOEngine 均正常启用，无缺失依赖或能力错误。
+- `/oo engine info`、`/oo engine list` 正常；实际玩家能打开 `menu` 和 `personal-info`。
+- 用普通玩家账号检查权限，而不是只用 OP 测试。
+- 在服务器实际使用的 GUI Scale、分辨率和 loader 上检查文字、点击与关闭。
+- 玩家退出重进、切服后无残留窗口或错误资源。
+- 修改窗口时保留可用备份；公网管理入口启用前完成安全配置。
+
+## 故障排查 {#_9}
+
+| 现象 | 先检查什么 |
+|---|---|
+| `/oo engine` 提示未知模块 | OOCore 是否先成功启用；OOEngine 启动日志是否有依赖或注册失败 |
+| `/oo engine menu` 不是样式选择页 | 该命令默认打开 `personal-info`；样式选择使用 `/oo engine open menu` |
+| 修改 config 后无变化 | 当前 reload 只重载窗口；正常重启使主配置生效 |
+| 窗口不在 list 中 | 文件是否位于 `panels/` 直接目录，YAML/布局是否报错，ID 是否重复 |
+| 客户端完全不显示 | Minecraft/loader 是否匹配，是否装对客户端 JAR，服务端是否启用 OOEngine |
+| F8 保存被拒绝 | 仅 Fabric 有该入口；检查命令权限及额外保存权限，不给普通玩家管理员权限 |
+| 编辑器打不开 | 服务端本机地址、18081 端口冲突、功能开关及启动日志；远程电脑的 localhost 不是服务器 |
+| 网页/视频/模型无效果 | 先确认真实提供方与运行环境，不仅检查功能开关是否为 true |
+
+提交支持请求时提供服务端/客户端版本、Minecraft 与 loader、相关配置片段和报错；先移除令牌、密码、私钥及玩家隐私。更多帮助见[故障排查](../troubleshooting.md)。
+
+## 联系 / Contact {#contact}
 
 - 作者 / Author: zkonikishi
 - QQ: 276098266
 - Discord: <https://discord.gg/KPq2fZHFK>
 - [ifdian](https://ifdian.net/a/zkonikishi)
 - QQ群 / QQ Group: 1063369777
-
-## 常用命令
-
-
-| 命令 | 说明 | 权限 |
-|---|---|---|
-| `/oo engine` | 打开自己的默认菜单窗口 | `ooengine.ui.command` |
-| `/oo engine menu` | 打开自己的菜单窗口 | `ooengine.ui.command` |
-| `/oo engine open <window>` | 打开指定窗口 | `ooengine.ui.command` |
-| `/oo engine close` | 关闭自己的活动窗口 | `ooengine.ui.command` |
-| `/oo engine quests` | 打开任务日志 | `ooengine.ui.command` |
-| `/oo engine map` | 打开地图 | `ooengine.ui.command` |
-| `/oo engine reload` | legacy route：原子重载配置与窗口 | `ooengine.ui.admin.reload` |
-| `/oo engine list` | 列出窗口 | `ooengine.ui.command` |
-| `/oo engine info` | 显示运行状态 | `ooengine.ui.command` |
-| `/oo engine version` | 显示版本 | `ooengine.ui.command` |
-| `/oo engine admin reload` | 原子重载配置与窗口 | `ooengine.ui.admin.reload` |
-| `/oo engine admin editor` | 管理编辑器 | `ooengine.ui.admin.editor` |
-| `/oo engine admin open <window> <player>` | 为玩家打开窗口 | `ooengine.ui.admin.open` |
-| `/oo engine admin close <player>` | 关闭玩家窗口 | `ooengine.ui.admin.close` |
-| `/oo engine admin debug` | 输出诊断 | `ooengine.ui.admin.debug` |
-| `/oo engine admin web <player> <url> [transparent]` | 打开受策略限制的 Web 表面 | `ooengine.ui.admin.web` |
-
-旧入口若仍在某个过渡构建中可作为 legacy alias，但文档、脚本和新集成不得继续依赖它。
-
-## 窗口文件
-
-```text
-plugins/OOEngine/config.yml
-plugins/OOEngine/panels/*.yml
-plugins/OOEngine/assets/**
-plugins/OOEngine/storage/**
-```
-
-磁盘目录 `panels/` 和 API 类型中的 `Panel*` 暂时保留，以避免无意义破坏兼容性；产品术语仍为“窗口”。
-
-最小窗口示例：
-
-```yaml
-panel:
-  id: example:hello
-  title: "示例窗口"
-  size: 420x240
-  anchor: center
-  ohildren:
-    - type: text
-      id: greeting
-      text: "你好，${player.name}"
-      size: 18
-    - type: button
-      id: close
-      text: "关闭"
-      on-click: close
-```
-
-窗口 ID 必须带受控 namespace。插件只能注册自己的 namespace，不能覆盖 Core 或其他插件的窗口。
-
-### Menu 预设：Android 平板
-
-!!! info "OOMenu 归属"
-
-Android 平板只是 OOEngine 通用 `menu` 窗口的一种主题与响应式布局 preset，与 MMO、mobile、phone presets 同级。它不是独立插件、模块、窗口分类、Console workspace 或导航点；不得创建 tablet module、command、registry、database、config root 或 tablet 专用 Capability。OOEngine 仍通过同一个 Menu 系统负责平板机身、安全区、状态栏、桌面分页、Dock、应用图标布局、窗口切换动画、横竖屏、GUI Scale 和主题资源。
-
-平板内的应用仍由各插件拥有：
-
-| 应用入口 | 所属插件 | 目标窗口示例 |
-|---|---|---|
-| 玩家信息、设置、任务入口 | OOEngine 内置或配置的 provider | `ooengine:profile`、`ooengine:settings` |
-| 聊天、好友、邮件 | OOChat | `oochat:main` |
-| 游戏大厅 | OOGame | `oogame:lobby` |
-| 音乐播放器 | OOMusic | `oomusic:main` |
-| 受控网页 | OOBrowser | `oobrowser:main` |
-
-插件应用入口只能通过未来的通用 owner-scoped Menu contribution 注册，不得修改 Menu/平板窗口文件、写入 OOEngine data folder 或复制菜单实现。贡献数据应限制为应用 ID、显示名、受控图标资源、目标窗口、排序、可见性和 bounded badge snapshot；点击结果仍由 OOEngine 的服务端权威 action/session 校验。
-
-
-平板预设不得独立持久化另一套应用目录；玩家的主题、壁纸、应用排序和方向偏好继续归通用 Menu 配置与玩家偏好模型。
-
-
-### 插件窗口接入统一经 OOMenu（planned）
-
-以后 OOChat、OOGame、OOMusic、OOBrowser 等插件使用窗口能力时，只编译依赖 `ooengine-api` 暴露的 OOMenu Window/Menu facade contract。runtime 路径固定为：
-
-```text
-Plugin → ooengine-api facade → :oomenu implementation → OOEngine core
-```
-
-OOMenu 负责 owner-scoped window contribution、Menu app entry、窗口发现/open/patch/close 编排、namespace/limits/revision/requestId 校验和 lifecycle 撤销。业务插件禁止直接依赖 server/common implementation、`PanelRepository`、session manager、renderer 或 OOEngine data folder。
-
-API v1 中已有的 `PanelContributionRegistry`、`PanelController`、`ExtensionScope.panel(...)` 自 `1.1.4` 标记 `Deprecated(forRemoval=false)`，整个 1.x 由 runtime 委托 OOMenu；最早 API 2.0 才允许删除，目前不设日期。新代码统一使用 Window 术语；新插件等待正式 Window/Menu facade API 发布，不得继续接 legacy panel API，也不得自造本地 bridge。
-
-## 渲染管线
-
-```text
-UiDocument
-  → Style / Layout
-  → Expression evaluation
-  → Timeline sampling
-  → immutable RenderPlan
-  → Web / Fabric / NeoForge executor
-```
-
-Web、Fabric、NeoForge 必须消费同一个版本化 RenderPlan schema。后端不支持的能力必须明确报告，不能静默产生另一套布局或换行结果。
-
-## OOVideo 视频 facade（planned）
-
-
-```text
-Plugin → ooengine-api (OOVideo contract)
-       → :oovideo
-       → OOVideo Worker + OOEngine RenderPlan/resources/protocol + client backend
-```
-
-`:oovideo` 统一处理签名 descriptor/manifest、source policy、play/pause/seek/stop、timeline sync、surface/window binding、capability negotiation、poster fallback、owner/session lifecycle、OOVideo Worker、platform/FFmpeg decode、frame/audio delivery、client sink、FCL backend、资源/显存/音频释放和媒体预算。插件不得直接调用 worker、FFmpeg、texture/audio sink、浏览器或 internal video implementation。
-
-OOBrowser 只负责 Chromium/Web surface。网页视频进入 OOEngine video surface 时也必须经过 OOVideo policy。旧 OOMedia 命名、`:media`、worker artifact/package 和 `Media*` API 不能立即删除，应先作为有版本的 deprecated compatibility shim 委托 OOVideo，并建立 artifact/config/cache/pin 原子迁移、回滚和退场版本；新插件不得继续使用。迁移期间禁止保留两套 decoder/session/cache。
-
-首版公开类型为 `OOVideo`、`OOVideoScope`、`VideoContribution`/`VideoDescriptor`、`VideoController`、`VideoSession`、`VideoState`/`VideoResult`。owner 由 `openScope(owner)` 固定，DTO 不得自报 owner；插件注册 namespaced `videoId` 和受策略资源引用。controller 针对 UUID/window surface 执行 open/play/pause/seek/stop/close，mutation 必须带 requestId/revision，结果必须 immutable、bounded。禁止任意 URL/path/command/script，也禁止接触 worker/decoder/sink。
-
-### RenderPlan 2.0 范围
-
-- Transform、pivot、父子矩阵、opacity、z-index、blend；
-- Solid Quad、Image、NineSlice、Linear/Radial/Conic Gradient；
-- border、radius、shadow、glow、backdrop blur、noise；
-- reot、rounded、ellipse、alpha、inverse、soft、nested mask；
-- Text/RiohText、Model/Entity/Player、AnimatedImage/Video；
-- 固定 timestep 的 timeline、easing、循环、反向、事件和状态混合；
-- 节点、深度、字符串、资源和表达式预算；拒绝 NaN/Infinity，未知 payload 安全跳过。
-
-!!! warning "当前状态"
-    字体下发、服务器 UID 隔离、TextStyle、运行时资源包和既有截图门禁已经完成；这不等于 RenderPlan 2.0 的全部图片、材质、遮罩、动画与三端验收均已完成。
-
-## 字体与文字一致性
-
-服务器和三个预览/渲染端必须使用同一 `TextMetricsProvider` 结果：glyph advance、kerning、ascent/descent、baseline、grapheme、emoji、CJK 禁则与 fallback。布局阶段决定换行，renderer 不得再自行执行另一套换行算法。
-
-
-## 资源安全
-
-- 支持的资源必须经过 MIME 与魔数双重验证；
-- 图片验证尺寸、像素总量、帧数和解压比例；
-- 设置磁盘/显存配额、LRU、并发和下载大小限制；
-- 外部媒体需要协议白名单、签名、精确 origin 与 worker 沙箱；
-- 插件不能传任意本地路径，也不能覆盖其他 owner 的资源；
-- player quit、server switch、插件 disable 后清理 session、listener、task、texture 和 framebuffer。
-
-## 插件 SDK
-
-公开 SDK 用法：
-
-```kotlin
-dependencies {
-}
-```
-
-
-接入要求：
-
-1. 从 Paper `ServicesManager` 获取 `OOCoreApi` 和 `OOEngineApi`；
-2. 校验 ABI、handshake 和 API version；
-3. 对每项所需 Capability 单独 `require`，不得只依赖模糊 umbrella；
-4. 使用 `openScope("plugin-id")` 统一持有 binding、action、window contribution；
-5. 注册失败立即 rollback，disable 时幂等 `close()`；
-6. 不缓存 `Player`、Plugin、World 等运行时对象，只保存 UUID 和不可变 DTO；
-7. action 使用 requestId、revision、payload limit 与服务端权威校验；
-8. 测试重复 enable/disable、player quit、部分注册失败和最终零资源。
-
-上述示例中的 `scope.panel(...)` 属于 API v1 legacy adapter，仅用于解释现有兼容行为，不是新插件推荐入口。新插件应等待 OOMenu stable Window/Menu facade 正式发布。
-
-## Web Editor 与 OOConsole 迁移
-
-**implemented**：OOEngine 当前内置 Web Editor，并提供玩家侧 `/oo engine admin editor` / F8 编辑模式。默认使用非特权端口；远程访问前必须配置安全 Cookie、CSRF、同源策略、登录限流、会话过期和 reverse proxy HTTPS。编辑输出仍需通过相同 schema、UiLimits 与资源策略。
-
-**planned**：独立仓库、独立版本、独立插件 **OOConsole** 将提供统一管理入口，Editor 成为其工作区。OOConsole 运行时硬依赖 OOCore 与 OOEngine，并复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止另造一套。OOConsole Contribution API 归 OOConsole stable API/Capability 所有。
-
-迁移验收完成前，禁止删除 OOEngine Web Editor 源实现。OOEngine 插件不得为了接入管理后台而直接写 Web Editor 目录；管理视图应通过未来的 owner-scoped OOConsole Contribution 注册。
-
-## 验收
-
-稳定发布前至少执行：
-
-- Web 重复截图像素 diff 为 0；
-- Fabric/NeoForge 指定帧截图并记录诚实容差；
-- GUI Scale 1–4、常见宽高比和 FCL/OpenGL ES；
-- 1000/5000 节点、100 图片、20 渐变、10 遮罩、100 动画压力测试；
-- 100 轮插件 enable/disable、玩家 join/quit、切服和长跑泄漏门禁；
-- JAR foreign API 扫描、许可证、SHA256、旧品牌扫描；
-- 测试后仅核验本任务拥有的 JVM PID；无法证明 ownership 时不得终止，禁止全局 Java/javaw 为 0 门禁。
-
-## 故障排查
-
-- `/oo engine` 提示未知模块：确认 OOEngine 已成功向 OOCore 注册 `engine` module，并先检查 `/oo core`。
-- 窗口打不开：确认玩家安装匹配版本的 OOEngine-Client，并检查 `ooengine:main` channel。
-- Folia 异步异常：业务插件不得直接猜线程，必须经 OOCore scheduler facade。
-- 编辑器能预览但客户端不同：检查是否由两端自行布局/换行，所有端必须消费同一 RenderPlan。

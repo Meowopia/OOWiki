@@ -29,7 +29,7 @@
     <div class="plugin-card-footer"><span>平台核心</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooengine/" data-category="core" data-search="ooengine 核心 core window ui renderplan menu video editor hud">
-    <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/ooengine/logo-256.webp" alt="OOEngine 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.1.6</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/ooengine/logo-256.webp" alt="OOEngine 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.2.0</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>

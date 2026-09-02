@@ -4,15 +4,14 @@
 
 **分类：基础（Core）。**
 
-OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。
+OOConsole 是喵托邦（Meowopia）OO 系列的管理与可视化编辑插件，属于基础（Core）。当前正式版 **0.1.6** 提供管理基础能力：状态命令、插件贡献接口，以及可选的本机 HTTP 登录、会话与只读接口。**它还不是完整的网页管理面板。**
 
-!!! info "状态拆分"
-    `0.1.3` 已发布历史 SDK/runtime 交付物，但产品 runtime acceptance 当时仍 pending。消费者不得把 SDK 可用外推为产品 UI 或工作区已经实现。
+!!! info "当前可用范围"
+    `/oo console` 只显示状态；HTTP Dashboard 目前仅返回只读 JSON。可视化窗口编辑、预览发布以及完整插件、资源管理工作区仍在规划中，不应当作已可用功能。
 
-!!! danger "0.1.4 runtime rejected"
-    `0.1.4` runtime coordinate 存在，但 JAR 内 `plugin.yml` 仍声明版本 `0.1.3`，与坐标不一致，因此该版本永久 rejected、不可安装。后续 `0.1.5` 已发布并修复版本元数据。
+!!! warning "历史版本"
+    0.1.4 的 runtime 制品存在版本标识错误，不要安装。安装服务端插件请使用正式版主 JAR，不要用开发者 SDK 或 testkit 代替。
 
-!!! info "0.1.5 published / owner-service available"
 
 ## 固定标识
 
@@ -27,18 +26,71 @@ OOConsole 是独立 OO 系列管理与可视化编辑插件。`0.1.5` + OOCore `
 | API version | `API_VERSION = 1`（implemented） |
 | Capability | `ooconsole.editor-contribution.v1`（compile contract published；owner-bound acquisition available；具体贡献逐项验收） |
 
+## 已实现功能 / Implemented
 
+以下均指正式版 **0.1.6**，运行时需要 OOCore 与 OOEngine：
 
-OOCore `1.6.1` `oocore.owner-bound-service.v1` 与 OOConsole `0.1.5` 正式 artifacts 已通过 owner-service 最终门禁。旧 `openScope(String)` / `openScope(ownerId)` 仍 deprecated/unsafe，禁止 ThreadLocal、反射或本地 bridge。
+- **状态查询**：有权限的玩家或控制台可用 `/oo console` 查看版本和 HTTP 状态。
+- **本机只读接口**：显式启用后支持健康检查、固定管理员登录、会话/CSRF、最小 Dashboard JSON 和登出；已验证本机客户端流程，不是完整浏览器界面。
+- **插件接入基础**：提供可信身份绑定的贡献接口，以及操作校验、权限与审计基础。需要对应插件完成适配；不自动生成完整管理页面。
+- **启停清理**：正式版已通过服务器启动、命令、HTTP 及正常停止清理验收。
 
+## 未实现功能 / Not implemented
 
-API `0.1.4`/`0.1.5` 的 `OwnerBoundOOConsole` compile surface 已发布；`0.1.5` + OOCore `1.6.1` 最终门禁已通过。具体消费者仍须独立完成 acquire/lifecycle/foreign 验收。
+- **尚未提供**：浏览器登录页、完整首页与导航；当前不能把接口地址当作可操作的网页面板。
+- **仅底层已具备**：窗口编辑、预览、保存发布所需的部分接口基础；服主目前不能通过 OOConsole 完成这条可视化流程。
+- **尚未提供**：完整插件管理、资源管理及安全审计工作区；没有网页多用户/角色管理。
+- **尚未开放**：用户配置文件、配置编辑页和热重载命令。
+- **未完成迁移**：不能用本版替代并删除旧 OOEngine Web Editor。
+
+## 未来计划 / Roadmap
+
+- 沿用 OOEngine 的正式编辑与窗口能力，完善结构化编辑、校验、预览、版本检查及保存发布流程，不另造编辑引擎。
+- 通过已适配插件的受控贡献逐步提供管理工作区；保持权限复验和审计，不扩展成任意命令或脚本执行器。
+- 配置开放时配套版本、校验、中英说明及升级回滚；旧编辑器先共存验收，再考虑迁移。
+
+这些是已规划方向，不是已发布功能，也不承诺上线日期或指定版本。
+
+## 安装
+
+1. 先准备能够正常运行的 Paper 服务端，以及 **OOCore、OOEngine** 两个前置插件。缺少任意一个，OOConsole 都无法启动。
+2. 从获授权的正式分发渠道取得 `OOConsole-0.1.6.jar`。关闭服务器后，将主 JAR 放入服务器的 `plugins/` 目录；不要同时保留不同版本的 OOConsole JAR。
+3. 启动服务器，在控制台执行 `oo console` 查看版本和状态。默认显示 `HTTP=disabled` 是正常行为，不表示启动失败。
+
+0.1.6 已验证的前置组合为 OOCore **1.7.1** 与 OOEngine **1.1.6**，不是要求未来只能使用这两个精确版本。其他版本还必须提供兼容的插件接口、命令入口和可信身份服务；仅凭版本号更大不能保证兼容。不要使用已撤回的 OOCore 1.7.0。
+
+已记录的服务端环境为 Minecraft 26.2、Paper 26.2 build 92、Microsoft Java 25.0.4.7、Windows。其他环境的验证情况见下方已知问题。
 
 ## 配置 / Configuration
 
-当前没有用户可编辑的 OOConsole runtime 配置文件；HTTP/UI transport 仍为 planned。不得虚构 `config.yml`、配置键或默认值。
+**当前没有用户可编辑的 OOConsole `config.yml`、语言文件或网页配置页。** 手工新建这些文件不会生效。可选 HTTP 接口通过服务器 Java 进程的启动设置启用，修改后需要完整重启服务器；没有 `/oo console reload`。
 
-OOConsole currently has no user-editable runtime configuration. HTTP/UI transport remains planned. Do not invent `config.yml`, keys, or defaults.
+| 设置 | 类型与默认值 | 作用与示例 |
+|---|---|---|
+| `ooconsole.http.enabled` | JVM 布尔属性，默认 `false` | `-Dooconsole.http.enabled=true` 启用本机 HTTP 接口；应放在 Java 启动命令的 `-jar` 之前 |
+| `ooconsole.http.port` | JVM 整数属性，默认 `0` | `0` 自动分配端口；也可选择空闲端口，例如 `-Dooconsole.http.port=8765`。端口范围 0–65535，实际可用性取决于系统权限和占用情况 |
+| `OOCONSOLE_HTTP_PASSWORD` | 启动进程的环境变量，无默认密码 | 启用 HTTP 时必须提供至少 12 个字符的密码；通过宿主服务的保密环境设置注入，不放在命令行、公开脚本或日志中 |
+
+HTTP 启用却缺少有效密码、端口不可用或前置不满足时，启动会失败并回滚，不会自动退回无认证模式。关闭 HTTP 时不需要提供密码。
+
+HTTP 固定绑定 `127.0.0.1`，没有开放监听公网地址的配置。启动日志会显示 `OOConsole HTTP ready` 和实际地址；也可以用 `/oo console` 查看实际端口。默认动态端口可能随重启变化。
+
+OOConsole 0.1.6 has no user-editable configuration file. The optional HTTP interface is disabled by default, binds only to IPv4 loopback, and uses JVM startup properties plus a password environment variable. Restart the server after changing these settings; no reload command is provided.
+
+### 本机 HTTP 与登录
+
+当前没有登录网页，也没有浏览器首页；以下是给本机管理客户端使用的接口。请求地址使用服务器本机的 `http://127.0.0.1:实际端口`，不要把自己的电脑地址误认为远程服务器地址。
+
+| 请求 | 凭据与用途 | 正常结果 |
+|---|---|---|
+| `GET /health` | 不需登录，检查接口是否运行 | `200`，`{"status":"ok"}` |
+| `POST /session` | HTTP Basic 认证；用户名固定为 `admin`，密码为上述环境变量提供的值 | `200`，返回 `OOSESSION` Cookie 和 JSON 中的 `csrf` |
+| `GET /dashboard` | 同时携带登录 Cookie 和 `X-OO-CSRF` 请求头 | `200`，`{"workspace":"Dashboard","mode":"read-only"}` |
+| `DELETE /session` | 同时携带登录 Cookie 和 `X-OO-CSRF` 请求头，撤销当前会话 | `204`；旧会话不能继续访问 |
+
+会话有效期为 30 分钟，重启后需要重新登录。登录凭据无效返回 `401`；Dashboard 或登出缺少有效会话/CSRF 返回 `403`。接口有限流，频繁请求可能返回 `429`，应停止重试并稍后访问。
+
+Cookie 带有 `Secure`、`HttpOnly` 和 `SameSite=Strict` 属性。由于此版接口使用本机 HTTP，不应假定所有浏览器或客户端都会自动回传 Cookie；当前验证范围是本机管理客户端，并非通用浏览器登录体验。不要为此关闭认证校验或转发到公网。HTTP Basic 的编码不是加密，凭据只应交给受控的本机客户端。
 
 ## 联系 / Contact
 
@@ -47,12 +99,6 @@ OOConsole currently has no user-editable runtime configuration. HTTP/UI transpor
 - Discord: <https://discord.gg/KPq2fZHFK>
 - [ifdian](https://ifdian.net/a/zkonikishi)
 - QQ群 / QQ Group: 1063369777
-
-OOConsole 位于独立仓库、采用独立版本并发布为独立插件，但运行时必须同时依赖 OOCore 与 OOEngine。不要使用“OOEngine Console”作为产品名，也不要把 OOConsole Contribution 放进 OOEngine API。
-
-OOConsole 必须复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套实现。compile surface 发布不等于 runtime 可发现，更不等于 HTTP 服务、管理 UI、Editor、adapter 或产品工作区已经实现。
-
-Android 平板仅是 OOEngine `:oomenu` 通用 `menu` 窗口的响应式 preset。OOConsole 的 Window/Menu workspace 只通过稳定接口调用 OOMenu 与 OOEditor（`:ooeditor`），不复制 editor engine，不直接修改内部 repository、session manager、renderer 或 data folder，也不增加 Tablet workspace、导航页、模块、命令、registry、数据库或配置根。
 
 ## 命令与入口
 
@@ -93,45 +139,31 @@ OOConsole 0.1.6: HTTP=disabled; runtime contribution API active
 
 ## Contribution 规范（planned）
 
-插件计划通过 `ooconsole.editor-contribution.v1` 注册 owner-scoped Contribution：
+此标题中的 planned 指具体可视化工作区，不代表插件接入接口完全未实现。0.1.6 已提供身份绑定的 V1/V2 插件贡献接口；每个接入插件仍需单独完成适配，不能因为安装 OOConsole 就自动出现所有插件的管理页面。
 
-```text
-owner: oochat
-workspace: plugins/oochat
-views: [overview, moderation, mail]
-actions: [oochat.moderation.reload]
-```
-
-约束：
-
-1. owner 必须与已认证的插件/module ID 一致；
-2. 资源 ID、路由、权限和 action 必须位于 owner namespace；
-3. DTO 必须 immutable、versioned、bounded，不得暴露运行时对象；
-4. action 由拥有资源的插件执行服务端权限与业务校验；
-5. 注册返回 lifecycle handle，disable/reload 时幂等撤销；
-6. 只允许 workspace、view、form、table 与受权 named action；禁止任意 HTML、JavaScript、SQL、shell、控制台命令或本地文件路径；
-7. Contribution 缺失只隐藏对应工作区，不得拖垮 OOConsole 或插件核心业务。
-
-首版 artifact、`API_VERSION=1` 和 Capability 已发布；具体产品 Contribution 工作区仍为 **planned**。Wiki 不把 SDK 可编译等同于管理功能可用。
+贡献的操作必须经过权限、参数、版本和生命周期检查，由相应插件负责最终业务校验。完整可视化编辑、预览和发布流程仍未开放给服主使用；不提供任意脚本、SQL、服务器命令或文件浏览执行器。
 
 ## RBAC（planned）
 
-权限至少拆分为：登录、查看 ControlPlane、打开 Editor、保存草稿、发布窗口、调用插件 action、查看审计、管理 OOConsole。危险权限不应包含在普通管理员通配中。
-
-每个请求同时校验：已登录身份、角色权限、owner scope、资源版本、CSRF token、request ID 和 action payload schema。前端隐藏按钮不构成授权。
+此标题保留的是角色管理界面的规划。运行时已有角色和权限校验基础，但 0.1.6 的 HTTP 启动接线只提供固定的 `admin` 登录身份，没有多用户、角色编辑或网页权限管理页。游戏内 `ooconsole.admin` 权限与 HTTP 登录不是同一套凭据。
 
 ## 安全与部署（planned）
 
-- 默认 `127.0.0.1`，远程部署要求 HTTPS reverse proxy；
-- 强制 Host/Origin allowlist、Secure/HttpOnly/SameSite Cookie、会话过期和登录限流；
-- 密码仅保存强 KDF hash，bootstrap token 只在本地控制台短暂显示；
-- 所有写操作记录主体、owner、action、目标、结果和 request ID；
-- 预览与发布沿用 OOEngine schema、UiLimits、资源策略和 RenderPlan，不另造渲染协议。
+0.1.6 已实现本机 HTTP 接口的 Host/Origin 检查、会话撤销与过期、CSRF、Cookie 属性及请求限制；公网部署、反向代理和完整网页管理体验不在当前已验证范围内。
+
+当前凭据来自启动环境，不是用户密码数据库，也没有自动显示 bootstrap token 的功能。请限制谁能读取服务器进程环境和操作本机管理客户端。不要将 HTTP 端口对外转发。
 
 ## 迁移约束
 
-OOEngine Web Editor 只能分阶段迁移。OOConsole 需要通过功能等价、数据兼容、RBAC、安全、审计、回滚和生产试运行验收；在此之前不得删除或破坏 OOEngine 源实现。
+升级前完整停止服务器并备份插件及相关数据，替换主 JAR 后重启检查 `/oo console`。需要回滚时停止服务器，恢复先前已验证的 JAR 和对应备份；不要混放多个版本，也不要回滚到有缺陷的 0.1.4 runtime。HTTP 启动设置需同步检查，会话不会跨重启保留。
 
-OOConsole 仅编辑和诊断 OOVideo 配置、策略与资源引用，不自行播放、解码或持有 texture/audio sink。
+OOConsole 尚未完成旧 OOEngine Web Editor 的功能等价迁移。旧编辑器继续保留，安装本版不能作为删除旧编辑器或迁移其数据的依据。
 
-OOConsole 仅消费 OOEngine 内部 OOQuest 接口，用于配置 Provider adapter、显示映射和脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励，也不为 OOQuest 创建独立插件页面或产品分类。
+## 已知问题
+
+- 没有完整网页首页、登录页或可视化编辑工作区；Dashboard 只是最小只读 JSON，不包含完整监控指标。
+- HTTP 没有编辑、保存或发布接口；底层贡献接口存在，不等于这些网页功能已经开放。
+- 暂无用户配置文件、多用户管理、密码修改页面或热重载命令。
+- 仅支持本机 HTTP 接入；通用浏览器 Cookie 行为及公网反向代理未验收。
+- Windows 原生库加载已验证；Linux Argon2/JNA 原生加载、Folia 运行仍未纳入此版本已验收范围。
+- 完整编辑工作区没有已承诺的交付日期；规划内容不代表当前可安装功能。
