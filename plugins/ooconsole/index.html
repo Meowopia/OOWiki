@@ -1120,6 +1120,7 @@
 <p>Java 21 支持是新增兼容目标，<strong>不是当前 0.1.6 已支持的能力</strong>。0.1.6 仍按原有 Java 25 服务端环境使用。</p>
 <p>计划先验证 Paper 1.20.5、1.20.6 及 1.21–1.21.11 的相关版本，再评估更早的 1.20.x。需要 OOCore、OOEngine 同时提供兼容版本，并完成真实服务器启动、登录和关闭测试；目前尚未验收，不承诺发布日期。</p>
 <p>现有 Java 25 / 26.x 支持继续保留。Minecraft 26.x 服务端需要 Java 25，不能改用 Java 21。此计划不等于新增 Spigot 或 Folia 支持。</p>
+<p>MC/Paper/Folia 的跨版本识别与适配统一由 OOCore 负责，OOConsole 不另建兼容层；OOConsole 仍需保证自身及依赖能够在 Java 21 加载，并通过实际功能验证。仅升级 OOCore 不能使当前要求 Java 25 的 OOConsole 制品直接运行在 Java 21 上。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
