@@ -1,49 +1,69 @@
 # OOCore
 
-<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oocore/banner-1200x630.webp" alt="OOCore 平台核心品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oocore/banner-1200x630.webp" alt="喵托邦 Meowopia · OOCore 平台核心品牌横幅" loading="lazy" decoding="async">
 
-OOCore 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不创建聚合插件、runtime、Maven group、package、数据库或额外硬依赖；OOCore 仍是独立版本和仓库的平台前置。
+**喵托邦 / Meowopia OO 系列的平台前置，归入基础（Core）。** OOCore 统一管理模块身份、运行能力、生命周期与服务端适配，让各个 OO 插件保持独立功能，同时能够安全组合。
 
-OOCore 是 OO 系列服务端插件的独立平台内核，也是 Minecraft/Paper/Folia 兼容防火墙。它不负责窗口或渲染，而是让 OOEngine、OOChat、OOGame、OOMusic 等插件面对稳定 API 编程；服务端版本变化原则上只需更新 OOCore provider。
+它不是玩法插件，也不提供独立的网页后台、窗口编辑器或客户端画面。只安装 OOCore 不会自动获得聊天、音乐、菜单或游戏内容；需要另外安装对应产品。
 
-## 它解决什么问题
+## 它解决什么问题 {#_1}
 
-- 模块发现、依赖图、注册握手、启停顺序和依赖逆序关闭；
-- ABI、handshake、Capability negotiation 与 typed service registry；
-- Paper/Folia global、async、region、entity scheduler 语义；
-- Component、registry/key、player/entity/item、data component 和 plugin channel facade；
-- 服务器 UID、平台存储、健康诊断和兼容矩阵；
-- Minecraft 版本探测、单一 adapter/provider 选择与 unsupported fail-fast；
-- owner-bound 资源释放，避免 task、listener、channel、service 和 session 泄漏。
+当前正式版提供：
 
-OOCore 明确不拥有 UI、窗口、RenderPlan、资源表现、编辑器、客户端 renderer 或表现层协议。这些属于 OOEngine。raw packet 是独立可选 Capability，稳定 Paper adapter 默认不提供。
+- **模块与依赖管理**：在模块启动前检查所需能力与依赖，随模块停止撤销其登记。
+- **统一命令入口**：OOCore 管理 `/oo`，已接入的插件贡献各自命令节点，避免重复抢占根命令。
+- **可信服务与任务**：服务、调度任务和存储入口绑定到所属模块；模块退出后对应访问失效。
+- **平台适配**：提供文本、标识、玩家/实体/物品、数据组件及插件消息通道的统一接口。
+- **存储和服务器标识**：保存模块托管数据与持久服务器 UID，提供故障状态诊断。
+- **只读健康信息**：管理员可以检查版本、适配器、模块、服务及可用能力。
 
-## 版本策略
+1.7.3 修复一次性任务完成、取消或失败后的登记积累，限制超大存储读取的内存开销，并收紧旧存储和 Core 详情访问。它不是“一键提升 TPS”的插件，不能代替业务插件和世界负载的性能排查。
 
-OOCore 使用独立 SemVer，不和 OOEngine 绑定版本号。
+## 版本策略 {#_2}
 
-| 项目 | 当前稳定契约 |
-|---|---|
-| Stable | `1.7.1` |
-| Withdrawn | `1.7.0`（invalid candidate；禁止安装或依赖） |
-| ABI | `1` |
-| Handshake | `1` |
-| Java | `25` |
-| 兼容目标 | Minecraft/Paper/Folia 26.1、26.1.2、26.2 |
+当前正式稳定版为 **1.7.3**，更新内容见 [GitHub Release](https://github.com/Meowopia/OOCore/releases/tag/v1.7.3)。仓库与二进制采用受控分发，未获访问权限时请通过下方支持渠道联系作者。
 
-`1.7.1` 是当前公开稳定版，`1.7.0` 已撤回且不可使用。OOCore 是运行时硬依赖，但兼容性按 ABI、handshake 与 Capability 协商，不要求精确 SemVer 相等。
+- OOCore 独立发布，不要求与 OOEngine 或其他 OO 插件使用相同版本号。
+- **1.7.0 已撤回，禁止安装或回滚到该版本。**
+- 本版部署验证基线为 **Minecraft 26.2 / Paper 26.2-92 / Java 25**；不等于所有发行组合都已验证。
+- 代码包含 26.1、26.1.2、26.2 的平台识别和适配规则，但本版插件声明的 API 最低版本为 26.2；不能把这些规则当作当前 JAR 在更旧服务端的安装保证。
+- Folia 调度适配已实现，但本轮没有 Folia 实服验收；生产部署前需单独确认所用发行版及各业务插件支持情况。
+- **Minecraft 26.3 与 Java 26 支持仍在规划中**，不要据此直接升级生产环境。
 
-`oocore.command-contribution.v2` 已 implemented/published。Actor 使用 host-minted Bukkit-neutral identity，提供 SenderKind、真实玩家 `Optional<UUID>`、bounded displayName 与 invocation-scoped controlled Authorization；不暴露 `CommandSender`/`Player`，不允许 command dispatch。v1 保持 binary compatible，并标记 deprecated migration。
+OOCore 是 OO 服务端插件的运行时硬依赖。业务插件通过接口契约版本（ABI）、启动握手和所需能力判断兼容性，而不是要求“版本号必须等于 1.7.3”。“最低已验证基线”表示开发者实际验证过的组合；“运行要求”表示启动必须满足的能力。未来兼容版本不应仅因版本号不同而被拒绝，安装时仍应核对对应插件的发布说明。
 
-`oocore.owner-bound-service.v1` 已 implemented/published，用于 Core 验证的 owner-bound typed service acquisition。它绑定 provider/requester 双生命周期，lease 关闭后泄漏的 service 引用也会 fail-fast；不信任字符串 `ownerId`，不暴露 session 或 Bukkit handle。旧 registry ABI 继续保留。
+## 安装 {#installation}
 
-## 配置 / Configuration
+1. 准备符合上方部署基线的 Paper 服务端与 Java 25；普通 Bukkit/Spigot 不属于本页的已验证部署范围。
+2. 停止服务器，并备份完整的 `plugins/OOCore/` 目录（已有安装时）。
+3. 将正式的 `OOCore-1.7.3.jar` 放入服务器的 `plugins/` 目录；移走旧版 Core JAR，不能同时保留两份。
+4. 按需安装其他 OO 插件。**OOCore 自身不需要 OOEngine 或 OOConsole 才能启动。**
+5. 启动服务器，让插件生成配置和托管状态；使用管理员账号执行 `/oo core` 检查启动结果。
 
-OOCore 当前没有用户可编辑的 runtime `config.yml`。`storage/*.data` 与 `server.uid` 是 managed state，禁止手工修改；`gradle.properties` 仅用于开发构建，不是服务器配置。
+需要窗口或可视化管理时，请分别查看 [OOEngine](ooengine.md) 与 [OOConsole](ooconsole.md) 的安装要求。不要把 SDK、测试工具或源码包放入服务器插件目录。
 
-OOCore currently has no user-editable runtime `config.yml`. `storage/*.data` and `server.uid` are managed state and must not be edited manually. `gradle.properties` is build metadata only.
+## 配置 / Configuration {#configuration}
 
-## 联系 / Contact
+**1.7.3 已提供用户配置文件 `plugins/OOCore/config.yml`。** 首次启动自动生成，包含中英注释。目前唯一用户设置为旧存储兼容开关；没有额外玩法配置或 Core 网页设置界面。
+
+```yaml
+# 修改后完整重启服务器；不支持热重载。
+# Restart the server after editing; hot reload is not supported.
+legacy-storage:
+  # 布尔值，默认 false；建议保持关闭。
+  # Boolean, default false; keep disabled unless temporarily required.
+  enabled: false
+```
+
+| 设置 | 类型 / 默认值 | 作用与注意事项 |
+|---|---|---|
+| `legacy-storage.enabled` | 布尔值 / `false` | 控制已废弃的旧存储兼容入口。设为 `true` 会允许所有 API 消费者通过该旧入口进行跨模块访问；不是模块白名单。仅在完全信任旧插件且暂时无法迁移时短期启用。 |
+
+填写不带引号的 `true` 或 `false`，不要写成字符串 `"true"`，错误类型会导致启动失败。新插件应使用绑定模块会话的存储入口，不需要打开此开关。关闭开关不会删除旧文件，也不改变新式模块存储的数据格式。
+
+`plugins/OOCore/storage/`、`plugins/OOCore/scoped-storage/` 和 `plugins/OOCore/server.uid` 是**程序管理的状态**，不是配置示例；不要手改或为排错随意删除。备份时保留整个目录。安装包中的构建属性不是服务器运行配置。
+
+## 联系 / Contact {#contact}
 
 - 作者 / Author: zkonikishi
 - QQ: 276098266
@@ -51,97 +71,88 @@ OOCore currently has no user-editable runtime `config.yml`. `storage/*.data` and
 - [ifdian](https://ifdian.net/a/zkonikishi)
 - QQ群 / QQ Group: 1063369777
 
-`1.2.x` 保持现有 API 二进制兼容。新增兼容方法优先使用 additive interface/default method；破坏性契约变更才提升 ABI/major。Minecraft 兼容修复可独立发布 OOCore patch/minor。
+报告问题时提供 OOCore 与业务插件版本、服务端发行版、复现步骤及相关错误片段。发送日志前移除令牌、密码、玩家隐私和服务器标识；不要公开整份数据目录。
 
-## Platform Capability
+## Platform Capability {#platform-capability}
 
-```text
-oocore.scheduler.region.v1
-oocore.component.v1
-oocore.registry-key.v1
-oocore.player-entity-item.v1
-oocore.data-component.v1
-oocore.plugin-channel.v1
-oocore.raw-packet.v1        # optional，StablePaper 默认 false
-```
+Capability 表示平台实际提供的能力，例如调度、文本、物品或插件消息通道。业务插件应只要求自己真正使用的能力；缺少必需能力时应拒绝启动相应功能，而不是盲目继续运行。
 
-消费者必须逐项 `require` 实际使用的 Capability，不能只用 `PLATFORM` umbrella 假定所有能力都存在。
+Core 提供的低层 raw packet 能力默认不可用，不应把常规插件消息通道误认为任意底层封包支持。缺少可选功能时，先检查对应业务插件的要求，不要尝试通过配置伪造能力。
 
-## 生命周期与泄漏防护
+## 生命周期与泄漏防护 {#_3}
 
-`OOModuleSession` 是模块所有资源的 owner。注册得到的 listener、service、channel、OOEngine scope 和 scheduler handle 都应交给 `session.own(...)`。
+任务、服务与存储访问应归属于发起它们的模块。已接入这些接口的模块停止后，其登记和访问被撤销；1.7.3 会及时回收已结束的一次性任务登记，而不是等到停服才释放。
 
-OOScheduler 提供生命周期安全的 owned cancellation：
+这不意味着 OOCore 能替任意第三方插件清理资源，也不构成对恶意同进程 Java 插件的沙箱。只安装可信来源的插件；业务插件仍需遵守自己的线程、资源与权限约束。
 
-- `globalOwned(...)`
-- `asyncOwned(...)`
-- `entityOwned(...)`
+## 命令 {#_4}
 
-这些方法返回幂等 `OORegistration`，可由 `OOModuleSession.own(...)` 统一关闭。模块 disable 后不得继续接受 callback 或注册新资源。
+以下为正式版 **1.7.3** 的 Core 命令。玩家在聊天栏输入带 `/` 的写法；服务器控制台输入时省略开头的 `/`。Core 不把这些诊断命令限制为仅玩家或仅控制台，但仍检查下列权限。
 
-当前边界限制：
+| 完整语法 | 参数与默认值 | 用途 | 精确权限要求 | 玩家 / 控制台 | 最小示例 |
+|---|---|---|---|---|---|
+| `/oo` | 无参数；不会自动打开 Core 详情 | 显示版本与命令用法 | 无 Core 权限检查 | 均可 | 玩家：`/oo`；控制台：`oo` |
+| `/oo core` | 不带子命令时默认显示诊断 | 显示健康状态、适配器、调度类型、服务器标识、模块、服务和能力 | `oocore.core.view` **或** `oocore.admin` | 均可，需相应权限 | `/oo core` |
+| `/oo core admin` | 无额外参数 | 显示同一份诊断；不执行修改、重载或清理 | `oocore.admin` | 均可，需相应权限 | `oo core admin` |
+| `/oo core about` | 无额外参数 | 显示诊断，并附作者和联系方式 | `oocore.core.view` **或** `oocore.admin` | 均可，需相应权限 | `/oo core about` |
+| `/oo core info` | 无额外参数；用途与 `about` 相同 | 显示诊断，并附作者和联系方式 | `oocore.core.view` **或** `oocore.admin` | 均可，需相应权限 | `oo core info` |
 
-| 资源 | 上限/规则 |
-|---|---|
-| 模块 | 256 |
-| typed service | 4096 |
-| lifecycle scope owned resources | 4096 |
-| shutdown | 按 required dependency 逆序 |
-| unregister | 仍被其他模块 required 时拒绝 |
-| close | 幂等，closed scope 拒绝新资源 |
+`/oo <节点> [参数…]` 是已安装插件的路由语法，不是 Core 自带的业务命令。`<节点>` 必须由相应插件实际注册；省略 `[参数…]` 时向它传递空参数，其默认行为、权限和玩家/控制台限制由该插件决定。具体可运行示例请查对应产品页，Core 不代为承诺其命令已可用。
 
-## 命令
+没有单字母 Core 缩写，也没有 Core 自带的 `reload`、清库或一键优化操作。注意：当前解析器对未知 Core 子命令或多余参数会退回显示诊断或忽略多余参数，**出现输出不代表执行了该操作**。例如输入 `/oo core reload` 不会重载配置；修改配置必须完整重启服务器。
 
-唯一 Core 入口：
+## 权限 {#permissions}
 
-```text
-/oo core
-/oo core admin
-```
+| 精确权限节点 | 对应功能 | 默认 OP | 默认普通玩家 | 实际继承 / 授权关系 |
+|---|---|---|---|---|
+| `oocore.core.view` | 查看 Core 详情及 `about` / `info` 输出；允许在未知模块提示中查看已加载模块清单 | 有 | 无 | 没有声明子权限；单独授予不会获得 `admin` 权限 |
+| `oocore.admin` | 使用 `core admin`；也可查看其他 Core 详情 | 有 | 无 | 代码将其作为 Core 查看权限的替代授权；不是通过 descriptor 的 `children` 继承 |
+| `oocore.command` | 保留的 descriptor 权限声明；1.7.3 的根命令和 Core dispatcher **没有使用它作为访问门禁** | 有 | 有 | 无继承；拒绝该节点并不能阻止 `/oo`，授予它也不能解锁 Core 详情 |
 
-`/oo core` 不提供单字母缩写，以免与其他插件命令冲突。它输出 release、ABI、handshake、Minecraft adapter、scheduler、server UID、Capability、模块和服务诊断。
+这些是插件声明的默认值，服务器权限系统可以显式授予或拒绝相应节点。控制台没有额外的 Core 专用限制，详情调用同样通过发送者权限检查。仅授予 `oocore.core.view` 时，`/oo core admin` 仍会拒绝。
 
-## 插件接入
+OOCore **未声明 `oocore.*` 通配权限，也未声明父子权限树**；不要把权限管理插件自己的通配行为写成 OOCore 的内置功能。业务插件的权限独立管理，不要为了开放聊天等业务命令而向所有玩家授予 Core 管理权限。
 
-```kotlin
-repositories {
-    // 使用产品公开文档指定的受控 SDK repository。
-}
+## 变量与占位符 {#placeholders}
 
-dependencies {
-}
-```
+**当前版本暂无对外变量/占位符。** 以下类别均没有由 OOCore 1.7.3 提供的服主可用变量，不能把诊断字段当作替换语法。
 
-API artifact 只包含 `com/zkonikishi/oo/core/api/**`，不包含 `OOCorePlugin`、runtime、provider、adapter 或 storage implementation。业务插件不得 bundle API，也不得引用相邻仓库的完整 OOCore JAR。
+| 类别 | 可用精确写法 | 含义 / 返回或显示示例 | 作用域 / 可用位置 | 必要前置与当前状态 |
+|---|---|---|---|---|
+| PlaceholderAPI（PAPI） | 无 | 不适用；Core 不提供 PAPI 变量值 | 没有 OOCore 自带的 PAPI expansion | 不需要安装 PAPI 来运行 Core；仅安装 PAPI 也不会新增 Core 占位符 |
+| 消息模板变量 | 无 | Core 命令输出为程序生成，不提供服主模板替换值 | 没有 Core 消息模板配置文件 | 当前未提供 |
+| UI 绑定变量 | 无 | 没有可直接填入 UI 的 Core 变量表达式 | Core 不提供窗口或 UI 绑定解析器 | 其他插件的 UI 变量以其正式文档为准 |
+| 配置替换变量 | 无 | `legacy-storage.enabled` 是布尔配置项，不是占位符 | `config.yml` 读取实际布尔值，不作变量替换 | 使用 `true` / `false`，不要填写变量表达式 |
 
-启动顺序：
+诊断里的 `server=`、`modules=`、`services=` 是输出标签，不是 PAPI、消息或 UI 占位符。只读 API 数据也不自动构成可供服主填写的变量。
 
-1. 从 Paper `ServicesManager` 获取 `OOCoreApi`；
-2. 校验 ABI 与 handshake；
-3. 在产生副作用前逐项 require Capability；
-4. 注册精确 `OOModuleHandshake`；
-5. 把所有资源绑定到返回的 `OOModuleSession`；
-6. disable 时调用 Core unregister，重复关闭必须安全。
+## 插件接入 {#_5}
 
-## 构建与发布
+服主只需安装正式服务端 JAR，无需编译 API 或修改开发工程。插件开发者通过稳定接口声明所需能力，并让任务、服务和存储遵守模块生命周期。
 
-正式发布会执行兼容测试、API 校验、release checksum 与消费者编译验证。内部构建命令、进程 ledger 和私有 repository 不在公开 Wiki 展示。
+Command V2 的权限查询只对应贡献预先声明的**单个非空权限节点**；空声明不能再查询其他权限，也没有前缀、子节点或通配授权。这不是通用权限查询接口，具体业务权限应按该插件的正式接入方案处理。
 
-## 验收重点
+## 构建与发布 {#_6}
 
-- 26.1、26.1.2、26.2 provider contract；
-- unsupported 版本 fail-fast；
-- 缺 Capability 在注册前失败；
-- dependency cycle/missing dependency；
-- typed service owner 撤销；
-- 100 轮 enable/disable 与 join/quit；
-- owned scheduler cancellation 和重复 close；
-- 模块/服务/scope 上限；
-- server UID 持久化；
-- API JAR 不包含 runtime implementation。
+OOCore 为专有软件，源码和内部开发工具不公开分发。服主使用作者正式提供的服务端 JAR；GitHub Release 中的更新日志说明本版变化，开发快照不等同正式版本。
 
-## OOConsole 集成（planned）
+升级时停服备份整个 `plugins/OOCore/`，再替换 JAR。**1.7.3 默认禁用旧存储入口是安全行为变化**：依赖旧入口的插件需要迁移；临时兼容开关只用于明确接受风险的过渡。不要热重载内核。
 
-OOCore 提供 `oocore.control-plane.read.v1` 只读 Capability，向未来的独立 OOConsole 暴露 bounded、immutable、脱敏的健康状态、兼容 adapter、Capability、模块/服务和 lifecycle 资源计数。OOCore 不提供 HTTP、UI、Editor 或任意 mutation 转发。
+本次更新不迁移托管数据格式。如确需回滚，停服后恢复上一正式 1.7.2 JAR并保留相同托管数据；只有数据本身需要恢复时才使用备份。回滚旧版同时意味着放弃本版安全默认值与修复，应仅用于短期恢复；禁止回滚到已撤回的 1.7.0。
 
-OOConsole 是独立插件并硬依赖 OOCore 与 OOEngine；业务插件对 OOConsole 保持 optional。OOConsole `0.1.5` + OOCore `1.6.1` owner-service 最终门禁已通过，平台可信链 available for migration；各 adapter 仍须独立验收。HTTP/UI、Editor 迁移和产品工作区仍为 planned/code-prepared。
+## 验收重点 {#_7}
+
+安装后请确认：
+
+- 日志中 OOCore 和所需业务插件正常启用，没有 unsupported、缺能力或缺依赖错误。
+- 管理员可运行 `/oo core`，普通玩家不能读取 Core 详情。
+- 新式模块存储正常工作；若旧插件因默认关闭旧入口报错，优先更新该插件。
+- 重启后服务器 UID 与托管数据保持一致，没有重复安装的 Core JAR。
+
+**已知问题：** 高频存储写入仍为同步操作，需要业务插件控制频率；不要期待本版自动解决所有 TPS/MSPT 问题。性能测量仍出现未归因的长 tick，不能作全面加速承诺。更广的服务端兼容、异步存储改进和事务型数据迁移尚不能当作当前可用功能。
+
+## OOConsole 集成 {#ooconsole-planned}
+
+OOCore 已提供只读健康与平台诊断能力，但**不会自行启动 HTTP 服务、开放网页端口或提供编辑器**。安装 Core 不会自动出现控制台页面。
+
+可视化入口由独立的 [OOConsole](ooconsole.md) 提供，实际可用功能和安装要求以其当前正式版本文档为准。Core 的接口可用，不等于所有业务插件的可视化页面都已交付。

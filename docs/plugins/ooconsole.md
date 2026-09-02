@@ -56,14 +56,40 @@ Android 平板仅是 OOEngine `:oomenu` 通用 `menu` 窗口的响应式 preset�
 
 ## 命令与入口
 
-| 入口 | 状态 | 说明 |
-|---|---|---|
-| `/oo console` | planned | 打开或显示 OOConsole 状态 |
-| `/oo console editor` | planned | 进入 OOConsole 的 Editor 工作区 |
-| `/oo engine admin editor` | implemented / legacy source | 打开玩家侧 OOEngine 编辑模式；不是 OOConsole |
-| OOConsole 顶部或侧边栏“Editor” | planned | Editor 快捷入口 |
+以下为 OOConsole **0.1.6 正式版**已提供的命令。`/oo` 根入口由 OOCore 提供，OOConsole 不单独注册根命令。
 
-任何过渡 alias 都必须在实现时明确版本和移除策略；新文档与新集成只把 `/oo console` 作为规范入口。
+| 完整语法 | 参数与默认值 | 用途 | 精确权限 | 执行位置 | 最小示例 |
+|---|---|---|---|---|---|
+| `/oo console` | 无必填或可配置参数 | 显示版本、HTTP 启用状态及贡献接口状态；不会打开可视化编辑器 | `ooconsole.admin` | 玩家及服务器控制台；仍须通过权限检查 | 玩家输入 `/oo console`；服务器控制台输入 `oo console` |
+
+默认未启用 HTTP 时，输出示例：
+
+```text
+OOConsole 0.1.6: HTTP=disabled; runtime contribution API active
+```
+
+启用 HTTP 后，`disabled` 会显示为 `loopback:端口号`。当前处理器不解析后续参数；添加 `editor`、`reload` 等文字不会执行编辑或重载操作，也不构成已支持的子命令。当前没有命令别名。
+
+## 权限
+
+| 精确节点 | 对应功能 | 默认授权 | 继承关系 |
+|---|---|---|---|
+| `ooconsole.admin` | 允许执行 `/oo console` 状态查询 | `default: op`：OP 默认有，普通玩家默认没有；控制台按服务端权限系统判断 | OOConsole 未声明父子权限或通配符 |
+
+需要让非 OP 使用该命令时，通过服务器权限管理插件显式授予 `ooconsole.admin`。不要把未声明的 `ooconsole.*` 当作本插件提供的通配权限。此节点不等于网页登录凭据，也不会自动授予网页管理员身份。
+
+## 变量与占位符
+
+**当前版本暂无对外变量/占位符。**
+
+| 类型 | 0.1.6 支持情况 |
+|---|---|
+| PlaceholderAPI / PAPI | 未提供 OOConsole expansion，无可填写的 `%ooconsole_…%` 变量 |
+| 消息模板变量 | 未开放用户自定义消息模板及替换变量 |
+| UI 绑定变量 | 未开放可由服主填写的 OOConsole UI 绑定接口 |
+| 配置替换变量 | 未提供用户配置文件的变量替换机制 |
+
+命令输出中的版本和 HTTP 端口、HTTP 返回数据里的字段，都不是可在其他插件配置中使用的占位符。部署环境变量 `OOCONSOLE_HTTP_PASSWORD` 是启动凭据来源，不是 PAPI 或消息变量；不要把密码写进公开页面、聊天或日志。
 
 ## Contribution 规范（planned）
 
