@@ -787,6 +787,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能与可用状态
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装前置与安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       配置 / Configuration
@@ -796,9 +823,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       中文本地化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      升级与已知问题
     </span>
   </a>
   
@@ -808,6 +844,33 @@
   <a href="#contact" class="md-nav__link">
     <span class="md-ellipsis">
       联系 / Contact
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令参数与最小示例（开发版参考）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      权限（开发版参考）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量 / 占位符（开发版参考）
     </span>
   </a>
   
@@ -834,20 +897,92 @@
 
 <h1 id="oovip">OOVIP<a class="headerlink" href="#oovip" title="Permanent link">&para;</a></h1>
 <p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oovip/banner-1200x630.webp" alt="OOVIP 会员生命周期与权益品牌横幅" loading="lazy" decoding="async"></p>
-<p><strong>分类：独立（Standalone）。状态：paused / unreleased。</strong></p>
-<p>OOVIP 是会员生命周期与权益编排层，不重写 LuckPerms、PlayerPoints、YuPay、GUI 或时装 Provider。membership domain skeleton、V1 schema 与 SQLite 校验已实现；JDBC transaction/outbox/idempotency、provider adapter、claims/PAPI/GUI API 仍 planned。<code>/oo vip</code> 当前仅 bootstrap，尚未达到正式 release 门禁。</p>
-<p>OOCore command v2 consumer migration尚未完成；Window 接入因 OOEngine/OOMenu runtime wiring 不完整而 blocked。OOConsole owner-service 平台链已 available for migration，但 OOVIP 尚未完成自身 adapter 验收。上述状态不因配置或中文 catalog 验收而升级。</p>
-<p>客户端不能自报权益或等级，也不能仅凭窗口状态发放奖励。权益判定、领取、冷却和经济 mutation 必须由服务端权威处理并写入审计。</p>
-<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p><strong>分类：独立（Standalone）。状态：开发中，尚未发布正式版本。</strong></p>
+<p>OOVIP 是喵托邦 / Meowopia 的会员生命周期与权益编排插件，管理会员有效期、续费、升档与权益到期处理。它不替代权限、支付、时装或菜单插件，而是组合这些能力。产品目标是可自定义会员体系；VIP、SVIP、MVP 是官方参考方案，不是要求所有服务器采用的玩法。</p>
+<h2 id="_1">功能与可用状态<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>当前没有面向生产服务器的正式稳定版。开发版已有会员开通、续费、升档、移除、SQLite 持久保存、重复请求保护、到期权益处理，以及 LuckPerms 和 PlaceholderAPI 接入代码。这不等于已完成真实服务器联动验收，请勿直接用于付费运营。</p>
+<p>通用档位和成长配置、完整多产品会员隔离、成长触发 VID、会员中心界面仍在开发中。自动购买、充值订单和退款尚不可用；不能靠开启配置开关启用支付。会员不会因此获得管理员权限。</p>
+<h2 id="_2">安装前置与安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>config.yml</code>、<code>config_lp.yml</code>、<code>config_pex.yml</code>：按环境生成的主配置。</li>
-<li><code>en</code>、<code>en_16</code>、<code>zh_CN</code>、<code>zh_CN_16</code>：生成到 <code>messages</code> 的语言模板。</li>
-<li><code>custom.yml</code> 与 <code>script.js</code>：可执行自定义流程模板；console command 与 JavaScript 属高权限内容，只能由受信任管理员修改。</li>
+<li>必须安装兼容的 OOCore，由它提供 <code>/oo</code> 命令入口、可信操作身份和插件生命周期服务。</li>
+<li>目前没有可推荐的最低实机验证版本组合。开发接入使用过 OOCore 1.6.1 API，但这不是生产兼容认证，也不是要求永远使用该版本。正式版本发布后，以其兼容说明为准。</li>
+<li>OOEngine、OOConsole、LuckPerms、PlaceholderAPI 等不是 OOVIP 的硬前置。只有使用相应集成时才需要它们；配置中出现的 Provider 不代表该功能已经完成。</li>
+<li>仅获准测试时，将插件 JAR 放入测试服务器的 <code>plugins/</code>，安装兼容 OOCore 后完整启动。首次启动生成 <code>plugins/OOVIP/config.yml</code>；默认数据库位于 <code>plugins/OOVIP/data/oovip.db</code>。</li>
 </ul>
-<p>模板已包含中英文件头、字段类型、默认值、占位符、风险与重载说明。数据库密码必须作为 secret 保护，不得提交到仓库或粘贴到公开日志。</p>
-<h2 id="_1">中文本地化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>zh_CN.yml</code> 与 <code>zh_CN_16.yml</code> 已完成逐键人工中文翻译并通过本地验证，不再是 English fallback。翻译保留全部 key、placeholder、颜色 token、<code>/oo vip</code> 命令以及列表/hover 结构；统一术语为会员、会员组、会员仓库、授予和有效期。</p>
-<p>当前 bootstrap artifact 仍为 <strong>non-release</strong>，不得作为正式下载或 release 证据。内部测试、开发版散列和构建细节不在公开 Wiki 展示。</p>
+<p>不要将开发版安装到正在收款的生产服务器。Paper/Folia 的实际支持范围仍待正式验收，描述文件声明不等于运行认证。</p>
+<h2 id="_3">命令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>以下是当前开发版已接线的入口，正式使用仍待发布。OOVIP 不另外注册 <code>/vip</code> 根命令。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/oo vip</code> 或 <code>/oo vip status</code></td>
+<td>玩家查询自己的会员状态</td>
+</tr>
+<tr>
+<td><code>/oo vip add &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td>管理员开通会员</td>
+</tr>
+<tr>
+<td><code>/oo vip renew &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td>管理员续费；当前参数格式保留 tier，但续费不改变档位</td>
+</tr>
+<tr>
+<td><code>/oo vip upgrade &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td>管理员升档</td>
+</tr>
+<tr>
+<td><code>/oo vip remove &lt;UUID&gt; &lt;requestId&gt;</code></td>
+<td>管理员移除会员</td>
+</tr>
+<tr>
+<td><code>/oo vip gift &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td>有授权的玩家赠送开通；不是付费购买入口</td>
+</tr>
+<tr>
+<td><code>/oo vip buy</code></td>
+<td>当前明确返回支付服务不可用</td>
+</tr>
+</tbody>
+</table>
+<p><code>UUID</code> 必须是玩家 UUID，不是昵称。当前付费 tier 为 <code>VIP</code>、<code>SVIP</code>、<code>MVP</code>；term 为 <code>MONTH</code>、<code>QUARTER</code>、<code>YEAR</code>、<code>PERMANENT</code>。这些仍是开发版限制，不能通过随意编辑列表增加新档位。每次新操作使用新的 requestId；重试同一操作保持原值。</p>
+<p>根权限为 <code>oovip.command.vip</code>；状态查询另需 <code>.status</code>，管理操作另需 <code>.admin.add</code>、<code>.admin.renew</code>、<code>.admin.upgrade</code> 或 <code>.admin.remove</code>，赠送另需 <code>.gift</code>（均接在根权限后）。不要仅凭旧的 <code>oovip.admin</code> 节点推断授权。状态查询及赠送要求真实玩家身份，控制台可执行管理员操作。<code>claim</code>、<code>set</code>、<code>reload</code> 尚无对应处理，不应当作可用命令。</p>
+<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>当前用户主配置只有 <code>config.yml</code>。旧版的 <code>config_lp.yml</code>、<code>config_pex.yml</code>、<code>messages</code> 语言模板、<code>custom.yml</code> 和 <code>script.js</code> 不属于当前 OOVIP 配置体系。</p>
+<p>以下片段用于说明现有字段，应合并到生成的默认文件，而不是删除其他配置：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zh_CN</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">timezone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Asia/Shanghai</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">storage</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sqlite</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">sqlite</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/oovip.db</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">membership</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">reconciliation-seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+</code></pre></div>
+<ul>
+<li><code>timezone</code> 是有效 IANA 时区，用于时间展示。</li>
+<li>数据库路径必须留在 OOVIP 数据目录内；不要通过路径跳转访问外部文件。</li>
+<li>到期检查间隔单位为秒，范围 30–3600；间隔越短，检查越频繁。</li>
+<li>当前必须使用 SQLite。虽然模板包含 MySQL 字段，选择 MySQL 会被拒绝。</li>
+<li><code>membership.tiers</code> 尚未成为通用档位配置入口；等级上限、成长曲线和 VID 规则的自由配置仍在开发中。</li>
+<li>PlaceholderAPI 开关已有读取；OOConsole 默认关闭。其他 adapter 开关不应被视为完整有效的功能开关，尤其当前 LuckPerms 接线不能仅凭其开关判断停用。</li>
+<li>修改配置后完整停服再启动；不要使用热加载工具。数据库密码和支付密钥不要写进配置、公开日志或截图。</li>
+</ul>
+<h2 id="_4">中文本地化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>配置含中英说明，保留 <code>locale</code> 字段，但当前命令输出仍有英文和状态码。旧版中文消息模板的完成状态不适用于本版；完整中文交互尚待完善。</p>
+<h2 id="_5">升级与已知问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>本版未提供从历史 VipSystem 配置和数据库直接升级的保证；不要直接覆盖旧插件目录或复用旧数据库。</li>
+<li>测试升级前完整停服，备份插件 JAR、配置和数据库目录。回滚时同时恢复对应版本的配置与数据库副本，不要让旧版读取迁移后的数据库。</li>
+<li>支付、礼包、GUI、通用自定义档位和完整成长/VID 联动尚不可用。</li>
+<li>服务端重启恢复、可选插件缺失及运行时兼容仍需完整验收；Placeholder 显示也不应作为发放权益的权威依据。</li>
+<li>暂无正式下载版本。源码为闭源资料，仅授权维护者可访问；请通过下列渠道获取用户支持。</li>
+</ul>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
@@ -856,6 +991,171 @@
 <li><a href="https://ifdian.net/a/zkonikishi">ifdian</a></li>
 <li>QQ群 / QQ Group: 1063369777</li>
 </ul>
+<h2 id="_6">命令参数与最小示例（开发版参考）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>以下全部要求根权限 <code>oovip.command.vip</code>，并叠加表中精确权限。没有参数时默认 <code>status</code>；所有修改操作的 UUID、tier、term、requestId 均无默认值（remove 不接收 tier/term）。示例 UUID 仅为格式示例，执行时须换成实际目标；requestId 重试不变、新操作必须换新值。</p>
+<table>
+<thead>
+<tr>
+<th>完整语法</th>
+<th>额外权限</th>
+<th>执行身份</th>
+<th>最小示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/oo vip [status]</code></td>
+<td><code>oovip.command.vip.status</code></td>
+<td>玩家本人，不支持控制台查询</td>
+<td><code>/oo vip status</code></td>
+</tr>
+<tr>
+<td><code>/oo vip add &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td><code>oovip.command.vip.admin.add</code></td>
+<td>授权玩家或控制台</td>
+<td><code>/oo vip add 123e4567-e89b-12d3-a456-426614174000 VIP MONTH grant-001</code></td>
+</tr>
+<tr>
+<td><code>/oo vip renew &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td><code>oovip.command.vip.admin.renew</code></td>
+<td>授权玩家或控制台</td>
+<td><code>/oo vip renew 123e4567-e89b-12d3-a456-426614174000 VIP MONTH renew-001</code></td>
+</tr>
+<tr>
+<td><code>/oo vip upgrade &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td><code>oovip.command.vip.admin.upgrade</code></td>
+<td>授权玩家或控制台</td>
+<td><code>/oo vip upgrade 123e4567-e89b-12d3-a456-426614174000 SVIP MONTH upgrade-001</code></td>
+</tr>
+<tr>
+<td><code>/oo vip remove &lt;UUID&gt; &lt;requestId&gt;</code></td>
+<td><code>oovip.command.vip.admin.remove</code></td>
+<td>授权玩家或控制台</td>
+<td><code>/oo vip remove 123e4567-e89b-12d3-a456-426614174000 remove-001</code></td>
+</tr>
+<tr>
+<td><code>/oo vip gift &lt;UUID&gt; &lt;tier&gt; &lt;term&gt; &lt;requestId&gt;</code></td>
+<td><code>oovip.command.vip.gift</code></td>
+<td>仅授权玩家</td>
+<td><code>/oo vip gift 123e4567-e89b-12d3-a456-426614174000 VIP MONTH gift-001</code></td>
+</tr>
+<tr>
+<td><code>/oo vip buy</code></td>
+<td>无额外检查，仅根权限</td>
+<td>玩家或控制台；始终返回不可用</td>
+<td><code>/oo vip buy</code></td>
+</tr>
+</tbody>
+</table>
+<p>renew 当前保留 tier 参数但不使用它修改档位。gift 是受控开通操作，不会自动扣款或从赠送者转移会员；不要授予普通玩家该权限作为商城替代。buy 返回 <code>OOVIP_PAYMENT_PROVIDER_UNAVAILABLE</code>，没有成功购买路径。</p>
+<h2 id="_7">权限（开发版参考）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>精确节点</th>
+<th>对应功能</th>
+<th>默认与继承</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oovip.use</code></td>
+<td>描述文件声明的旧访问节点；当前命令不检查此节点</td>
+<td>默认所有玩家；未声明 children</td>
+</tr>
+<tr>
+<td><code>oovip.admin</code></td>
+<td>描述文件声明的旧管理节点；不等同于下列管理权限</td>
+<td>默认 OP；未声明 children</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip</code></td>
+<td><code>/oo vip</code> 注册入口检查</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip.status</code></td>
+<td>查询本人状态</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip.admin.add</code></td>
+<td>开通</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip.admin.renew</code></td>
+<td>续费</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip.admin.upgrade</code></td>
+<td>升档</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip.admin.remove</code></td>
+<td>移除</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+<tr>
+<td><code>oovip.command.vip.gift</code></td>
+<td>玩家赠送开通</td>
+<td>未由 OOVIP 声明默认值或继承</td>
+</tr>
+</tbody>
+</table>
+<p>未声明不等于强制拒绝所有人：实际结果由 OOCore 授权服务和服务器权限配置决定，目前不能承诺 OP/普通玩家的最终默认结果。应显式配置所需节点并在测试服核验。OOVIP 没有定义 <code>oovip.*</code> 或 <code>oovip.command.vip.admin.*</code> 的通配符继承；不能把名称前缀当作父子授权。</p>
+<h2 id="_8">变量 / 占位符（开发版参考）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>当前有以下 <strong>PlaceholderAPI</strong> 扩展接口，尚非正式发布保证。需要 PlaceholderAPI 已启用、<code>adapters.placeholderapi: true</code>，且 OOVIP 成功注册。使用位置必须支持 PAPI 并提供玩家上下文，例如明确支持 PAPI 的其他插件文本；不是任意配置都会自动替换。</p>
+<table>
+<thead>
+<tr>
+<th>精确写法</th>
+<th>含义</th>
+<th>有快照时的显示示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%oovip_tier%</code></td>
+<td>当前快照会员档位 ID</td>
+<td><code>vip</code></td>
+</tr>
+<tr>
+<td><code>%oovip_tier_name%</code></td>
+<td>档位显示名；当前接线仍返回 ID</td>
+<td><code>vip</code>，不是保证显示“OO会员”</td>
+</tr>
+<tr>
+<td><code>%oovip_expire_time%</code></td>
+<td>配置时区的到期时间；永久为固定文本</td>
+<td><code>2026-10-01 12:00:00 Asia/Shanghai</code> 或 <code>permanent</code></td>
+</tr>
+<tr>
+<td><code>%oovip_remaining_days%</code></td>
+<td>快照时剩余天数，按秒向上取整；永久为 0</td>
+<td><code>30</code> 或 <code>0</code>；0 不能单独判断到期</td>
+</tr>
+<tr>
+<td><code>%oovip_is_active%</code></td>
+<td>快照捕获时是否有效</td>
+<td><code>true</code>；当前失效会移除快照，通常为空而非 false</td>
+</tr>
+<tr>
+<td><code>%oovip_continuous_days%</code></td>
+<td>快照时连续开通的完整天数</td>
+<td><code>12</code></td>
+</tr>
+<tr>
+<td><code>%oovip_points%</code></td>
+<td>会员积分快照；当前接线固定传入 0</td>
+<td><code>0</code>，不代表积分系统已经可用</td>
+</tr>
+</tbody>
+</table>
+<p>作用域是所查询玩家 UUID 的内存快照。没有快照时，以上已识别变量返回空字符串；没有玩家上下文或未知变量返回未解析结果，由使用方决定显示方式。快照不是按每次查询读取数据库或重新计时，重启后也没有保证立即恢复所有玩家快照；不要据此扣款、授权或判断实时到期。</p>
+<p>当前没有已支持的 OOVIP 消息模板变量、UI 绑定变量或任意配置替换语法。VID、realm、成长等内部字段不能当作已有 PAPI 变量使用。</p>
 
 
 

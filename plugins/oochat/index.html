@@ -835,6 +835,24 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
+      权限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量与占位符
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
       后续版本（未发布）
     </span>
   </a>
@@ -847,7 +865,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       配置
     </span>
@@ -856,7 +874,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       升级与回滚
     </span>
@@ -865,7 +883,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       版本状态
     </span>
@@ -874,7 +892,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       已知问题
     </span>
@@ -977,23 +995,79 @@
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>权限</th>
-<th>作用</th>
+<th>完整语法</th>
+<th>参数与默认值</th>
+<th>用途与最小示例</th>
+<th>精确权限</th>
+<th>执行者</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/oo chat</code></td>
+<td>无必填参数、无参数默认值；额外参数不产生聊天操作</td>
+<td>返回入口提示 <code>/oo chat</code>；玩家输入 <code>/oo chat</code>，服务端控制台输入 <code>oo chat</code></td>
 <td><code>oochat.command.chat</code></td>
-<td>返回基础入口提示</td>
+<td>玩家或控制台；均须通过宿主权限检查，无玩家专属限制</td>
 </tr>
 </tbody>
 </table>
-<p>根命令 <code>/oo</code> 由 OOCore 提供。v0.1.0 不提供可用的 <code>send</code>、<code>history</code>、<code>recall</code>、<code>mute</code>、<code>unmute</code>、<code>status</code>、<code>doctor</code> 或 <code>reload</code> 子命令，请不要给该版本套用开发版命令教程。</p>
-<h3 id="_6">后续版本（未发布）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>根命令 <code>/oo</code> 由 OOCore 提供。v0.1.0 不提供可用的 <code>send</code>、<code>history</code>、<code>recall</code>、<code>mute</code>、<code>unmute</code>、<code>status</code>、<code>doctor</code> 或 <code>reload</code> 子命令，请不要给该版本套用开发版命令教程。当前命令没有注册别名，也不会打开聊天窗口。</p>
+<h3 id="_6">权限<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>精确节点</th>
+<th>对应功能</th>
+<th>默认授予与继承</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oochat.command.chat</code></td>
+<td>使用基础 <code>/oo chat</code> 入口</td>
+<td>OOChat 未声明该节点的默认值，也未注册父子权限；实际结果取决于服务器权限系统。未被其他插件覆盖时，Bukkit 对未注册节点通常为 OP 默认可用、普通玩家默认不可用。生产服请显式配置授权，不依赖 OP 推断。</td>
+</tr>
+</tbody>
+</table>
+<p>OOChat v0.1.0 不提供 <code>oochat.*</code> 通配符或自动子权限继承；权限插件自行实现的通配符规则不属于 OOChat 的接口承诺。拒绝授权时命令不会执行入口处理。安装 LuckPerms 的服务器可按其规则给所需玩家或权限组授予 <code>oochat.command.chat</code>；OOChat 不额外维护一套用户组。</p>
+<h3 id="_7">变量与占位符<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>当前版本暂无对外变量/占位符。</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>v0.1.0 支持情况</th>
+<th>可用位置与返回示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PlaceholderAPI / PAPI</td>
+<td>没有注册 OOChat expansion；安装 PAPI 不会新增 OOChat 占位符</td>
+<td>无</td>
+</tr>
+<tr>
+<td>消息模板变量</td>
+<td>没有正式提供可编辑的消息模板变量接口</td>
+<td>无</td>
+</tr>
+<tr>
+<td>UI 绑定变量</td>
+<td>没有正式提供玩家窗口或公开 UI 绑定接口</td>
+<td>无</td>
+</tr>
+<tr>
+<td>配置替换变量</td>
+<td>没有用户配置替换变量接口</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>请勿把内部字段、构建时版本替换或开发版设计当成可直接填写的占位符。</p>
+<h3 id="_8">后续版本（未发布）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>开发中的命令包括消息发送、历史查询、撤回、禁言/解除禁言及配置诊断、重载；准确语法与权限将在对应正式版本发布时补充。当前管理权限与异步命令仍在收口验收，不建议以开发包替换生产聊天管理。</p>
-<h2 id="_7">配置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_9">配置<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p><strong>v0.1.0 没有用户可编辑的聊天 YAML 配置，也不会生成下列开发版配置。</strong> 无需手动创建 <code>config.yml</code> 期待启用聊天功能；插件描述文件不是服主配置文件。</p>
 <p>后续版本计划在 <code>plugins/OOChat/</code> 提供以下带中英说明的配置：</p>
 <table>
@@ -1041,7 +1115,7 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">refill-period-ms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 </code></pre></div>
 <p>开发版以完整校验后再应用配置为目标，非法新配置不应覆盖旧配置。当前 SQLite 未提供随包可用驱动，不能宣传为可直接启用的生产存储。当前开发中的禁言为内存态，重载或重启会清除，不能用于需要持久封禁记录的生产管理。</p>
-<h2 id="_8">升级与回滚<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_10">升级与回滚<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <ul>
 <li>v0.1.0 用户应等待后续正式发布，不把 SNAPSHOT 当稳定升级包。</li>
 <li>升级前停止服务器，备份插件 JAR、<code>plugins/OOChat/</code>（若存在）和相关存储；保留配套 OOCore 版本信息。</li>
@@ -1049,9 +1123,9 @@
 <li>数据格式变化时按对应版本说明迁移；不能直接用旧插件覆盖新格式数据。需要回滚时恢复同一次备份中的插件和数据。</li>
 </ul>
 <p><span id="文档状态本任务"></span></p>
-<h2 id="_9">版本状态<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_11">版本状态<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>本页按正式下载版与未发布功能分别说明。当前正式版仍为 v0.1.0；后续聊天核心正在验收，不因开发分支存在实现便视为公开可用。</p>
-<h2 id="_10">已知问题<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_12">已知问题<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <ul>
 <li>v0.1.0 不提供完整玩家聊天闭环，无法替代现有聊天插件。</li>
 <li>尚无正式可用的 QQ 风格界面和 OOConsole 聊天配置工作区。</li>
