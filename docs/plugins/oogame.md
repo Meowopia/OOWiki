@@ -87,6 +87,12 @@ Provider 是玩法的权威来源。大厅负责聚合与发起请求，不允�
 - 当前开发编译基线为 Java 25。尚无正式 OOGame Release 的 Minecraft、Paper 或 Folia 运行矩阵；声明支持 Folia 不等于已完成实机兼容验证。
 - OOCore 兼容性依据所需 API 契约和能力判断，不要求与 OOGame 版本号一致。没有经过 OOGame 验证的新版依赖组合，不因“版本更高”自动视为兼容。
 
+### Java 21 兼容目标（未验收）
+
+新增 Java 21 兼容线是未来目标，**不是当前开发版或已发布版本的支持声明**。计划先验证 Paper 1.20.5/1.20.6 与 1.21–1.21.11 的 API 边界，再核更早 1.20.x；同时保留 Java 25 / 26.x 方向。当前 OOGame 仍以 Java 25 编译，依赖及真实玩家流程尚未完成 Java 21 验收。
+
+[Paper 官方 Java 推荐表](https://docs.papermc.io/paper/getting-started/) 区分 1.20–1.21.11 的 Java 21 与 26.1+ 的 Java 25；不能让要求 Java 25 的 26.x 服务端改用 Java 21。没有逐项测试的 Minecraft/Paper 版本不列为已支持，Folia 必须独立验收，也不据此承诺 Spigot 兼容。上游兼容能力准备完成前，项目保持功能冻结。
+
 ### 安装位置与要求
 
 目前不建议将开发候选安装到生产服。授权测试者应使用隔离服务端，将获授权的插件主 JAR 放入服务端 `plugins/`，同时准备兼容的 OOCore 与 OOEngine；需要测试 Console 时再加入 OOConsole。不要把 API、testkit 或源码 JAR 当作插件安装。
