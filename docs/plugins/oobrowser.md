@@ -133,6 +133,8 @@ OOBrowser 为闭源专有产品，保留所有权利；源码仅向授权维护�
 
 以上范围参考 [Paper 官方 Java 推荐表](https://docs.papermc.io/paper/getting-started/)，不是本插件已支持版本清单。具体兼容仍取决于前置插件、启动和实际操作验证；不会仅修改版本标记就宣称支持。此次仅兼容盘点与文档更新，不恢复浏览器功能开发，也不改变现有命令、权限、变量及功能状态说明。
 
+MC/Paper/Folia 的跨版本识别与适配统一由 OOCore 提供；OOBrowser 只使用其稳定接口，并验证自身功能。Java 21 兼容仍要求 OOBrowser 及必要依赖采用可加载的构建，不能仅升级 OOCore 就让不兼容的字节码运行。该分工不代表未来所有接口变化都无需调整；尚未验收的平台仍为目标，不是已支持声明。
+
 ## 联系 / Contact
 
 - 作者 / Author: zkonikishi

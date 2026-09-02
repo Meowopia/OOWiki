@@ -110,6 +110,8 @@ OOVIP 新增 Java 21 兼容目标，优先验证 Paper 1.20.5、1.20.6 及 1.21�
 
 现有 Java 25 / Minecraft 26.x 方向保留；26.x 服务器不能改用 Java 21 运行。兼容工作须先满足 OOCore 等正式依赖的要求，再验证安装、命令、权限、变量和数据恢复。Folia 单独验收，不因 Paper 兼容而自动支持，也不新增 Spigot 承诺。当前仍无正式发布版。
 
+MC/Paper/Folia 跨版本识别和适配统一由 OOCore 提供，OOVIP 不维护独立的游戏版本兼容层。OOVIP 仍须保证自身与必要依赖能够在 Java 21 加载，并通过 OOCore 正式接口验证会员业务。升级 OOCore 不能替代插件自身的字节码适配，也不代表任何未来版本都无需调整。
+
 ## 联系 / Contact
 
 - 作者 / Author: zkonikishi

@@ -145,6 +145,8 @@ OOMusic 是喵托邦 / Meowopia 的音乐项目，分类为**附属（Extensions
 
 参考：[Paper Java 推荐版本](https://docs.papermc.io/paper/getting-started/)、[Minecraft 26.1 官方说明](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-1)。
 
+MC/Paper/Folia 跨版本适配统一由 OOCore 实现；OOMusic 负责自身 Java 字节码、依赖及业务验证。
+
 ## 联系 / Contact
 
 反馈请提供插件版本、前置版本、服务器类型与版本、Java 版本、复现步骤及脱敏日志；不要上传令牌、私有音源地址或完整配置秘密。
