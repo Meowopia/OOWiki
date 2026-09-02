@@ -1109,7 +1109,7 @@
 <li>OOCore 兼容性依据所需 API 契约和能力判断，不要求与 OOGame 版本号一致。没有经过 OOGame 验证的新版依赖组合，不因“版本更高”自动视为兼容。</li>
 </ul>
 <h3 id="java-21">Java 21 兼容目标（未验收）<a class="headerlink" href="#java-21" title="Permanent link">&para;</a></h3>
-<p>新增 Java 21 兼容线是未来目标，<strong>不是当前开发版或已发布版本的支持声明</strong>。计划先验证 Paper 1.20.5/1.20.6 与 1.21–1.21.11 的 API 边界，再核更早 1.20.x；同时保留 Java 25 / 26.x 方向。当前 OOGame 仍以 Java 25 编译，依赖及真实玩家流程尚未完成 Java 21 验收。</p>
+<p>新增 Java 21 兼容线是未来目标，<strong>不是当前开发版或已发布版本的支持声明</strong>。MC/Paper/Folia 跨版本识别、映射与适配统一由 OOCore 实现，OOGame 不另建兼容层；本项目只保证自身 Java 构建基线、必要依赖，并在 OOCore 提供的能力上验证游戏业务。计划由 OOCore 先覆盖 Paper 1.20.5/1.20.6 与 1.21–1.21.11 的适配边界，再核更早 1.20.x；同时保留 Java 25 / 26.x 方向。当前 OOGame 仍以 Java 25 编译，依赖及真实玩家流程尚未完成 Java 21 验收。仅升级 OOCore 不能使 Java 25 字节码直接在 Java 21 加载，也不保证未来所有破坏性变化都无需消费者调整。</p>
 <p><a href="https://docs.papermc.io/paper/getting-started/">Paper 官方 Java 推荐表</a> 区分 1.20–1.21.11 的 Java 21 与 26.1+ 的 Java 25；不能让要求 Java 25 的 26.x 服务端改用 Java 21。没有逐项测试的 Minecraft/Paper 版本不列为已支持，Folia 必须独立验收，也不据此承诺 Spigot 兼容。上游兼容能力准备完成前，项目保持功能冻结。</p>
 <h3 id="_7">安装位置与要求<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>目前不建议将开发候选安装到生产服。授权测试者应使用隔离服务端，将获授权的插件主 JAR 放入服务端 <code>plugins/</code>，同时准备兼容的 OOCore 与 OOEngine；需要测试 Console 时再加入 OOConsole。不要把 API、testkit 或源码 JAR 当作插件安装。</p>
