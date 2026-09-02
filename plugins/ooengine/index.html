@@ -1036,6 +1036,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="未来计划 / Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java 21 兼容目标
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2051,6 +2066,16 @@
 </tr>
 </tbody>
 </table>
+<h3 id="java-21">Java 21 兼容目标<a class="headerlink" href="#java-21" title="Permanent link">&para;</a></h3>
+<p><strong>当前正式 OOEngine / OOEngine-Client 1.2.0 的安装要求不变，Java 21 兼容线尚未发布。</strong> 不要把现有 26.2 客户端 JAR 装到 1.21，也不要尝试用 Java 21 启动 26.x 服务器。</p>
+<p>新增兼容目标参考 Paper 的 Java 21 推荐范围 <strong>1.20–1.21.11</strong>，优先验证 <strong>1.20.5 / 1.20.6</strong> 及 <strong>1.21 系列的实际 API 分界</strong>，更早的 1.20.x 待核验。推荐使用某个 Java 版本，不代表 OOEngine 已支持范围内的全部 Minecraft 版本。<a href="https://docs.papermc.io/paper/getting-started/">Paper 要求说明</a></p>
+<ul>
+<li>OOCore 仍为必要前置；需先完成对应平台适配，再验证 OOEngine 的窗口、交互、资源与关闭行为。</li>
+<li>Fabric / NeoForge 客户端需按对应 Minecraft 与 loader 独立构建和验收，不能只修改版本声明。</li>
+<li>现有 Java 25 / 26.x 支持保留；Minecraft 26.1 起本身要求 Java 25。<a href="https://www.minecraft.net/en-us/article/minecraft-java-edition-26-1">Minecraft 官方说明</a></li>
+<li>Folia 仍为独立验收项，不随 Java 21 或 Paper 适配自动成为支持平台。</li>
+</ul>
+<p>以上属于<strong>未来兼容计划 / 未验收目标</strong>，不是已发布兼容列表；具体支持版本以之后的正式产品说明为准。</p>
 <h2 id="upgrade">升级与回退<a class="headerlink" href="#upgrade" title="Permanent link">&para;</a></h2>
 <ol>
 <li>停止服务器并退出客户端，备份插件配置、窗口、资源、存储和安全资料。</li>
