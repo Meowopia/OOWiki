@@ -796,6 +796,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      已实现功能 / Implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       安装与前置
@@ -960,6 +987,62 @@
 <li><strong>状态与运维查询</strong>：查询装备、支付/属性适配状态、交易记录和待处理恢复记录。</li>
 </ul>
 <p>分解默认关闭；配置中出现某个第三方插件名，不等于它已完成兼容支持。缺少所选材料、支付或属性支持时，不应继续执行相关打造操作。</p>
+<h2 id="implemented">已实现功能 / Implemented<a class="headerlink" href="#implemented" title="Permanent link">&para;</a></h2>
+<p><strong>暂无正式版；以下仅为 1.3.0 未发布开发工作的实现参考。</strong> 本节核对的是开发源码与配置，不代表已经完成真实服务器使用验收，也不表示已有稳定安装包。</p>
+<table>
+<thead>
+<tr>
+<th>开发版已有实现</th>
+<th>必要条件</th>
+<th>当前验证范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置打造模式、材料、支付要求、成功率、失败处理和属性效果</td>
+<td>使用有效配置；所选物品、经济与属性适配器实际可用</td>
+<td>已核对配置及处理代码；第三方组合的实服结算仍需验证</td>
+</tr>
+<tr>
+<td>游戏内打造台、装备预览与确认操作、管理员布局编辑</td>
+<td>在线玩家、对应权限及已配置工作台</td>
+<td>已核对入口和界面处理；不宣称玩家完整操作流程已验收</td>
+</tr>
+<tr>
+<td>等级券、异次元属性定义及相关消耗品处理</td>
+<td>启用对应配置，装备符合条件，必要属性支持可用</td>
+<td>已核对配置、命令与处理代码；真实物品效果仍需实服验证</td>
+</tr>
+<tr>
+<td>帮助、装备检查、状态和记录查询，以及管理操作</td>
+<td>对应权限；仅玩家命令不能由控制台执行</td>
+<td>命令语法与权限已按实际处理逻辑复核；详见本页命令表</td>
+</tr>
+<tr>
+<td>中文/英文消息、配置校验、迁移及重载保护逻辑</td>
+<td>UTF-8 配置；保留版本字段、引用和消息占位符</td>
+<td>已核对加载与保护实现；历史服务器数据升级仍应先在副本验证</td>
+</tr>
+</tbody>
+</table>
+<h2 id="not-implemented">未实现功能 / Not implemented<a class="headerlink" href="#not-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>尚不可用：OOConsole 可视化配置工作区。</strong> 接入准备不等于服主已经可以打开网页编辑锻造配置。</li>
+<li><strong>尚不可用：OOEngine 客户端窗口。</strong> 不能将现有游戏内工作台当成已完成的客户端窗口接入。</li>
+<li><strong>部分完成：统一命令与正式前置接入。</strong> 开发版已有 <code>/oo reforge</code> 路径，但正式前置要求与最终命令接入尚未完成交付验收。</li>
+<li><strong>支持有限：第三方适配。</strong> 仅有配置示例或插件名称的条目，不代表已实现；不能把所有列出的经济、物品与属性插件当成兼容清单。</li>
+<li><strong>未开放：分解流程。</strong> 默认关闭，当前不能作为已交付功能使用。</li>
+<li><strong>未提供：对外 PAPI 变量。</strong> 本页列出的确认按钮、语言模板与公式变量，仅在各自指定位置生效。</li>
+<li><strong>尚未完成：正式服务器兼容与发布验收。</strong> 当前没有生产可用或 Paper/Folia 跨版本兼容承诺。</li>
+</ul>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<p>以下仅为已有规划，功能开发仍暂停，没有承诺完成日期或发布版本：</p>
+<ol>
+<li>完成正式命令与前置接入验证，保持统一 <code>/oo reforge</code> 入口，并核实权限、玩家操作与停用清理。</li>
+<li>在相应正式接口和运行环境具备条件后，验证可选 OOConsole 配置管理；客户端窗口同样须等待正式窗口能力验收，不另建独立后台。</li>
+<li>补齐真实服务器中的打造、消耗、失败处理、恢复及升级回滚验证，确认兼容范围后再准备首个稳定交付。</li>
+</ol>
+<p>没有在此承诺新增 PAPI 变量、开放分解或支持全部第三方插件；这些不能由示例配置推导为已批准计划。</p>
 <h2 id="_2">安装与前置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><strong>目前尚无面向服主的正式安装包。</strong> 以下是未来正式版本的安装准备说明，不是现有生产可用承诺。</p>
 <ol>

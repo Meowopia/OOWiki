@@ -787,16 +787,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#implemented" class="md-nav__link">
     <span class="md-ellipsis">
-      能力
+      已实现功能 / Implemented
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       安装与前置
     </span>
@@ -805,7 +823,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       源安全
     </span>
@@ -814,7 +832,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       命令与权限
     </span>
@@ -824,7 +842,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       命令
     </span>
@@ -833,7 +851,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       权限
     </span>
@@ -842,7 +860,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       变量 / 占位符
     </span>
@@ -856,7 +874,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       可选可视化配置
     </span>
@@ -865,7 +883,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       窗口状态
     </span>
@@ -883,7 +901,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       升级与回滚
     </span>
@@ -892,7 +910,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       已知问题
     </span>
@@ -910,7 +928,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       视频相关功能
     </span>
@@ -943,43 +961,59 @@
 <blockquote>
 <p><strong>当前状态：开发中，尚无正式稳定版。</strong> 现有开发代码不等于可直接安装使用的完整音乐客户端。普通服主请等待正式发行与安装说明，不要将开发构建用于生产服。</p>
 </blockquote>
-<h2 id="_1">能力<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a id="能力"></a></p>
+<h2 id="implemented">已实现功能 / Implemented<a class="headerlink" href="#implemented" title="Permanent link">&para;</a></h2>
+<p><strong>暂无正式版；以下仅为 <code>0.1.0-SNAPSHOT</code> 开发版实现。</strong> 尚无面向服主验收的实机兼容组合，不代表安装即可听歌。需要匹配的 OOCore、OOEngine 和授权测试环境。</p>
 <table>
 <thead>
 <tr>
-<th>功能</th>
-<th>当前说明</th>
+<th>已有开发实现</th>
+<th>验证范围与用户边界</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>播放队列与播放状态</td>
-<td>已有开发实现，包括切歌、暂停状态、进度、音量与播放模式；尚未形成正式交付的端到端音频播放体验。</td>
+<td>队列、切歌、暂停状态、进度、音量与播放模式</td>
+<td>已验证状态逻辑；不等于客户端已发声或端到端播放已完成。</td>
 </tr>
 <tr>
-<td>搜索、发现、收藏与歌单</td>
-<td>已有基础逻辑，但默认启动没有已接好的音乐来源，不能承诺装上即可搜索或播放。</td>
+<td>搜索、发现、收藏、歌单与最近播放基础</td>
+<td>已有逻辑与开发验证；默认没有音乐来源，不能直接搜索完整曲库，退出后的数据保留不作保证。</td>
 </tr>
 <tr>
-<td>歌词</td>
-<td>已有歌词解析、时间轴、翻译回退与缓存基础；完整游戏内歌词体验仍待正式交付。</td>
+<td>歌词解析、时间轴、翻译回退与缓存</td>
+<td>已验证离线处理逻辑；尚未验收真实游戏内音画及歌词同步体验。</td>
 </tr>
 <tr>
-<td>一起听</td>
-<td>房间与时钟基础处于开发阶段；邀请、断线恢复与实际多人使用尚不可作为已发布功能。</td>
+<td><code>/oo music</code> 窗口入口与可选配置接入</td>
+<td>已有接入代码与开发验证；前置存在不等于完整界面或配置持久生效已完成。</td>
 </tr>
 <tr>
-<td>OOChat 音乐卡片</td>
-<td>计划支持歌曲、歌单和一起听邀请；当前尚不可用，没有可用的分享命令。</td>
-</tr>
-<tr>
-<td>迷你播放器与完整播放器界面</td>
-<td>开发中，当前窗口入口不代表完整客户端已经就绪。</td>
+<td>房间与同步时钟基础</td>
+<td>已有领域逻辑；尚未完成真实多人一起听的使用闭环。</td>
 </tr>
 </tbody>
 </table>
-<p>以上描述区分开发实现与服主可用功能；本页不提供未验收构建下载。</p>
-<h2 id="_2">安装与前置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="not-implemented">未实现功能 / Not implemented<a class="headerlink" href="#not-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>未交付：</strong> 默认可用音源与完整客户端音频播放链，当前不能承诺装上即可听歌。</li>
+<li><strong>部分实现：</strong> 完整播放器、迷你播放器和游戏内歌词同步，只有基础逻辑或入口不算完成。</li>
+<li><strong>部分实现：</strong> 一起听邀请、房主转移、断线重连与漂移校正，尚不能作为已发布的多人功能使用。</li>
+<li><strong>尚不可用：</strong> 分享歌曲、歌单及一起听邀请到 OOChat 的交互卡片，没有分享命令。</li>
+<li><strong>未完成：</strong> 队列、收藏与配置的可靠持久化恢复；配置表单更新不保证驱动实际播放器，也不保证重启保留。</li>
+<li><strong>未验收：</strong> 面向服主的稳定安装组合与 Paper/Folia 实机运行范围。</li>
+</ul>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<p>仅列已确认方向，不承诺发布日期或版本号：</p>
+<ol>
+<li><strong>先打通正式版播放闭环：</strong> 授权来源、实际发声、队列与歌词表现；以受控音源接入和兼容客户端能力为前提。</li>
+<li><strong>完成可恢复的服务器状态：</strong> 接入正式持久化能力，处理并发修改、损坏数据和升级回滚，再开放可信的配置保存流程。</li>
+<li><strong>完成联机与聊天联动：</strong> 服务端协调一起听，并通过 OOChat 的正式接口分享音乐卡片；OOChat 缺失时只关闭分享。</li>
+<li><strong>完善原创界面与易用性：</strong> 通过正式窗口能力提供完整播放器和迷你播放器，考虑键盘操作、界面缩放及减少动画；不复制第三方素材。</li>
+<li><strong>后续体验优化：</strong> 在核心播放稳定后考虑已规划的淡入淡出和 Automix，以及受限、可校验的来源配置；不开放任意脚本执行。</li>
+</ol>
+<p>本页不提供未验收构建下载。上述规划依赖正式前置能力与完整联调，不因开发测试通过自动成为已发布功能。</p>
+<h2 id="_1">安装与前置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>必须安装 OOCore 与 OOEngine</strong>；缺失任一前置，当前插件不能正常启用。</li>
 <li><strong>OOConsole 为可选前置</strong>。缺失或接入失败时应只关闭相关配置入口，而不是提供另一套后台。</li>
@@ -994,12 +1028,12 @@
 <li>完整启动服务器并检查前置和 OOMusic 是否成功启用；玩家再执行 <code>/oo music</code>。</li>
 <li>打不开窗口、搜索无结果或没有声音时，不要通过放宽音源限制绕过问题；当前开发构建并未承诺完整播放链路。</li>
 </ol>
-<h2 id="_3">源安全<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">源安全<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>计划接入的音乐来源应为本地或管理员明确授权的来源，不内置“任意链接均可播放”的承诺。远程来源须遵守 HTTPS、允许的域名与音频类型、体积和超时限制，重定向也需重新校验。</p>
 <p>不要在聊天、截图或问题报告中提供登录凭据、原始服务响应、长期音频地址或私人文件路径。凭据配置应使用受控秘密引用，不能直接填写并公开真实密钥。音乐与封面的使用授权仍由内容提供方及服主负责。</p>
-<h2 id="_4">命令与权限<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">命令与权限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>以下仅为 <strong>未发布开发版参考</strong>。当前没有正式 Release，不能将命令存在理解为完整播放器已经可安装使用。</p>
-<h3 id="_5">命令<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_4">命令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1024,7 +1058,7 @@
 </table>
 <p><code>/oo</code> 根入口由 OOCore 提供。OOMusic 注册 <code>music</code> 子节点，无别名；命令声明与处理逻辑均使用 <code>oomusic.open</code>，处理逻辑也会检查玩家身份和额外参数。窗口能否打开还取决于前置服务是否就绪，不保证当前开发构建可实际播放音频。</p>
 <p>当前不提供 <code>/oomusic</code> 旧命令，也没有 <code>/oo music share</code>、<code>reload</code> 或 <code>about</code> 子命令。窗口中的播放按钮不是聊天命令，不要把按钮动作名称输入聊天栏。</p>
-<h3 id="_6">权限<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_5">权限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1060,7 +1094,7 @@
 </tbody>
 </table>
 <p>上表是插件声明的默认值，权限管理插件可以显式覆盖。OOMusic 未声明 <code>oomusic.*</code> 通配权限，也未声明权限树；不要假定授予其中一个节点会自动获得其他节点。<code>oomusic.open</code> 的检查范围是窗口命令入口，不能据此声称所有界面操作都有独立权限复验。</p>
-<h3 id="_7">变量 / 占位符<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_6">变量 / 占位符<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><strong>当前版本暂无对外变量/占位符。</strong> 此处“当前版本”仅指尚未正式发布的开发版本。</p>
 <table>
 <thead>
@@ -1099,11 +1133,11 @@
 </tbody>
 </table>
 <p><a id="ooconsole-接入implemented"></a></p>
-<h2 id="_8">可选可视化配置<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_7">可选可视化配置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>已准备 OOConsole 配置接入，但当前配置状态保存在内存中，未完成服主可依赖的持久化与播放器配置生效闭环。不能把“出现表单”理解为配置已永久保存、音源已加载或播放器已经应用设置。</p>
 <p>不安装 OOConsole 不会自动生成其他 Web 后台。普通服主暂不应依赖此入口管理生产音源。</p>
 <p><a id="oomenu-窗口接入planned"></a></p>
-<h2 id="_9">窗口状态<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_8">窗口状态<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>当前保留开发中的窗口入口。完整播放器、迷你播放器及客户端兼容体验仍需联调与正式验收；本页不将窗口基础能力发布视为 OOMusic 已正式可用。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p><strong>当前没有供服主编辑的外部 <code>config.yml</code>、语言文件、TOML 或 JSON 配置文件，也不会自动生成可编辑的播放器 YAML。</strong> 不要手工创建这些文件并期待插件读取。</p>
@@ -1134,10 +1168,10 @@
 </tbody>
 </table>
 <p>因此本阶段不提供虚构的 YAML/JSON 示例。未来正式开放配置后，会在这里提供可直接使用的示例、字段说明、重启/重载要求及升级迁移方法。</p>
-<h2 id="_10">升级与回滚<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_9">升级与回滚<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>目前没有稳定版之间的受支持升级路径。授权测试构建更新前，应完整停服并备份插件和数据，记录配套前置组合；不要使用热重载。</p>
 <p>若更新后无法启用或窗口异常，停服后恢复已备份的兼容插件组合。当前内存中的队列、收藏和配置不能视为已保存数据。不要混装未知来源的前置，也不要用旧开发包覆盖正式服测试。</p>
-<h2 id="_11">已知问题<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h2 id="_10">已知问题<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <ul>
 <li>尚无正式稳定版本，也未给出可保证运行的 Paper/Folia 实机矩阵。</li>
 <li>默认没有可播放音源；完整音频传输、客户端播放与界面体验尚未完成正式交付。</li>
@@ -1155,7 +1189,7 @@
 <li>QQ群 / QQ Group: 1063369777</li>
 </ul>
 <p><a id="oovideo-边界planned"></a></p>
-<h2 id="_12">视频相关功能<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_11">视频相关功能<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>音乐视频画面不属于当前已交付功能，暂不提供 MV 播放或视频配置入口。</p>
 
 

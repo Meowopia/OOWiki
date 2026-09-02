@@ -796,6 +796,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      已实现功能 / Implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       安装与前置
@@ -892,41 +919,49 @@
 <p>OOBrowser 为闭源专有产品，保留所有权利；源码仅向授权维护者开放。历史版本与第三方组件继续适用各自许可证。</p>
 <h2 id="_1">当前状态<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>尚未发布，暂无正式可下载包。</strong> 当前开发版本为 <code>0.1.0-SNAPSHOT</code>，功能开发冻结。仓库中的源码、配置模板和本地测试，不代表已完成正式服务器或玩家使用验收。</p>
+<h2 id="implemented">已实现功能 / Implemented<a class="headerlink" href="#implemented" title="Permanent link">&para;</a></h2>
+<p><strong>暂无正式版；以下仅为 <code>0.1.0-SNAPSHOT</code> 开发版实现。</strong> 尚不能据此用于正式服或承诺玩家实际可用。</p>
 <table>
 <thead>
 <tr>
-<th>能力</th>
-<th>当前边界</th>
+<th>开发版已有能力</th>
+<th>必要条件与验证范围</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>插件启动入口、配置加载与受控命令</td>
-<td>已有开发实现，不能当作已发布的可用版本</td>
+<td>状态、作者与联系信息查询</td>
+<td>需要 OOCore、插件成功启用和命令注册，以及 <code>oo.browser.use</code> 权限；已有处理器与本地测试，未作为正式服务器使用版本发布</td>
 </tr>
 <tr>
-<td>状态和作者信息查询</td>
-<td>已有命令实现，须插件成功启用并注册命令后才可使用</td>
+<td>默认配置生成与严格校验</td>
+<td>开发启用流程进入配置阶段时生成配置；加载、失败重载保留有效配置已有本地验证，不等于整次服务器启动成功</td>
 </tr>
 <tr>
-<td>可选 OOConsole 只读信息贡献</td>
-<td>已有接入实现；不提供配置写操作，也不等于浏览器可用</td>
+<td>可选 OOConsole 只读诊断</td>
+<td>需要可用且兼容的 OOCore、OOConsole 接入；只读贡献及关闭清理已有本地验证，不提供写操作</td>
 </tr>
 <tr>
-<td>网络策略与后端生命周期</td>
-<td>有实现和本地测试，不代表真实浏览器渲染完成</td>
-</tr>
-<tr>
-<td>游戏内 Chromium/MCEF、WebGUI 与网页地图</td>
-<td>未交付，不能浏览网页</td>
-</tr>
-<tr>
-<td>玩家网页窗口与浏览器交互</td>
-<td>尚不可用</td>
+<td>受控网络访问与连接关闭处理</td>
+<td>网络限制、连接及生命周期已有本地测试；这是浏览器的基础工作，不提供可供玩家使用的网页渲染</td>
 </tr>
 </tbody>
 </table>
+<h2 id="not-implemented">未实现功能 / Not implemented<a class="headerlink" href="#not-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>未交付：</strong> 游戏内 Chromium/MCEF 渲染、WebGUI 兼容及网页地图显示；玩家目前不能通过 OOBrowser 浏览网页或播放网页视频。</li>
+<li><strong>接入未完成：</strong> 玩家网页窗口的打开、更新、关闭与交互；可选窗口依赖存在也不会自动启用这些能力。</li>
+<li><strong>部分实现：</strong> OOConsole 只读信息已有开发实现，策略写入仍禁用，不能通过界面修改浏览器策略。</li>
+<li><strong>尚未验收：</strong> 面向服主的正式安装、实际玩家使用与完整平台兼容；配置默认保持后端禁用，不能把改配置当作安装浏览器。</li>
+</ul>
 <p>安装 Chrome、Edge 或 Firefox 不会启用本插件的游戏内浏览器。当前不提供 IE 或其他系统浏览器的游戏内嵌入能力，也不承诺现有网页兼容性。</p>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<p>以下仅保留已批准的方向，<strong>功能开发仍冻结，无日期或版本承诺</strong>；恢复工作须另行安排。</p>
+<ul>
+<li>在正式窗口接口及客户端能力通过接入验证后，推进受控 Chromium/MCEF 后端，并评估既定 WebGUI 与网页地图兼容范围；低能力客户端应明确提示不可用，不绕过访问策略。</li>
+<li>在可信的操作授权与审计接入完成后，为 OOConsole 提供受限策略配置，保留现有只读降级路径。</li>
+<li>在正式媒体接口与资源策略允许的条件下，评估将明确批准的视频资源交给统一视频能力，不另建通用视频播放协议。</li>
+</ul>
 <h2 id="_2">安装与前置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>目前没有面向服主的正式安装包，<strong>请勿将源码、配置示例或不明来源构建当作正式插件安装</strong>。</p>
 <p>当前插件声明硬依赖 <strong>OOCore</strong>，OOEngine 与 OOConsole 为可选接入。这里不锁定未经正式发布验证的版本组合；未来应以正式版本说明确定兼容前置。安装可选插件并不会解锁尚未交付的网页窗口。</p>

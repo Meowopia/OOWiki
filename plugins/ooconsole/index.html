@@ -796,11 +796,62 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      已实现功能 / Implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       配置 / Configuration
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="配置 / Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      本机 HTTP 与登录
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -814,7 +865,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       命令与入口
     </span>
@@ -823,7 +874,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       权限
     </span>
@@ -832,7 +883,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       变量与占位符
     </span>
@@ -868,9 +919,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       迁移约束
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题
     </span>
   </a>
   
@@ -898,17 +958,14 @@
 <h1 id="ooconsole">OOConsole<a class="headerlink" href="#ooconsole" title="Permanent link">&para;</a></h1>
 <p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooconsole/banner-1200x630.webp" alt="OOConsole 管理与可视化编辑品牌横幅" loading="lazy" decoding="async"></p>
 <p><strong>分类：基础（Core）。</strong></p>
-<p>OOConsole 是独立 OO 系列管理与可视化编辑插件。<code>0.1.5</code> + OOCore <code>1.6.1</code> owner-bound 平台链已验收，可供消费者迁移；各消费者 adapter 仍须独立验收，不能批量标记 implemented。</p>
+<p>OOConsole 是喵托邦（Meowopia）OO 系列的管理与可视化编辑插件，属于基础（Core）。当前正式版 <strong>0.1.6</strong> 提供管理基础能力：状态命令、插件贡献接口，以及可选的本机 HTTP 登录、会话与只读接口。<strong>它还不是完整的网页管理面板。</strong></p>
 <div class="admonition info">
-<p class="admonition-title">状态拆分</p>
-<p><code>0.1.3</code> 已发布历史 SDK/runtime 交付物，但产品 runtime acceptance 当时仍 pending。消费者不得把 SDK 可用外推为产品 UI 或工作区已经实现。</p>
+<p class="admonition-title">当前可用范围</p>
+<p><code>/oo console</code> 只显示状态；HTTP Dashboard 目前仅返回只读 JSON。可视化窗口编辑、预览发布以及完整插件、资源管理工作区仍在规划中，不应当作已可用功能。</p>
 </div>
-<div class="admonition danger">
-<p class="admonition-title">0.1.4 runtime rejected</p>
-<p><code>0.1.4</code> runtime coordinate 存在，但 JAR 内 <code>plugin.yml</code> 仍声明版本 <code>0.1.3</code>，与坐标不一致，因此该版本永久 rejected、不可安装。后续 <code>0.1.5</code> 已发布并修复版本元数据。</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">0.1.5 published / owner-service available</p>
+<div class="admonition warning">
+<p class="admonition-title">历史版本</p>
+<p>0.1.4 的 runtime 制品存在版本标识错误，不要安装。安装服务端插件请使用正式版主 JAR，不要用开发者 SDK 或 testkit 代替。</p>
 </div>
 <h2 id="_1">固定标识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
@@ -953,11 +1010,103 @@
 </tr>
 </tbody>
 </table>
-<p>OOCore <code>1.6.1</code> <code>oocore.owner-bound-service.v1</code> 与 OOConsole <code>0.1.5</code> 正式 artifacts 已通过 owner-service 最终门禁。旧 <code>openScope(String)</code> / <code>openScope(ownerId)</code> 仍 deprecated/unsafe，禁止 ThreadLocal、反射或本地 bridge。</p>
-<p>API <code>0.1.4</code>/<code>0.1.5</code> 的 <code>OwnerBoundOOConsole</code> compile surface 已发布；<code>0.1.5</code> + OOCore <code>1.6.1</code> 最终门禁已通过。具体消费者仍须独立完成 acquire/lifecycle/foreign 验收。</p>
+<h2 id="implemented">已实现功能 / Implemented<a class="headerlink" href="#implemented" title="Permanent link">&para;</a></h2>
+<p>以下均指正式版 <strong>0.1.6</strong>，运行时需要 OOCore 与 OOEngine：</p>
+<ul>
+<li><strong>状态查询</strong>：有权限的玩家或控制台可用 <code>/oo console</code> 查看版本和 HTTP 状态。</li>
+<li><strong>本机只读接口</strong>：显式启用后支持健康检查、固定管理员登录、会话/CSRF、最小 Dashboard JSON 和登出；已验证本机客户端流程，不是完整浏览器界面。</li>
+<li><strong>插件接入基础</strong>：提供可信身份绑定的贡献接口，以及操作校验、权限与审计基础。需要对应插件完成适配；不自动生成完整管理页面。</li>
+<li><strong>启停清理</strong>：正式版已通过服务器启动、命令、HTTP 及正常停止清理验收。</li>
+</ul>
+<h2 id="not-implemented">未实现功能 / Not implemented<a class="headerlink" href="#not-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>尚未提供</strong>：浏览器登录页、完整首页与导航；当前不能把接口地址当作可操作的网页面板。</li>
+<li><strong>仅底层已具备</strong>：窗口编辑、预览、保存发布所需的部分接口基础；服主目前不能通过 OOConsole 完成这条可视化流程。</li>
+<li><strong>尚未提供</strong>：完整插件管理、资源管理及安全审计工作区；没有网页多用户/角色管理。</li>
+<li><strong>尚未开放</strong>：用户配置文件、配置编辑页和热重载命令。</li>
+<li><strong>未完成迁移</strong>：不能用本版替代并删除旧 OOEngine Web Editor。</li>
+</ul>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<ul>
+<li>沿用 OOEngine 的正式编辑与窗口能力，完善结构化编辑、校验、预览、版本检查及保存发布流程，不另造编辑引擎。</li>
+<li>通过已适配插件的受控贡献逐步提供管理工作区；保持权限复验和审计，不扩展成任意命令或脚本执行器。</li>
+<li>配置开放时配套版本、校验、中英说明及升级回滚；旧编辑器先共存验收，再考虑迁移。</li>
+</ul>
+<p>这些是已规划方向，不是已发布功能，也不承诺上线日期或指定版本。</p>
+<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>先准备能够正常运行的 Paper 服务端，以及 <strong>OOCore、OOEngine</strong> 两个前置插件。缺少任意一个，OOConsole 都无法启动。</li>
+<li>从获授权的正式分发渠道取得 <code>OOConsole-0.1.6.jar</code>。关闭服务器后，将主 JAR 放入服务器的 <code>plugins/</code> 目录；不要同时保留不同版本的 OOConsole JAR。</li>
+<li>启动服务器，在控制台执行 <code>oo console</code> 查看版本和状态。默认显示 <code>HTTP=disabled</code> 是正常行为，不表示启动失败。</li>
+</ol>
+<p>0.1.6 已验证的前置组合为 OOCore <strong>1.7.1</strong> 与 OOEngine <strong>1.1.6</strong>，不是要求未来只能使用这两个精确版本。其他版本还必须提供兼容的插件接口、命令入口和可信身份服务；仅凭版本号更大不能保证兼容。不要使用已撤回的 OOCore 1.7.0。</p>
+<p>已记录的服务端环境为 Minecraft 26.2、Paper 26.2 build 92、Microsoft Java 25.0.4.7、Windows。其他环境的验证情况见下方已知问题。</p>
 <h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>当前没有用户可编辑的 OOConsole runtime 配置文件；HTTP/UI transport 仍为 planned。不得虚构 <code>config.yml</code>、配置键或默认值。</p>
-<p>OOConsole currently has no user-editable runtime configuration. HTTP/UI transport remains planned. Do not invent <code>config.yml</code>, keys, or defaults.</p>
+<p><strong>当前没有用户可编辑的 OOConsole <code>config.yml</code>、语言文件或网页配置页。</strong> 手工新建这些文件不会生效。可选 HTTP 接口通过服务器 Java 进程的启动设置启用，修改后需要完整重启服务器；没有 <code>/oo console reload</code>。</p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>类型与默认值</th>
+<th>作用与示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ooconsole.http.enabled</code></td>
+<td>JVM 布尔属性，默认 <code>false</code></td>
+<td><code>-Dooconsole.http.enabled=true</code> 启用本机 HTTP 接口；应放在 Java 启动命令的 <code>-jar</code> 之前</td>
+</tr>
+<tr>
+<td><code>ooconsole.http.port</code></td>
+<td>JVM 整数属性，默认 <code>0</code></td>
+<td><code>0</code> 自动分配端口；也可选择空闲端口，例如 <code>-Dooconsole.http.port=8765</code>。端口范围 0–65535，实际可用性取决于系统权限和占用情况</td>
+</tr>
+<tr>
+<td><code>OOCONSOLE_HTTP_PASSWORD</code></td>
+<td>启动进程的环境变量，无默认密码</td>
+<td>启用 HTTP 时必须提供至少 12 个字符的密码；通过宿主服务的保密环境设置注入，不放在命令行、公开脚本或日志中</td>
+</tr>
+</tbody>
+</table>
+<p>HTTP 启用却缺少有效密码、端口不可用或前置不满足时，启动会失败并回滚，不会自动退回无认证模式。关闭 HTTP 时不需要提供密码。</p>
+<p>HTTP 固定绑定 <code>127.0.0.1</code>，没有开放监听公网地址的配置。启动日志会显示 <code>OOConsole HTTP ready</code> 和实际地址；也可以用 <code>/oo console</code> 查看实际端口。默认动态端口可能随重启变化。</p>
+<p>OOConsole 0.1.6 has no user-editable configuration file. The optional HTTP interface is disabled by default, binds only to IPv4 loopback, and uses JVM startup properties plus a password environment variable. Restart the server after changing these settings; no reload command is provided.</p>
+<h3 id="http">本机 HTTP 与登录<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<p>当前没有登录网页，也没有浏览器首页；以下是给本机管理客户端使用的接口。请求地址使用服务器本机的 <code>http://127.0.0.1:实际端口</code>，不要把自己的电脑地址误认为远程服务器地址。</p>
+<table>
+<thead>
+<tr>
+<th>请求</th>
+<th>凭据与用途</th>
+<th>正常结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /health</code></td>
+<td>不需登录，检查接口是否运行</td>
+<td><code>200</code>，<code>{"status":"ok"}</code></td>
+</tr>
+<tr>
+<td><code>POST /session</code></td>
+<td>HTTP Basic 认证；用户名固定为 <code>admin</code>，密码为上述环境变量提供的值</td>
+<td><code>200</code>，返回 <code>OOSESSION</code> Cookie 和 JSON 中的 <code>csrf</code></td>
+</tr>
+<tr>
+<td><code>GET /dashboard</code></td>
+<td>同时携带登录 Cookie 和 <code>X-OO-CSRF</code> 请求头</td>
+<td><code>200</code>，<code>{"workspace":"Dashboard","mode":"read-only"}</code></td>
+</tr>
+<tr>
+<td><code>DELETE /session</code></td>
+<td>同时携带登录 Cookie 和 <code>X-OO-CSRF</code> 请求头，撤销当前会话</td>
+<td><code>204</code>；旧会话不能继续访问</td>
+</tr>
+</tbody>
+</table>
+<p>会话有效期为 30 分钟，重启后需要重新登录。登录凭据无效返回 <code>401</code>；Dashboard 或登出缺少有效会话/CSRF 返回 <code>403</code>。接口有限流，频繁请求可能返回 <code>429</code>，应停止重试并稍后访问。</p>
+<p>Cookie 带有 <code>Secure</code>、<code>HttpOnly</code> 和 <code>SameSite=Strict</code> 属性。由于此版接口使用本机 HTTP，不应假定所有浏览器或客户端都会自动回传 Cookie；当前验证范围是本机管理客户端，并非通用浏览器登录体验。不要为此关闭认证校验或转发到公网。HTTP Basic 的编码不是加密，凭据只应交给受控的本机客户端。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
@@ -966,10 +1115,7 @@
 <li><a href="https://ifdian.net/a/zkonikishi">ifdian</a></li>
 <li>QQ群 / QQ Group: 1063369777</li>
 </ul>
-<p>OOConsole 位于独立仓库、采用独立版本并发布为独立插件，但运行时必须同时依赖 OOCore 与 OOEngine。不要使用“OOEngine Console”作为产品名，也不要把 OOConsole Contribution 放进 OOEngine API。</p>
-<p>OOConsole 必须复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套实现。compile surface 发布不等于 runtime 可发现，更不等于 HTTP 服务、管理 UI、Editor、adapter 或产品工作区已经实现。</p>
-<p>Android 平板仅是 OOEngine <code>:oomenu</code> 通用 <code>menu</code> 窗口的响应式 preset。OOConsole 的 Window/Menu workspace 只通过稳定接口调用 OOMenu 与 OOEditor（<code>:ooeditor</code>），不复制 editor engine，不直接修改内部 repository、session manager、renderer 或 data folder，也不增加 Tablet workspace、导航页、模块、命令、registry、数据库或配置根。</p>
-<h2 id="_2">命令与入口<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">命令与入口<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>以下为 OOConsole <strong>0.1.6 正式版</strong>已提供的命令。<code>/oo</code> 根入口由 OOCore 提供，OOConsole 不单独注册根命令。</p>
 <table>
 <thead>
@@ -997,7 +1143,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>OOConsole 0.1.6: HTTP=disabled; runtime contribution API active
 </code></pre></div>
 <p>启用 HTTP 后，<code>disabled</code> 会显示为 <code>loopback:端口号</code>。当前处理器不解析后续参数；添加 <code>editor</code>、<code>reload</code> 等文字不会执行编辑或重载操作，也不构成已支持的子命令。当前没有命令别名。</p>
-<h2 id="_3">权限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">权限<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1017,7 +1163,7 @@
 </tbody>
 </table>
 <p>需要让非 OP 使用该命令时，通过服务器权限管理插件显式授予 <code>ooconsole.admin</code>。不要把未声明的 <code>ooconsole.*</code> 当作本插件提供的通配权限。此节点不等于网页登录凭据，也不会自动授予网页管理员身份。</p>
-<h2 id="_4">变量与占位符<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">变量与占位符<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><strong>当前版本暂无对外变量/占位符。</strong></p>
 <table>
 <thead>
@@ -1047,38 +1193,25 @@
 </table>
 <p>命令输出中的版本和 HTTP 端口、HTTP 返回数据里的字段，都不是可在其他插件配置中使用的占位符。部署环境变量 <code>OOCONSOLE_HTTP_PASSWORD</code> 是启动凭据来源，不是 PAPI 或消息变量；不要把密码写进公开页面、聊天或日志。</p>
 <h2 id="contribution-planned">Contribution 规范（planned）<a class="headerlink" href="#contribution-planned" title="Permanent link">&para;</a></h2>
-<p>插件计划通过 <code>ooconsole.editor-contribution.v1</code> 注册 owner-scoped Contribution：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>owner: oochat
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>workspace: plugins/oochat
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>views: [overview, moderation, mail]
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>actions: [oochat.moderation.reload]
-</code></pre></div>
-<p>约束：</p>
-<ol>
-<li>owner 必须与已认证的插件/module ID 一致；</li>
-<li>资源 ID、路由、权限和 action 必须位于 owner namespace；</li>
-<li>DTO 必须 immutable、versioned、bounded，不得暴露运行时对象；</li>
-<li>action 由拥有资源的插件执行服务端权限与业务校验；</li>
-<li>注册返回 lifecycle handle，disable/reload 时幂等撤销；</li>
-<li>只允许 workspace、view、form、table 与受权 named action；禁止任意 HTML、JavaScript、SQL、shell、控制台命令或本地文件路径；</li>
-<li>Contribution 缺失只隐藏对应工作区，不得拖垮 OOConsole 或插件核心业务。</li>
-</ol>
-<p>首版 artifact、<code>API_VERSION=1</code> 和 Capability 已发布；具体产品 Contribution 工作区仍为 <strong>planned</strong>。Wiki 不把 SDK 可编译等同于管理功能可用。</p>
+<p>此标题中的 planned 指具体可视化工作区，不代表插件接入接口完全未实现。0.1.6 已提供身份绑定的 V1/V2 插件贡献接口；每个接入插件仍需单独完成适配，不能因为安装 OOConsole 就自动出现所有插件的管理页面。</p>
+<p>贡献的操作必须经过权限、参数、版本和生命周期检查，由相应插件负责最终业务校验。完整可视化编辑、预览和发布流程仍未开放给服主使用；不提供任意脚本、SQL、服务器命令或文件浏览执行器。</p>
 <h2 id="rbacplanned">RBAC（planned）<a class="headerlink" href="#rbacplanned" title="Permanent link">&para;</a></h2>
-<p>权限至少拆分为：登录、查看 ControlPlane、打开 Editor、保存草稿、发布窗口、调用插件 action、查看审计、管理 OOConsole。危险权限不应包含在普通管理员通配中。</p>
-<p>每个请求同时校验：已登录身份、角色权限、owner scope、资源版本、CSRF token、request ID 和 action payload schema。前端隐藏按钮不构成授权。</p>
+<p>此标题保留的是角色管理界面的规划。运行时已有角色和权限校验基础，但 0.1.6 的 HTTP 启动接线只提供固定的 <code>admin</code> 登录身份，没有多用户、角色编辑或网页权限管理页。游戏内 <code>ooconsole.admin</code> 权限与 HTTP 登录不是同一套凭据。</p>
 <h2 id="planned">安全与部署（planned）<a class="headerlink" href="#planned" title="Permanent link">&para;</a></h2>
+<p>0.1.6 已实现本机 HTTP 接口的 Host/Origin 检查、会话撤销与过期、CSRF、Cookie 属性及请求限制；公网部署、反向代理和完整网页管理体验不在当前已验证范围内。</p>
+<p>当前凭据来自启动环境，不是用户密码数据库，也没有自动显示 bootstrap token 的功能。请限制谁能读取服务器进程环境和操作本机管理客户端。不要将 HTTP 端口对外转发。</p>
+<h2 id="_6">迁移约束<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>升级前完整停止服务器并备份插件及相关数据，替换主 JAR 后重启检查 <code>/oo console</code>。需要回滚时停止服务器，恢复先前已验证的 JAR 和对应备份；不要混放多个版本，也不要回滚到有缺陷的 0.1.4 runtime。HTTP 启动设置需同步检查，会话不会跨重启保留。</p>
+<p>OOConsole 尚未完成旧 OOEngine Web Editor 的功能等价迁移。旧编辑器继续保留，安装本版不能作为删除旧编辑器或迁移其数据的依据。</p>
+<h2 id="_7">已知问题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li>默认 <code>127.0.0.1</code>，远程部署要求 HTTPS reverse proxy；</li>
-<li>强制 Host/Origin allowlist、Secure/HttpOnly/SameSite Cookie、会话过期和登录限流；</li>
-<li>密码仅保存强 KDF hash，bootstrap token 只在本地控制台短暂显示；</li>
-<li>所有写操作记录主体、owner、action、目标、结果和 request ID；</li>
-<li>预览与发布沿用 OOEngine schema、UiLimits、资源策略和 RenderPlan，不另造渲染协议。</li>
+<li>没有完整网页首页、登录页或可视化编辑工作区；Dashboard 只是最小只读 JSON，不包含完整监控指标。</li>
+<li>HTTP 没有编辑、保存或发布接口；底层贡献接口存在，不等于这些网页功能已经开放。</li>
+<li>暂无用户配置文件、多用户管理、密码修改页面或热重载命令。</li>
+<li>仅支持本机 HTTP 接入；通用浏览器 Cookie 行为及公网反向代理未验收。</li>
+<li>Windows 原生库加载已验证；Linux Argon2/JNA 原生加载、Folia 运行仍未纳入此版本已验收范围。</li>
+<li>完整编辑工作区没有已承诺的交付日期；规划内容不代表当前可安装功能。</li>
 </ul>
-<h2 id="_5">迁移约束<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>OOEngine Web Editor 只能分阶段迁移。OOConsole 需要通过功能等价、数据兼容、RBAC、安全、审计、回滚和生产试运行验收；在此之前不得删除或破坏 OOEngine 源实现。</p>
-<p>OOConsole 仅编辑和诊断 OOVideo 配置、策略与资源引用，不自行播放、解码或持有 texture/audio sink。</p>
-<p>OOConsole 仅消费 OOEngine 内部 OOQuest 接口，用于配置 Provider adapter、显示映射和脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励，也不为 OOQuest 创建独立插件页面或产品分类。</p>
 
 
 

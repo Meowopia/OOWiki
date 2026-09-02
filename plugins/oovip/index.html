@@ -796,6 +796,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      已实现功能 / Implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       安装前置与安装
@@ -902,6 +929,54 @@
 <h2 id="_1">功能与可用状态<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>当前没有面向生产服务器的正式稳定版。开发版已有会员开通、续费、升档、移除、SQLite 持久保存、重复请求保护、到期权益处理，以及 LuckPerms 和 PlaceholderAPI 接入代码。这不等于已完成真实服务器联动验收，请勿直接用于付费运营。</p>
 <p>通用档位和成长配置、完整多产品会员隔离、成长触发 VID、会员中心界面仍在开发中。自动购买、充值订单和退款尚不可用；不能靠开启配置开关启用支付。会员不会因此获得管理员权限。</p>
+<h2 id="implemented">已实现功能 / Implemented<a class="headerlink" href="#implemented" title="Permanent link">&para;</a></h2>
+<p><strong>暂无正式版；以下仅为 <code>1.0.0-SNAPSHOT</code> 开发版实现，不代表生产服务器可用。</strong></p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>适用条件与验证范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开通、续费、升档、移除及授权赠送开通</td>
+<td>开发版已有业务处理与命令接线，使用 SQLite 和兼容 OOCore；已有自动化验证，真实玩家/控制台联动仍待验收。赠送不包含扣款。</td>
+</tr>
+<tr>
+<td>会员保存、重复操作保护和到期权益处理</td>
+<td>开发版已有持久保存与恢复处理代码及自动化验证；跨重启、离线到期的实际服务器表现仍待验收。</td>
+</tr>
+<tr>
+<td>LuckPerms 会员组权益发放与撤销</td>
+<td>开发版已有适配代码；需要可用 LuckPerms。实际插件组合及缺失/停用场景尚未完成实机认证。</td>
+</tr>
+<tr>
+<td>PlaceholderAPI 会员状态展示</td>
+<td>开发版已有注册与解析，需启用 PlaceholderAPI 和对应开关；只读取玩家快照，变量与限制见本页占位符表，不能保证实时性或重启后立即有值。</td>
+</tr>
+<tr>
+<td>VID 唯一分配基础</td>
+<td>开发版已有分配及重复分配保护的自动化验证；尚未接通玩家成长触发，不能据此宣称玩家已可领取 VID。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="not-implemented">未实现功能 / Not implemented<a class="headerlink" href="#not-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>部分实现：自由会员配置。</strong> 当前仍有固定档位与期限限制；不能仅修改配置列表就添加任意档位、成长曲线或等级上限。</li>
+<li><strong>部分实现：会员成长、VID 与产品隔离。</strong> 尚不能完成成长达标自动获得 VID 的用户流程，也不能完整管理跨产品独立会员合约。</li>
+<li><strong>尚不可用：自动购买、充值订单及退款。</strong> 支付入口明确禁用；配置开关不是交易实现。</li>
+<li><strong>尚不可用：会员中心 GUI、礼包领取与临时时装完整联动。</strong> 不应把相关 Provider 名称或计划中的命令当成现成功能。</li>
+<li><strong>待完善：中文交互与配置生效一致性。</strong> 命令仍有英文/状态码，部分适配器开关未形成可靠控制；具体限制见配置和命令章节。</li>
+<li><strong>待验收：稳定服务器兼容与升级恢复。</strong> 尚无正式发布支持矩阵，不能保证直接从历史插件原地升级。</li>
+</ul>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<ul>
+<li>优先完善可配置会员核心，使官方档位、成长规则和权益包成为可替换模板，同时保留权限校验、重复请求保护与数据一致性约束。</li>
+<li>接通会员成长与全局 VID 流程，完善共享及隔离会员模式；通过正式接口供其他产品读取，不复制会员数据库。</li>
+<li>在正式经济服务可用并通过交易验证后完善购买与订单恢复；展示和时装联动同样以正式可选接口为前提。</li>
+<li>完善安装、迁移、回滚和 Paper/Folia 实际运行验证，再确定稳定版交付范围。以上是规划方向，不承诺日期或版本。</li>
+</ul>
 <h2 id="_2">安装前置与安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>必须安装兼容的 OOCore，由它提供 <code>/oo</code> 命令入口、可信操作身份和插件生命周期服务。</li>
