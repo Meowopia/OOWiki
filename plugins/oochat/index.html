@@ -767,7 +767,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      命令与权限
+      安装
     </span>
   </a>
   
@@ -776,7 +776,67 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
+      命令与权限
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="命令与权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前正式版
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      后续版本（未发布）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      升级与回滚
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
       文档状态（本任务）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题
     </span>
   </a>
   
@@ -813,34 +873,152 @@
 <h1 id="oochat">OOChat<a class="headerlink" href="#oochat" title="Permanent link">&para;</a></h1>
 <p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oochat/banner-1200x630.webp" alt="OOChat 聊天与消息服务品牌横幅" loading="lazy" decoding="async"></p>
 <p><strong>分类：附属（Extensions）。</strong></p>
-<p>当前稳定版为 <a href="https://github.com/Meowopia/OOChat/releases/tag/v0.1.0"><code>0.1.0</code></a>，以闭源二进制形式发布。</p>
-<p>OOChat 是 Meowopia 的聊天与消息核心服务（Paper/Folia 插件）。</p>
-<ul>
-<li><strong>运行依赖</strong>：<code>OOCore</code></li>
-<li><strong>可选</strong>：<code>OOEngine</code>、<code>OOConsole</code></li>
-<li><strong>主命令</strong>：<code>/oo chat</code></li>
-</ul>
+<p>OOChat 是喵托邦 / Meowopia 的聊天与社交插件，目标是让服主按自己的玩法组合频道、消息规则和社交体验。</p>
+<blockquote>
+<p><strong>下载前请注意：</strong> 当前正式发布版为 <a href="https://github.com/Meowopia/OOChat/releases/tag/v0.1.0">v0.1.0</a>，属于基础接入版本，<strong>不是完整聊天替代插件，也不是 QQ 界面成品</strong>。世界聊天、私聊、历史及可编辑配置的后续版本仍在开发与验收中，尚未正式发布。请勿把下文开发中功能当作 v0.1.0 已提供的功能。</p>
+</blockquote>
 <h2 id="_1">生态分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>本插件是通用聊天域产品。插件页不再按产品类别展示侧栏导航；与任务或 RPG 系统联动不会改变其独立插件和依赖边界。</p>
+<p>OOChat 属于附属（Extensions），此分类不等于运行时必须安装 OOEngine。基础运行需要 OOCore；当前正式版不需要 OOEngine，也不提供其窗口界面。</p>
 <h2 id="_2">定位与边界<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>当前正式版 v0.1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>作为服务端插件加载并接入 OOCore</td>
+<td>已提供</td>
+</tr>
+<tr>
+<td><code>/oo chat</code> 基础命令入口</td>
+<td>已提供；只返回入口提示，不发送聊天消息</td>
+</tr>
+<tr>
+<td>世界聊天、私聊、历史查询与撤回</td>
+<td>后续版本开发中，不属于本版可用聊天闭环</td>
+</tr>
+<tr>
+<td>可编辑频道、冷却和消息长度限制</td>
+<td>后续版本开发中</td>
+</tr>
+<tr>
+<td>QQ 风格窗口、自定义头像和装扮</td>
+<td>尚不可用</td>
+</tr>
+<tr>
+<td>好友、公会、城镇、群聊和跨服完整联动</td>
+<td>规划中；不能仅凭频道名称推定已对接</td>
+</tr>
+<tr>
+<td>邮箱附件、红包、会员及 OO 等级联动</td>
+<td>规划中</td>
+</tr>
+<tr>
+<td>OOConsole 可视化聊天配置</td>
+<td>尚无正式可用工作区；安装 OOConsole 不会解锁上述功能</td>
+</tr>
+</tbody>
+</table>
+<p>OOChat 不提供第二套独立网页后台。玩法自定义不能绕过身份、权限、消息状态和数据安全校验。</p>
+<h2 id="_3">安装<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>使用适配目标服务器的 Paper 环境及 Java，先安装并确认 OOCore 正常启动。当前最低已验证 OOCore 基线为 <strong>1.7.1</strong>；<strong>1.7.0 已撤回，请勿使用</strong>。</li>
+<li>从正式 Release 获取 <code>OOChat-0.1.0.jar</code>，放入服务器的 <code>plugins/</code> 目录。闭源二进制按授权范围提供；无法访问下载时联系作者，不使用来历不明的转载包。</li>
+<li>完整重启服务器，确认 OOCore 和 OOChat 启用成功。</li>
+<li>给测试账号授予 <code>oochat.command.chat</code>，执行 <code>/oo chat</code> 核对入口。</li>
+</ol>
+<p>OOCore 是必需前置，但不要求未来版本号始终等于 1.7.1。OOChat 会检查平台协议和所需能力是否兼容，包括命令、调度、玩家与文本等支持；缺失能力时不要强行启用。Folia 的支持声明不代表任意版本均已实测，正式部署前应在相同环境的测试服验证。</p>
+<p>OOConsole 为可选项；仅验证基础版时不必安装。OOEngine 和额外客户端 Mod 不是本版必要前置。</p>
+<h2 id="_4">命令与权限<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">当前正式版<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>权限</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/oo chat</code></td>
+<td><code>oochat.command.chat</code></td>
+<td>返回基础入口提示</td>
+</tr>
+</tbody>
+</table>
+<p>根命令 <code>/oo</code> 由 OOCore 提供。v0.1.0 不提供可用的 <code>send</code>、<code>history</code>、<code>recall</code>、<code>mute</code>、<code>unmute</code>、<code>status</code>、<code>doctor</code> 或 <code>reload</code> 子命令，请不要给该版本套用开发版命令教程。</p>
+<h3 id="_6">后续版本（未发布）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>开发中的命令包括消息发送、历史查询、撤回、禁言/解除禁言及配置诊断、重载；准确语法与权限将在对应正式版本发布时补充。当前管理权限与异步命令仍在收口验收，不建议以开发包替换生产聊天管理。</p>
+<h2 id="_7">配置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>v0.1.0 没有用户可编辑的聊天 YAML 配置，也不会生成下列开发版配置。</strong> 无需手动创建 <code>config.yml</code> 期待启用聊天功能；插件描述文件不是服主配置文件。</p>
+<p>后续版本计划在 <code>plugins/OOChat/</code> 提供以下带中英说明的配置：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>用途</th>
+<th>预期生效方式（开发中）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.yml</code></td>
+<td>全局消息长度与速率限制</td>
+<td>校验后重载</td>
+</tr>
+<tr>
+<td><code>channels.yml</code></td>
+<td>频道权限、冷却与长度限制</td>
+<td>校验后重载</td>
+</tr>
+<tr>
+<td><code>moderation.yml</code></td>
+<td>撤回、禁言和保护权限</td>
+<td>校验后重载</td>
+</tr>
+<tr>
+<td><code>retention.yml</code></td>
+<td>历史保留规则</td>
+<td>校验后重载</td>
+</tr>
+<tr>
+<td><code>storage.yml</code></td>
+<td>存储后端、数据路径及完整性策略</td>
+<td>后端、路径及完整性策略变化需重启</td>
+</tr>
+</tbody>
+</table>
+<p>下面只是<strong>未发布配置格式预览，不适用于 v0.1.0</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># config.yml：消息最大 Unicode 码点数 / Maximum message code points</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">max-message-codepoints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2048</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 突发消息数和补充周期（毫秒） / Burst capacity and refill period (ms)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">rate</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">burst-capacity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">refill-period-ms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+</code></pre></div>
+<p>开发版以完整校验后再应用配置为目标，非法新配置不应覆盖旧配置。当前 SQLite 未提供随包可用驱动，不能宣传为可直接启用的生产存储。当前开发中的禁言为内存态，重载或重启会清除，不能用于需要持久封禁记录的生产管理。</p>
+<h2 id="_8">升级与回滚<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li>负责世界/公会/私聊/群聊/频道/附近/多世界/城镇/地皮等消息通道、管理员通知、邮件（含附件）、历史回溯、过滤/撤回等逻辑。</li>
-<li>不承诺 RPG 权威：等级、装备、任务、奖励、货币等状态由各自权威系统（如 OOQuest/OOVIP/第三方 RPG 引擎）管理。</li>
-<li>不提供独立可视化后台；后台能力计划通过 OOConsole 自有的 <code>ooconsole.editor-contribution.v1</code> 接入。平台 owner-service 链已 available for migration，但 OOChat adapter/workspace 尚未完成自身 acquire/lifecycle/foreign 验收，因此仍为 planned/code-prepared。</li>
-<li>Android 平板仅为 Menu preset，不构建独立 tablet 模块。</li>
+<li>v0.1.0 用户应等待后续正式发布，不把 SNAPSHOT 当稳定升级包。</li>
+<li>升级前停止服务器，备份插件 JAR、<code>plugins/OOChat/</code>（若存在）和相关存储；保留配套 OOCore 版本信息。</li>
+<li>首先在测试服确认命令、聊天投递和重启后的数据行为，再迁移生产服。</li>
+<li>数据格式变化时按对应版本说明迁移；不能直接用旧插件覆盖新格式数据。需要回滚时恢复同一次备份中的插件和数据。</li>
 </ul>
-<h2 id="_3">命令与权限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_9">文档状态（本任务）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>本页按正式下载版与未发布功能分别说明。当前正式版仍为 v0.1.0；后续聊天核心正在验收，不因开发分支存在实现便视为公开可用。</p>
+<h2 id="_10">已知问题<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <ul>
-<li>内部命令分发在 OOCore 的模块命令路由下，以 <code>execute</code> 接口匹配 <code>chat</code> 子命令。</li>
-<li>管理面安全动作使用命名 action + RBAC，不接受任意脚本/路径/命令参数。</li>
-</ul>
-<h2 id="_4">文档状态（本任务）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>本仓库：实施计划已接入 OOChat 领域核心 + OOCore 稳定 facade。</li>
-<li>可视化编辑：planned，等待通过已发布的 OOConsole SDK 接入；当前没有已实现的 OOChat 产品工作区。</li>
-<li>OOMenu/OOVideo/OOQuest：本插件仅消费，不建模独立桥接实现。</li>
+<li>v0.1.0 不提供完整玩家聊天闭环，无法替代现有聊天插件。</li>
+<li>尚无正式可用的 QQ 风格界面和 OOConsole 聊天配置工作区。</li>
+<li>后续版本的管理权限、冲突聊天监听器及多人重启场景仍需完成验收；开发版不建议用于生产服。</li>
+<li>与其他聊天插件共同使用前应测试消息取消、重复广播和权限拒绝行为。</li>
 </ul>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<p>反馈问题请提供插件版本、OOCore 版本、服务器环境、复现步骤和脱敏错误日志；不要公开访问令牌、私人聊天记录或玩家敏感信息。</p>
 <ul>
 <li>作者 / Author: zkonikishi</li>
 <li>QQ: 276098266</li>
