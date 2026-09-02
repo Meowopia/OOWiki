@@ -2,29 +2,106 @@
 
 <img class="plugin-page-banner" src="../../assets/branding/blackcat-v1/oobrowser/banner-1200x630.webp" width="1200" height="630" alt="OOBrowser 黑猫与地球仪品牌横幅" loading="lazy" decoding="async">
 
-OOBrowser 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不创建 runtime、父插件、Maven group、package、共享仓库或万能 Core。
+OOBrowser 是喵托邦（Meowopia）的受控网页表面插件项目，归入**附属（Extensions）**。它计划让服务器在明确的访问策略下提供网页窗口，而不是让玩家任意访问网址或执行浏览器脚本。该分类不改变插件的独立版本与依赖关系。
 
-OOBrowser 是闭源专有产品，保留独立 plugin/module identity、版本、生命周期和依赖边界。Copyright (c) 2026 Meowopia, All rights reserved；源码仅供授权维护者使用。历史版本继续适用其当时的许可证，第三方组件仍按各自上游许可执行。本页只公开产品能力、安装配置边界与支持信息，不提供内部源码、私有 artifact 访问方式或安全实现细节。它只负责 Chromium/Web surface；网页视频若进入 OOEngine video surface，仍必须经过 OOVideo policy，不能形成第二套通用视频协议。
+OOBrowser 为闭源专有产品，保留所有权利；源码仅向授权维护者开放。历史版本与第三方组件继续适用各自许可证。
 
 ## 当前状态
 
-OOBrowser `0.1.0-SNAPSHOT` 尚无 release。OOConsole `0.1.5` owner-bound optional adapter 已完成自身迁移验收，可标 **implemented**；Mutation、Window 和 runtime 配置状态不随之升级。
+**尚未发布，暂无正式可下载包。** 当前开发版本为 `0.1.0-SNAPSHOT`，功能开发冻结。仓库中的源码、配置模板和本地测试，不代表已完成正式服务器或玩家使用验收。
 
-- **code-prepared / locally tested**：`/oo browser` 的受控命令接入已完成本地验证；尚未升级为 live runtime implemented。
-- **implemented**：OOConsole optional 只读贡献已完成生命周期验收。
-- **locally tested backend SPI**：后端传输契约已完成本地验证，但不代表 live Chromium/MCEF connector 已完成。
-- **disabled**：Mutation 尚未接入 trusted per-mutation authorization，不能执行写操作。
-- **planned / waiting**：OOEngine `1.1.4` Window/Menu/Video API 已 published，但 server wiring/consumer migration waiting；Chromium/MCEF/WebGUI planned。
+| 能力 | 当前边界 |
+| --- | --- |
+| 插件启动入口、配置加载与受控命令 | 已有开发实现，不能当作已发布的可用版本 |
+| 状态和作者信息查询 | 已有命令实现，须插件成功启用并注册命令后才可使用 |
+| 可选 OOConsole 只读信息贡献 | 已有接入实现；不提供配置写操作，也不等于浏览器可用 |
+| 网络策略与后端生命周期 | 有实现和本地测试，不代表真实浏览器渲染完成 |
+| 游戏内 Chromium/MCEF、WebGUI 与网页地图 | 未交付，不能浏览网页 |
+| 玩家网页窗口与浏览器交互 | 尚不可用 |
 
-最新本地验证为 19 tests、0 failures/errors；完整 Gradle check 受 offline metadata 阻塞，因此 release gate 尚未完成。OOBrowser `0.1.0-SNAPSHOT` 没有正式 release，也不提供开发构建下载。该状态不是 live MCEF/Chromium connector；玩家 Window 仍 blocked。
+安装 Chrome、Edge 或 Firefox 不会启用本插件的游戏内浏览器。当前不提供 IE 或其他系统浏览器的游戏内嵌入能力，也不承诺现有网页兼容性。
 
-OOBrowser 对 OOConsole 为 optional。当前只允许已验收的只读贡献路径；Mutation 继续 disabled。OOBrowser 不得自建后台；生产连接器未验收时必须保持 blocked。具体安全实现、私有 fixtures 与内部依赖信息不在公开 Wiki 展示。
+## 安装与前置
+
+目前没有面向服主的正式安装包，**请勿将源码、配置示例或不明来源构建当作正式插件安装**。
+
+当前插件声明硬依赖 **OOCore**，OOEngine 与 OOConsole 为可选接入。这里不锁定未经正式发布验证的版本组合；未来应以正式版本说明确定兼容前置。安装可选插件并不会解锁尚未交付的网页窗口。
+
+若获授权参与开发构建验证，应只在独立测试服务器中操作：备份数据，将获授权的 OOBrowser 插件 JAR 与所需 OOCore 放入服务器的 `plugins/` 目录，完整重启，并检查启用日志。此流程不构成生产可用或 Paper/Folia 兼容承诺。目前不提供客户端浏览器组件的正式安装步骤。
+
+## 命令
+
+**以下仅为未发布开发版参考，不是正式可安装版本的命令承诺。** 插件必须先成功启用并完成命令注册。`/oo` 由 OOCore 提供，OOBrowser 没有独立根命令。
+
+| 完整语法 | 参数与默认值 | 用途 | 精确权限 | 执行者限制 | 最小示例 |
+| --- | --- | --- | --- | --- | --- |
+| `/oo browser` | 无参数，默认 `status` | 查询状态 | `oo.browser.use` | 玩家、控制台均可进入处理器，仍须通过宿主权限检查 | `/oo browser` |
+| `/oo browser status` | `status` 为子命令，无其他必需参数 | 提示策略状态与浏览器运行时不可用 | `oo.browser.use` | 同上，无玩家 UUID 要求 | `/oo browser status` |
+| `/oo browser about` | `about` 为子命令，无其他必需参数 | 显示作者与联系方式 | `oo.browser.use` | 同上 | `/oo browser about` |
+| `/oo browser info` | `about` 的别名 | 显示同样的作者信息 | `oo.browser.use` | 同上 | `/oo browser info` |
+
+子命令忽略大小写；当前处理器只读取第一个参数，后续参数被忽略，不构成可用接口。未知子命令返回用法提示。没有打开网页、传入 URL、重载配置或变量查询命令。控制台输入时可省略开头 `/`。
+
+`status` 当前返回 `OOBrowser: policy core ready; Chromium runtime adapters unavailable`，这是固定状态提示，不是 live 浏览器健康检查或渲染成功证明。
+
+## 权限
+
+同样仅供开发版参考：注册信息要求权限，命令处理器还会复验同一权限；控制台不在处理器内获得绕过授权的特例。
+
+| 精确节点 | 对应功能 | 默认授权与 OP / 普通玩家 | 继承关系 |
+| --- | --- | --- | --- |
+| `oo.browser.use` | 上表全部状态、作者信息命令 | 插件 descriptor 未声明权限默认值，也不自行给 OP 或普通玩家授予权限；最终结果由宿主及服务器权限配置决定，不能承诺普通玩家默认可用或 OP 必定可用 | 本插件未声明父节点、children 或通配符；不会自行继承 `oo.*` / `oo.browser.*` |
+
+服主测试时应按所用权限管理工具显式授予或拒绝精确节点，并分别验证玩家与控制台。权限工具自行配置的通配符或用户组继承不属于 OOBrowser 声明的接口。由于没有正式发布的版本组合，此处不将其他版本宿主的默认权限行为视为本插件已验收行为。
+
+## 变量 / 占位符
+
+**当前版本暂无对外变量/占位符。** 此处的“当前版本”指未发布开发源码，不代表已有稳定包。
+
+| 类型 | 精确写法、含义与示例 | 作用域 / 可用位置 | 前置与状态 |
+| --- | --- | --- | --- |
+| PlaceholderAPI（PAPI） | 无已注册占位符，暂无返回示例 | 不提供聊天、计分板等 PAPI 使用位置 | 安装 PlaceholderAPI 不会自动产生 OOBrowser 变量 |
+| 消息模板 | 无对外替换语法；命令回复为固定文本 | 不提供自定义消息变量接口 | 未交付 |
+| UI 绑定 | 无可供服主使用的已交付变量语法 | 不提供可用网页窗口绑定位置 | 窗口不可用，不将内部数据字段当变量 |
+| 配置替换 | 无对外插值语法 | 配置字段按类型读取，不是占位符 | 保留生成值与结构，不自行填入 `%...%` 等表达式 |
+
+配置键、只读诊断字段和构建时的版本替换标记都不是服主可用的变量接口，也不应写入其他插件的占位符配置。
 
 ## 配置 / Configuration
 
-实际生效配置为 **none**。`examples/config.yml` 提供全字段中英注释与安全示例；`config.schema.json` 使用合法 JSON Schema `description/default/range/enum`，不写非法 JSON 注释。两者都只是 **planned reference**，当前没有 runtime loader；复制到 `plugins` 目录也不会生效，不得虚报为用户已可配置。
+**公开正式版本的可配置面尚未交付；开发源码已存在真实配置加载路径。** 不再将源码现状描述为“没有 loader”，但也不能据此宣称服主已有可用正式版本。
 
-游戏内浏览器仅规划 Chromium/MCEF，覆盖 Chrome/现代 Edge 兼容面；Firefox 只做外部兼容验收，不嵌入 Gecko；IE 不支持，遗留页面只能在游戏外使用 Edge IE Mode。
+在开发构建的启用流程到达配置初始化阶段时，会首次生成 `plugins/OOBrowser/config.yml` 并读取它。文件存在不代表整个插件启用成功。仓库的 `examples/config.yml` 和 schema 仅供参考；复制示例或 schema 到 `plugins/` 根目录不会自动生效，应以获授权构建实际生成的默认配置为准。
+
+| 配置项 | 当前默认值与含义 |
+| --- | --- |
+| `schema-version` | `1`，配置格式版本，不应自行修改 |
+| `network.allowed-origins` | `[]`，没有配置允许的站点；不是允许所有网址 |
+| `network.allow-loopback` | `false`，保持关闭 |
+| `network.connect-timeout-ms` / `request-timeout-ms` | `10000` / `30000` 毫秒，连接与请求预算 |
+| `network.max-download-bytes` | `67108864` 字节，即 64 MiB 上限 |
+| `network.max-concurrent-per-server` / `max-concurrent-global` | `2` / `4`，并发预算 |
+| `surface.profile` | `strict`，默认严格策略 |
+| `surface.preferred-backend` | `disabled`，保持禁用；修改值不能安装或解锁浏览器 |
+| `surface.fallback` | `unavailable`；配置名称不代表系统浏览器回退已交付 |
+| `bridge` | 受限消息参数，保留生成值；不是脚本或命令执行入口 |
+| `privacy.persist-cookies` | `false`，必须保持关闭 |
+| `privacy.isolate-by-server-uid` | `true`，必须保持隔离 |
+
+当前加载器要求完整字段、严格类型与范围，拒绝未知或重复字段；请保留生成文件的结构及中英注释。不要保存 cookie、token、密码、密钥、命令或本地路径。策略与预算参数的存在不意味着所有参数已经连接到 live 浏览器。
+
+没有公开 reload 命令。开发验证时修改配置应备份后完整重启并检查日志；内部失败重载保留有效快照，不等于冷启动失败后仍能继续运行。
+
+## 升级与回退
+
+暂无正式版本间的升级流程。开发测试前备份原 JAR 与整个插件数据目录，不要覆盖唯一备份；回退时停止测试服务器并恢复成对的程序和数据。不要将不同开发构建混合为生产环境，也不要据本页推断跨版本数据兼容。
+
+## 已知问题 / Known issues
+
+- 游戏内 Chromium/MCEF 渲染、网页打开与交互尚未交付；当前不能用来展示网页地图或播放网页视频。
+- 默认后端禁用，OOConsole 写操作不可用；可选依赖存在也不能解除这些限制。
+- 本地测试不等于实际服务器启动、玩家体验或完整平台兼容验收。
+- 没有正式下载包、生产安装承诺或稳定升级路线。遇到开发构建错误，应保留脱敏日志，不要通过放宽安全配置尝试绕过。
 
 ## 联系 / Contact
 
@@ -33,3 +110,5 @@ OOBrowser 对 OOConsole 为 optional。当前只允许已验收的只读贡献�
 - Discord: <https://discord.gg/KPq2fZHFK>
 - [ifdian](https://ifdian.net/a/zkonikishi)
 - QQ群 / QQ Group: 1063369777
+
+反馈时说明使用的构建、前置插件、操作步骤与脱敏错误日志；不要发送密码、cookie、token 或私钥。

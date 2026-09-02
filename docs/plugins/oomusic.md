@@ -2,55 +2,121 @@
 
 <img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oomusic/banner-1200x630.webp" alt="OOMusic 音乐、队列与歌词服务品牌横幅" loading="lazy" decoding="async">
 
-OOMusic 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。
+OOMusic 是喵托邦 / Meowopia 的音乐项目，分类为**附属（Extensions）**。目标是在游戏中浏览音乐、管理队列、显示歌词，并由服务端协调一起听。
 
-OOMusic 是服务端协调的音乐产品，通过 OOEngine 提供窗口和迷你播放器。
+> **当前状态：开发中，尚无正式稳定版。** 现有开发代码不等于可直接安装使用的完整音乐客户端。普通服主请等待正式发行与安装说明，不要将开发构建用于生产服。
 
 ## 能力
 
-- 本地或管理员授权的远程 `MusicProvider`；
-- 联合搜索、稳定 `providerId + trackId` 引用；
-- 队列、播放/暂停、seek、音量、上下曲、repeat、shuffle；
-- 主持人控制的同步听房间与服务端时钟；
-- 歌曲、歌单和同步听邀请的 OOChat Bridge；
-- **implemented/tested** 的 bounded `LyricsDocument`、`LyricsTimeline` 与 `LyricsService`，歌词结构、行数、文本长度和时间轴输入均受上限约束；
-- `oomusic:*` 网络 namespace。
+| 功能 | 当前说明 |
+| --- | --- |
+| 播放队列与播放状态 | 已有开发实现，包括切歌、暂停状态、进度、音量与播放模式；尚未形成正式交付的端到端音频播放体验。 |
+| 搜索、发现、收藏与歌单 | 已有基础逻辑，但默认启动没有已接好的音乐来源，不能承诺装上即可搜索或播放。 |
+| 歌词 | 已有歌词解析、时间轴、翻译回退与缓存基础；完整游戏内歌词体验仍待正式交付。 |
+| 一起听 | 房间与时钟基础处于开发阶段；邀请、断线恢复与实际多人使用尚不可作为已发布功能。 |
+| OOChat 音乐卡片 | 计划支持歌曲、歌单和一起听邀请；当前尚不可用，没有可用的分享命令。 |
+| 迷你播放器与完整播放器界面 | 开发中，当前窗口入口不代表完整客户端已经就绪。 |
+
+以上描述区分开发实现与服主可用功能；本页不提供未验收构建下载。
+
+## 安装与前置
+
+- **必须安装 OOCore 与 OOEngine**；缺失任一前置，当前插件不能正常启用。
+- **OOConsole 为可选前置**。缺失或接入失败时应只关闭相关配置入口，而不是提供另一套后台。
+- 当前开发插件要求 **Java 25**。面向 Paper/Folia 的真实可用版本范围尚未完成正式发行验收，暂不承诺任意服务器版本兼容。
+- 前置版本不是永久锁定的等号关系：需要支持 OOMusic 所用命令、权限、受控服务与窗口能力的兼容版本。尚无可向服主推荐的最低实机验收组合；正式发布时再公布基线与升级范围。
+
+仅在获得维护者明确标注的测试包及匹配前置时，在隔离测试服操作：
+
+1. 停止服务器，备份现有插件和数据。
+2. 将 OOCore、OOEngine 和 OOMusic 的**服务端插件 JAR**放入服务器根目录下的 `plugins/`；需要时同时安装 OOConsole。
+3. 不要将开发 SDK、测试包或 Minecraft 客户端 Mod 放入 `plugins/`，也不要把服务端插件装进客户端 `mods/`。
+4. 完整启动服务器并检查前置和 OOMusic 是否成功启用；玩家再执行 `/oo music`。
+5. 打不开窗口、搜索无结果或没有声音时，不要通过放宽音源限制绕过问题；当前开发构建并未承诺完整播放链路。
 
 ## 源安全
 
-音频源必须通过 HTTPS scheme、精确小写 hostname allowlist、MIME allowlist、字节上限、连接/读取超时和 expiry 检查。凭据、原始 Provider 响应和长期源 URL 不发送给客户端。
+计划接入的音乐来源应为本地或管理员明确授权的来源，不内置“任意链接均可播放”的承诺。远程来源须遵守 HTTPS、允许的域名与音频类型、体积和超时限制，重定向也需重新校验。
+
+不要在聊天、截图或问题报告中提供登录凭据、原始服务响应、长期音频地址或私人文件路径。凭据配置应使用受控秘密引用，不能直接填写并公开真实密钥。音乐与封面的使用授权仍由内容提供方及服主负责。
 
 ## 命令与权限
 
-旧构建可能仍提供 `/oomusic`，它只属于 **legacy implementation**。统一目标入口是 `/oo music`。OOCore command v2 已发布，但 OOMusic command consumer migration 尚未单独验收；不得双注册、按名字查玩家或另造 sender-handle API。
+以下仅为 **未发布开发版参考**。当前没有正式 Release，不能将命令存在理解为完整播放器已经可安装使用。
 
-| 节点 | 默认 |
-|---|---|
-| `oomusic.open` | true |
-| `oomusic.listen-together.host` | true |
-| `oomusic.admin.provider` | op |
+### 命令
 
-实际 Paper/Folia 插件产物来自 `ooengine-adapter` 模块，并硬依赖 OOCore `1.6.1` 与 OOEngine。OOConsole API/testkit 使用 `0.1.5` optional dependency。
+| 完整语法 | 参数与默认值 | 用途 | 精确权限 | 执行者限制 | 最小示例 |
+| --- | --- | --- | --- | --- | --- |
+| `/oo music` | 无参数、无默认参数；不接受额外参数 | 请求打开音乐窗口；窗口服务不可用时返回提示 | `oomusic.open` | 仅具有有效玩家身份的玩家；控制台及其他非玩家不能打开 | 玩家输入 `/oo music` |
 
-`LyricsTimeline` / `LyricsService` 已通过完整本地验证，但当前仍不是正式 release。WindowController、command migration 与 legacy Panel 单路径状态保持不变；开发版 artifact 和内部仓库信息不在公开 Wiki 展示。
+`/oo` 根入口由 OOCore 提供。OOMusic 注册 `music` 子节点，无别名；命令声明与处理逻辑均使用 `oomusic.open`，处理逻辑也会检查玩家身份和额外参数。窗口能否打开还取决于前置服务是否就绪，不保证当前开发构建可实际播放音频。
 
-## OOConsole 接入（implemented）
+当前不提供 `/oomusic` 旧命令，也没有 `/oo music share`、`reload` 或 `about` 子命令。窗口中的播放按钮不是聊天命令，不要把按钮动作名称输入聊天栏。
 
-OOMusic 已移除 ServicesManager 与旧 `OOConsoleApi.openScope(String)` 路径。生产接入严格使用 active `OOModuleSession → core.ownerServices().acquire(session, OwnerBoundOOConsole.class, OwnerBoundOOConsole.CAPABILITY) → lease.service().openScope()`。
+### 权限
 
-OOConsole 仍为 optional，接入失败只禁用可视配置；生命周期和 owner 隔离已经完成本地验收。内部接入和测试实现不在公开 Wiki 展示。
+| 精确节点 | 普通玩家默认 | OP 默认 | 对应功能与实际状态 | 继承关系 |
+| --- | --- | --- | --- | --- |
+| `oomusic.open` | 允许 | 允许 | 窗口命令访问权限，命令处理逻辑实际检查 | 未声明子权限或父子继承 |
+| `oomusic.listen-together.host` | 允许 | 允许 | 仅预留声明；当前未发现使用此节点授权的房间入口，不代表一起听已可用 | 未声明子权限或父子继承 |
+| `oomusic.admin.provider` | 不授予 | 允许 | 仅预留声明；当前未发现使用此节点授权的完整音源管理入口 | 未声明子权限或父子继承 |
 
-## OOMenu 窗口接入（planned）
+上表是插件声明的默认值，权限管理插件可以显式覆盖。OOMusic 未声明 `oomusic.*` 通配权限，也未声明权限树；不要假定授予其中一个节点会自动获得其他节点。`oomusic.open` 的检查范围是窗口命令入口，不能据此声称所有界面操作都有独立权限复验。
 
-OOMusic 的播放器窗口和 Menu app entry 将通过 OOMenu stable facade 接入。`1.1.4` registration surface 已发布，但 API JAR 无 `WindowController` 且 OOMenu server wiring 未验收；Window migration 仍 blocked。现有 legacy Panel 单路径继续保留，禁止混合迁移。
+### 变量 / 占位符
+
+**当前版本暂无对外变量/占位符。** 此处“当前版本”仅指尚未正式发布的开发版本。
+
+| 类型 | 对外支持状态 | 可用位置与示例 | 前置说明 |
+| --- | --- | --- | --- |
+| PlaceholderAPI / PAPI | 没有注册 OOMusic expansion | 无支持的写法或返回值示例，请勿自行拼接 `%oomusic_...%` | 安装 PlaceholderAPI 也不会自动增加支持 |
+| 聊天消息模板变量 | 未提供 OOMusic 变量解析接口 | 暂不可用于聊天、Tab 或记分板模板 | OOChat 音乐卡片仍在开发中 |
+| UI 绑定 | 仅供内置开发界面使用，不是公开稳定占位符接口 | 不提供服主可复制的变量写法；内部标题、进度等字段不能当 PAPI 使用 | 依赖窗口服务，不代表跨插件模板支持 |
+| 配置替换 | 当前没有对外配置文件或通用变量替换器 | 无可用配置替换示例 | `env:` / `secret:` 是计划配置中的秘密引用约定，不是显示占位符 |
+
+<a id="ooconsole-接入implemented"></a>
+## 可选可视化配置
+
+已准备 OOConsole 配置接入，但当前配置状态保存在内存中，未完成服主可依赖的持久化与播放器配置生效闭环。不能把“出现表单”理解为配置已永久保存、音源已加载或播放器已经应用设置。
+
+不安装 OOConsole 不会自动生成其他 Web 后台。普通服主暂不应依赖此入口管理生产音源。
+
+<a id="oomenu-窗口接入planned"></a>
+## 窗口状态
+
+当前保留开发中的窗口入口。完整播放器、迷你播放器及客户端兼容体验仍需联调与正式验收；本页不将窗口基础能力发布视为 OOMusic 已正式可用。
 
 ## 配置 / Configuration
 
-用户表现层模板仅 `ooengine-adapter/src/main/resources/ooengine/panels/oomusic-main.yml`，以 bundled/in-memory 方式发布，不复制到 data folder。模板包含中英用途、重载/重启、风险、安全、字段类型/单位/范围/action 与 Contact 注释。
+**当前没有供服主编辑的外部 `config.yml`、语言文件、TOML 或 JSON 配置文件，也不会自动生成可编辑的播放器 YAML。** 不要手工创建这些文件并期待插件读取。
 
-OOConsole 配置采用 Java defaults 与内嵌 JSON Schema，没有外部 `config.yml`、语言、TOML 或 JSON 文件。JSON Schema 使用合法的 bilingual `description`、`examples`、`required` 与 `secretRef` 约束，不添加非法 JSON 注释。`plugin.yml` 仅保留合法 descriptor 字段；`gradle.properties` 只是 build metadata。
+| 项目 | 当前行为与生效方式 |
+| --- | --- |
+| 播放器布局模板 | 随插件内置，不从服务器数据目录加载外部覆盖；不建议自行解包修改。 |
+| 音乐来源 | 默认列表为空。没有受支持的用户配置示例可以直接接通本地目录或第三方音乐服务。 |
+| OOConsole 设置 | 开发中的内存配置；重启会重新使用默认值，不能作为持久配置使用。 |
+| 播放与收藏状态 | 不应依赖退出、切服或重启后保留；正式持久化恢复尚未对玩家交付。 |
+
+因此本阶段不提供虚构的 YAML/JSON 示例。未来正式开放配置后，会在这里提供可直接使用的示例、字段说明、重启/重载要求及升级迁移方法。
+
+## 升级与回滚
+
+目前没有稳定版之间的受支持升级路径。授权测试构建更新前，应完整停服并备份插件和数据，记录配套前置组合；不要使用热重载。
+
+若更新后无法启用或窗口异常，停服后恢复已备份的兼容插件组合。当前内存中的队列、收藏和配置不能视为已保存数据。不要混装未知来源的前置，也不要用旧开发包覆盖正式服测试。
+
+## 已知问题
+
+- 尚无正式稳定版本，也未给出可保证运行的 Paper/Folia 实机矩阵。
+- 默认没有可播放音源；完整音频传输、客户端播放与界面体验尚未完成正式交付。
+- 音乐卡片分享、完整一起听、迷你播放器与持久化恢复仍在开发中。
+- OOConsole 表单状态与实际播放器生效、重启保存不是同一回事。
+- 请勿将框架接入、开发测试通过或界面草稿当作已发布产品能力。
 
 ## 联系 / Contact
+
+反馈请提供插件版本、前置版本、服务器类型与版本、Java 版本、复现步骤及脱敏日志；不要上传令牌、私有音源地址或完整配置秘密。
 
 - 作者 / Author: zkonikishi
 - QQ: 276098266
@@ -58,6 +124,7 @@ OOConsole 配置采用 Java defaults 与内嵌 JSON Schema，没有外部 `confi
 - [ifdian](https://ifdian.net/a/zkonikishi)
 - QQ群 / QQ Group: 1063369777
 
-## OOVideo 边界（planned）
+<a id="oovideo-边界planned"></a>
+## 视频相关功能
 
-OOMusic 继续拥有音频领域、曲库、队列和同步听状态。需要视频画面时只调用 `ooengine-api` 的 OOVideo facade；不得直接调用 OOVideo Worker、FFmpeg、texture/audio sink 或 OOEngine internal video implementation。
+音乐视频画面不属于当前已交付功能，暂不提供 MV 播放或视频配置入口。
