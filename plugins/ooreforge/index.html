@@ -789,9 +789,84 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
+      功能与使用方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装与前置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       命令状态
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="命令状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      权限与继承
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量与占位符（开发版参考）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变量与占位符（开发版参考）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作台确认按钮
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置表达式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      语言消息模板
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -814,9 +889,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      升级与回滚
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       验证状态
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题与限制
     </span>
   </a>
   
@@ -851,29 +944,860 @@
 
 
 <h1 id="ooreforge">OOReforge<a class="headerlink" href="#ooreforge" title="Permanent link">&para;</a></h1>
-<p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooreforge/banner-1200x630.webp" alt="OOReforge 装备锻造与重铸品牌横幅" loading="lazy" decoding="async"></p>
-<p><strong>分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：paused / unreleased。</strong></p>
-<p>OOReforge 负责装备、锻造、品质、配方和领域校验。OOEngine 与 OOConsole 对其保持可选；需要窗口时通过 OOMenu stable facade，需要可视化管理时通过 OOConsole Contribution。</p>
+<p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooreforge/banner-1200x630.webp" alt="喵托邦 Meowopia · OOReforge 装备锻造与重铸" loading="lazy" decoding="async"></p>
+<p><strong>分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：尚未正式发布，功能开发暂停。</strong></p>
+<p>OOReforge 是喵托邦 / Meowopia 的装备锻造与重铸插件，面向需要自定义强化、增幅、精炼、材料消耗和打造台的服务器。</p>
 <div class="admonition warning">
-<p class="admonition-title">许可证与发布状态</p>
-<p>OOReforge 源码不公开，未来版本将采用 proprietary 许可，目前正在准备正式发布。现有 <code>1.3.0</code> 及历史既有授权不受追溯变更，第三方依赖和工具继续遵守各自上游许可证。公开 Wiki 只保留产品、安装、配置和支持信息，不公开内部声明、私有坐标、私有 artifact 或实现细节。</p>
+<p class="admonition-title">当前可用范围</p>
+<p>截至 2026-09-02，本项目 GitHub 尚无正式 Release。下面介绍的是开发版已有的功能和配置入口，不代表已发布、已完成生产服务器验收或可以直接下载使用。请勿将开发分支版本当成稳定版安装到正式服。</p>
 </div>
-<p>锻造、物品与经济 mutation 必须执行权限、owner、revision、requestId、库存和事务校验。客户端或 Console 不能自报物品、材料、成功率或结算结果。</p>
-<h2 id="_1">命令状态<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Canonical command 为 <code>/oo reforge</code>，<code>/oo</code> 的唯一 owner 是 OOCore。当前 OOReforge <code>1.3.0</code> 通过 legacy <code>OOModule.execute</code> 单路径 available；OOCore <code>1.6.1</code> command v2 consumer migration 尚未完成，不能标记 implemented，也不得双注册。</p>
-<h2 id="ooconsoleplanned-blocked">OOConsole（planned / blocked）<a class="headerlink" href="#ooconsoleplanned-blocked" title="Permanent link">&para;</a></h2>
-<p>OOReforge 的可选 OOConsole 接入仍等待当前工作树的完整构建和生命周期验收，因此继续 disabled，不能标 implemented。公开页不披露其内部接入实现或私有测试细节。</p>
-<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>用户可编辑资源仅包括：</p>
+<h2 id="_1">功能与使用方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>开发版已包含以下功能入口，正式可用范围以未来发布说明为准：</p>
 <ul>
-<li><code>config.yml</code>：插件主配置。</li>
-<li><code>lang/en_US.yml</code>：英文消息与显示文本。</li>
-<li><code>lang/zh_CN.yml</code>：简体中文消息与显示文本。</li>
+<li><strong>配置打造规则</strong>：定义打造模式、材料、支付要求、成功率、失败处理和装备属性效果。</li>
+<li><strong>游戏内打造台</strong>：打开指定工作台放入装备，并按配置完成操作；管理员可编辑工作台布局。</li>
+<li><strong>等级券与异次元属性</strong>：配置可消耗等级券、属性定义和净化或赋予属性的消耗品。</li>
+<li><strong>状态与运维查询</strong>：查询装备、支付/属性适配状态、交易记录和待处理恢复记录。</li>
 </ul>
-<p>文件已包含中英用途、重载/重启、风险、UTF-8、placeholder、Provider 状态和联系说明。默认显示文本由服主维护，不会随着 <code>language</code> 自动翻译；切换语言前应检查自定义文本和 placeholder 兼容性。</p>
-<h2 id="_2">验证状态<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>当前工作树尚未完成完整构建门禁，不能引用旧 tests 或旧 JAR SHA 作为现状证据；真实 Paper A/B 验收仍 blocked。</p>
+<p>分解默认关闭；配置中出现某个第三方插件名，不等于它已完成兼容支持。缺少所选材料、支付或属性支持时，不应继续执行相关打造操作。</p>
+<h2 id="_2">安装与前置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>目前尚无面向服主的正式安装包。</strong> 以下是未来正式版本的安装准备说明，不是现有生产可用承诺。</p>
+<ol>
+<li>准备受该发布版本支持的 Paper 服务端和 Java 环境；当前不宣称 Folia 或任意 Minecraft 版本已经兼容。</li>
+<li>按正式产品要求安装 <strong>OOCore（必需前置）</strong>，由它提供统一 <code>/oo</code> 命令入口。不要跳过前置检查。</li>
+<li>获得正式授权的 OOReforge 主 JAR 后，将 OOCore 与 OOReforge 的插件 JAR 放入服务器 <code>plugins/</code> 目录，完整重启服务端。</li>
+<li>首次成功启用后，在 <code>plugins/OOReforge/</code> 编辑配置，并检查启动日志及 <code>/oo reforge status</code>。</li>
+<li>按实际打造方案安装需要的经济、物品或属性插件；先在测试服验证完整消耗与结算流程，再开放给玩家。</li>
+</ol>
+<p>OOCore 的最低正式验证版本尚未公布；前置必须能提供该 OOReforge 发布版本所需功能，不表示只能安装某个完全相等的版本号。当前开发版仍保留旧兼容启动方式，<strong>正式必需前置要求尚未完成交付验收</strong>，请勿据此省略 OOCore。</p>
+<p>OOEngine 与 OOConsole 不是锻造核心功能的必装前置。可选可视化接入仍在开发中，不能因为安装了它们就认为网页编辑或客户端窗口已经可用。</p>
+<h2 id="_3">命令状态<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>以下全部为 1.3.0 未发布开发工作的参考，不是稳定版接口承诺。</strong> 无正式 Release 可用于安装验收；工程中的开发编号不代表已发布版本。</p>
+<p>统一命令前缀为 <code>/oo reforge</code>，由 OOCore 提供 <code>/oo</code>。下表语法与例子均接在该前缀后；例如 <code>help</code> 完整输入为 <code>/oo reforge help</code>。控制台执行时通常省略开头的斜杠。尖括号必填，方括号可选；Alice 代表在线目标玩家，UUID 须从实际记录复制。所有示例均需相应权限和配置，不要在正式资产上试验管理操作。</p>
+<table>
+<thead>
+<tr>
+<th>子命令完整语法</th>
+<th>默认 / 参数约束</th>
+<th>用途</th>
+<th>精确权限</th>
+<th>执行者</th>
+<th>最小示例（接前缀）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>help</code></td>
+<td>不输入子命令也显示帮助</td>
+<td>按权限显示帮助</td>
+<td><code>ooreforge.help</code></td>
+<td>玩家/控制台</td>
+<td><code>help</code></td>
+</tr>
+<tr>
+<td><code>open [工作台ID]</code></td>
+<td>默认 <code>reinforcement</code></td>
+<td>打开打造台</td>
+<td><code>ooreforge.open</code></td>
+<td>仅玩家</td>
+<td><code>open</code></td>
+</tr>
+<tr>
+<td><code>inspect</code></td>
+<td>无参数</td>
+<td>查看主手装备</td>
+<td><code>ooreforge.inspect</code></td>
+<td>仅玩家</td>
+<td><code>inspect</code></td>
+</tr>
+<tr>
+<td><code>ticket &lt;等级券ID&gt;</code></td>
+<td>ID 必填且须已配置</td>
+<td>打开等级券界面</td>
+<td><code>ooreforge.ticket</code></td>
+<td>仅玩家</td>
+<td><code>ticket reinforcement_12_ticket</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>无参数</td>
+<td>运行状态</td>
+<td><code>ooreforge.admin.status</code></td>
+<td>玩家/控制台</td>
+<td><code>status</code></td>
+</tr>
+<tr>
+<td><code>providers</code></td>
+<td>无参数</td>
+<td>属性支持状态</td>
+<td><code>ooreforge.admin.providers</code></td>
+<td>玩家/控制台</td>
+<td><code>providers</code></td>
+</tr>
+<tr>
+<td><code>reload</code></td>
+<td>无参数</td>
+<td>验证并重载配置</td>
+<td><code>ooreforge.admin.reload</code></td>
+<td>玩家/控制台</td>
+<td><code>reload</code></td>
+</tr>
+<tr>
+<td><code>editor &lt;工作台ID&gt;</code></td>
+<td>ID 必填</td>
+<td>编辑游戏内布局</td>
+<td><code>ooreforge.admin.editor</code></td>
+<td>仅玩家</td>
+<td><code>editor reinforcement</code></td>
+</tr>
+<tr>
+<td><code>give-ticket &lt;等级券ID&gt; [数量] [玩家]</code></td>
+<td>数量默认 1，范围 1–64；目标默认执行玩家，控制台须填数量与在线玩家</td>
+<td>发券</td>
+<td><code>ooreforge.admin.giveticket</code></td>
+<td>玩家/控制台</td>
+<td><code>give-ticket reinforcement_12_ticket 1 Alice</code></td>
+</tr>
+<tr>
+<td><code>setlevel &lt;玩家&gt; &lt;打造模式ID&gt; &lt;等级&gt; &lt;数量&gt;</code></td>
+<td>全部必填；等级非负并通过模式规则；数量至少 1 且不超过目标主手数量</td>
+<td>设置主手装备等级</td>
+<td><code>ooreforge.admin.setlevel</code></td>
+<td>玩家/控制台；目标须在线</td>
+<td><code>setlevel Alice reinforcement 1 1</code></td>
+</tr>
+<tr>
+<td><code>setdimensional &lt;玩家&gt; &lt;属性ID&gt; &lt;数量&gt;</code></td>
+<td>全部必填；属性已配置；数量至少 1 且不超过目标主手数量</td>
+<td>设置主手属性</td>
+<td><code>ooreforge.admin.setdimensional</code></td>
+<td>玩家/控制台；目标须在线</td>
+<td><code>setdimensional Alice strength 1</code></td>
+</tr>
+<tr>
+<td><code>audit [recent] [条数]</code></td>
+<td>省略动作默认 recent；条数默认 10，1–50；指定条数时需写 recent</td>
+<td>最近记录</td>
+<td><code>ooreforge.admin.audit</code></td>
+<td>玩家/控制台</td>
+<td><code>audit</code></td>
+</tr>
+<tr>
+<td><code>audit show &lt;事务UUID&gt;</code></td>
+<td>UUID 必填</td>
+<td>事务历史</td>
+<td><code>ooreforge.admin.audit</code></td>
+<td>玩家/控制台</td>
+<td><code>audit show &lt;事务UUID&gt;</code></td>
+</tr>
+<tr>
+<td><code>audit search &lt;关键词&gt; [条数]</code></td>
+<td>单个关键词；条数默认 10，1–50</td>
+<td>搜索记录</td>
+<td><code>ooreforge.admin.audit</code></td>
+<td>玩家/控制台</td>
+<td><code>audit search reinforcement</code></td>
+</tr>
+<tr>
+<td><code>recovery [list]</code></td>
+<td>默认 list；最多显示 10 条</td>
+<td>待恢复记录</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery</code></td>
+</tr>
+<tr>
+<td><code>recovery show &lt;事务UUID&gt;</code></td>
+<td>UUID 必填</td>
+<td>查看恢复详情</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery show &lt;事务UUID&gt;</code></td>
+</tr>
+<tr>
+<td><code>recovery mark &lt;事务UUID&gt; &lt;committed或rolled_back&gt; [备注]</code></td>
+<td>备注可含空格；省略时记录执行者</td>
+<td>人工标记已核实的处理结果，不是自动退款命令</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery mark &lt;事务UUID&gt; rolled_back 已核对</code></td>
+</tr>
+<tr>
+<td><code>recovery close-empty-ready confirm</code></td>
+<td>confirm 必填</td>
+<td>关闭未扣款的 READY 恢复记录</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery close-empty-ready confirm</code></td>
+</tr>
+<tr>
+<td><code>payment-test &lt;支付源&gt; &lt;资产&gt; &lt;数量&gt; confirm</code></td>
+<td>正整数数量；支付源和资产须匹配实际配置；无默认</td>
+<td>对执行玩家真实扣款再退款</td>
+<td><code>ooreforge.admin.paymenttest</code></td>
+<td><strong>仅玩家</strong></td>
+<td><code>payment-test &lt;支付源&gt; &lt;资产&gt; 1 confirm</code></td>
+</tr>
+</tbody>
+</table>
+<p>支付测试退款失败时可能留下实际损失；恢复命令可能改变记录状态，必须先备份并核实。开发版保留 <code>/ooreforge</code>、<code>/ooref</code>、<code>/oor</code>、<code>/mythicreforge</code>、<code>/mreforge</code>、<code>/mr</code> 兼容入口，新配置统一使用 <code>/oo reforge</code>。</p>
+<h3 id="_4">权限与继承<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以下为 descriptor 默认值与实际命令处理检查的对应关系。权限管理插件的显式配置可改变最终授权；没有定义 <code>ooreforge.*</code> 通配符。</p>
+<table>
+<thead>
+<tr>
+<th>精确权限</th>
+<th>功能 / 实际继承</th>
+<th>声明默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ooreforge.player</code></td>
+<td>授予 help、open、inspect、ticket 四个完整节点</td>
+<td>普通玩家与 OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.use</code></td>
+<td>旧普通权限组，同样授予上述四项</td>
+<td>普通玩家与 OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.help</code></td>
+<td>帮助</td>
+<td>普通玩家与 OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.open</code></td>
+<td>打开工作台</td>
+<td>默认无直接授权，由普通权限组继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.inspect</code></td>
+<td>查看主手装备</td>
+<td>默认无直接授权，由普通权限组继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.ticket</code></td>
+<td>等级券界面</td>
+<td>默认无直接授权，由普通权限组继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin</code></td>
+<td>授予下面全部十个 admin 子节点</td>
+<td>OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.status</code></td>
+<td>状态</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.reload</code></td>
+<td>重载</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.providers</code></td>
+<td>属性适配查询</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.editor</code></td>
+<td>游戏内布局编辑</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.giveticket</code></td>
+<td>发券</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.setlevel</code></td>
+<td>管理员改等级</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.setdimensional</code></td>
+<td>管理员改属性</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.audit</code></td>
+<td>审计查询</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>恢复管理</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.paymenttest</code></td>
+<td>真实支付测试</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+</tbody>
+</table>
+<p>兼容权限均默认不授予；每个节点仅把对应的新节点设为 true，不是通配符：</p>
+<table>
+<thead>
+<tr>
+<th>旧节点</th>
+<th>授予的新节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mythicreforge.player</code></td>
+<td><code>ooreforge.player</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.use</code></td>
+<td><code>ooreforge.use</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.help</code></td>
+<td><code>ooreforge.help</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.open</code></td>
+<td><code>ooreforge.open</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.inspect</code></td>
+<td><code>ooreforge.inspect</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.ticket</code></td>
+<td><code>ooreforge.ticket</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin</code></td>
+<td><code>ooreforge.admin</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.status</code></td>
+<td><code>ooreforge.admin.status</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.reload</code></td>
+<td><code>ooreforge.admin.reload</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.providers</code></td>
+<td><code>ooreforge.admin.providers</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.editor</code></td>
+<td><code>ooreforge.admin.editor</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.giveticket</code></td>
+<td><code>ooreforge.admin.giveticket</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.setlevel</code></td>
+<td><code>ooreforge.admin.setlevel</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.setdimensional</code></td>
+<td><code>ooreforge.admin.setdimensional</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.audit</code></td>
+<td><code>ooreforge.admin.audit</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.recovery</code></td>
+<td><code>ooreforge.admin.recovery</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.paymenttest</code></td>
+<td><code>ooreforge.admin.paymenttest</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">变量与占位符（开发版参考）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><strong>当前暂无对外 PlaceholderAPI（PAPI）变量/占位符。</strong> 没有供聊天插件、计分板或其他插件调用的 <code>%ooreforge_…%</code> 扩展；安装 PAPI 不会自动提供它。下面是本插件自己的模板和公式，不是 PAPI，也不是 OOConsole 或客户端 UI 绑定。</p>
+<h3 id="_6">工作台确认按钮<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>仅作用于 <code>config.yml</code> 的 <code>stations.&lt;工作台ID&gt;.icons.confirm</code> 中 display-name 和 lore，在有效装备预览生成时替换。不能套用到界面标题、任意物品或其他插件。示例仅表示显示格式，实际由装备和配置决定；无需 PAPI。</p>
+<table>
+<thead>
+<tr>
+<th>精确写法</th>
+<th>含义</th>
+<th>替换示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{success_rate}</code></td>
+<td>当前预览成功率，不自带百分号</td>
+<td><code>50</code>，模板可写 <code>{success_rate}%</code></td>
+</tr>
+<tr>
+<td><code>{cost}</code></td>
+<td>支付展示金额</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td><code>{currency}</code></td>
+<td>支付展示货币标识</td>
+<td>按所选支付方案显示</td>
+</tr>
+<tr>
+<td><code>{materials}</code></td>
+<td>材料需求摘要</td>
+<td>按所选支付方案显示</td>
+</tr>
+<tr>
+<td><code>{payments}</code></td>
+<td>完整支付需求摘要</td>
+<td>按所选支付方案显示</td>
+</tr>
+<tr>
+<td><code>{current_level}</code></td>
+<td>当前打造等级</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>{next_level}</code></td>
+<td>预览目标等级</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>{minimum_level}</code></td>
+<td>模式要求最低玩家等级</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>{craft}</code></td>
+<td>模式显示名称，不是 ID</td>
+<td><code>强化</code></td>
+</tr>
+</tbody>
+</table>
+<p>例如确认按钮 lore 可写 <code>成功率：{success_rate}%</code> 和 <code>支付：{payments}</code>。显示模板不能改变真实支付结果。</p>
+<h3 id="_7">配置表达式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><code>level</code>（无花括号）是等级表达式变量，例如异次元属性 <code>value: "level * 3"</code> 传入增幅等级 2 时得到 6。只在接受等级公式的字段中使用，不是全局文本替换，不支持脚本。支持整数、括号和加减乘除；整数除法截断，非法或超范围结果拒绝。不同字段传入等级的语义不同，不要将它当成通用玩家等级。</p>
+<h3 id="_8">语言消息模板<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>仅作用于 <code>lang/zh_CN.yml</code> 与 <code>lang/en_US.yml</code> 对应消息键。只有触发该消息的操作提供的变量会替换；同名变量在不同消息中可有不同含义，不能跨消息复制后就认定可用。无需 PAPI。</p>
+<p>下表按随包中文模板列出精确写法和上下文；模板原文说明变量含义。例如 <code>common.no_permission</code> 的 <code>{permission}</code> 可显示 <code>ooreforge.admin.reload</code>，<code>status.recovery</code> 的 <code>{count}</code> 可显示 <code>0</code>。表内花括号表示模板，不是已执行输出。</p>
+<table>
+<thead>
+<tr>
+<th>消息键 / 作用域</th>
+<th>精确占位符</th>
+<th>随包显示模板（含义参考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>common.no_permission</code></td>
+<td>{permission}</td>
+<td>你没有权限：{permission}</td>
+</tr>
+<tr>
+<td><code>help.header</code></td>
+<td>{version}</td>
+<td>&amp;dOOReforge {version} &amp;7- 可用命令</td>
+</tr>
+<tr>
+<td><code>status.header</code></td>
+<td>{version}、{configured}、{effective}</td>
+<td>OOReforge {version} | 配置安全模式={configured} | 实际安全模式={effective}</td>
+</tr>
+<tr>
+<td><code>status.recovery</code></td>
+<td>{count}</td>
+<td>未完成恢复记录={count}</td>
+</tr>
+<tr>
+<td><code>status.audit</code></td>
+<td>{count}</td>
+<td>未完成审计事务={count}</td>
+</tr>
+<tr>
+<td><code>status.sources</code></td>
+<td>{sources}</td>
+<td>支付源={sources}</td>
+</tr>
+<tr>
+<td><code>status.refund_safety</code></td>
+<td>{capabilities}</td>
+<td>自动退款安全能力={capabilities}</td>
+</tr>
+<tr>
+<td><code>status.vault</code></td>
+<td>{economy}</td>
+<td>Vault 经济后端={economy}</td>
+</tr>
+<tr>
+<td><code>reload.rejected</code></td>
+<td>{error}</td>
+<td>OOReforge 重载被拒绝，旧运行配置继续生效：{error}</td>
+</tr>
+<tr>
+<td><code>setlevel.target_online</code></td>
+<td>{player}</td>
+<td>目标玩家不在线：{player}</td>
+</tr>
+<tr>
+<td><code>setlevel.quantity</code></td>
+<td>{requested}、{available}</td>
+<td>主手物品数量不足：需要 {requested}，当前 {available}。</td>
+</tr>
+<tr>
+<td><code>setlevel.rejected</code></td>
+<td>{error}</td>
+<td>无法设置打造等级：{error}</td>
+</tr>
+<tr>
+<td><code>setlevel.success</code></td>
+<td>{player}、{amount}、{craft}、{level}</td>
+<td>已将 {player} 主手装备中的 {amount} 件物品设置为 {craft} +{level}。未消耗金币或材料。</td>
+</tr>
+<tr>
+<td><code>setlevel.received</code></td>
+<td>{amount}、{craft}、{level}</td>
+<td>管理员已将你主手装备中的 {amount} 件物品设置为 {craft} +{level}。</td>
+</tr>
+<tr>
+<td><code>setdimensional.target_online</code></td>
+<td>{player}</td>
+<td>目标玩家不在线：{player}</td>
+</tr>
+<tr>
+<td><code>setdimensional.quantity</code></td>
+<td>{requested}、{available}</td>
+<td>主手物品数量不足：需要 {requested}，当前 {available}。</td>
+</tr>
+<tr>
+<td><code>setdimensional.rejected</code></td>
+<td>{error}</td>
+<td>无法设置异次元属性：{error}</td>
+</tr>
+<tr>
+<td><code>setdimensional.success</code></td>
+<td>{player}、{amount}、{attribute}</td>
+<td>已将 {player} 主手装备中的 {amount} 件物品设置为异次元属性 {attribute}。未消耗金币或材料。</td>
+</tr>
+<tr>
+<td><code>setdimensional.received</code></td>
+<td>{amount}、{attribute}</td>
+<td>管理员已将你主手装备中的 {amount} 件物品设置为异次元属性 {attribute}。</td>
+</tr>
+<tr>
+<td><code>editor.usage</code></td>
+<td>{stations}</td>
+<td>用法：/oo reforge editor &lt;工作台ID&gt; | 可用={stations}</td>
+</tr>
+<tr>
+<td><code>editor.unknown</code></td>
+<td>{station}、{stations}</td>
+<td>未知工作台：{station} | 可用={stations}</td>
+</tr>
+<tr>
+<td><code>editor.opened</code></td>
+<td>{station}</td>
+<td>已打开 {station} 可视化布局编辑器。点击一个功能标记，再点击目标槽位；关闭界面后选择保存或放弃。</td>
+</tr>
+<tr>
+<td><code>payment_test.insufficient</code></td>
+<td>{source}、{asset}</td>
+<td>支付测试被拒绝：{source}:{asset} 余额不足。</td>
+</tr>
+<tr>
+<td><code>payment_test.refund_failed</code></td>
+<td>{amount}、{source}、{asset}</td>
+<td>严重错误：扣款成功但退款失败，请检查控制台并手工返还 {amount} {source}:{asset}。</td>
+</tr>
+<tr>
+<td><code>payment_test.passed</code></td>
+<td>{source}、{asset}、{amount}</td>
+<td>支付测试净零通过：{source}:{asset}，数量={amount}</td>
+</tr>
+<tr>
+<td><code>payment_test.failed</code></td>
+<td>{error}</td>
+<td>支付测试在完成扣款/退款前失败：{error}</td>
+</tr>
+<tr>
+<td><code>station.delegated</code></td>
+<td>{provider}</td>
+<td>分解功能已交由 {provider} 处理。</td>
+</tr>
+<tr>
+<td><code>station.unknown</code></td>
+<td>{station}、{available}</td>
+<td>未知工作台：{station} | 可用={available}</td>
+</tr>
+<tr>
+<td><code>station.preview_failed</code></td>
+<td>{error}</td>
+<td>无法预览打造：{error}</td>
+</tr>
+<tr>
+<td><code>station.transaction</code></td>
+<td>{id}、{status}、{message}</td>
+<td>事务 {id} | {status} | {message}</td>
+</tr>
+<tr>
+<td><code>station.rejected</code></td>
+<td>{error}</td>
+<td>打造被拒绝：{error}</td>
+</tr>
+<tr>
+<td><code>ticket.available</code></td>
+<td>{tickets}</td>
+<td>可用等级券：{tickets}</td>
+</tr>
+<tr>
+<td><code>ticket.unknown</code></td>
+<td>{ticket}、{available}</td>
+<td>未知等级券：{ticket} | 可用={available}</td>
+</tr>
+<tr>
+<td><code>ticket.given</code></td>
+<td>{player}、{amount}、{ticket}</td>
+<td>已向 {player} 发放 {amount} 个 {ticket}。</td>
+</tr>
+<tr>
+<td><code>ticket.title</code></td>
+<td>{level}</td>
+<td>+{level} 强化券</td>
+</tr>
+<tr>
+<td><code>ticket.preview_name</code></td>
+<td>{level}、{craft}</td>
+<td craft="craft">+{level}</td>
+</tr>
+<tr>
+<td><code>ticket.cannot_apply</code></td>
+<td>{error}</td>
+<td>等级券无法使用：{error}</td>
+</tr>
+<tr>
+<td><code>ticket.applied</code></td>
+<td>{level}、{craft}</td>
+<td>已100%成功应用 +{level} {craft}。</td>
+</tr>
+<tr>
+<td><code>ticket.rolled_back</code></td>
+<td>{error}</td>
+<td>等级券事务已回滚：{error}</td>
+</tr>
+<tr>
+<td><code>inspect.schema</code></td>
+<td>{schema}、{upgrades}</td>
+<td>数据版本={schema} 打造等级={upgrades}</td>
+</tr>
+<tr>
+<td><code>inspect.invalid</code></td>
+<td>{errors}</td>
+<td errors="errors">状态=无效</td>
+</tr>
+<tr>
+<td><code>inspect.corrupt</code></td>
+<td>{error}</td>
+<td>OOReforge 数据无效：{error}</td>
+</tr>
+<tr>
+<td><code>dimensional.selected</code></td>
+<td>{attribute}</td>
+<td>已选择：{attribute}</td>
+</tr>
+<tr>
+<td><code>dimensional.applied</code></td>
+<td>{attribute}</td>
+<td>已应用异次元属性：{attribute}</td>
+</tr>
+<tr>
+<td><code>dimensional.rejected</code></td>
+<td>{error}</td>
+<td>操作被拒绝：{error}</td>
+</tr>
+<tr>
+<td><code>recovery.list_header</code></td>
+<td>{count}</td>
+<td>未完成恢复记录：{count}</td>
+</tr>
+<tr>
+<td><code>recovery.list_entry</code></td>
+<td>{id}、{status}、{player}、{station}、{craft}、{debits}</td>
+<td>{id} 状态={status} 玩家={player} 工作台={station} 打造={craft} 扣款项={debits}</td>
+</tr>
+<tr>
+<td><code>recovery.unknown</code></td>
+<td>{id}</td>
+<td>未知恢复事务：{id}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_header</code></td>
+<td>{id}、{status}</td>
+<td>恢复事务 {id} 状态={status}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_context</code></td>
+<td>{player}、{station}、{craft}、{slot}</td>
+<td>玩家={player} 工作台={station} 打造={craft} 槽位={slot}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_snapshot</code></td>
+<td>{fingerprint}、{bytes}</td>
+<td>指纹={fingerprint} 快照字节数={bytes}</td>
+</tr>
+<tr>
+<td><code>recovery.debit</code></td>
+<td>{source}、{asset}、{amount}、{account}</td>
+<td>扣款 {source}:{asset} x{amount} 账户={account}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_message</code></td>
+<td>{message}</td>
+<td>消息={message}</td>
+</tr>
+<tr>
+<td><code>recovery.invalid_uuid</code></td>
+<td>{value}</td>
+<td>无效UUID：{value}</td>
+</tr>
+<tr>
+<td><code>recovery.marked</code></td>
+<td>{id}、{status}</td>
+<td>恢复与审计事务 {id} 已标记为 {status}，未修改任何资产。</td>
+</tr>
+<tr>
+<td><code>recovery.closed</code></td>
+<td>{closed}、{skipped}</td>
+<td>已关闭无扣款READY事务：{closed}，跳过：{skipped}</td>
+</tr>
+<tr>
+<td><code>audit.list_header</code></td>
+<td>{count}</td>
+<td>最近审计事务：{count}</td>
+</tr>
+<tr>
+<td><code>audit.history_header</code></td>
+<td>{id}、{count}</td>
+<td>事务 {id} 的完整状态历史：{count} 条</td>
+</tr>
+<tr>
+<td><code>audit.search_header</code></td>
+<td>{query}、{count}</td>
+<td>审计搜索“{query}”：{count} 条</td>
+</tr>
+<tr>
+<td><code>audit.entry</code></td>
+<td>{time}、{id}、{status}、{craft}、{from}、{to}、{cost}、{materials}、{message}</td>
+<td>{time} | {id} | {status} | {craft} {from}→{to} | 费用={cost} 材料={materials} | {message}</td>
+</tr>
+<tr>
+<td><code>audit.unknown</code></td>
+<td>{id}</td>
+<td>未知审计事务：{id}</td>
+</tr>
+<tr>
+<td><code>providers.header</code></td>
+<td>{count}</td>
+<td>属性 Provider：{count}</td>
+</tr>
+<tr>
+<td><code>providers.entry</code></td>
+<td>{id}、{type}、{available}</td>
+<td>{id} | 类型={type} | 可用={available}</td>
+</tr>
+<tr>
+<td><code>providers.dimensional_header</code></td>
+<td>{count}</td>
+<td>异次元属性映射：{count}</td>
+</tr>
+<tr>
+<td><code>providers.dimensional_entry</code></td>
+<td>{id}、{provider}、{attribute}、{supported}</td>
+<td>{id} → {provider}:{attribute} | 支持={supported}</td>
+</tr>
+<tr>
+<td><code>integrations.header</code></td>
+<td>{author}</td>
+<td>&amp;d[OOReforge] &amp;f可选插件自动识别 | 作者：&amp;b{author}</td>
+</tr>
+<tr>
+<td><code>integrations.enabled</code></td>
+<td>{plugin}</td>
+<td>&amp;7- &amp;f{plugin} &amp;a[已启用]</td>
+</tr>
+<tr>
+<td><code>integrations.disabled</code></td>
+<td>{plugin}</td>
+<td>&amp;7- &amp;f{plugin} &amp;e[未启用]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ooconsoleplanned-blocked">OOConsole（planned / blocked）<a class="headerlink" href="#ooconsoleplanned-blocked" title="Permanent link">&para;</a></h2>
+<p><strong>可视化管理尚不可用。</strong> 当前没有可供服主依照本页启用的 OOConsole 锻造工作区或 OOEngine 客户端窗口；请使用未来正式版本说明，不要寻找另一个独立 Web 后台。游戏内工作台布局编辑与网页配置管理是不同功能。</p>
+<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>用户配置位于插件自己的 <code>plugins/OOReforge/</code> 目录：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>内容</th>
+<th>生效方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.yml</code></td>
+<td>打造模式、材料、支付组合、属性效果、工作台布局、等级券、安全和审计设置</td>
+<td>受支持字段使用 <code>/oo reforge reload</code>；审计文件位置变更需完整重启</td>
+</tr>
+<tr>
+<td><code>lang/zh_CN.yml</code></td>
+<td>简体中文消息</td>
+<td>修改后重载并检查消息</td>
+</tr>
+<tr>
+<td><code>lang/en_US.yml</code></td>
+<td>英文消息</td>
+<td>修改后重载并检查消息</td>
+</tr>
+</tbody>
+</table>
+<p>这些是开发版随包模板；尚无正式发布包提供下载。文件使用 UTF-8 和 YAML 格式，缩进使用空格。保留消息占位符，勿在配置中填写密码、令牌或任意脚本。<code>plugin.yml</code> 是插件描述文件，不是服主配置文件。</p>
+<p>下面只演示主配置中的四个现有字段，<strong>应合并到完整配置中，不能用这四行覆盖整个文件</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 配置格式版本，请勿自行提高 / Schema version; do not increase manually.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">schema-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 消息语言 / Message locale: zh_CN or en_US.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zh_CN</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 保持安全模式 / Keep safety mode enabled.</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">safe-mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 默认不允许永久损毁 / Permanent destruction is disabled by default.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">allow-destruction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<p>详细规则集中在 <code>crafts</code>（打造模式）、<code>materials</code>（材料）、<code>payment-profiles</code>（支付组合）、<code>failure-policies</code>（失败规则）、<code>attribute-profiles</code>（属性效果）和 <code>stations</code>（工作台）等节点。修改 ID 时应同时检查所有引用，不要随意更改已有装备使用的稳定属性 ID。</p>
+<p>切换 <code>language</code> 不会自动翻译服主自己填写的物品名、描述或工作台文本。语言文件与主配置都包含注释；重载报错时先修复错误，不要反复重启或删除原文件尝试“重置”。</p>
+<h2 id="_9">升级与回滚<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>目前没有正式升级包，不能承诺任意历史版本可直接升级。</li>
+<li>升级前停服并备份插件 JAR、完整数据目录及相关玩家物品、经济数据；配置备份不能替代资产备份。</li>
+<li>开发版具有旧配置迁移与默认值合并逻辑，但这不是生产迁移验收结论；先在副本上检查自定义文本、规则、语言和工作台。</li>
+<li>不手动提高 <code>schema-version</code>，也不把新配置直接交给旧插件。回滚时恢复同一备份点的插件与数据，避免重复扣款、退款或发放装备。</li>
+<li>损坏配置的重载应保留上一次有效配置；首次启动无法安全加载时可能停用插件。发现异常先留存原文件和错误信息。</li>
+</ul>
+<h2 id="_10">验证状态<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>当前为未发布开发版，尚无正式稳定版或完整生产兼容承诺。未完成的可视化接入、正式前置验收以及 Paper/Folia 实际使用验证，不能用编译成功或自动化测试代替。</p>
+<h2 id="_11">已知问题与限制<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>功能开发暂停；本页更新不意味着恢复开发或公布发布日期。</li>
+<li>支付、材料与属性插件的兼容性取决于实际适配器和版本；配置里的示例开关不是兼容保证。</li>
+<li>默认不开放分解；OOConsole 工作区与 OOEngine 窗口尚不可用。</li>
+<li>开启损毁、调整失败规则、执行支付测试或人工恢复前，务必在隔离测试服验证并保留备份。</li>
+<li>未来正式版本采用专有许可；历史已经授予的许可不被追溯撤回，第三方内容仍按其原许可处理。</li>
+</ul>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<p>反馈时请提供插件版本、服务端类型、重现步骤和经过脱敏的错误信息。不要公开凭据、完整玩家数据或私人配置。</p>
 <ul>
 <li>作者 / Author: zkonikishi</li>
 <li>QQ: 276098266</li>
