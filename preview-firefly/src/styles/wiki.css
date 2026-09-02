@@ -26,3 +26,4 @@ pre,code,kbd{font-family:"Cascadia Code",Consolas,monospace}
 @media(max-width:700px){.sidebar summary{margin-bottom:0}.sidebar[open] summary{margin-bottom:16px}.sidebar{padding:16px;max-height:50vh}.wiki-directory .plugin-card{height:auto;min-height:300px}}
 .plugin-card{height:350px}
 @media(max-width:700px){.plugin-card{height:auto;min-height:300px}}
+.tabbed-labels[role=tablist]{display:flex;gap:8px;overflow:auto;border-bottom:1px solid var(--line);padding-bottom:10px}.tabbed-labels [aria-selected=true]{background:var(--primary);color:white}.tabbed-block{padding:14px 0}.tabbed-block:focus-visible{outline:2px solid var(--primary);outline-offset:4px}

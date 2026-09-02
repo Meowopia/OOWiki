@@ -30,6 +30,8 @@ const links = [['installation','开始使用'],['configuration','配置指南'],
   <script is:inline src={`${root}pagefind/pagefind-ui.js`}></script>
   <script is:inline src={`${root}plugin-hub.js`}></script>
   <script>
+    import {enhanceTabs} from '../tabs';
+    enhanceTabs();
     // Narrow screens start with a compact, explicitly expandable navigation.
     const sidebar = document.querySelector<HTMLDetailsElement>('.sidebar');
     if(sidebar && matchMedia('(max-width:700px)').matches) sidebar.open=false;

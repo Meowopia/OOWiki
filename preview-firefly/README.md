@@ -27,8 +27,7 @@ those routes, MkDocs admonitions, tabs, Mermaid and anchors before replacing it.
 
 ## Not yet accepted
 
-Full Firefly component integration, native Markdown conversion, tab interactions
-(the current content has no tabbed sets), comprehensive mobile acceptance,
+Full Firefly component integration, native Markdown conversion, comprehensive mobile acceptance,
 and production deployment remain pending. Do not replace Pages with this preview
 until these gates pass. Production rollback remains the unchanged MkDocs build.
 
@@ -48,4 +47,26 @@ Latest preview adds root-domain paths, canonical URLs, CNAME, a 404 recovery pag
 skip-to-content, active heading tracking, compact mobile navigation and code-copy
 buttons. Nine homepage cards measured 350 px each on desktop; at 390 px viewport
 the Standalone filter shows only OOVIP/OOReforge and no whole-page horizontal overflow.
-Native Markdown conversion and tabbed-document fixtures are still pending.
+Native Markdown conversion is still pending.
+
+## Migration test matrix
+
+`scripts/verify.mjs` now asserts root-domain canonical URLs on every document,
+the 404 return-home link, search JS/CSS paths on documents and the 404 page,
+and all internal links in both `/` and explicit `/OOWiki/` modes.
+Canonical URLs intentionally always identify the production root-domain page,
+even when the preview is served under the legacy project path.
+
+For tabs, run `tests/render_tabs.py` with the existing MkDocs Python dependencies,
+then build with `OOWIKI_FIXTURES=1`. This renders `tests/tabs.md` using the actual
+`pymdownx.tabbed` alternate-style extension and adds `/preview-tests/tabs/`.
+The same client enhancement used by normal documents implements tab roles,
+roving tabindex, selected state, single-panel visibility, ArrowLeft/ArrowRight,
+Home and End. Without JavaScript the content remains readable.
+
+Checks performed: fixture build and verification pass in both base modes
+(27 document routes, 661 fragments); browser ArrowRight → Configuration,
+End → Upgrade, Home → Installation, focus movement and one visible panel pass.
+The normal build omits the fixture route; leave `OOWIKI_FIXTURES` unset for
+ordinary preview or future production builds. No Pages deployment is authorized
+by these tests.
