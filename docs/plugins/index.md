@@ -55,7 +55,7 @@
   </a>
   <a class="plugin-card" href="oochat/" data-category="extensions" data-search="oochat extensions chat social friend mail 聊天 好友 邮件">
     <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/oochat/logo-256.webp" alt="OOChat 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOChat</h2><p>聊天、好友、会话与邮件系统；支持 CommandV2 与可选 OOConsole，0.1.0 暂不包含 Window/UI。</p></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOChat</h2><p>0.1.0 提供基础命令入口；完整聊天、好友与邮件功能尚未正式发布，不包含 Window/UI。</p></div>
     <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
   </a>
 
