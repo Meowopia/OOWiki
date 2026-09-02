@@ -1,107 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://meowopia.github.io/OOWiki/</loc>
+         <loc>https://wiki.meowopia.com/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/acceptance/</loc>
+         <loc>https://wiki.meowopia.com/acceptance/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/architecture/</loc>
+         <loc>https://wiki.meowopia.com/architecture/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/commands-permissions/</loc>
+         <loc>https://wiki.meowopia.com/commands-permissions/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/configuration/</loc>
+         <loc>https://wiki.meowopia.com/configuration/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/development/</loc>
+         <loc>https://wiki.meowopia.com/development/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/installation/</loc>
+         <loc>https://wiki.meowopia.com/installation/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/integration/</loc>
+         <loc>https://wiki.meowopia.com/integration/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/migration/</loc>
+         <loc>https://wiki.meowopia.com/migration/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/pages-runbook/</loc>
+         <loc>https://wiki.meowopia.com/pages-runbook/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/release/</loc>
+         <loc>https://wiki.meowopia.com/release/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/security/</loc>
+         <loc>https://wiki.meowopia.com/security/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/source-policy/</loc>
+         <loc>https://wiki.meowopia.com/source-policy/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/troubleshooting/</loc>
+         <loc>https://wiki.meowopia.com/troubleshooting/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/vision/</loc>
+         <loc>https://wiki.meowopia.com/vision/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/assets/branding/blackcat-v1/</loc>
+         <loc>https://wiki.meowopia.com/assets/branding/blackcat-v1/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/</loc>
+         <loc>https://wiki.meowopia.com/plugins/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/oobrowser/</loc>
+         <loc>https://wiki.meowopia.com/plugins/oobrowser/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/oochat/</loc>
+         <loc>https://wiki.meowopia.com/plugins/oochat/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/ooconsole/</loc>
+         <loc>https://wiki.meowopia.com/plugins/ooconsole/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/oocore/</loc>
+         <loc>https://wiki.meowopia.com/plugins/oocore/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/ooengine/</loc>
+         <loc>https://wiki.meowopia.com/plugins/ooengine/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/oogame/</loc>
+         <loc>https://wiki.meowopia.com/plugins/oogame/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/oomusic/</loc>
+         <loc>https://wiki.meowopia.com/plugins/oomusic/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/ooreforge/</loc>
+         <loc>https://wiki.meowopia.com/plugins/ooreforge/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://meowopia.github.io/OOWiki/plugins/oovip/</loc>
+         <loc>https://wiki.meowopia.com/plugins/oovip/</loc>
          <lastmod>2026-09-02</lastmod>
     </url>
 </urlset>

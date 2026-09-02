@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://meowopia.github.io/OOWiki/pages-runbook/">
+        <link rel="canonical" href="https://wiki.meowopia.com/pages-runbook/">
       
       
         <link rel="prev" href="../acceptance/">
@@ -811,10 +811,25 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="发布前记录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义域名切换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       发布步骤（仅总验收后）
     </span>
@@ -823,7 +838,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       回滚方案
     </span>
@@ -889,10 +904,25 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="发布前记录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义域名切换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       发布步骤（仅总验收后）
     </span>
@@ -901,7 +931,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       回滚方案
     </span>
@@ -945,6 +975,14 @@
 </ol>
 <p>Preview 完成后停止本地服务器；<code>site/</code> 是可再生输出，不提交到 Git。</p>
 <h2 id="_1">发布前记录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">自定义域名切换<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>目标域名为 <code>wiki.meowopia.com</code>，网站部署在域名根路径，不保留 <code>/OOWiki/</code> 前缀。
+DNS 配置为 <code>CNAME</code>：主机名 <code>wiki</code>，目标 <code>meowopia.github.io</code>（不带协议、路径）。
+<code>docs/CNAME</code> 随 MkDocs 构建复制到部署根目录；不要把 Firefly 本地预览当作生产部署。</p>
+<p>切换前先确认 DNS 已生效，再发布含 CNAME 的构建并检查仓库 Pages 的 Custom domain。
+待 GitHub 证书就绪后确认 Enforce HTTPS 已开启，验证首页、搜索、插件页和图片。
+DNS 尚未就绪时不要发布该切换，也不要提前更改线上 Pages 域名，避免旧地址跳转至不可达站点。
+旧地址 <code>https://meowopia.github.io/OOWiki/</code> 在切换后需验证是否正确跳转；不要假定书签已自动迁移。</p>
 <p>发布操作开始前记录：</p>
 <ul>
 <li>待发布的 <code>main</code> commit；</li>
@@ -953,14 +991,14 @@
 <li>预览截图或人工验收结论；</li>
 <li>回滚负责人和验证 URL。</li>
 </ul>
-<h2 id="_2">发布步骤（仅总验收后）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">发布步骤（仅总验收后）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li>确认工作树干净，<code>main</code> 已推送且 Docs workflow 通过。</li>
 <li>再次从 lock file 安装依赖并执行 strict build。</li>
 <li>经维护者批准后更新 <code>gh-pages</code>；禁止在普通 PR workflow 自动部署。</li>
 <li>等待 GitHub Pages deployment 成功，再检查首页、插件页和本次修改页面。</li>
 </ol>
-<h2 id="_3">回滚方案<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">回滚方案<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>若线上出现断链、乱码、状态误报、隐私泄漏或布局故障：</p>
 <ol>
 <li>立即停止后续发布，记录当前 deployment 与故障 URL。</li>
