@@ -850,6 +850,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#java-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java 21 兼容计划
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1107,6 +1116,10 @@
 </table>
 <p>会话有效期为 30 分钟，重启后需要重新登录。登录凭据无效返回 <code>401</code>；Dashboard 或登出缺少有效会话/CSRF 返回 <code>403</code>。接口有限流，频繁请求可能返回 <code>429</code>，应停止重试并稍后访问。</p>
 <p>Cookie 带有 <code>Secure</code>、<code>HttpOnly</code> 和 <code>SameSite=Strict</code> 属性。由于此版接口使用本机 HTTP，不应假定所有浏览器或客户端都会自动回传 Cookie；当前验证范围是本机管理客户端，并非通用浏览器登录体验。不要为此关闭认证校验或转发到公网。HTTP Basic 的编码不是加密，凭据只应交给受控的本机客户端。</p>
+<h3 id="java-21">Java 21 兼容计划<a class="headerlink" href="#java-21" title="Permanent link">&para;</a></h3>
+<p>Java 21 支持是新增兼容目标，<strong>不是当前 0.1.6 已支持的能力</strong>。0.1.6 仍按原有 Java 25 服务端环境使用。</p>
+<p>计划先验证 Paper 1.20.5、1.20.6 及 1.21–1.21.11 的相关版本，再评估更早的 1.20.x。需要 OOCore、OOEngine 同时提供兼容版本，并完成真实服务器启动、登录和关闭测试；目前尚未验收，不承诺发布日期。</p>
+<p>现有 Java 25 / 26.x 支持继续保留。Minecraft 26.x 服务端需要 Java 25，不能改用 Java 21。此计划不等于新增 Spigot 或 Folia 支持。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
