@@ -40,7 +40,8 @@ for(const page of pages){
   }
   if(page.slug===''||page.slug==='plugins'){
     assert.equal($('aside').length,0);
-    assert.equal($('.plugin-card').length,9);
+    assert.equal($('.plugin-card').length,page.slug==='plugins'?9:0);
+    if(page.slug===''){assert.equal($('.home-path').length,3);assert.equal($('.plugin-hub-filters').length,0);}
   }else assert.equal($('aside').length,1);
 }
 assert.deepEqual(broken,[],`Broken local links/fragments:\n${broken.join('\n')}`);

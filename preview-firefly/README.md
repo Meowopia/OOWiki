@@ -45,7 +45,7 @@ until these gates pass. Production rollback remains the unchanged MkDocs build.
 
 Latest preview adds root-domain paths, canonical URLs, CNAME, a 404 recovery page,
 skip-to-content, active heading tracking, compact mobile navigation and code-copy
-buttons. Nine homepage cards measured 350 px each on desktop; at 390 px viewport
+buttons. Nine plugin-directory cards measured 350 px each on desktop; at 390 px viewport
 the Standalone filter shows only OOVIP/OOReforge and no whole-page horizontal overflow.
 Native Markdown conversion is still pending.
 
@@ -70,3 +70,13 @@ End → Upgrade, Home → Installation, focus movement and one visible panel pas
 The normal build omits the fixture route; leave `OOWIKI_FIXTURES` unset for
 ordinary preview or future production builds. No Pages deployment is authorized
 by these tests.
+
+## Editorial homepage
+
+The homepage introduces the ecosystem, three audience-specific documentation paths,
+a four-step getting-started journey and search/help. It has no plugin cards or filters;
+only the plugin directory contains the nine-product catalog. The shared homepage
+source and stylesheet also render in the existing MkDocs site.
+
+Verified at desktop and 390px: no whole-page overflow or broken homepage images;
+three reading paths, zero plugin cards on home. Strict MkDocs and Astro link checks pass.

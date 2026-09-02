@@ -99,6 +99,7 @@ plugins:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/redesign.css
+  - stylesheets/home.css
 
 # Client-side layout helpers / 客户端布局辅助脚本
 extra_javascript:
