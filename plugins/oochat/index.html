@@ -928,6 +928,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#java-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java 21 兼容计划
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contact" class="md-nav__link">
     <span class="md-ellipsis">
       联系 / Contact
@@ -1181,6 +1190,9 @@
 <li>后续版本的管理权限、冲突聊天监听器及多人重启场景仍需完成验收；开发版不建议用于生产服。</li>
 <li>与其他聊天插件共同使用前应测试消息取消、重复广播和权限拒绝行为。</li>
 </ul>
+<h2 id="java-21">Java 21 兼容计划<a class="headerlink" href="#java-21" title="Permanent link">&para;</a></h2>
+<p>Java 21 平台兼容线已列入计划，<strong>当前 OOChat 发布版不能据此视为支持 Java 21</strong>。目标先覆盖 Paper 1.20.5/1.20.6 和 1.21 系列的 API 分界，逐项验证后公布实际支持范围；更早 1.20.x 后续核验。该兼容线依赖正式兼容的 OOCore，窗口功能还需要相应 OOEngine 与客户端支持。</p>
+<p>现有 Java 25 / Paper 26.x 方向继续保留；26.x 服务器不能改用 Java 21 运行。Folia 需独立验收，不因 Paper 通过而自动列为支持。请以对应正式发布版的明确兼容说明选择环境，不要仅修改 Java 版本后投入生产。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <p>反馈问题请提供插件版本、OOCore 版本、服务器环境、复现步骤和脱敏错误日志；不要公开访问令牌、私人聊天记录或玩家敏感信息。</p>
 <ul>

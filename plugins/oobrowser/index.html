@@ -886,6 +886,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java 与服务器兼容目标
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contact" class="md-nav__link">
     <span class="md-ellipsis">
       联系 / Contact
@@ -1148,6 +1157,40 @@
 <li>本地测试不等于实际服务器启动、玩家体验或完整平台兼容验收。</li>
 <li>没有正式下载包、生产安装承诺或稳定升级路线。遇到开发构建错误，应保留脱敏日志，不要通过放宽安全配置尝试绕过。</li>
 </ul>
+<h2 id="java">Java 与服务器兼容目标<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
+<p><strong>新增兼容目标，尚未验收，不代表当前开发版已经支持 Java 21。</strong> OOBrowser 仍无正式发布版本。</p>
+<table>
+<thead>
+<tr>
+<th>目标平台</th>
+<th>Java 目标</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paper 1.20.5 / 1.20.6、1.21 至 1.21.11</td>
+<td>Java 21</td>
+<td>计划分平台验证，尚未通过插件实机验收</td>
+</tr>
+<tr>
+<td>更早的 Paper 1.20.x</td>
+<td>Java 21</td>
+<td>后续评估，不承诺覆盖</td>
+</tr>
+<tr>
+<td>Paper 26.1 及以后</td>
+<td>Java 25</td>
+<td>保留兼容方向；不能使用 Java 21 运行该服务器线，OOBrowser 本身仍待验收</td>
+</tr>
+<tr>
+<td>Folia</td>
+<td>按对应平台要求</td>
+<td>独立验收，不从 Paper 结果推导支持</td>
+</tr>
+</tbody>
+</table>
+<p>以上范围参考 <a href="https://docs.papermc.io/paper/getting-started/">Paper 官方 Java 推荐表</a>，不是本插件已支持版本清单。具体兼容仍取决于前置插件、启动和实际操作验证；不会仅修改版本标记就宣称支持。此次仅兼容盘点与文档更新，不恢复浏览器功能开发，也不改变现有命令、权限、变量及功能状态说明。</p>
 <h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
