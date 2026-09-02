@@ -823,6 +823,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      权限
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量与占位符
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contribution-planned" class="md-nav__link">
     <span class="md-ellipsis">
       Contribution 规范（planned）
@@ -850,7 +868,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       迁移约束
     </span>
@@ -952,44 +970,88 @@
 <p>OOConsole 必须复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套实现。compile surface 发布不等于 runtime 可发现，更不等于 HTTP 服务、管理 UI、Editor、adapter 或产品工作区已经实现。</p>
 <p>Android 平板仅是 OOEngine <code>:oomenu</code> 通用 <code>menu</code> 窗口的响应式 preset。OOConsole 的 Window/Menu workspace 只通过稳定接口调用 OOMenu 与 OOEditor（<code>:ooeditor</code>），不复制 editor engine，不直接修改内部 repository、session manager、renderer 或 data folder，也不增加 Tablet workspace、导航页、模块、命令、registry、数据库或配置根。</p>
 <h2 id="_2">命令与入口<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以下为 OOConsole <strong>0.1.6 正式版</strong>已提供的命令。<code>/oo</code> 根入口由 OOCore 提供，OOConsole 不单独注册根命令。</p>
 <table>
 <thead>
 <tr>
-<th>入口</th>
-<th>状态</th>
-<th>说明</th>
+<th>完整语法</th>
+<th>参数与默认值</th>
+<th>用途</th>
+<th>精确权限</th>
+<th>执行位置</th>
+<th>最小示例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/oo console</code></td>
-<td>planned</td>
-<td>打开或显示 OOConsole 状态</td>
-</tr>
-<tr>
-<td><code>/oo console editor</code></td>
-<td>planned</td>
-<td>进入 OOConsole 的 Editor 工作区</td>
-</tr>
-<tr>
-<td><code>/oo engine admin editor</code></td>
-<td>implemented / legacy source</td>
-<td>打开玩家侧 OOEngine 编辑模式；不是 OOConsole</td>
-</tr>
-<tr>
-<td>OOConsole 顶部或侧边栏“Editor”</td>
-<td>planned</td>
-<td>Editor 快捷入口</td>
+<td>无必填或可配置参数</td>
+<td>显示版本、HTTP 启用状态及贡献接口状态；不会打开可视化编辑器</td>
+<td><code>ooconsole.admin</code></td>
+<td>玩家及服务器控制台；仍须通过权限检查</td>
+<td>玩家输入 <code>/oo console</code>；服务器控制台输入 <code>oo console</code></td>
 </tr>
 </tbody>
 </table>
-<p>任何过渡 alias 都必须在实现时明确版本和移除策略；新文档与新集成只把 <code>/oo console</code> 作为规范入口。</p>
+<p>默认未启用 HTTP 时，输出示例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>OOConsole 0.1.6: HTTP=disabled; runtime contribution API active
+</code></pre></div>
+<p>启用 HTTP 后，<code>disabled</code> 会显示为 <code>loopback:端口号</code>。当前处理器不解析后续参数；添加 <code>editor</code>、<code>reload</code> 等文字不会执行编辑或重载操作，也不构成已支持的子命令。当前没有命令别名。</p>
+<h2 id="_3">权限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>精确节点</th>
+<th>对应功能</th>
+<th>默认授权</th>
+<th>继承关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ooconsole.admin</code></td>
+<td>允许执行 <code>/oo console</code> 状态查询</td>
+<td><code>default: op</code>：OP 默认有，普通玩家默认没有；控制台按服务端权限系统判断</td>
+<td>OOConsole 未声明父子权限或通配符</td>
+</tr>
+</tbody>
+</table>
+<p>需要让非 OP 使用该命令时，通过服务器权限管理插件显式授予 <code>ooconsole.admin</code>。不要把未声明的 <code>ooconsole.*</code> 当作本插件提供的通配权限。此节点不等于网页登录凭据，也不会自动授予网页管理员身份。</p>
+<h2 id="_4">变量与占位符<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>当前版本暂无对外变量/占位符。</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>0.1.6 支持情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PlaceholderAPI / PAPI</td>
+<td>未提供 OOConsole expansion，无可填写的 <code>%ooconsole_…%</code> 变量</td>
+</tr>
+<tr>
+<td>消息模板变量</td>
+<td>未开放用户自定义消息模板及替换变量</td>
+</tr>
+<tr>
+<td>UI 绑定变量</td>
+<td>未开放可由服主填写的 OOConsole UI 绑定接口</td>
+</tr>
+<tr>
+<td>配置替换变量</td>
+<td>未提供用户配置文件的变量替换机制</td>
+</tr>
+</tbody>
+</table>
+<p>命令输出中的版本和 HTTP 端口、HTTP 返回数据里的字段，都不是可在其他插件配置中使用的占位符。部署环境变量 <code>OOCONSOLE_HTTP_PASSWORD</code> 是启动凭据来源，不是 PAPI 或消息变量；不要把密码写进公开页面、聊天或日志。</p>
 <h2 id="contribution-planned">Contribution 规范（planned）<a class="headerlink" href="#contribution-planned" title="Permanent link">&para;</a></h2>
 <p>插件计划通过 <code>ooconsole.editor-contribution.v1</code> 注册 owner-scoped Contribution：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>owner: oochat
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>workspace: plugins/oochat
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>views: [overview, moderation, mail]
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>actions: [oochat.moderation.reload]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>owner: oochat
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>workspace: plugins/oochat
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>views: [overview, moderation, mail]
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>actions: [oochat.moderation.reload]
 </code></pre></div>
 <p>约束：</p>
 <ol>
@@ -1013,7 +1075,7 @@
 <li>所有写操作记录主体、owner、action、目标、结果和 request ID；</li>
 <li>预览与发布沿用 OOEngine schema、UiLimits、资源策略和 RenderPlan，不另造渲染协议。</li>
 </ul>
-<h2 id="_3">迁移约束<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_5">迁移约束<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>OOEngine Web Editor 只能分阶段迁移。OOConsole 需要通过功能等价、数据兼容、RBAC、安全、审计、回滚和生产试运行验收；在此之前不得删除或破坏 OOEngine 源实现。</p>
 <p>OOConsole 仅编辑和诊断 OOVideo 配置、策略与资源引用，不自行播放、解码或持有 texture/audio sink。</p>
 <p>OOConsole 仅消费 OOEngine 内部 OOQuest 接口，用于配置 Provider adapter、显示映射和脱敏诊断；不保存第三方任务真相，不推进任务或发放奖励，也不为 OOQuest 创建独立插件页面或产品分类。</p>
