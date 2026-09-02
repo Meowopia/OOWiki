@@ -1,0 +1,9 @@
+---
+import pages from '../../.generated/pages.json';
+import Document from '../layouts/Document.astro';
+export function getStaticPaths() {
+  return pages.map(page => ({params:{slug:page.slug || undefined},props:{page}}));
+}
+const {page} = Astro.props;
+---
+<Document page={page}/>

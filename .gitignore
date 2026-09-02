@@ -2,3 +2,8 @@ site/
 .cache/
 __pycache__/
 .venv/
+node_modules/
+preview-firefly/dist/
+preview-firefly/.astro/
+preview-firefly/.generated/
+preview-firefly/public/

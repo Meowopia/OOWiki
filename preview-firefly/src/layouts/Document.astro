@@ -1,0 +1,77 @@
+---
+import '../../vendor/firefly-variables.styl';
+import '../styles/wiki.css';
+const {page} = Astro.props;
+const root = import.meta.env.BASE_URL;
+const directory = page.slug === '' || page.slug === 'plugins' || page.slug === '404';
+const links = [['installation','开始使用'],['configuration','配置指南'],['commands-permissions','命令与权限'],['architecture','架构概览'],['development','开发指南']];
+---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta name="description" content="Meowopia OO 系列插件：安装、配置、命令与开发文档"/>
+  {page.slug !== "404" && <link rel="canonical" href={new URL(page.slug ? page.slug + "/" : "", Astro.site)}/> }
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width"/>
+  <title>{page.title} · Meowopia</title>
+  <link rel="icon" href={`${root}assets/logo.svg`}/>
+  <link rel="stylesheet" href={`${root}pagefind/pagefind-ui.css`}/>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="topbar"><a class="brand" href={root}><img src={`${root}assets/logo.svg`} width="34" height="34" alt=""/>喵托邦 <small>Meowopia</small></a>
+  <nav aria-label="主导航">{[['','首页'],['installation/','文档'],['plugins/','插件'],['development/','开发']].map(([href,label]) => <a href={root+href} aria-current={page.slug === href.replace(/\/$/,'') ? 'page' : undefined}>{label}</a>)}</nav>
+  <div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header>
+  <section class:list={['layout',{directory}]}>
+    {!directory && <aside><details open class="sidebar"><summary>文档导航</summary><nav aria-label="文档导航">{links.map(([href,label]) => <a href={root+href+'/'}>{label}</a>)}</nav><hr/><span class="eyebrow">本页目录</span><nav aria-label="本页目录">{page.headings.map(h => <a class:list={['toc-link',{nested:h.level==='h3'}]} href={'#'+h.id}>{h.text}</a>)}</nav></details></aside>}
+    <main id="content" tabindex="-1" class:list={['document',{landing:directory}]} data-pagefind-body={page.slug !== '404' ? true : undefined} set:html={page.html}/>
+  </section>
+  <footer>Meowopia · OO 系列插件 <span>Astro · <a href="https://github.com/CuteLeaf/Firefly">Firefly</a> 衍生文档预览</span></footer>
+  <dialog id="search-dialog"><button id="search-close" aria-label="关闭搜索">关闭 ×</button><div id="search"></div></dialog>
+  <script is:inline src={`${root}pagefind/pagefind-ui.js`}></script>
+  <script is:inline src={`${root}plugin-hub.js`}></script>
+  <script>
+    // Narrow screens start with a compact, explicitly expandable navigation.
+    const sidebar = document.querySelector<HTMLDetailsElement>('.sidebar');
+    if(sidebar && matchMedia('(max-width:700px)').matches) sidebar.open=false;
+    const links=[...document.querySelectorAll<HTMLAnchorElement>('.toc-link')];
+    const observer=new IntersectionObserver(entries=>{
+      const current=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+      if(!current)return;
+      for(const link of links){
+        const active=link.hash==='#'+current.target.id;
+        if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');
+      }
+    },{rootMargin:'-5% 0px -65% 0px'});
+    for(const heading of document.querySelectorAll('main h2[id],main h3[id]'))observer.observe(heading);
+    // Copy only original code text, never line-number links or button labels.
+    for(const block of document.querySelectorAll<HTMLElement>('pre:not(.mermaid)')){
+      const text=block.querySelector('code')?.textContent ?? block.textContent ?? '';
+      const toolbar=document.createElement('div');toolbar.className='code-toolbar';
+      const copy=document.createElement('button');copy.type='button';copy.textContent='复制代码';
+      copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(text);copy.textContent='已复制';}catch{copy.textContent='请选中代码复制';}});
+      toolbar.append(copy);block.before(toolbar);
+    }
+    if(document.querySelector('.mermaid')){
+      const {default:mermaid}=await import('mermaid');
+      mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:document.documentElement.classList.contains('dark')?'dark':'default'});
+      for(const element of document.querySelectorAll<HTMLElement>('.mermaid')){
+        const source=element.textContent || '';
+        try{await mermaid.run({nodes:[element]});}
+        catch(error){element.textContent=source;element.setAttribute('aria-label','图表暂不可用，显示文本源');console.error('Diagram rendering failed; source retained',error);}
+      }
+    }
+  </script>
+  <script is:inline>
+    const dialog = document.querySelector('#search-dialog');
+    let search, searchTrigger;
+    function openSearch(){if(dialog.open)return;searchTrigger=document.activeElement;dialog.showModal();if(!search && window.PagefindUI)search=new PagefindUI({element:'#search',showSubResults:true,translations:{placeholder:'搜索安装、配置、命令…'}});dialog.querySelector('input')?.focus();}
+    document.querySelector('#search-open').addEventListener('click',openSearch);
+    document.querySelectorAll('[data-open-doc-search]').forEach(el=>el.addEventListener('click',openSearch));
+    document.querySelector('#search-close').addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('close',()=>searchTrigger?.focus());
+    document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openSearch();}});
+    const saved=localStorage.getItem('oo-theme');
+    if(saved==='dark'||(!saved&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');
+    document.querySelector('#theme').addEventListener('click',()=>{const dark=document.documentElement.classList.toggle('dark');localStorage.setItem('oo-theme',dark?'dark':'light');});
+  </script>
+</body></html>

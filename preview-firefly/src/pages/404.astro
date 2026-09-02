@@ -1,0 +1,6 @@
+---
+import Document from '../layouts/Document.astro';
+const root = import.meta.env.BASE_URL;
+const page = {slug:'404',title:'页面未找到',headings:[],html:`<section class="not-found"><span class="eyebrow">404 · PAGE NOT FOUND</span><h1>这条路，黑猫也没走过。</h1><p>页面可能已移动。你可以返回首页，或使用顶部搜索寻找文档。</p><a class="wiki-primary" href="${root}">返回首页 →</a></section>`};
+---
+<Document page={page}/>
