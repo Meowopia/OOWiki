@@ -135,6 +135,16 @@ OOMusic 是喵托邦 / Meowopia 的音乐项目，分类为**附属（Extensions
 - OOConsole 表单状态与实际播放器生效、重启保存不是同一回事。
 - 请勿将框架接入、开发测试通过或界面草稿当作已发布产品能力。
 
+## Java 兼容计划
+
+**Java 21 支持是新增目标，尚未实现或验收。** 当前开发插件仍要求 Java 25；部分基础代码使用 Java 21 不代表整个插件及前置能在 Java 21 运行。
+
+计划先验证 Java 21 下的 Paper 1.20.5、1.20.6 与 1.21 系列至 1.21.11 的兼容边界，再核对更早的 Paper 1.20.x。需要 OOCore、OOEngine 及相关可选组件提供兼容能力；未测试的版本不会列为已支持。
+
+现有 Java 25 / Paper 26.x 方向保留。**Paper 26.1 及以后不能因本计划改用 Java 21。** Folia 另行验证，本计划不代表所有服务端或所有历史 Minecraft 版本兼容。
+
+参考：[Paper Java 推荐版本](https://docs.papermc.io/paper/getting-started/)、[Minecraft 26.1 官方说明](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-1)。
+
 ## 联系 / Contact
 
 反馈请提供插件版本、前置版本、服务器类型与版本、Java 版本、复现步骤及脱敏日志；不要上传令牌、私有音源地址或完整配置秘密。
