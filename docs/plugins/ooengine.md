@@ -382,6 +382,19 @@ OOEngine 1.2.0 随包提供 Web Editor。默认地址为服务器本机的 `http
 | 窗口与创作能力 | 按已有表现引擎规划分批完善控件、资源和效果；先保证窗口格式、显示和交互兼容，不把概念图或开发样例当成成品 |
 | 平台适用范围 | 在独立环境完成 Folia 等适用平台验证；通过前继续保留未验收标注 |
 
+### Java 21 兼容目标
+
+**当前正式 OOEngine / OOEngine-Client 1.2.0 的安装要求不变，Java 21 兼容线尚未发布。** 不要把现有 26.2 客户端 JAR 装到 1.21，也不要尝试用 Java 21 启动 26.x 服务器。
+
+新增兼容目标参考 Paper 的 Java 21 推荐范围 **1.20–1.21.11**，优先验证 **1.20.5 / 1.20.6** 及 **1.21 系列的实际 API 分界**，更早的 1.20.x 待核验。推荐使用某个 Java 版本，不代表 OOEngine 已支持范围内的全部 Minecraft 版本。[Paper 要求说明](https://docs.papermc.io/paper/getting-started/)
+
+- OOCore 仍为必要前置；需先完成对应平台适配，再验证 OOEngine 的窗口、交互、资源与关闭行为。
+- Fabric / NeoForge 客户端需按对应 Minecraft 与 loader 独立构建和验收，不能只修改版本声明。
+- 现有 Java 25 / 26.x 支持保留；Minecraft 26.1 起本身要求 Java 25。[Minecraft 官方说明](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-1)
+- Folia 仍为独立验收项，不随 Java 21 或 Paper 适配自动成为支持平台。
+
+以上属于**未来兼容计划 / 未验收目标**，不是已发布兼容列表；具体支持版本以之后的正式产品说明为准。
+
 ## 升级与回退 {#upgrade}
 
 1. 停止服务器并退出客户端，备份插件配置、窗口、资源、存储和安全资料。
