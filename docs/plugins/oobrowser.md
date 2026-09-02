@@ -1,6 +1,6 @@
 # OOBrowser
 
-![OOBrowser 品牌横幅](../assets/branding/oobrowser/banner-1200x630.png){ loading=lazy }
+<img class="plugin-page-banner" src="../../assets/branding/blackcat-v1/oobrowser/banner-1200x630.webp" width="1200" height="630" alt="OOBrowser 黑猫与地球仪品牌横幅" loading="lazy" decoding="async">
 
 OOBrowser 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不创建 runtime、父插件、Maven group、package、共享仓库或万能 Core。
 

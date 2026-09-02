@@ -1,6 +1,6 @@
 # OOMusic
 
-<img class="plugin-page-banner" src="../../assets/branding/oomusic/banner-1200x630.png" alt="OOMusic 音乐、队列与歌词服务品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oomusic/banner-1200x630.webp" alt="OOMusic 音乐、队列与歌词服务品牌横幅" loading="lazy" decoding="async">
 
 OOMusic 在产品、Wiki 和 OOConsole metadata 中归入 OOEngine 生态的**附属（Extensions）**。该分类不改变独立 plugin/module identity、仓库、版本、生命周期或依赖边界，也不创建父插件/runtime。
 

@@ -6,12 +6,20 @@ OO 系列产品的统一中文文档站，使用 MkDocs Material 构建。
 
 站点标签、favicon 与顶部导航使用的 `docs/assets/logo.svg` 是 **OO 插件系列统一 Logo**，不只代表 OOWiki；各插件页面可复用该系列标识，但不得将它误写成某个单独插件的专属 Logo。
 
-OOCore 使用独立品牌资源 `docs/assets/oocore-logo-1024.png`；该文件是 1024×1024 RGBA 高清透明底版本。
+九个产品采用 **喵托邦 / Meowopia 黑猫品牌系列**；各自使用不同动作与道具。高清 PNG、网页 WebP 和小尺寸图标位于 [`docs/assets/branding/blackcat-v1/`](docs/assets/branding/blackcat-v1/)。品牌展示不代表规划功能已经上线。
 
 - 在线地址：<https://meowopia.github.io/OOWiki/>
 - 文档源码：[`docs/`](docs/)
 - 架构状态：[架构与依赖](docs/architecture.md)
 - 贡献方式：[CONTRIBUTING.md](CONTRIBUTING.md)
+## 喵托邦 / Meowopia 品牌系列
+
+| 基础（Core） | 附属（Extensions） | 独立（Standalone） |
+| --- | --- | --- |
+| <a href="docs/plugins/oocore.md"><img src="docs/assets/branding/blackcat-v1/oocore/logo-128.png" width="96" height="96" alt="OOCore 黑猫品牌图标"><br>OOCore</a> | <a href="docs/plugins/oogame.md"><img src="docs/assets/branding/blackcat-v1/oogame/logo-128.png" width="96" height="96" alt="OOGame 黑猫品牌图标"><br>OOGame</a> | <a href="docs/plugins/oovip.md"><img src="docs/assets/branding/blackcat-v1/oovip/logo-128.png" width="96" height="96" alt="OOVIP 黑猫品牌图标"><br>OOVIP</a> |
+| <a href="docs/plugins/ooengine.md"><img src="docs/assets/branding/blackcat-v1/ooengine/logo-128.png" width="96" height="96" alt="OOEngine 黑猫品牌图标"><br>OOEngine</a> | <a href="docs/plugins/oomusic.md"><img src="docs/assets/branding/blackcat-v1/oomusic/logo-128.png" width="96" height="96" alt="OOMusic 黑猫品牌图标"><br>OOMusic</a> | <a href="docs/plugins/ooreforge.md"><img src="docs/assets/branding/blackcat-v1/ooreforge/logo-128.png" width="96" height="96" alt="OOReforge 黑猫品牌图标"><br>OOReforge</a> |
+| <a href="docs/plugins/ooconsole.md"><img src="docs/assets/branding/blackcat-v1/ooconsole/logo-128.png" width="96" height="96" alt="OOConsole 黑猫品牌图标"><br>OOConsole</a> | <a href="docs/plugins/oobrowser.md"><img src="docs/assets/branding/blackcat-v1/oobrowser/logo-128.png" width="96" height="96" alt="OOBrowser 黑猫品牌图标"><br>OOBrowser</a> |  |
+|  | <a href="docs/plugins/oochat.md"><img src="docs/assets/branding/blackcat-v1/oochat/logo-128.png" width="96" height="96" alt="OOChat 黑猫品牌图标"><br>OOChat</a> |  |
 
 ## 仓库与许可证 / Repository and licensing
 

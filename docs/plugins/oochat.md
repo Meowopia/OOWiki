@@ -1,6 +1,6 @@
 # OOChat
 
-<img class="plugin-page-banner" src="../../assets/branding/oochat/banner-1200x630.png" alt="OOChat 聊天与消息服务品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oochat/banner-1200x630.webp" alt="OOChat 聊天与消息服务品牌横幅" loading="lazy" decoding="async">
 
 **分类：附属（Extensions）。**
 

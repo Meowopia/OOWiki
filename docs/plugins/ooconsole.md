@@ -1,6 +1,6 @@
 # OOConsole
 
-<img class="plugin-page-banner" src="../../assets/branding/ooconsole/banner-1200x630.png" alt="OOConsole 管理与可视化编辑品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooconsole/banner-1200x630.webp" alt="OOConsole 管理与可视化编辑品牌横幅" loading="lazy" decoding="async">
 
 **分类：基础（Core）。**
 

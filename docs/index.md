@@ -19,28 +19,18 @@ hide:
     <a class="ovo-btn ovo-btn-secondary" href="https://github.com/Meowopia/OOWiki">GitHub</a>
   </div>
 
-  <div class="ovo-preview" aria-label="OO 系列插件预览">
-    <div class="preview-bar">
-      <div class="preview-brand"><span class="preview-logo">OO</span><b>控制台</b></div>
-      <div class="preview-search">⌕ 搜索插件、命令或文档</div>
-      <div class="preview-status"><i></i> 服务运行中</div>
-    </div>
-    <div class="preview-body">
-      <aside>
-        <span class="active">⌂ 概览</span><span>◇ 插件管理</span><span>⌘ 服务配置</span><span>♧ 开发者</span>
-      </aside>
-      <main>
-        <p class="preview-kicker">SERVER OVERVIEW</p>
-        <h3>欢迎使用 OO 系列</h3>
-        <div class="preview-metrics">
-          <div><small>已加载插件</small><strong>5</strong><b>全部正常</b></div>
-          <div><small>核心状态</small><strong>Online</strong><b>OOCore</b></div>
-          <div><small>兼容平台</small><strong>4</strong><b>Paper · Folia</b></div>
-        </div>
-        <div class="preview-console"><span>OOCore</span> Capability registry ready · 5 providers connected</div>
-      </main>
-    </div>
+  <div class="meowopia-family" aria-label="喵托邦 Meowopia 九个插件">
+    <a href="plugins/oocore/"><img src="assets/branding/blackcat-v1/oocore/logo-256.webp" width="128" height="128" alt="OOCore 黑猫品牌图标" loading="lazy" decoding="async"><span>OOCore</span></a>
+    <a href="plugins/ooengine/"><img src="assets/branding/blackcat-v1/ooengine/logo-256.webp" width="128" height="128" alt="OOEngine 黑猫品牌图标" loading="lazy" decoding="async"><span>OOEngine</span></a>
+    <a href="plugins/ooconsole/"><img src="assets/branding/blackcat-v1/ooconsole/logo-256.webp" width="128" height="128" alt="OOConsole 黑猫品牌图标" loading="lazy" decoding="async"><span>OOConsole</span></a>
+    <a href="plugins/oochat/"><img src="assets/branding/blackcat-v1/oochat/logo-256.webp" width="128" height="128" alt="OOChat 黑猫品牌图标" loading="lazy" decoding="async"><span>OOChat</span></a>
+    <a href="plugins/oogame/"><img src="assets/branding/blackcat-v1/oogame/logo-256.webp" width="128" height="128" alt="OOGame 黑猫品牌图标" loading="lazy" decoding="async"><span>OOGame</span></a>
+    <a href="plugins/oomusic/"><img src="assets/branding/blackcat-v1/oomusic/logo-256.webp" width="128" height="128" alt="OOMusic 黑猫品牌图标" loading="lazy" decoding="async"><span>OOMusic</span></a>
+    <a href="plugins/oobrowser/"><img src="assets/branding/blackcat-v1/oobrowser/logo-256.webp" width="128" height="128" alt="OOBrowser 黑猫品牌图标" loading="lazy" decoding="async"><span>OOBrowser</span></a>
+    <a href="plugins/oovip/"><img src="assets/branding/blackcat-v1/oovip/logo-256.webp" width="128" height="128" alt="OOVIP 黑猫品牌图标" loading="lazy" decoding="async"><span>OOVIP</span></a>
+    <a href="plugins/ooreforge/"><img src="assets/branding/blackcat-v1/ooreforge/logo-256.webp" width="128" height="128" alt="OOReforge 黑猫品牌图标" loading="lazy" decoding="async"><span>OOReforge</span></a>
   </div>
+  <p class="meowopia-brand-caption">喵托邦 / Meowopia · 可组合的框架、功能与创作工具</p>
 </section>
 
 <section class="ovo-section ovo-intro">

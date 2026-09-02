@@ -1,6 +1,6 @@
 # OOReforge
 
-<img class="plugin-page-banner" src="../../assets/branding/ooreforge/banner-1200x630.png" alt="OOReforge 装备锻造与重铸品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooreforge/banner-1200x630.webp" alt="OOReforge 装备锻造与重铸品牌横幅" loading="lazy" decoding="async">
 
 **分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：paused / unreleased。**
 

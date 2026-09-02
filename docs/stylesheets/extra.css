@@ -40,3 +40,13 @@
 /* Accepted public plugin branding. */
 .plugin-page-banner{display:block;width:100%;height:auto;aspect-ratio:1200/630;margin:.8rem 0 1.8rem;border:1px solid var(--ovo-line);border-radius:18px;object-fit:cover;box-shadow:0 18px 48px rgba(76,29,149,.12)}
 @media(max-width:620px){.plugin-page-banner{margin:.55rem 0 1.25rem;border-radius:12px}}
+
+/* Meowopia black-cat brand family; full silhouettes, no cropping. */
+.meowopia-family { display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:14px; max-width:1120px; margin:42px auto 0; padding:20px; }
+.meowopia-family a { display:flex; flex-direction:column; align-items:center; gap:8px; min-width:0; color:var(--md-default-fg-color); font-size:13px; font-weight:700; }
+.meowopia-family img { display:block; width:100%; max-width:128px; height:auto; aspect-ratio:1; object-fit:contain; }
+.meowopia-brand-caption { text-align:center; color:var(--md-default-fg-color--light); font-size:14px; }
+.plugin-card-top img { object-fit:contain; }
+.plugin-page-banner { height:auto; object-fit:contain; }
+@media (max-width:900px) { .meowopia-family { grid-template-columns:repeat(5,minmax(0,1fr)); } }
+@media (max-width:600px) { .meowopia-family { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 10px; padding:12px; } }

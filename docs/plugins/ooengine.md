@@ -1,6 +1,6 @@
 # OOEngine 与 OOEngine-Client
 
-<img class="plugin-page-banner" src="../../assets/branding/ooengine/banner-1200x630.png" alt="OOEngine 窗口与渲染引擎品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooengine/banner-1200x630.webp" alt="OOEngine 窗口与渲染引擎品牌横幅" loading="lazy" decoding="async">
 
 OOEngine 在产品、Wiki 和 OOConsole metadata 中归入**基础（Core）**。该分类不改变独立仓库和版本，也不创建聚合 runtime；真实依赖保持 OOEngine hard-depend OOCore。
 
