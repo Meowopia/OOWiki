@@ -60,7 +60,7 @@ nav:
       - 迁移规则: migration.md
       - 安全模型: security.md
   - 插件: plugins/index.md
-  - 开发者:
+  - 开发:
       - 开发者接入: development.md
       - 开源与仓库边界: source-policy.md
       - 故障排查: troubleshooting.md
@@ -98,6 +98,7 @@ plugins:
 # Global custom styles / 全局自定义样式 (paths relative to docs_dir)
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/redesign.css
 
 # Client-side layout helpers / 客户端布局辅助脚本
 extra_javascript:

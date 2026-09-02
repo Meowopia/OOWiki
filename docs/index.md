@@ -5,84 +5,64 @@ hide:
   - footer
 ---
 
-<section class="ovo-hero">
-  <div class="ovo-glow ovo-glow-left"></div>
-  <div class="ovo-glow ovo-glow-right"></div>
-  <a class="ovo-notice" href="installation/">
-    <span>NEW</span> OO 系列统一文档现已上线 <b>→</b>
+<div class="wiki-home">
+<section class="wiki-hero">
+<div class="wiki-hero-copy"><h1>让想法，在 <em>OO</em> 中实现。</h1><p>Meowopia 为 Minecraft 服务器提供可组合的插件、框架与创作工具。</p><div class="wiki-actions"><a class="wiki-primary" href="installation/">开始使用</a><a class="wiki-secondary" href="plugins/">浏览插件</a></div></div>
+<img class="wiki-mascot" src="assets/branding/blackcat-v1/oocore/logo-1024.png" width="480" height="480" alt="蓝眼黑猫抱着发光方块" fetchpriority="high">
+</section>
+<button class="wiki-search-launch" type="button" data-open-doc-search><span><strong>需要帮助？搜索文档</strong><small>查找安装、配置、命令与 API 等内容</small></span><kbd>Ctrl K</kbd></button>
+<section class="wiki-directory"><h2>找到适合你的插件</h2><div class="plugin-hub-filters" aria-label="插件分类筛选"><button type="button" data-plugin-filter="all" class="is-active">全部</button><button type="button" data-plugin-filter="core" class="">基础（Core）</button><button type="button" data-plugin-filter="extensions" class="">附属（Extensions）</button><button type="button" data-plugin-filter="independent" class="">独立（Standalone）</button></div><div class="plugin-card-grid" data-plugin-grid>
+  <a class="plugin-card" href="plugins/oocore/" data-category="core" data-search="oocore 核心 core 生命周期 命令 capability">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/oocore/logo-256.webp" alt="OOCore 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.7.1</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOCore</h2><p>OO 生态的平台前置，统一生命周期、命令、Capability 与可信 owner-service。</p></div>
+    <div class="plugin-card-footer"><span>平台核心</span><b>查看文档 →</b></div>
   </a>
-  <p class="ovo-eyebrow">MEOWOPIA · MINECRAFT PLUGIN ECOSYSTEM</p>
-  <h1>为 Minecraft 服务器打造<br><em>完整、现代的插件体验</em></h1>
-  <p class="ovo-lead">OO 系列提供核心能力、原生 UI、社交、小游戏与音乐服务。<br>从安装到开发，一套 Wiki 带你快速完成部署。</p>
-  <div class="ovo-actions">
-    <a class="ovo-btn ovo-btn-primary" href="installation/">开始使用 <span>→</span></a>
-    <a class="ovo-btn ovo-btn-secondary" href="https://github.com/Meowopia/OOWiki">GitHub</a>
-  </div>
+  <a class="plugin-card" href="plugins/ooengine/" data-category="core" data-search="ooengine 核心 core window ui renderplan menu video editor hud">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/ooengine/logo-256.webp" alt="OOEngine 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.1.6</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
+    <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
+  </a>
+  <a class="plugin-card" href="plugins/ooconsole/" data-category="core" data-search="ooconsole 核心 core console editor workspace owner service admin">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/ooconsole/logo-256.webp" alt="OOConsole 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.6</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>统一管理与可视化编辑入口；owner-service 已验收，产品工作区仍逐项建设。</p></div>
+    <div class="plugin-card-footer"><span>管理平台</span><b>查看文档 →</b></div>
+  </a>
+  <a class="plugin-card" href="plugins/oogame/" data-category="extensions" data-search="oogame extensions game lobby 斗地主 房间 匹配">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/oogame/logo-256.webp" alt="OOGame 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOGame</h2><p>小游戏大厅、Provider 聚合、房间、活动与完整回合状态机。</p></div>
+    <div class="plugin-card-footer"><span>游戏大厅</span><b>查看文档 →</b></div>
+  </a>
+  <a class="plugin-card" href="plugins/oomusic/" data-category="extensions" data-search="oomusic extensions music lyrics timeline 歌词 音乐 播放">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/oomusic/logo-256.webp" alt="OOMusic 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOMusic</h2><p>曲库、队列、同步听与 bounded LyricsDocument / LyricsTimeline 服务。</p></div>
+    <div class="plugin-card-footer"><span>音乐服务</span><b>查看文档 →</b></div>
+  </a>
+  <a class="plugin-card" href="plugins/oobrowser/" data-category="extensions" data-search="oobrowser extensions browser chromium mcef dns pin web">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/oobrowser/logo-256.webp" alt="OOBrowser 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOBrowser</h2><p>受策略控制的 Web surface 与 DNS pin transport；浏览器运行时仍处于未发布阶段。</p></div>
+    <div class="plugin-card-footer"><span>浏览器表面</span><b>查看文档 →</b></div>
+  </a>
+  <a class="plugin-card" href="plugins/oochat/" data-category="extensions" data-search="oochat extensions chat social friend mail 聊天 好友 邮件">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/oochat/logo-256.webp" alt="OOChat 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOChat</h2><p>0.1.0 提供基础命令入口；完整聊天、好友与邮件功能尚未正式发布，不包含 Window/UI。</p></div>
+    <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
+  </a>
 
-  <div class="meowopia-family" aria-label="喵托邦 Meowopia 九个插件">
-    <a href="plugins/oocore/"><img src="assets/branding/blackcat-v1/oocore/logo-256.webp" width="128" height="128" alt="OOCore 黑猫品牌图标" loading="lazy" decoding="async"><span>OOCore</span></a>
-    <a href="plugins/ooengine/"><img src="assets/branding/blackcat-v1/ooengine/logo-256.webp" width="128" height="128" alt="OOEngine 黑猫品牌图标" loading="lazy" decoding="async"><span>OOEngine</span></a>
-    <a href="plugins/ooconsole/"><img src="assets/branding/blackcat-v1/ooconsole/logo-256.webp" width="128" height="128" alt="OOConsole 黑猫品牌图标" loading="lazy" decoding="async"><span>OOConsole</span></a>
-    <a href="plugins/oochat/"><img src="assets/branding/blackcat-v1/oochat/logo-256.webp" width="128" height="128" alt="OOChat 黑猫品牌图标" loading="lazy" decoding="async"><span>OOChat</span></a>
-    <a href="plugins/oogame/"><img src="assets/branding/blackcat-v1/oogame/logo-256.webp" width="128" height="128" alt="OOGame 黑猫品牌图标" loading="lazy" decoding="async"><span>OOGame</span></a>
-    <a href="plugins/oomusic/"><img src="assets/branding/blackcat-v1/oomusic/logo-256.webp" width="128" height="128" alt="OOMusic 黑猫品牌图标" loading="lazy" decoding="async"><span>OOMusic</span></a>
-    <a href="plugins/oobrowser/"><img src="assets/branding/blackcat-v1/oobrowser/logo-256.webp" width="128" height="128" alt="OOBrowser 黑猫品牌图标" loading="lazy" decoding="async"><span>OOBrowser</span></a>
-    <a href="plugins/oovip/"><img src="assets/branding/blackcat-v1/oovip/logo-256.webp" width="128" height="128" alt="OOVIP 黑猫品牌图标" loading="lazy" decoding="async"><span>OOVIP</span></a>
-    <a href="plugins/ooreforge/"><img src="assets/branding/blackcat-v1/ooreforge/logo-256.webp" width="128" height="128" alt="OOReforge 黑猫品牌图标" loading="lazy" decoding="async"><span>OOReforge</span></a>
-  </div>
-  <p class="meowopia-brand-caption">喵托邦 / Meowopia · 可组合的框架、功能与创作工具</p>
-</section>
-
-<section class="ovo-section ovo-intro">
-  <p class="ovo-eyebrow">WHY OO</p>
-  <h2>专注能力，而不是重复造轮子</h2>
-  <p>统一底层、清晰边界、原生体验，让服务器功能可以像积木一样组合。</p>
-</section>
-
-<div class="ovo-feature-grid">
-  <article class="ovo-feature ovo-feature-wide">
-    <span class="feature-icon">⌁</span>
-    <div><h3>统一能力架构</h3><p>OOCore 统一生命周期、命令、数据与 capability 协商，各插件只关注自己的业务能力。</p></div>
-    <div class="feature-code"><i>OOCore</i><span>Capability Bus</span><b>OOEngine</b><b>OOChat</b><b>OOGame</b></div>
-  </article>
-  <article class="ovo-feature">
-    <span class="feature-icon">⚡</span><h3>开箱即用</h3><p>清晰的安装流程与生产配置参考，几分钟内完成首次部署。</p>
-  </article>
-  <article class="ovo-feature">
-    <span class="feature-icon">◫</span><h3>原生交互</h3><p>Screen、HUD 与动作协议，为玩家提供一致且流畅的客户端体验。</p>
-  </article>
-  <article class="ovo-feature">
-    <span class="feature-icon">◎</span><h3>跨平台兼容</h3><p>面向 Paper、Folia、Fabric 与 NeoForge，隔离平台和版本差异。</p>
-  </article>
+  <a class="plugin-card" href="plugins/oovip/" data-category="independent" data-search="oovip independent vip membership 会员 权益">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/oovip/logo-256.webp" alt="OOVIP 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOVIP</h2><p>会员生命周期与权益编排插件，当前暂停且未发布。</p></div>
+    <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 →</b></div>
+  </a>
+  <a class="plugin-card" href="plugins/ooreforge/" data-category="independent" data-search="ooreforge independent reforge equipment 装备 锻造">
+    <div class="plugin-card-top"><img src="assets/branding/blackcat-v1/ooreforge/logo-256.webp" alt="OOReforge 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOReforge</h2><p>装备、锻造、品质与配方插件，当前暂停且未发布。</p></div>
+    <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 →</b></div>
+  </a>
 </div>
 
-<section class="ovo-section">
-  <p class="ovo-eyebrow">PLUGIN ECOSYSTEM</p>
-  <h2>一个核心，连接所有插件</h2>
-  <p>每个组件独立工作，也能通过统一能力总线协同运行。</p>
-</section>
+<p class="plugin-hub-empty" data-plugin-empty hidden>没有找到匹配的插件。</p>
 
-<div class="ovo-plugin-grid">
-  <a href="plugins/oocore/"><span>CORE</span><i>01</i><h3>OOCore</h3><p>插件生态的核心运行时与能力底座。</p><b>查看文档 →</b></a>
-  <a href="plugins/ooengine/"><span>UI ENGINE</span><i>02</i><h3>OOEngine</h3><p>Screen、HUD 与客户端动作协议。</p><b>查看文档 →</b></a>
-  <a href="plugins/oochat/"><span>SOCIAL</span><i>03</i><h3>OOChat</h3><p>聊天、好友、会话与邮件系统。</p><b>查看文档 →</b></a>
-  <a href="plugins/oogame/"><span>GAME</span><i>04</i><h3>OOGame</h3><p>大厅、房间、匹配与小游戏聚合。</p><b>查看文档 →</b></a>
-  <a href="plugins/oomusic/"><span>MEDIA</span><i>05</i><h3>OOMusic</h3><p>曲库、歌单与多人同步收听。</p><b>查看文档 →</b></a>
+</section>
+<section class="wiki-help"><h2>从安装到配置，都有迹可循。</h2><a href="installation/">安装与升级</a><a href="configuration/">配置参考</a><a href="troubleshooting/">故障排查</a><a href="development/">开发接入</a></section>
 </div>
-
-<section class="ovo-docs">
-  <div><p class="ovo-eyebrow">DOCUMENTATION</p><h2>从这里开始</h2><p>部署、配置、开发与排障，所有关键资料都在这里。</p></div>
-  <div class="ovo-doc-links">
-    <a href="installation/"><span>01</span><b>安装与升级</b><i>→</i></a>
-    <a href="architecture/"><span>02</span><b>架构与依赖</b><i>→</i></a>
-    <a href="configuration/"><span>03</span><b>配置参考</b><i>→</i></a>
-    <a href="development/"><span>04</span><b>开发者接入</b><i>→</i></a>
-  </div>
-</section>
-
-<section class="ovo-cta">
-  <div class="ovo-cta-logo">OO</div>
-  <h2>准备好构建你的服务器了吗？</h2>
-  <p>现在开始部署 OO 系列插件。</p>
-  <a class="ovo-btn ovo-btn-primary" href="installation/">阅读安装指南 <span>→</span></a>
-</section>
+<script src="javascripts/plugin-hub.js"></script>
