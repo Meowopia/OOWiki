@@ -22,6 +22,17 @@ Preview 完成后停止本地服务器；`site/` 是可再生输出，不提交�
 
 ## 发布前记录
 
+### 自定义域名切换
+
+目标域名为 `wiki.meowopia.com`，网站部署在域名根路径，不保留 `/OOWiki/` 前缀。
+DNS 配置为 `CNAME`：主机名 `wiki`，目标 `meowopia.github.io`（不带协议、路径）。
+`docs/CNAME` 随 MkDocs 构建复制到部署根目录；不要把 Firefly 本地预览当作生产部署。
+
+切换前先确认 DNS 已生效，再发布含 CNAME 的构建并检查仓库 Pages 的 Custom domain。
+待 GitHub 证书就绪后确认 Enforce HTTPS 已开启，验证首页、搜索、插件页和图片。
+DNS 尚未就绪时不要发布该切换，也不要提前更改线上 Pages 域名，避免旧地址跳转至不可达站点。
+旧地址 `https://meowopia.github.io/OOWiki/` 在切换后需验证是否正确跳转；不要假定书签已自动迁移。
+
 发布操作开始前记录：
 
 - 待发布的 `main` commit；
