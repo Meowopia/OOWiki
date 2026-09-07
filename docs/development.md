@@ -122,11 +122,13 @@ Executor 必须验证 schema version、Capability、节点/栈深/字符串/资�
 
 涉及 renderer 的改动还必须做指定帧 screenshot diff 和性能/显存/堆验收，不能只用单元测试宣称视觉引擎完成。
 
-## OOConsole Contribution（planned）
+## OOConsole Contribution（历史接口；项目已归档）
 
 Contribution 必须同时满足 [OO 生态愿景](vision.md#extension-fallback)中的 owner scope、受控声明、证据分级与降级要求。
 
-OOConsole 位于独立仓库并采用独立版本：package `com.zkonikishi.oo.console`，plugin/module ID `ooconsole`，规划命令 `/oo console`（planned）。目标 runtime 硬依赖 OOCore 与 OOEngine，plugin descriptor 必须声明 `depend: [OOCore, OOEngine]`。它复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套。Contribution stable API/Capability 归 OOConsole，不得加入 OOEngine API。
+OOConsole 已归档并停止开发和维护。以下内容仅记录历史接口边界，供维护已有集成时参考；不得据此启动新接入、承诺未交付工作区或等待后续版本。归档也不表示这些管理能力已自动并入 OOEngine。
+
+OOConsole 位于独立仓库并采用独立版本：package `com.zkonikishi.oo.console`，plugin/module ID `ooconsole`。历史 runtime 硬依赖 OOCore 与 OOEngine，plugin descriptor 声明 `depend: [OOCore, OOEngine]`。它复用 OOEngine 的窗口 schema、RenderPlan、资源、预览和 Editor engine，禁止形成第二套。
 
 OOConsole `0.1.5` + OOCore `1.6.1` owner-bound 平台链已验收，可供消费者迁移。每个 adapter 必须独立完成自身产品验收，不能由平台状态批量推导为 implemented。
 

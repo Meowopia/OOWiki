@@ -34,9 +34,9 @@
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooconsole/" data-category="core" data-search="ooconsole 核心 core console editor workspace owner service admin">
-    <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/ooconsole/logo-256.webp" alt="OOConsole 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.6</span></div>
-    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>统一管理与可视化编辑入口；owner-service 已验收，产品工作区仍逐项建设。</p></div>
-    <div class="plugin-card-footer"><span>管理平台</span><b>查看文档 →</b></div>
+    <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/ooconsole/logo-256.webp" alt="OOConsole 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">已归档 · Archived</span></div>
+    <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>历史管理与可视化编辑项目；现已归档，停止开发和维护。</p></div>
+    <div class="plugin-card-footer"><span>历史产品文档</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oogame/" data-category="extensions" data-search="oogame extensions game lobby 斗地主 房间 匹配">
     <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/oogame/logo-256.webp" alt="OOGame 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>

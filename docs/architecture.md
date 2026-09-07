@@ -8,7 +8,7 @@
 
 ```mermaid
 flowchart TB
-  Admin["管理员浏览器"] --> Console["OOConsole 0.1.5<br/>owner-service available<br/>product workspaces planned"]
+  Admin["管理员浏览器"] --> Console["OOConsole<br/>Archived / 已归档<br/>历史能力保留"]
   Console --> Core["OOCore<br/>生命周期、平台兼容、只读 ControlPlane DTO"]
   Console --> Engine["OOEngine<br/>窗口、RenderPlan、预览<br/>现有 Web Editor 迁移来源"]
   Menu["OOEngine :oomenu<br/>Menu documents / presets / contributions"] --> Engine
@@ -41,7 +41,7 @@ flowchart TB
 ```
 
 !!! warning "实现状态"
-    OOCore `1.6.1` 与 OOConsole `0.1.5` owner-bound 平台链已验收，可供消费者迁移。各消费者仍需完成自身产品验收；HTTP/UI、Editor 迁移和产品工作区仍为 **planned/code-prepared**。Window blocker 独立保留。
+    OOCore 与 OOConsole 的历史 owner-bound 平台链接曾通过验收，但 OOConsole 现已归档。消费者不得再把它当作待完成的新迁移目标；已有可选接入可保留兼容降级，未交付的 HTTP/UI、Editor 迁移和产品工作区已经取消。
 
 ## 边界与所有权
 
@@ -50,7 +50,7 @@ flowchart TB
 | OOCore | 生命周期、Paper/Folia 兼容、Capability、服务注册；通过 `oocore.control-plane.read.v1` 提供只读 ControlPlane DTO | 管理页面、编辑器、业务写操作 |
 | OOEngine | 玩家窗口、RenderPlan、预览、现有 Web Editor 源实现 | OOConsole Contribution API、业务插件管理后台 |
 | OOEngine `:oomenu` | 通用 Menu document/presets、MenuContribution registry/validation、应用目录合成、Menu 玩家偏好与 fixtures | 独立插件/Mod/仓库、第二套 renderer/schema/resource lifecycle |
-| OOConsole（目标；runtime blocked） | planned 的统一管理入口、RBAC、审计、工作区和可视化编辑器；SDK compile surface 已发布；目标运行时硬依赖 OOCore 与 OOEngine | Minecraft 版本适配、第二套窗口 schema/RenderPlan/资源/预览/Editor engine、业务插件内部状态 |
+| OOConsole（已归档） | 历史正式版曾提供状态、贡献接口及受限本机 HTTP 能力；未完成的统一管理入口、工作区和可视化编辑器已取消 | Minecraft 版本适配、第二套窗口 schema/RenderPlan/资源/预览/Editor engine、业务插件内部状态 |
 | 业务插件 | 自己的数据、命令、校验与 owner-scoped Contribution | 自建后台、跨 owner 修改、读取其他插件私有目录 |
 
 OOCore `1.6.1` 的 `oocore.control-plane.read.v1` 只返回 bounded、不可变、可序列化的只读 DTO。OOConsole 的写操作必须调用拥有该资源的插件所暴露的受权 command/action，不得把 OOCore 变成万能写入通道。
@@ -126,9 +126,9 @@ accept/track/untrack/submit/abandon mutation 必须携带 requestId、expectedRe
 
 BetterModel adapter 必须具备独立 Capability/fixture、tracker owner lifecycle，以及 entity/player quit、chunk unload、plugin disable 的幂等清理；同时明确 Folia execution policy 和 resource-pack 冲突策略。没有真实代码、测试与 artifact 前不得标记 implemented。
 
-## OOConsole 工作区模型（planned）
+## OOConsole 工作区模型（历史设计，已取消）
 
-Editor 是 OOConsole 内的一个工作区，不是独立产品。建议工作区包括：
+以下是 OOConsole 归档前的历史设计，并非现行路线图。Editor 原计划作为 OOConsole 内的工作区，而不是独立产品：
 
 - `overview`：运行状态和只读健康摘要；
 - `editor`：从 OOEngine Web Editor 分阶段迁移的 Window/Menu 编辑能力，包括 Android 平板在内的 `menu` 响应式 presets；不创建 Tablet workspace 或独立导航页；
@@ -136,7 +136,7 @@ Editor 是 OOConsole 内的一个工作区，不是独立产品。建议工作�
 - `audit`：高风险操作与登录审计；
 - `settings`：仅 OOConsole 自身配置。
 
-业务插件通过 **owner-scoped OOConsole Contribution** 注册 workspace、view、form、table 和受权 named action。首版 Capability 固定为 `ooconsole.editor-contribution.v1`。Contribution API 属于 OOConsole stable API，不属于 OOEngine；业务插件对 OOConsole 仅为 optional dependency，缺失时只降级对应可视化工作区。
+历史设计中，业务插件通过 **owner-scoped OOConsole Contribution** 注册 workspace、view、form、table 和受权 named action。该接口属于 OOConsole，而不属于 OOEngine；业务插件对 OOConsole 仅为 optional dependency，缺失时只降级对应可视化工作区。项目归档后不再新增工作区或扩展此接口。
 
 ## RBAC 与安全基线（planned）
 
@@ -151,7 +151,7 @@ Editor 是 OOConsole 内的一个工作区，不是独立产品。建议工作�
 
 ## 不得自建后台
 
-OOChat、OOGame、OOMusic、OOBrowser、OOReforge 以及后续 OO 系列插件不得启动自己的管理 HTTP 服务或复制登录、RBAC、审计、Editor。需要后台能力时必须贡献到 OOConsole；OOConsole 不可用时，插件核心业务应继续运行，并仅降级管理界面。
+OOChat、OOGame、OOMusic、OOBrowser、OOReforge 的历史 OOConsole 接入均为可选能力；OOConsole 缺失或归档后，插件核心业务应继续运行并降级对应管理界面。归档不授权各插件复制旧 Console 的登录、RBAC、审计或 Editor，也不代表 OOEngine 自动提供替代后台。
 
 ## 迁移顺序
 

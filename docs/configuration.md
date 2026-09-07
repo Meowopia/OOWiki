@@ -45,7 +45,7 @@ web-editor:
 
 默认仅回环访问。公开部署必须使用 HTTPS reverse proxy，启用 secure cookie，并显式配置 allowed hosts/origins。首次设置 token 只输出到本地服务器控制台。
 
-该配置属于现有 OOEngine Web Editor。OOConsole SDK 已发布，但 OOConsole runtime 的 HTTP/UI 配置、RBAC 和产品工作区尚未实现/发布；迁移完成前不得删除此配置或源实现，也不得把目标 runtime 配置写成可用项。
+该配置属于现有 OOEngine Web Editor。OOConsole 已归档且未完成 HTTP/UI 配置、RBAC 和产品工作区迁移；不得因其历史 SDK 或归档状态删除此配置或源实现，也不得把曾规划的 runtime 配置写成可用项。
 
 ## 地图
 

@@ -37,11 +37,11 @@
 
 历史独立入口与缩写不得写入新脚本、Wiki 或插件集成；所有新调用只使用 `/oo engine`。
 
-## OOConsole（planned）
+## OOConsole（已归档 / Archived）
 
-OOConsole 的规范入口计划为 `/oo console`，Editor 快捷入口计划为 `/oo console editor`。OOConsole `0.1.5` owner-service 链已验收，但 consumer command migration 与产品命令仍未单独验收；不能把目标设计当成当前可用命令。
+OOConsole 已停止开发和维护。历史正式版的 `/oo console` 仅用于状态查询；从未交付的 `/oo console editor` 不再作为现行计划。以下 OOEngine 编辑入口仍按 OOEngine 自身文档与版本状态判断，不能视为 OOConsole 的自动替代。
 
-当前 **implemented** 的 `/oo engine admin editor` 仍属于 OOEngine 玩家侧编辑模式；在 OOConsole 完成迁移验收前继续保留。正式产品名是 **OOConsole**，不是“OOEngine Console”。
+当前 **implemented** 的 `/oo engine admin editor` 属于 OOEngine 玩家侧编辑模式，并按 OOEngine 自身版本继续维护；它不是已归档 OOConsole 的迁移结果或完整替代品。正式历史产品名是 **OOConsole**，不是“OOEngine Console”。
 
 ## OOChat
 

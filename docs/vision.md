@@ -8,7 +8,7 @@
 
 | 范围 | 公开职责 |
 |---|---|
-| 基础（Core） | OOCore 提供平台生命周期、命令、Capability 与兼容边界；OOEngine 提供窗口、RenderPlan、资源和客户端表现能力；OOConsole 提供统一管理与可视化编辑入口。 |
+| 基础（Core） | OOCore 提供平台生命周期、命令、Capability 与兼容边界；OOEngine 提供窗口、RenderPlan、资源和客户端表现能力；OOConsole 是已归档的历史管理与可视化编辑项目。 |
 | 附属（Extensions） | OOGame、OOMusic、OOBrowser、OOChat 分别维护自己的业务领域，通过稳定 API 组合基础能力。 |
 | 独立（Standalone） | OOVIP、OOReforge 保持独立产品边界；可选集成缺失时不得破坏其自身核心生命周期。 |
 | OOWiki | 只发布经核验的产品状态、安装、配置、公开 API 和支持文档，不公开私有实现资料。 |

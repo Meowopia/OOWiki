@@ -10,8 +10,8 @@ OOCore `1.7.1` 是当前稳定基线和 `/oo` 的唯一 root owner；`1.7.0` 已
 
 OOEngine `1.1.6` 是当前 stable binary release；Folia live acceptance 尚未完成，列为已知限制。
 
-OOEditor（`:ooeditor`）和 OOHUD（`:oohud`）是 OOEngine 仓库子项目，不是独立插件。OOConsole 复用 OOEditor；HUD 贡献的规划名称仅为 `ooengine.hud-contribution.v1`。
+OOEditor（`:ooeditor`）和 OOHUD（`:oohud`）是 OOEngine 仓库子项目，不是独立插件。已归档的 OOConsole 曾计划复用 OOEditor，但该迁移未完成；HUD 贡献属于 OOEngine 自身规划，不代表 Console 能力已被合并。
 
 ## Console
 
-OOConsole `0.1.6` 是当前 stable binary release，本版包含 CommandV2、HTTP login/logout 与安全修复。
+OOConsole 已归档并停止开发和维护；`0.1.6` 是保留文档的历史正式版本，曾包含 CommandV2、HTTP login/logout 与安全修复。归档不表示这些历史功能从已有安装中消失，也不代表 OOEngine 已自动接管其管理能力。
