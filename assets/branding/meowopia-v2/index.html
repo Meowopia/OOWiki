@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="description" content="Meowopia OO 系列插件：安装、配置、命令与开发文档"><link rel="canonical" href="https://wiki.meowopia.com/assets/branding/meowopia-v2/"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Meowopia Brand Assets v2 · Meowopia</title><link rel="icon" href="/assets/branding/meowopia-v2/favicon-192.png"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><link rel="stylesheet" href="/_astro/Document.CgpRqAXT.css"></head><body><a class="skip-link" href="#content">跳到正文</a><header class="topbar"><a class="brand" href="/"><img src="/assets/branding/meowopia-v2/mark-512.png" width="34" height="34" alt="">喵托邦 <small>Meowopia</small></a><nav aria-label="主导航"><a href="/">首页</a><a href="/installation/">文档</a><a href="/plugins/">插件</a><a href="/development/">开发</a></nav><div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header><section class="layout"><aside><details open class="sidebar"><summary>文档导航</summary><nav aria-label="文档导航"><a href="/installation/">开始使用</a><a href="/configuration/">配置指南</a><a href="/commands-permissions/">命令与权限</a><a href="/architecture/">架构概览</a><a href="/development/">开发指南</a></nav><hr><span class="eyebrow">本页目录</span><nav aria-label="本页目录"></nav></details></aside><main id="content" tabindex="-1" class="document" data-pagefind-body="true">
+
+
+
+
+
+
+
+
+<h1 id="meowopia-brand-assets-v2">Meowopia Brand Assets v2<a class="headerlink" href="#meowopia-brand-assets-v2" title="Permanent link" data-pagefind-ignore="">¶</a></h1>
+<p>The cat, infinity and orbital-ring mark is the current Meowopia identity.
+These public display assets are provided for the OOWiki website only.</p>
+<p>Copyright © 2026 Meowopia. Brand assets are all rights reserved and are not
+covered by OOWiki's source-code license. Do not present modified copies as an
+official Meowopia logo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </main></section><footer>Meowopia · OO 系列插件 <span>Astro · <a href="https://github.com/CuteLeaf/Firefly">Firefly</a> 衍生文档预览</span></footer><dialog id="search-dialog"><button id="search-close" aria-label="关闭搜索">关闭 ×</button><div id="search"></div></dialog><script src="/pagefind/pagefind-ui.js"></script><script src="/plugin-hub.js"></script><script type="module" src="/_astro/Document.astro_astro_type_script_index_0_lang.DGD7JUxE.js"></script><script>
+    const dialog = document.querySelector('#search-dialog');
+    let search, searchTrigger;
+    function openSearch(){if(dialog.open)return;searchTrigger=document.activeElement;dialog.showModal();if(!search && window.PagefindUI)search=new PagefindUI({element:'#search',showSubResults:true,translations:{placeholder:'搜索安装、配置、命令…'}});dialog.querySelector('input')?.focus();}
+    document.querySelector('#search-open').addEventListener('click',openSearch);
+    document.querySelectorAll('[data-open-doc-search]').forEach(el=>el.addEventListener('click',openSearch));
+    document.querySelector('#search-close').addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('close',()=>searchTrigger?.focus());
+    document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openSearch();}});
+    const saved=localStorage.getItem('oo-theme');
+    if(saved==='dark'||(!saved&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');
+    document.querySelector('#theme').addEventListener('click',()=>{const dark=document.documentElement.classList.toggle('dark');localStorage.setItem('oo-theme',dark?'dark':'light');});
+  </script></body></html>

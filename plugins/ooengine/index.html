@@ -1,1124 +1,21 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="description" content="Meowopia OO 系列插件：安装、配置、命令与开发文档"><link rel="canonical" href="https://wiki.meowopia.com/plugins/ooengine/"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>OOEngine 与 OOEngine-Client · Meowopia</title><link rel="icon" href="/assets/branding/meowopia-v2/favicon-192.png"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><link rel="stylesheet" href="/_astro/Document.CgpRqAXT.css"></head><body><a class="skip-link" href="#content">跳到正文</a><header class="topbar"><a class="brand" href="/"><img src="/assets/branding/meowopia-v2/mark-512.png" width="34" height="34" alt="">喵托邦 <small>Meowopia</small></a><nav aria-label="主导航"><a href="/">首页</a><a href="/installation/">文档</a><a href="/plugins/">插件</a><a href="/development/">开发</a></nav><div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header><section class="layout"><aside><details open class="sidebar"><summary>文档导航</summary><nav aria-label="文档导航"><a href="/installation/">开始使用</a><a href="/configuration/">配置指南</a><a href="/commands-permissions/">命令与权限</a><a href="/architecture/">架构概览</a><a href="/development/">开发指南</a></nav><hr><span class="eyebrow">本页目录</span><nav aria-label="本页目录"><a class="toc-link" href="#_1">产品作用</a><a class="toc-link" href="#features">已实现功能 / Implemented</a><a class="toc-link nested" href="#_6">字体与文字</a><a class="toc-link nested" href="#menu-android">菜单预设</a><a class="toc-link" href="#_2">安装</a><a class="toc-link nested" href="#_5">准备环境</a><a class="toc-link nested" href="#_10">安装步骤</a><a class="toc-link" href="#configuration">配置 / Configuration</a><a class="toc-link nested" href="#_11">主配置重点</a><a class="toc-link" href="#_3">命令</a><a class="toc-link nested" href="#_12">玩家入口与兼容管理入口</a><a class="toc-link nested" href="#_13">管理员入口</a><a class="toc-link" href="#permissions">权限</a><a class="toc-link nested" href="#client-keys">客户端按键</a><a class="toc-link" href="#_4">窗口文件</a><a class="toc-link" href="#variables">变量与占位符</a><a class="toc-link nested" href="#_14">内置窗口绑定</a><a class="toc-link nested" href="#rpg">可选 RPG 资料绑定</a><a class="toc-link nested" href="#placeholderapi">PlaceholderAPI 与消息模板的区别</a><a class="toc-link" href="#web-editor-ooconsole">Web Editor 与 OOConsole</a><a class="toc-link" href="#sdk">其他插件接入</a><a class="toc-link" href="#_7">资源与备份</a><a class="toc-link" href="#renderplan-20">未实现功能 / Not implemented</a><a class="toc-link" href="#roadmap">未来计划 / Roadmap</a><a class="toc-link nested" href="#java-21">Java 21 兼容目标</a><a class="toc-link" href="#upgrade">升级与回退</a><a class="toc-link" href="#_8">上线前自检</a><a class="toc-link" href="#_9">故障排查</a><a class="toc-link" href="#contact">联系 / Contact</a></nav></details></aside><main id="content" tabindex="-1" class="document" data-pagefind-body="true">
 
-<!doctype html>
-<html lang="zh" class="no-js">
-  <head>
 
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <meta name="description" content="Meowopia OO 系列 Minecraft 插件统一中文文档">
 
 
 
-        <link rel="canonical" href="https://wiki.meowopia.com/plugins/ooengine/">
 
 
-
-
-      <link rel="icon" href="../../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
-
-
-
-        <title>OOEngine 与 OOEngine-Client - OO 系列插件 Wiki</title>
-
-
-
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
-
-
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
-
-
-
-
-
-
-
-
-
-
-
-
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-
-
-
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-
-      <link rel="stylesheet" href="../../stylesheets/redesign.css">
-
-      <link rel="stylesheet" href="../../stylesheets/home.css">
-
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-
-
-
-
-
-
-  </head>
-
-
-
-
-
-
-
-
-
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
-
-
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-
-
-        <a href="#ooengine-ooengine-client" class="md-skip">
-          跳转至
-        </a>
-
-    </div>
-    <div data-md-component="announce">
-
-    </div>
-
-
-  <header class="md-header ovo-navbar" data-md-component="header">
-    <nav class="ovo-navbar-inner md-grid" aria-label="顶部导航">
-      <div class="ovo-navbar-start">
-        <label class="md-header__button md-icon ovo-menu" for="__drawer">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-        </label>
-        <a class="ovo-brand" href="../.." aria-label="OO 插件系列 Wiki 首页">
-          <img class="ovo-brand-mark" src="../../assets/logo.svg" alt="OO 插件系列 Logo">
-          <span class="ovo-brand-name">喵托邦 Meowopia</span>
-        </a>
-      </div>
-
-      <div class="ovo-navbar-links">
-        <a href="../..">首页</a>
-        <a href="../../installation/">文档</a>
-        <a href="../">插件</a>
-        <a href="../../development/">开发</a>
-      </div>
-
-      <div class="ovo-navbar-actions">
-
-          <label class="md-header__button md-icon ovo-nav-icon" for="__search" title="搜索">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-          </label>
-
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-          <label class="md-header__button md-icon ovo-nav-icon" title="切换到深色模式" for="__palette_0" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
-          </label>
-
-          <label class="md-header__button md-icon ovo-nav-icon" title="切换到浅色模式" for="__palette_1" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
-          </label>
-
-        <a class="ovo-github" href="https://github.com/Meowopia/OOWiki" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg><span>GitHub</span>
-        </a>
-
-      </div>
-    </nav>
-  </header>
-
-    <div class="md-container" data-md-component="container">
-
-
-
-
-
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-
-
-
-
-
-
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-
-
-
-
-
-  首页
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-      <li class="md-tabs__item">
-        <a href="../../vision/" class="md-tabs__link">
-
-
-
-  文档
-
-        </a>
-      </li>
-
-
-
-
-
-
-
-
-
-    <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
-
-
-
-
-
-  插件
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-      <li class="md-tabs__item">
-        <a href="../../development/" class="md-tabs__link">
-
-
-
-  开发
-
-        </a>
-      </li>
-
-
-
-
-    </ul>
-  </div>
-</nav>
-
-
-
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-
-
-
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-
-
-
-
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OO 系列插件 Wiki" class="md-nav__button md-logo" aria-label="OO 系列插件 Wiki" data-md-component="logo">
-
-  <img src="../../assets/logo.svg" alt="logo">
-
-    </a>
-    OO 系列插件 Wiki
-  </label>
-
-    <div class="md-nav__source">
-      <a href="https://github.com/Meowopia/OOWiki" title="前往仓库" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Meowopia/OOWiki
-  </div>
-</a>
-    </div>
-
-  <ul class="md-nav__list" data-md-scrollfix>
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    首页
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item md-nav__item--nested">
-
-
-
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-
-
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-
-
-
-  <span class="md-ellipsis">
-    文档
-
-  </span>
-
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            文档
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../vision/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    OO 生态愿景
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    安装与升级
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../architecture/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    架构与依赖
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../configuration/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    配置参考
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../commands-permissions/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    命令与权限
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../integration/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    集成边界
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../migration/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    迁移规则
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../security/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    安全模型
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-          </ul>
-        </nav>
-
-    </li>
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    插件
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item md-nav__item--nested">
-
-
-
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-
-
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-
-
-
-  <span class="md-ellipsis">
-    开发
-
-  </span>
-
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            开发
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../development/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    开发者接入
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../source-policy/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    开源与仓库边界
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../troubleshooting/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    故障排查
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../release/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    发布流程
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../acceptance/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    验收清单
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item">
-      <a href="../../pages-runbook/" class="md-nav__link">
-
-
-
-  <span class="md-ellipsis">
-    Pages 预览与回滚
-
-  </span>
-
-
-      </a>
-    </li>
-
-
-
-
-          </ul>
-        </nav>
-
-    </li>
-
-
-
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-
-
-
-
-
-
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      产品作用
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      已实现功能 / Implemented
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="已实现功能 / Implemented">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      字体与文字
-    </span>
-  </a>
-
-</li>
-
-          <li class="md-nav__item">
-  <a href="#menu-android" class="md-nav__link">
-    <span class="md-ellipsis">
-      菜单预设
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      安装
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="安装">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      准备环境
-    </span>
-  </a>
-
-</li>
-
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      安装步骤
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      配置 / Configuration
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="配置 / Configuration">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      主配置重点
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      命令
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="命令">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      玩家入口与兼容管理入口
-    </span>
-  </a>
-
-</li>
-
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      管理员入口
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      权限
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="权限">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#client-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      客户端按键
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      窗口文件
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      变量与占位符
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="变量与占位符">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      内置窗口绑定
-    </span>
-  </a>
-
-</li>
-
-          <li class="md-nav__item">
-  <a href="#rpg" class="md-nav__link">
-    <span class="md-ellipsis">
-      可选 RPG 资料绑定
-    </span>
-  </a>
-
-</li>
-
-          <li class="md-nav__item">
-  <a href="#placeholderapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      PlaceholderAPI 与消息模板的区别
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#web-editor-ooconsole" class="md-nav__link">
-    <span class="md-ellipsis">
-      Web Editor 与 OOConsole
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      其他插件接入
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      资源与备份
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#renderplan-20" class="md-nav__link">
-    <span class="md-ellipsis">
-      未实现功能 / Not implemented
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#roadmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      未来计划 / Roadmap
-    </span>
-  </a>
-
-    <nav class="md-nav" aria-label="未来计划 / Roadmap">
-      <ul class="md-nav__list">
-
-          <li class="md-nav__item">
-  <a href="#java-21" class="md-nav__link">
-    <span class="md-ellipsis">
-      Java 21 兼容目标
-    </span>
-  </a>
-
-</li>
-
-      </ul>
-    </nav>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      升级与回退
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      上线前自检
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      故障排查
-    </span>
-  </a>
-
-</li>
-
-        <li class="md-nav__item">
-  <a href="#contact" class="md-nav__link">
-    <span class="md-ellipsis">
-      联系 / Contact
-    </span>
-  </a>
-
-</li>
-
-    </ul>
-
-</nav>
-                  </div>
-                </div>
-              </div>
-
-
-
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-
-
-
-
-
-
-
-
-<h1 id="ooengine-ooengine-client">OOEngine 与 OOEngine-Client<a class="headerlink" href="#ooengine-ooengine-client" title="Permanent link">&para;</a></h1>
-<p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooengine/banner-1200x630.webp" alt="喵托邦 / Meowopia — OOEngine 界面与交互" loading="lazy" decoding="async"></p>
+<h1 id="ooengine-ooengine-client">OOEngine 与 OOEngine-Client<a class="headerlink" href="#ooengine-ooengine-client" title="Permanent link" data-pagefind-ignore="">¶</a></h1>
+<p><img class="plugin-page-banner" width="1200" height="630" src="/assets/branding/blackcat-v1/ooengine/banner-1200x630.webp" alt="喵托邦 / Meowopia — OOEngine 界面与交互" loading="lazy" decoding="async"></p>
 <p><strong>OOEngine 为 Minecraft 服务器提供可配置的窗口与交互表现，OOEngine-Client 负责在玩家客户端显示和操作这些窗口。</strong></p>
 <p>喵托邦 / Meowopia · 基础（Core）。OOEngine 是闭源专有产品；品牌画面表达产品定位，不代表所有展示效果都已实现。</p>
 <div class="admonition info">
 <p class="admonition-title">当前正式版</p>
 <p>服务端 <strong>OOEngine 1.2.0</strong>，客户端 <strong>OOEngine-Client 1.2.0</strong>，客户端目标为 <strong>Minecraft 26.2</strong>。安装时选择对应的 Fabric 或 NeoForge 包，不要同时安装两个 loader 包。维护分支和 SNAPSHOT 不是正式发布。</p>
 </div>
-<h2 id="_1">产品作用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">产品作用<a class="headerlink" href="#_1" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>OOEngine 适合把服务器功能组织成玩家可以点击、查看和操作的窗口，例如个人信息、功能菜单和由其他插件提供数据的界面。服主可以修改窗口文件与资源；实际玩家数据、任务进度和奖励仍由服务端及相应玩法插件决定。</p>
 <ul>
 <li><strong>服务端装 OOEngine 和 OOCore</strong>：加载配置与窗口，处理交互、权限和资源交付。</li>
@@ -1126,12 +23,12 @@
 <li><strong>没有客户端 Mod 时</strong>：不能按完整原生窗口体验验收。完整原版客户端替代显示仍未完成。</li>
 <li><strong>OOCore 不是客户端 Mod</strong>：不要把 OOCore JAR 放进玩家的 <code>mods/</code>。</li>
 </ul>
-<h2 id="features">已实现功能 / Implemented<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h2 id="features">已实现功能 / Implemented<a class="headerlink" href="#features" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p><span id="oomenu"></span>
 <span id="oohud-planned"></span>
 <span id="_5"></span></p>
 <p>以下以正式 <strong>1.2.0</strong> 为范围。原生窗口需要服务端与对应客户端正确安装；有条件的集成仍需要相应提供方。维护分支已经编写但尚未发布的功能不计入本表。</p>
-<table>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>内容</th>
@@ -1171,15 +68,15 @@
 <td>当前是有限范围实现，不是完整控件库，也不替代 Minecraft 的 <code>server.properties</code></td>
 </tr>
 </tbody>
-</table>
-<h3 id="_6">字体与文字<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+</table></div>
+<h3 id="_6">字体与文字<a class="headerlink" href="#_6" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
 <p>正式客户端包含字体资源与文本显示支持。使用自定义字体前确认资源可读、字体授权允许分发，并在实际使用的客户端检查中文、换行和 GUI Scale。不要把“支持字体交付”理解成任意字体、emoji、全部排版效果在所有后端都已完全一致。</p>
-<h3 id="menu-android">菜单预设<a class="headerlink" href="#menu-android" title="Permanent link">&para;</a></h3>
+<h3 id="menu-android">菜单预设<a class="headerlink" href="#menu-android" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
 <p>默认提供 <code>menu</code>、<code>menu-phone</code>、<code>menu-mmo</code>、<code>menu-mobile</code> 等窗口。它们是同一插件的内容模板，不是额外插件。可以先运行 <code>/oo engine open menu</code> 查看样式入口。</p>
 <p>Android 平板形态属于菜单主题方向；完整桌面分页、壁纸管理、Dock 和全部移动端适配不能仅凭概念图视为已交付。</p>
-<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_5">准备环境<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<table>
+<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
+<h3 id="_5">准备环境<a class="headerlink" href="#_5" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>位置</th>
@@ -1200,10 +97,10 @@
 <td>Minecraft 26.2、Java 25、匹配的 NeoForge、NeoForge 版 OOEngine-Client</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>OOCore 是 OOEngine 的必要运行前置。</strong> 1.2.0 的最低已验证基线为 <strong>OOCore 1.7.2</strong>，不是“只能安装这一版”的精确锁定。运行时还需要兼容的接口与调度、平台、通信及可信服务能力；未来版本是否可用，以兼容说明和启动检查为准，不能仅凭版本数字更大就认定兼容。不要使用已撤回的 OOCore 1.7.0。</p>
 <p>Folia 实机尚未验收。OOCore 支持某个平台，并不自动代表 OOEngine 已完成该平台验收。</p>
-<h3 id="_10">安装步骤<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_10">安装步骤<a class="headerlink" href="#_10" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
 <ol>
 <li>正常停止服务器，备份已有插件数据。</li>
 <li>将 <code>OOCore-1.7.2.jar</code>（或明确兼容的后续版本）和 <code>OOEngine-1.2.0.jar</code> 放进服务器 <code>plugins/</code>。同一插件只保留一个版本的 JAR。</li>
@@ -1214,9 +111,9 @@
 </ol>
 <p>正式下载与版本说明：<a href="https://github.com/Meowopia/OOEngine/releases/tag/v1.2.0">OOEngine Release</a>、<a href="https://github.com/Meowopia/OOEngine-Client/releases/tag/v1.2.0">OOEngine-Client Release</a>。私有仓库下载需要项目授予的访问权限；不要把访问凭据发到群聊或日志中。</p>
 <p><a href="../oocore/">OOCore 安装说明</a> · <a href="../../installation/">通用安装与升级</a></p>
-<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>以下均为相对于服务器目录的路径，不是额外下载地址。</p>
-<table>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>文件或目录</th>
@@ -1261,9 +158,9 @@
 <td>停服后备份；不要多服共用同一个活动 SQLite 文件</td>
 </tr>
 </tbody>
-</table>
-<h3 id="_11">主配置重点<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<table>
+</table></div>
+<h3 id="_11">主配置重点<a class="headerlink" href="#_11" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>配置项</th>
@@ -1318,25 +215,25 @@
 <td>外部数据库不是首次使用的必要条件；数据库密码使用环境变量引用</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>下面是<strong>合并到现有配置对应位置</strong>的例子，不要用它覆盖整份 <code>config.yml</code>：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 加入后打开菜单 / Open the menu after joining</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">open-on-join</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;menu&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">open-on-join</span><span class="p">:</span><span class="w"> </span><span class="s">"menu"</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 单位 tick，20 约为 1 秒 / Ticks; 20 is approximately one second</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">open-on-join-delay-ticks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 保持编辑器本机访问 / Keep the editor local-only</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">web-editor</span><span class="p">:</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;127.0.0.1&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="s">"127.0.0.1"</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18081</span>
 </code></pre></div>
 <p>主配置修改后重启。<strong><code>/oo engine reload</code> 当前只重新加载窗口目录，不是全插件配置热重载。</strong> <code>.yml</code> 是当前监听器自动处理的后缀；使用 <code>.yaml</code> 等兼容源格式时请手动重载并检查结果。</p>
 <p>JSON 主题包不是当前已确认的通用窗口配置入口；不要把 JSON、概念主题文件或 UI v2 开发示例直接丢进 <code>panels/</code> 并认为会加载。JSON 本身也不支持注释。</p>
-<h2 id="_3">命令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">命令<a class="headerlink" href="#_3" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>根命令由 OOCore 提供，用户入口统一为 <strong><code>/oo engine</code></strong>。以下对应正式 <strong>1.2.0</strong> 的命令处理行为。<code>&lt;参数&gt;</code> 必填，<code>[参数]</code> 可省略；<code>&lt;窗口&gt;</code> 使用文档 ID，不带 <code>.yml</code>；<code>&lt;玩家&gt;</code> 为在线玩家的准确名称。表中示例玩家 <code>Alex</code> 需替换为实际在线玩家。</p>
-<h3 id="_12">玩家入口与兼容管理入口<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<table>
+<h3 id="_12">玩家入口与兼容管理入口<a class="headerlink" href="#_12" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>完整命令</th>
@@ -1439,10 +336,10 @@
 <td><code>/oo engine set greeting text Hello</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>公共 <code>open</code>/<code>menu</code> 不接受代开目标；控制台为玩家开窗请使用下列 <code>admin</code> 入口。<code>set</code> 示例需要当前窗口存在 <code>greeting</code> 控件。</p>
-<h3 id="_13">管理员入口<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<table>
+<h3 id="_13">管理员入口<a class="headerlink" href="#_13" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>完整命令</th>
@@ -1566,12 +463,12 @@
 <td><code>/oo engine admin web Alex https://example.com/ false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>地图和 Web 行仅说明命令入口确实存在，<strong>不是网页已能显示的承诺</strong>。1.2.0 两个主客户端均不执行旧网页打开消息；不要仅安装 WebGUI 就认为这些入口可用，也不要为测试随意放开 URL 来源限制。示例域名不是已授权来源。</p>
 <p>当前没有独立 <code>/oo engine help</code> 公共子命令；管理帮助是 <code>/oo engine admin help</code>。兼容解析器中的旧别名不等于发行包注册了可直接执行的旧根命令，本页统一使用 <code>/oo engine</code>。</p>
-<h2 id="permissions">权限<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h2>
+<h2 id="permissions">权限<a class="headerlink" href="#permissions" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>以下将发行包显式声明和处理代码额外检查分开。权限插件中的显式拒绝/授权仍会影响结果，不建议通过 OP 代替最小权限配置。</p>
-<table>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>精确节点</th>
@@ -1702,11 +599,11 @@
 <td>不在上述 children 中</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>“未显式声明”表示插件没有为该节点写明默认值或继承；实际未注册节点行为受服务器与权限插件策略影响，不能据此承诺普通玩家默认有权限。需要使用时给可信管理员<strong>显式授予准确节点</strong>。尤其不要假定打开编辑命令权限自动包含编辑保存权限，也不要杜撰 <code>ooengine.*</code> 为本插件已声明的通配权限。</p>
 <p>权限只授权入口，不替代客户端、数据提供方、资源来源与功能开关条件。其他插件贡献的业务动作还可能有它们自己的权限要求，以其文档为准。</p>
-<h3 id="client-keys">客户端按键<a class="headerlink" href="#client-keys" title="Permanent link">&para;</a></h3>
-<table>
+<h3 id="client-keys">客户端按键<a class="headerlink" href="#client-keys" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>按键</th>
@@ -1736,14 +633,14 @@
 <td>未提供同等入口</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>按键可能被其他 Mod 占用，可在 Minecraft 按键设置中检查。F7 设置窗口需要服务器权限 <code>ooengine.admin</code>；它保存自身界面设置，不是全服配置管理器。Fabric 游戏内编辑的保存检查另需 <code>ooengine.admin.editor</code>，与打开编辑窗口的命令权限不同；只授权给可信管理员。</p>
-<h2 id="_4">窗口文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">窗口文件<a class="headerlink" href="#_4" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>首次生成的模板包括 <code>menu.yml</code>、<code>menu-phone.yml</code>、<code>menu-mmo.yml</code>、<code>menu-mobile.yml</code>、<code>personal-info.yml</code>、<code>quest-journal.yml</code>、<code>model-preview.yml</code>。保留默认模板作参照，先复制一份再修改。</p>
 <p>将下面内容保存为 <code>plugins/OOEngine/panels/hello.yml</code>，然后执行 <code>/oo engine reload</code> 和 <code>/oo engine open hello</code>：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">panel</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hello</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;示例窗口</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">Hello&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">"示例窗口</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">Hello"</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">420x240</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">anchor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">center</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">modal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -1755,22 +652,22 @@
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nt">widgets</span><span class="p">:</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greeting</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;欢迎来到喵托邦</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">Welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Meowopia&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">"欢迎来到喵托邦</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">Welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Meowopia"</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">close</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;关闭</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">Close&quot;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">"关闭</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">Close"</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">120</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nt">height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">36</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nt">on-click</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">close</span>
 </code></pre></div>
 <p>顶层控件列表是 <strong><code>widgets</code></strong>；嵌套容器才使用 <code>children</code>。窗口 ID 应唯一；不同内容不要复用相同 ID。插件注册的窗口应遵守该插件自己的命名空间。</p>
 <p>语法或布局错误可能使相应窗口未被加载。重载后先查控制台错误及 <code>/oo engine list</code>，修复或恢复备份，再重新打开；不要把“重载命令返回”当作每一份文件都成功加载。</p>
-<h2 id="variables">变量与占位符<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<h2 id="variables">变量与占位符<a class="headerlink" href="#variables" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>OOEngine 1.2.0 的窗口绑定、消息步骤、数据库环境引用不是同一套变量系统。<strong>不要把内部字段名、别的插件占位符或规划功能当作所有配置位置都可用的变量。</strong> 以下示例输出是说明格式，不是预设玩家属性。</p>
-<h3 id="_14">内置窗口绑定<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_14">内置窗口绑定<a class="headerlink" href="#_14" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
 <p>写法为 <code>${名称}</code>，大小写及下划线必须一致。在服务端为某玩家生成/刷新普通窗口文档时替换控件属性字符串，可用于 <code>text</code>、<code>label</code> 等显示值；不是每帧自动读取，也不是 PAPI expansion。使用这组内置变量不需要 PlaceholderAPI。</p>
-<table>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>精确写法</th>
@@ -1889,18 +786,18 @@
 <td>当前服务器</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>整数按整数显示，非整数通常保留一位小数；不要据显示文本推算高精度数值。变量值不会自动修改玩家状态。</p>
 <p>复制到已有 <code>widgets:</code> 列表中的最小示例：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">player-summary</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${player.name}</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">HP</span><span class="nv"> </span><span class="s">${player.health}/${player.max_health}</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">EXP</span><span class="nv"> </span><span class="s">${player.experience_percent}%&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">"${player.name}</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">HP</span><span class="nv"> </span><span class="s">${player.health}/${player.max_health}</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">EXP</span><span class="nv"> </span><span class="s">${player.experience_percent}%"</span>
 </code></pre></div>
 <p><code>${profile.rating.visible}</code>、<code>${profile.rating.label}</code>、<code>${profile.rating.value}</code> 分别取自 <code>personal-info.rating.enabled</code>、<code>label</code>、<code>value</code>；默认例子为 <code>false</code>、<code>声望</code>、<code>—</code>。它们是个人信息的<strong>配置展示值</strong>，不是自动接入的声望系统。<code>visible</code> 是字符串布尔值，可用于模板中支持可见性条件的属性。</p>
 <p>无法解析的 <code>${...}</code> 会在若干常见控件的 <code>text</code>、<code>label</code>、<code>value</code>、<code>max</code> 字段降为 <code>—</code>；其他属性不保证有同样 fallback。先检查变量拼写、配置及提供方，再重新打开/刷新窗口。</p>
-<h3 id="rpg">可选 RPG 资料绑定<a class="headerlink" href="#rpg" title="Permanent link">&para;</a></h3>
+<h3 id="rpg">可选 RPG 资料绑定<a class="headerlink" href="#rpg" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
 <p>下面 <code>${rpg.*}</code> 是已启用 MythicRPG 时的可选只读资料绑定。需要兼容的提供方资料及当前玩家档案；显示的是可读取的已保存资料，不保证等同于每一刻的最终战斗数值。缺失资料时不保证这些键存在。</p>
-<table>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>写法</th>
@@ -1960,11 +857,11 @@
 <td>键名/含义由提供方确定，不承诺全部最终战斗加成</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>部分属性还可生成简化键，如 <code>${rpg.strength}</code>、<code>${rpg.intelligence}</code>、<code>${rpg.vitality}</code>、<code>${rpg.spirit}</code>、<code>${rpg.magic_attack}</code>、<code>${rpg.physical_attack}</code>、<code>${rpg.critical}</code>、<code>${rpg.cooldown}</code>、<code>${rpg.resistance}</code>、<code>${rpg.power}</code>；只有资料中存在对应属性时才会出现，不保证是百分数，也不保证全部有值。</p>
 <p>其他插件可提供自己的 <code>${命名空间.键}</code> 绑定，但具体键只能以该插件实际支持说明为准。例如安装 MMOCore 不等于本版自动提供 <code>${mmocore.level}</code> 这一固定键。</p>
-<h3 id="placeholderapi">PlaceholderAPI 与消息模板的区别<a class="headerlink" href="#placeholderapi" title="Permanent link">&para;</a></h3>
-<table>
+<h3 id="placeholderapi">PlaceholderAPI 与消息模板的区别<a class="headerlink" href="#placeholderapi" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>类型</th>
@@ -1999,9 +896,9 @@
 <td>仅 <code>persistence.password</code> 的环境引用；由服务器进程环境提供。不填写真实密码示例，不用于窗口显示</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>消息步骤是服主审核的窗口内容，不是允许玩家提交任意脚本的入口。不要把未经校验的事件文本拼入高权限操作；不要把环境变量密钥或密码展示给玩家。普通 UI v2 控件字段也不应直接套用上述普通窗口替换规则。</p>
-<h2 id="web-editor-ooconsole">Web Editor 与 OOConsole<a class="headerlink" href="#web-editor-ooconsole" title="Permanent link">&para;</a></h2>
+<h2 id="web-editor-ooconsole">Web Editor 与 OOConsole<a class="headerlink" href="#web-editor-ooconsole" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p><span id="ooeditor-planned"></span></p>
 <p>OOEngine 1.2.0 随包提供 Web Editor。默认地址为服务器本机的 <code>http://127.0.0.1:18081/</code>；在自己电脑上访问 <code>127.0.0.1</code> 不会连接到远程服务器。</p>
 <p>首次设置：</p>
@@ -2013,13 +910,13 @@
 </ol>
 <p>如需远程管理，先完成本机初始化，再按<a href="../../security/">安全说明</a>配置可信 HTTPS 反向代理、安全 Cookie 和精确 Host/Origin 白名单。不要仅把监听地址改成 <code>0.0.0.0</code> 就开放到公网。</p>
 <p><a href="../ooconsole/">OOConsole</a> 是独立管理产品，<strong>不是安装 OOEngine 的必要前置</strong>。OOEngine-Client 1.2.0 的正式说明没有声明已经验收的 OOConsole 兼容版本；不要把维护分支接线或管理界面演示当作正式兼容承诺。</p>
-<h2 id="sdk">其他插件接入<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
+<h2 id="sdk">其他插件接入<a class="headerlink" href="#sdk" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p><span id="oomenuplanned"></span>
 <span id="ooquest-planned"></span></p>
 <p>其他插件可以通过正式受支持接口贡献自己的窗口与交互。服主应安装其明确支持的版本，按插件文档启用集成；不要通过复制私有目录或修改插件内部实现来连接两个产品。</p>
 <p>任务、对话、属性等显示依赖实际提供数据的插件。安装 OOEngine 本身不会自动提供任务内容、职业系统、经济或奖励规则。未安装或不兼容的可选提供方，不应被理解成对应玩法已可用。</p>
 <p>开发接入说明见<a href="../../development/">开发者文档</a>。本页不提供私有 SDK 下载地址、内部实现或凭据。</p>
-<h2 id="_7">资源与备份<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">资源与备份<a class="headerlink" href="#_7" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <ul>
 <li>只加载来源可信、允许分发的窗口、字体、图片和模型；不要把陌生资源包当作可信配置执行。</li>
 <li>不要为解决下载问题而关闭来源限制，或在资源 URL 中写入密码。</li>
@@ -2027,7 +924,7 @@
 <li>编辑器凭据、一次性令牌、签名私钥、数据库密码和授权信息不得发到公开问题区。</li>
 <li>完整原版客户端 fallback、视频/浏览器能力和各平台支持范围，以对应正式发行说明为准。</li>
 </ul>
-<h2 id="renderplan-20">未实现功能 / Not implemented<a class="headerlink" href="#renderplan-20" title="Permanent link">&para;</a></h2>
+<h2 id="renderplan-20">未实现功能 / Not implemented<a class="headerlink" href="#renderplan-20" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p><span id="oovideo"></span>
 <span id="oovideo-facadeplanned"></span>
 <span id="oomodel-bettermodel-adapterplanned"></span></p>
@@ -2040,9 +937,9 @@
 <li><strong>视频和移动端</strong>：不要把仅含主 JAR 的正式下载等同于完整外部视频运行环境。完整解码环境、FCL 和 OpenGL ES 的适用性需要单独确认。</li>
 <li><strong>第三方模型</strong>：BetterModel 等适配规划不等于已随当前正式版交付；不要为尚未发布的适配额外安装不必要依赖。</li>
 </ul>
-<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>以下为已有规划方向，不是发布日期或版本承诺；是否交付以之后的正式发行说明为准。</p>
-<table>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>方向</th>
@@ -2067,8 +964,8 @@
 <td>在独立环境完成 Folia 等适用平台验证；通过前继续保留未验收标注</td>
 </tr>
 </tbody>
-</table>
-<h3 id="java-21">Java 21 兼容目标<a class="headerlink" href="#java-21" title="Permanent link">&para;</a></h3>
+</table></div>
+<h3 id="java-21">Java 21 兼容目标<a class="headerlink" href="#java-21" title="Permanent link" data-pagefind-ignore="">¶</a></h3>
 <p><strong>当前正式 OOEngine / OOEngine-Client 1.2.0 的安装要求不变，Java 21 兼容线尚未发布。</strong> 不要把现有 26.2 客户端 JAR 装到 1.21，也不要尝试用 Java 21 启动 26.x 服务器。</p>
 <p>新增兼容目标参考 Paper 的 Java 21 推荐范围 <strong>1.20–1.21.11</strong>，优先验证 <strong>1.20.5 / 1.20.6</strong> 及 <strong>1.21 系列的实际 API 分界</strong>，更早的 1.20.x 待核验。推荐使用某个 Java 版本，不代表 OOEngine 已支持范围内的全部 Minecraft 版本。<a href="https://docs.papermc.io/paper/getting-started/">Paper 要求说明</a></p>
 <ul>
@@ -2078,7 +975,7 @@
 <li>Folia 仍为独立验收项，不随 Java 21 或 Paper 适配自动成为支持平台。</li>
 </ul>
 <p>以上属于<strong>未来兼容计划 / 未验收目标</strong>，不是已发布兼容列表；具体支持版本以之后的正式产品说明为准。</p>
-<h2 id="upgrade">升级与回退<a class="headerlink" href="#upgrade" title="Permanent link">&para;</a></h2>
+<h2 id="upgrade">升级与回退<a class="headerlink" href="#upgrade" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <ol>
 <li>停止服务器并退出客户端，备份插件配置、窗口、资源、存储和安全资料。</li>
 <li>核对服务端、客户端 Mod、Minecraft/loader 和 OOCore 的兼容说明；客户端与服务端不保证永远同号。</li>
@@ -2087,7 +984,7 @@
 <li>先在测试服检查窗口打开、按钮操作、关闭、重连和资源加载，再用于正式服务器。</li>
 <li>回退时恢复旧 JAR <strong>及其对应的数据目录备份</strong>。涉及数据变更时，不要只回退二进制而保留不匹配的数据。</li>
 </ol>
-<h2 id="_8">上线前自检<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_8">上线前自检<a class="headerlink" href="#_8" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <ul>
 <li>OOCore、OOEngine 均正常启用，无缺失依赖或能力错误。</li>
 <li><code>/oo engine info</code>、<code>/oo engine list</code> 正常；实际玩家能打开 <code>menu</code> 和 <code>personal-info</code>。</li>
@@ -2096,8 +993,8 @@
 <li>玩家退出重进、切服后无残留窗口或错误资源。</li>
 <li>修改窗口时保留可用备份；公网管理入口启用前完成安全配置。</li>
 </ul>
-<h2 id="_9">故障排查<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<table>
+<h2 id="_9">故障排查<a class="headerlink" href="#_9" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
+<div class="table-scroll" role="region" aria-label="数据表格，可横向滚动" tabindex="0"><table>
 <thead>
 <tr>
 <th>现象</th>
@@ -2138,9 +1035,9 @@
 <td>先确认真实提供方与运行环境，不仅检查功能开关是否为 true</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>提交支持请求时提供服务端/客户端版本、Minecraft 与 loader、相关配置片段和报错；先移除令牌、密码、私钥及玩家隐私。更多帮助见<a href="../../troubleshooting/">故障排查</a>。</p>
-<h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <ul>
 <li>作者 / Author: zkonikishi</li>
 <li>QQ: 276098266</li>
@@ -2161,60 +1058,16 @@
 
 
 
-              </article>
-            </div>
-
-
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
-</button>
-
-      </main>
-
-        <footer class="md-footer">
-
-
-
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-
-    <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Meowopia
-    </div>
-
-
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-
-</div>
-
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-
-
-
-
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
-
-
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
-
-        <script src="../../javascripts/plugin-page-layout.js"></script>
-
-
-  </body>
-</html>
+              </main></section><footer>Meowopia · OO 系列插件 <span>Astro · <a href="https://github.com/CuteLeaf/Firefly">Firefly</a> 衍生文档预览</span></footer><dialog id="search-dialog"><button id="search-close" aria-label="关闭搜索">关闭 ×</button><div id="search"></div></dialog><script src="/pagefind/pagefind-ui.js"></script><script src="/plugin-hub.js"></script><script type="module" src="/_astro/Document.astro_astro_type_script_index_0_lang.DGD7JUxE.js"></script><script>
+    const dialog = document.querySelector('#search-dialog');
+    let search, searchTrigger;
+    function openSearch(){if(dialog.open)return;searchTrigger=document.activeElement;dialog.showModal();if(!search && window.PagefindUI)search=new PagefindUI({element:'#search',showSubResults:true,translations:{placeholder:'搜索安装、配置、命令…'}});dialog.querySelector('input')?.focus();}
+    document.querySelector('#search-open').addEventListener('click',openSearch);
+    document.querySelectorAll('[data-open-doc-search]').forEach(el=>el.addEventListener('click',openSearch));
+    document.querySelector('#search-close').addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('close',()=>searchTrigger?.focus());
+    document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openSearch();}});
+    const saved=localStorage.getItem('oo-theme');
+    if(saved==='dark'||(!saved&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');
+    document.querySelector('#theme').addEventListener('click',()=>{const dark=document.documentElement.classList.toggle('dark');localStorage.setItem('oo-theme',dark?'dark':'light');});
+  </script></body></html>
