@@ -14,12 +14,12 @@ const links = [['installation','开始使用'],['configuration','配置指南'],
   {page.slug !== "404" && <link rel="canonical" href={new URL(page.slug ? page.slug + "/" : "", Astro.site)}/> }
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width"/>
   <title>{page.title} · Meowopia</title>
-  <link rel="icon" href={`${root}assets/logo.svg`}/>
+  <link rel="icon" href={`${root}assets/branding/meowopia-v2/favicon-192.png`}/>
   <link rel="stylesheet" href={`${root}pagefind/pagefind-ui.css`}/>
 </head>
 <body>
   <a class="skip-link" href="#content">跳到正文</a>
-  <header class="topbar"><a class="brand" href={root}><img src={`${root}assets/logo.svg`} width="34" height="34" alt=""/>喵托邦 <small>Meowopia</small></a>
+  <header class="topbar"><a class="brand" href={root}><img src={`${root}assets/branding/meowopia-v2/mark-512.png`} width="34" height="34" alt=""/>喵托邦 <small>Meowopia</small></a>
   <nav aria-label="主导航">{[['','首页'],['installation/','文档'],['plugins/','插件'],['development/','开发']].map(([href,label]) => <a href={root+href} aria-current={page.slug === href.replace(/\/$/,'') ? 'page' : undefined}>{label}</a>)}</nav>
   <div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header>
   <section class:list={['layout',{directory}]}>

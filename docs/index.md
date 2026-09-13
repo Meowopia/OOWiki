@@ -8,7 +8,7 @@ hide:
 <div class="wiki-home home-editorial">
 <section class="wiki-hero">
 <div class="wiki-hero-copy"><span class="home-kicker">MEOWOPIA / OO ECOSYSTEM</span><h1>让想法，<br>在 <em>OO</em> 中实现。</h1><p>从服务器的第一个插件，到属于你的独特玩法。<br>在这里了解 OO、找到文档，开始构建自己的喵托邦。</p><div class="wiki-actions"><a class="wiki-primary" href="installation/">开始使用 →</a><a class="wiki-secondary" href="plugins/">探索插件</a></div><span class="home-note">可组合的框架、功能与创作工具 · 面向 Minecraft</span></div>
-<div class="home-hero-art"><img class="wiki-mascot" src="assets/branding/blackcat-v1/oocore/logo-1024.png" width="480" height="480" alt="OO 黑猫吉祥物抱着发光方块" fetchpriority="high"><span class="home-art-caption">小小灵感，也能搭起一个世界。</span></div>
+<div class="home-hero-art"><img class="wiki-mascot" src="assets/branding/meowopia-v2/mark-512.png" width="480" height="480" alt="Meowopia 猫耳无限星环标志" fetchpriority="high"><span class="home-art-caption">小小灵感，也能搭起一个世界。</span></div>
 </section>
 <section class="home-intro" aria-labelledby="home-about"><div><span class="home-kicker">BUILD YOUR WAY</span><h2 id="home-about">不是一套固定玩法，<br>而是你的创作起点。</h2></div><div><p>OO 为 Minecraft 生态提供可组合的框架、功能与创作工具。通过配置、内容与稳定 API，将不同能力组合成自己的服务器体验。</p><a href="vision/">了解 OO 生态愿景 →</a></div></section>
 <section class="home-paths" aria-labelledby="home-start"><div class="home-section-title"><div><span class="home-kicker">START HERE</span><h2 id="home-start">从你要做的事开始</h2></div><span>不必一次读完整本文档。</span></div><div class="home-path-grid">

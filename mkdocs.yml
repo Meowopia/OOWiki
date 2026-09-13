@@ -21,8 +21,8 @@ theme:
   name: material
   custom_dir: docs/overrides
   language: zh
-  logo: assets/logo.svg
-  favicon: assets/logo.svg
+  logo: assets/branding/meowopia-v2/mark-512.png
+  favicon: assets/branding/meowopia-v2/favicon-192.png
   features:
     - navigation.tabs
     - navigation.sections
