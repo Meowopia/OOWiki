@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta name="description" content="Meowopia OO 系列插件：安装、配置、命令与开发文档"><link rel="canonical" href="https://wiki.meowopia.com/development/"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>开发者接入 · Meowopia</title><link rel="icon" href="/assets/branding/meowopia-v2/favicon-192.png"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><link rel="stylesheet" href="/_astro/Document.CgpRqAXT.css"></head><body><a class="skip-link" href="#content">跳到正文</a><header class="topbar"><a class="brand" href="/"><img src="/assets/branding/meowopia-v2/mark-512.png" width="34" height="34" alt="">喵托邦 <small>Meowopia</small></a><nav aria-label="主导航"><a href="/">首页</a><a href="/installation/">文档</a><a href="/plugins/">插件</a><a href="/development/" aria-current="page">开发</a></nav><div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header><section class="layout"><aside><details open class="sidebar"><summary>文档导航</summary><nav aria-label="文档导航"><a href="/installation/">开始使用</a><a href="/configuration/">配置指南</a><a href="/commands-permissions/">命令与权限</a><a href="/architecture/">架构概览</a><a href="/development/">开发指南</a></nav><hr><span class="eyebrow">本页目录</span><nav aria-label="本页目录"><a class="toc-link" href="#_2">开发环境</a><a class="toc-link" href="#_3">仓库边界</a><a class="toc-link" href="#_4">构建</a><a class="toc-link" href="#oocore">OOCore 接入</a><a class="toc-link" href="#ooengine">OOEngine 插件接入</a><a class="toc-link nested" href="#namespace">Namespace 与安全</a><a class="toc-link" href="#renderplan-backend">RenderPlan backend 约束</a><a class="toc-link" href="#fixture">测试 fixture</a><a class="toc-link" href="#ooconsole-contribution">OOConsole Contribution（历史接口；项目已归档）</a><a class="toc-link nested" href="#menu-preset">Menu preset 与应用入口</a><a class="toc-link" href="#oovideo-planned">OOVideo 视频接入（planned）</a><a class="toc-link nested" href="#114-testkit-planned">1.1.4 testkit 门禁（planned）</a><a class="toc-link" href="#ooquest-planned">OOQuest 接入（planned）</a><a class="toc-link nested" href="#ooquest-testkit-planned">OOQuest testkit 门禁（planned）</a><a class="toc-link" href="#ooeditor-oohud-oomodelplanned">OOEditor / OOHUD / OOModel（planned）</a><a class="toc-link" href="#_5">变更与发布规则</a><a class="toc-link" href="#_6">文档规范</a></nav></details></aside><main id="content" tabindex="-1" class="document" data-pagefind-body="true">
+                
+                  
 
 
-
-
-
-
+  
+  
 
 
 <h1 id="_1">开发者接入<a class="headerlink" href="#_1" title="Permanent link" data-pagefind-ignore="">¶</a></h1>
@@ -70,6 +70,7 @@
 <p>OOCore 和 OOEngine 版本号不要求一致。兼容性由 ABI、handshake、API version、Capability 和 schema negotiation 决定，不允许通过比较产品版本字符串猜测。</p>
 <h2 id="_4">构建<a class="headerlink" href="#_4" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>插件内部构建和发布流程属于维护者资料。第三方消费者只需按公开 SDK 文档编译自己的插件，不得复制 provider、runtime 或私有 bridge。</p>
+<p>项目阶段统一遵循 <a href="../release/#branch-model">发布流程中的分支模型</a>：未有稳定版时使用 Alpha，已有稳定版后的日常开发使用 Beta，Dev 仅承接未来平台探索；任何分支都必须通过对应门禁后才能进入 Stable。</p>
 <h2 id="oocore">OOCore 接入<a class="headerlink" href="#oocore" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>正式 API：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">compileOnly</span><span class="p">(</span><span class="s">"com.zkonikishi.oo.core:oocore-api:1.6.1"</span><span class="p">)</span>
@@ -226,7 +227,7 @@
 
 
 
-
+                
               </main></section><footer>Meowopia · OO 系列插件 <span>Astro · <a href="https://github.com/CuteLeaf/Firefly">Firefly</a> 衍生文档预览</span></footer><dialog id="search-dialog"><button id="search-close" aria-label="关闭搜索">关闭 ×</button><div id="search"></div></dialog><script src="/pagefind/pagefind-ui.js"></script><script src="/plugin-hub.js"></script><script type="module" src="/_astro/Document.astro_astro_type_script_index_0_lang.DGD7JUxE.js"></script><script>
     const dialog = document.querySelector('#search-dialog');
     let search, searchTrigger;

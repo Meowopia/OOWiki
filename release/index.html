@@ -1,14 +1,24 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="description" content="Meowopia OO 系列插件：安装、配置、命令与开发文档"><link rel="canonical" href="https://wiki.meowopia.com/release/"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>发布流程 · Meowopia</title><link rel="icon" href="/assets/branding/meowopia-v2/favicon-192.png"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><link rel="stylesheet" href="/_astro/Document.CgpRqAXT.css"></head><body><a class="skip-link" href="#content">跳到正文</a><header class="topbar"><a class="brand" href="/"><img src="/assets/branding/meowopia-v2/mark-512.png" width="34" height="34" alt="">喵托邦 <small>Meowopia</small></a><nav aria-label="主导航"><a href="/">首页</a><a href="/installation/">文档</a><a href="/plugins/">插件</a><a href="/development/">开发</a></nav><div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header><section class="layout"><aside><details open class="sidebar"><summary>文档导航</summary><nav aria-label="文档导航"><a href="/installation/">开始使用</a><a href="/configuration/">配置指南</a><a href="/commands-permissions/">命令与权限</a><a href="/architecture/">架构概览</a><a href="/development/">开发指南</a></nav><hr><span class="eyebrow">本页目录</span><nav aria-label="本页目录"><a class="toc-link" href="#_2">公开稳定版门禁</a><a class="toc-link" href="#release-body-policy">Release body policy</a></nav></details></aside><main id="content" tabindex="-1" class="document" data-pagefind-body="true">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="description" content="Meowopia OO 系列插件：安装、配置、命令与开发文档"><link rel="canonical" href="https://wiki.meowopia.com/release/"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>发布流程 · Meowopia</title><link rel="icon" href="/assets/branding/meowopia-v2/favicon-192.png"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><link rel="stylesheet" href="/_astro/Document.CgpRqAXT.css"></head><body><a class="skip-link" href="#content">跳到正文</a><header class="topbar"><a class="brand" href="/"><img src="/assets/branding/meowopia-v2/mark-512.png" width="34" height="34" alt="">喵托邦 <small>Meowopia</small></a><nav aria-label="主导航"><a href="/">首页</a><a href="/installation/">文档</a><a href="/plugins/">插件</a><a href="/development/">开发</a></nav><div class="tools"><button id="search-open" aria-label="搜索文档">搜索 <kbd>Ctrl K</kbd></button><button id="theme" aria-label="切换明暗主题">◐</button></div></header><section class="layout"><aside><details open class="sidebar"><summary>文档导航</summary><nav aria-label="文档导航"><a href="/installation/">开始使用</a><a href="/configuration/">配置指南</a><a href="/commands-permissions/">命令与权限</a><a href="/architecture/">架构概览</a><a href="/development/">开发指南</a></nav><hr><span class="eyebrow">本页目录</span><nav aria-label="本页目录"><a class="toc-link" href="#_2">统一分支模型</a><a class="toc-link" href="#_3">公开稳定版门禁</a><a class="toc-link" href="#release-body-policy">Release body policy</a></nav></details></aside><main id="content" tabindex="-1" class="document" data-pagefind-body="true">
+                
+                  
 
 
-
-
-
-
+  
+  
 
 
 <h1 id="_1">发布流程<a class="headerlink" href="#_1" title="Permanent link" data-pagefind-ignore="">¶</a></h1>
-<h2 id="_2">公开稳定版门禁<a class="headerlink" href="#_2" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
+<p><a id="branch-model"></a></p>
+<h2 id="_2">统一分支模型<a class="headerlink" href="#_2" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
+<p>OO 插件与客户端项目使用同一套渐进式发布流程，但分支名称只表示开发阶段，不能代替验收结论：</p>
+<ul>
+<li><strong>已有稳定版的项目</strong>：日常开发与修复进入 <code>Beta</code>。完成测试、安全、兼容性以及所需平台验收后，才合并进 <code>Stable</code>，并按正式发布规则创建一次对应的稳定版 Release。合并完成后保留 <code>Beta</code>，继续承接下一轮开发。</li>
+<li><strong>尚无首次稳定版的项目</strong>：继续使用 <code>Alpha</code>。只有首次稳定门禁全部通过后，才能建立或合入 <code>Stable</code>；之后的常规开发再转入 <code>Beta</code>。不得仅因分支改名就把 Alpha 或候选构建描述为稳定版。</li>
+<li><strong>前瞻兼容工作</strong>：<code>Dev</code> 只用于未来 Minecraft、Java、平台或渲染兼容探索。成熟并完成对应验收后先进入当前开发线（<code>Alpha</code> 或 <code>Beta</code>），不得绕过开发线直接进入 <code>Stable</code>。</li>
+</ul>
+<p>该流程不是长期维护两条并行的 Stable 开发线，也不要求收到政策更新后立即批量合并、删除分支或发布。冻结项目只同步必要文档，归档项目保持归档；已有 Release 内容和资产不覆盖。</p>
+<p>OOWiki 是文档站，不套用插件二进制的 <code>Alpha</code> / <code>Beta</code> / <code>Stable</code> 分支模型。Wiki 继续通过文档审查、严格构建和 Pages 部署流程交付。</p>
+<h2 id="_3">公开稳定版门禁<a class="headerlink" href="#_3" title="Permanent link" data-pagefind-ignore="">¶</a></h2>
 <p>每个 OO 产品只有同时满足以下公开条件，Wiki 才会标记为 <strong>stable / released</strong>：</p>
 <ul>
 <li>功能范围、支持平台与已知限制明确；</li>
@@ -42,7 +52,7 @@
 
 
 
-
+                
               </main></section><footer>Meowopia · OO 系列插件 <span>Astro · <a href="https://github.com/CuteLeaf/Firefly">Firefly</a> 衍生文档预览</span></footer><dialog id="search-dialog"><button id="search-close" aria-label="关闭搜索">关闭 ×</button><div id="search"></div></dialog><script src="/pagefind/pagefind-ui.js"></script><script src="/plugin-hub.js"></script><script type="module" src="/_astro/Document.astro_astro_type_script_index_0_lang.DGD7JUxE.js"></script><script>
     const dialog = document.querySelector('#search-dialog');
     let search, searchTrigger;
