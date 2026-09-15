@@ -30,6 +30,8 @@ OOCore 和 OOEngine 版本号不要求一致。兼容性由 ABI、handshake、AP
 
 插件内部构建和发布流程属于维护者资料。第三方消费者只需按公开 SDK 文档编译自己的插件，不得复制 provider、runtime 或私有 bridge。
 
+项目阶段统一遵循 [发布流程中的分支模型](release.md#branch-model)：未有稳定版时使用 Alpha，已有稳定版后的日常开发使用 Beta，Dev 仅承接未来平台探索；任何分支都必须通过对应门禁后才能进入 Stable。
+
 ## OOCore 接入
 
 正式 API：
