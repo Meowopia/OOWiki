@@ -3,6 +3,7 @@ import {readFile, access} from 'node:fs/promises';
 import {load} from 'cheerio';
 import assert from 'node:assert/strict';
 const pages=JSON.parse(await readFile('.generated/pages.json','utf8'));
+await access('dist/.nojekyll');
 const targets=new Map();
 for(const page of pages){
   const $=load(await readFile('dist/'+(page.slug?page.slug+'/':'')+'index.html','utf8'));
@@ -18,6 +19,10 @@ for(const page of pages){
   assert.equal($('title').text(),page.title+' · Meowopia');
   assert(!page.title.endsWith('¶'));
   assert.equal($('link[rel=canonical]').attr('href'),new URL(page.slug ? page.slug+'/' : '/',site).href);
+  for(const asset of $('link[rel="stylesheet"][href],script[src]').toArray()){
+    const path=$(asset).attr('href') ?? $(asset).attr('src');
+    if(path?.startsWith(base))await access('dist/'+decodeURI(path.slice(base.length)));
+  }
   for(const suffix of ['pagefind/pagefind-ui.js','pagefind/pagefind-ui.css']){
     assert($(`[src="${base+suffix}"],[href="${base+suffix}"]`).length,`Missing search resource ${file}: ${suffix}`);
     await access('dist/'+suffix);
