@@ -10,3 +10,10 @@ body{font-family:system-ui,-apple-system,'Microsoft YaHei',sans-serif}.md-main{b
 .ovo-navbar .md-search__input::placeholder{color:var(--md-default-fg-color--light);opacity:1}.ovo-navbar .md-search__icon{color:var(--md-default-fg-color--light)}
 
 .docs-project-art>img{height:auto}
+
+/* Pixel mascot assets use nearest-neighbor scaling and retain transparent margins. */
+.plugin-card-top img,.md-typeset .plugin-page-icon{image-rendering:pixelated;object-fit:contain}
+.md-typeset .plugin-page-icon{display:block;width:160px;height:160px;border-radius:0;margin:0 0 24px}
+
+.plugin-card-top{flex-wrap:wrap;align-items:center;gap:8px}
+.plugin-card-top img{width:64px;height:64px;flex:0 0 64px;border-radius:0;box-shadow:none}
