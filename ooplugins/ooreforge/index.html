@@ -1,0 +1,2870 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Meowopia 项目文档：OO 空间、Minecraft 插件、Mrad、Meowoo、Amoei 与博客">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.meowopia.com/ooplugins/ooreforge/">
+      
+      
+        <link rel="prev" href="../oovip/">
+      
+      
+        <link rel="next" href="../vision/">
+      
+      
+      <link rel="icon" href="../../assets/community/meowopia-logo-8a1163a90df1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>OOReforge - Meowopia Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/redesign.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/home.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/community.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ooreforge" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <header class="md-header ovo-navbar" data-md-component="header">
+    <nav class="ovo-navbar-inner md-grid" aria-label="顶部导航">
+      <div class="ovo-navbar-start">
+        <label class="md-header__button md-icon ovo-menu" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <a class="ovo-brand" href="../.." aria-label="Meowopia Wiki 首页">
+          <img class="ovo-brand-mark" src="../../assets/community/meowopia-logo-8a1163a90df1.png" alt="Meowopia">
+          <span class="ovo-brand-name">Meowopia <small>Wiki</small></span>
+        </a>
+      </div>
+
+      <div class="ovo-navbar-links">
+        <a href="../..">首页</a>
+        <a href="../../projects/">项目文档</a>
+        <a href="../">Minecraft 插件</a>
+        <a href="https://www.meowopia.com/">官网 ↗</a>
+      </div>
+
+      <div class="ovo-navbar-actions">
+        
+          <label class="md-header__button md-icon ovo-nav-icon" for="__search" title="搜索">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          </label>
+        
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+          <label class="md-header__button md-icon ovo-nav-icon" title="切换到深色模式" for="__palette_0" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </label>
+        
+          <label class="md-header__button md-icon ovo-nav-icon" title="切换到浅色模式" for="__palette_1" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </label>
+        
+        <a class="ovo-github" href="https://github.com/Meowopia/OOWiki" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg><span>GitHub</span>
+        </a>
+
+      </div>
+    </nav>
+  </header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+  项目文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Minecraft 插件
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../source-policy/" class="md-tabs__link">
+          
+  
+  
+  Wiki 维护
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Meowopia Wiki" class="md-nav__button md-logo" aria-label="Meowopia Wiki" data-md-component="logo">
+      
+  <img src="../../assets/community/meowopia-logo-8a1163a90df1.png" alt="logo">
+
+    </a>
+    Meowopia Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Meowopia/OOWiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Meowopia Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    项目文档
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            项目文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    项目导航
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OO 账号与空间
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../amoei/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amoei 智能女仆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meowoo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Meowoo 播放器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mrad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mrad 游戏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    博客与创作
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    社区与帮助
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Minecraft 插件
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Minecraft 插件
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    插件目录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    产品文档
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            产品文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oocore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOCore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ooengine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOEngine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ooconsole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOConsole
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oogame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOGame
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oomusic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOMusic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oobrowser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOBrowser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oochat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOChat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oovip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOVIP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOReforge
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能与使用方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      已实现功能 / Implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装与前置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令状态
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="命令状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      权限与继承
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量与占位符（开发版参考）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变量与占位符（开发版参考）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作台确认按钮
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置表达式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      语言消息模板
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ooconsoleplanned-blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      OOConsole（planned / blocked）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置 / Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      升级与回滚
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      验证状态
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题与限制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="已知问题与限制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java 与服务端兼容目标（尚未验收）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系 / Contact
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    使用指南
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            使用指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OO 生态愿景
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    安装与升级
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    架构与依赖
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    配置参考
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    命令与权限
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    集成边界
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    迁移规则
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    安全模型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    故障排查
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    插件开发
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            插件开发
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    开发者接入
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    发布流程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acceptance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    验收清单
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Wiki 维护
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Wiki 维护
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../source-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    开源与仓库边界
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pages 预览与回滚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能与使用方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      已实现功能 / Implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      未实现功能 / Not implemented
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来计划 / Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装与前置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令状态
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="命令状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      权限与继承
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量与占位符（开发版参考）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变量与占位符（开发版参考）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作台确认按钮
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置表达式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      语言消息模板
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ooconsoleplanned-blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      OOConsole（planned / blocked）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置 / Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      升级与回滚
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      验证状态
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题与限制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="已知问题与限制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java 与服务端兼容目标（尚未验收）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系 / Contact
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ooreforge">OOReforge<a class="headerlink" href="#ooreforge" title="Permanent link">&para;</a></h1>
+<p><img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooreforge/banner-1200x630.webp" alt="喵托邦 Meowopia · OOReforge 装备锻造与重铸" loading="lazy" decoding="async"></p>
+<p><strong>分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：尚未正式发布，功能开发暂停。</strong></p>
+<p>OOReforge 是喵托邦 / Meowopia 的装备锻造与重铸插件，面向需要自定义强化、增幅、精炼、材料消耗和打造台的服务器。</p>
+<div class="admonition warning">
+<p class="admonition-title">当前可用范围</p>
+<p>截至 2026-09-02，本项目 GitHub 尚无正式 Release。下面介绍的是开发版已有的功能和配置入口，不代表已发布、已完成生产服务器验收或可以直接下载使用。请勿将开发分支版本当成稳定版安装到正式服。</p>
+</div>
+<h2 id="_1">功能与使用方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>开发版已包含以下功能入口，正式可用范围以未来发布说明为准：</p>
+<ul>
+<li><strong>配置打造规则</strong>：定义打造模式、材料、支付要求、成功率、失败处理和装备属性效果。</li>
+<li><strong>游戏内打造台</strong>：打开指定工作台放入装备，并按配置完成操作；管理员可编辑工作台布局。</li>
+<li><strong>等级券与异次元属性</strong>：配置可消耗等级券、属性定义和净化或赋予属性的消耗品。</li>
+<li><strong>状态与运维查询</strong>：查询装备、支付/属性适配状态、交易记录和待处理恢复记录。</li>
+</ul>
+<p>分解默认关闭；配置中出现某个第三方插件名，不等于它已完成兼容支持。缺少所选材料、支付或属性支持时，不应继续执行相关打造操作。</p>
+<h2 id="implemented">已实现功能 / Implemented<a class="headerlink" href="#implemented" title="Permanent link">&para;</a></h2>
+<p><strong>暂无正式版；以下仅为 1.3.0 未发布开发工作的实现参考。</strong> 本节核对的是开发源码与配置，不代表已经完成真实服务器使用验收，也不表示已有稳定安装包。</p>
+<table>
+<thead>
+<tr>
+<th>开发版已有实现</th>
+<th>必要条件</th>
+<th>当前验证范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置打造模式、材料、支付要求、成功率、失败处理和属性效果</td>
+<td>使用有效配置；所选物品、经济与属性适配器实际可用</td>
+<td>已核对配置及处理代码；第三方组合的实服结算仍需验证</td>
+</tr>
+<tr>
+<td>游戏内打造台、装备预览与确认操作、管理员布局编辑</td>
+<td>在线玩家、对应权限及已配置工作台</td>
+<td>已核对入口和界面处理；不宣称玩家完整操作流程已验收</td>
+</tr>
+<tr>
+<td>等级券、异次元属性定义及相关消耗品处理</td>
+<td>启用对应配置，装备符合条件，必要属性支持可用</td>
+<td>已核对配置、命令与处理代码；真实物品效果仍需实服验证</td>
+</tr>
+<tr>
+<td>帮助、装备检查、状态和记录查询，以及管理操作</td>
+<td>对应权限；仅玩家命令不能由控制台执行</td>
+<td>命令语法与权限已按实际处理逻辑复核；详见本页命令表</td>
+</tr>
+<tr>
+<td>中文/英文消息、配置校验、迁移及重载保护逻辑</td>
+<td>UTF-8 配置；保留版本字段、引用和消息占位符</td>
+<td>已核对加载与保护实现；历史服务器数据升级仍应先在副本验证</td>
+</tr>
+</tbody>
+</table>
+<h2 id="not-implemented">未实现功能 / Not implemented<a class="headerlink" href="#not-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>尚不可用：OOConsole 可视化配置工作区。</strong> 接入准备不等于服主已经可以打开网页编辑锻造配置。</li>
+<li><strong>尚不可用：OOEngine 客户端窗口。</strong> 不能将现有游戏内工作台当成已完成的客户端窗口接入。</li>
+<li><strong>部分完成：统一命令与正式前置接入。</strong> 开发版已有 <code>/oo reforge</code> 路径，但正式前置要求与最终命令接入尚未完成交付验收。</li>
+<li><strong>支持有限：第三方适配。</strong> 仅有配置示例或插件名称的条目，不代表已实现；不能把所有列出的经济、物品与属性插件当成兼容清单。</li>
+<li><strong>未开放：分解流程。</strong> 默认关闭，当前不能作为已交付功能使用。</li>
+<li><strong>未提供：对外 PAPI 变量。</strong> 本页列出的确认按钮、语言模板与公式变量，仅在各自指定位置生效。</li>
+<li><strong>尚未完成：正式服务器兼容与发布验收。</strong> 当前没有生产可用或 Paper/Folia 跨版本兼容承诺。</li>
+</ul>
+<h2 id="roadmap">未来计划 / Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<p>以下仅为已有规划，功能开发仍暂停，没有承诺完成日期或发布版本：</p>
+<ol>
+<li>完成正式命令与前置接入验证，保持统一 <code>/oo reforge</code> 入口，并核实权限、玩家操作与停用清理。</li>
+<li>在相应正式接口和运行环境具备条件后，验证可选 OOConsole 配置管理；客户端窗口同样须等待正式窗口能力验收，不另建独立后台。</li>
+<li>补齐真实服务器中的打造、消耗、失败处理、恢复及升级回滚验证，确认兼容范围后再准备首个稳定交付。</li>
+</ol>
+<p>没有在此承诺新增 PAPI 变量、开放分解或支持全部第三方插件；这些不能由示例配置推导为已批准计划。</p>
+<h2 id="_2">安装与前置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>目前尚无面向服主的正式安装包。</strong> 以下是未来正式版本的安装准备说明，不是现有生产可用承诺。</p>
+<ol>
+<li>准备受该发布版本支持的 Paper 服务端和 Java 环境；当前不宣称 Folia 或任意 Minecraft 版本已经兼容。</li>
+<li>按正式产品要求安装 <strong>OOCore（必需前置）</strong>，由它提供统一 <code>/oo</code> 命令入口。不要跳过前置检查。</li>
+<li>获得正式授权的 OOReforge 主 JAR 后，将 OOCore 与 OOReforge 的插件 JAR 放入服务器 <code>plugins/</code> 目录，完整重启服务端。</li>
+<li>首次成功启用后，在 <code>plugins/OOReforge/</code> 编辑配置，并检查启动日志及 <code>/oo reforge status</code>。</li>
+<li>按实际打造方案安装需要的经济、物品或属性插件；先在测试服验证完整消耗与结算流程，再开放给玩家。</li>
+</ol>
+<p>OOCore 的最低正式验证版本尚未公布；前置必须能提供该 OOReforge 发布版本所需功能，不表示只能安装某个完全相等的版本号。当前开发版仍保留旧兼容启动方式，<strong>正式必需前置要求尚未完成交付验收</strong>，请勿据此省略 OOCore。</p>
+<p>OOEngine 与 OOConsole 不是锻造核心功能的必装前置。可选可视化接入仍在开发中，不能因为安装了它们就认为网页编辑或客户端窗口已经可用。</p>
+<h2 id="_3">命令状态<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>以下全部为 1.3.0 未发布开发工作的参考，不是稳定版接口承诺。</strong> 无正式 Release 可用于安装验收；工程中的开发编号不代表已发布版本。</p>
+<p>统一命令前缀为 <code>/oo reforge</code>，由 OOCore 提供 <code>/oo</code>。下表语法与例子均接在该前缀后；例如 <code>help</code> 完整输入为 <code>/oo reforge help</code>。控制台执行时通常省略开头的斜杠。尖括号必填，方括号可选；Alice 代表在线目标玩家，UUID 须从实际记录复制。所有示例均需相应权限和配置，不要在正式资产上试验管理操作。</p>
+<table>
+<thead>
+<tr>
+<th>子命令完整语法</th>
+<th>默认 / 参数约束</th>
+<th>用途</th>
+<th>精确权限</th>
+<th>执行者</th>
+<th>最小示例（接前缀）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>help</code></td>
+<td>不输入子命令也显示帮助</td>
+<td>按权限显示帮助</td>
+<td><code>ooreforge.help</code></td>
+<td>玩家/控制台</td>
+<td><code>help</code></td>
+</tr>
+<tr>
+<td><code>open [工作台ID]</code></td>
+<td>默认 <code>reinforcement</code></td>
+<td>打开打造台</td>
+<td><code>ooreforge.open</code></td>
+<td>仅玩家</td>
+<td><code>open</code></td>
+</tr>
+<tr>
+<td><code>inspect</code></td>
+<td>无参数</td>
+<td>查看主手装备</td>
+<td><code>ooreforge.inspect</code></td>
+<td>仅玩家</td>
+<td><code>inspect</code></td>
+</tr>
+<tr>
+<td><code>ticket &lt;等级券ID&gt;</code></td>
+<td>ID 必填且须已配置</td>
+<td>打开等级券界面</td>
+<td><code>ooreforge.ticket</code></td>
+<td>仅玩家</td>
+<td><code>ticket reinforcement_12_ticket</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>无参数</td>
+<td>运行状态</td>
+<td><code>ooreforge.admin.status</code></td>
+<td>玩家/控制台</td>
+<td><code>status</code></td>
+</tr>
+<tr>
+<td><code>providers</code></td>
+<td>无参数</td>
+<td>属性支持状态</td>
+<td><code>ooreforge.admin.providers</code></td>
+<td>玩家/控制台</td>
+<td><code>providers</code></td>
+</tr>
+<tr>
+<td><code>reload</code></td>
+<td>无参数</td>
+<td>验证并重载配置</td>
+<td><code>ooreforge.admin.reload</code></td>
+<td>玩家/控制台</td>
+<td><code>reload</code></td>
+</tr>
+<tr>
+<td><code>editor &lt;工作台ID&gt;</code></td>
+<td>ID 必填</td>
+<td>编辑游戏内布局</td>
+<td><code>ooreforge.admin.editor</code></td>
+<td>仅玩家</td>
+<td><code>editor reinforcement</code></td>
+</tr>
+<tr>
+<td><code>give-ticket &lt;等级券ID&gt; [数量] [玩家]</code></td>
+<td>数量默认 1，范围 1–64；目标默认执行玩家，控制台须填数量与在线玩家</td>
+<td>发券</td>
+<td><code>ooreforge.admin.giveticket</code></td>
+<td>玩家/控制台</td>
+<td><code>give-ticket reinforcement_12_ticket 1 Alice</code></td>
+</tr>
+<tr>
+<td><code>setlevel &lt;玩家&gt; &lt;打造模式ID&gt; &lt;等级&gt; &lt;数量&gt;</code></td>
+<td>全部必填；等级非负并通过模式规则；数量至少 1 且不超过目标主手数量</td>
+<td>设置主手装备等级</td>
+<td><code>ooreforge.admin.setlevel</code></td>
+<td>玩家/控制台；目标须在线</td>
+<td><code>setlevel Alice reinforcement 1 1</code></td>
+</tr>
+<tr>
+<td><code>setdimensional &lt;玩家&gt; &lt;属性ID&gt; &lt;数量&gt;</code></td>
+<td>全部必填；属性已配置；数量至少 1 且不超过目标主手数量</td>
+<td>设置主手属性</td>
+<td><code>ooreforge.admin.setdimensional</code></td>
+<td>玩家/控制台；目标须在线</td>
+<td><code>setdimensional Alice strength 1</code></td>
+</tr>
+<tr>
+<td><code>audit [recent] [条数]</code></td>
+<td>省略动作默认 recent；条数默认 10，1–50；指定条数时需写 recent</td>
+<td>最近记录</td>
+<td><code>ooreforge.admin.audit</code></td>
+<td>玩家/控制台</td>
+<td><code>audit</code></td>
+</tr>
+<tr>
+<td><code>audit show &lt;事务UUID&gt;</code></td>
+<td>UUID 必填</td>
+<td>事务历史</td>
+<td><code>ooreforge.admin.audit</code></td>
+<td>玩家/控制台</td>
+<td><code>audit show &lt;事务UUID&gt;</code></td>
+</tr>
+<tr>
+<td><code>audit search &lt;关键词&gt; [条数]</code></td>
+<td>单个关键词；条数默认 10，1–50</td>
+<td>搜索记录</td>
+<td><code>ooreforge.admin.audit</code></td>
+<td>玩家/控制台</td>
+<td><code>audit search reinforcement</code></td>
+</tr>
+<tr>
+<td><code>recovery [list]</code></td>
+<td>默认 list；最多显示 10 条</td>
+<td>待恢复记录</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery</code></td>
+</tr>
+<tr>
+<td><code>recovery show &lt;事务UUID&gt;</code></td>
+<td>UUID 必填</td>
+<td>查看恢复详情</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery show &lt;事务UUID&gt;</code></td>
+</tr>
+<tr>
+<td><code>recovery mark &lt;事务UUID&gt; &lt;committed或rolled_back&gt; [备注]</code></td>
+<td>备注可含空格；省略时记录执行者</td>
+<td>人工标记已核实的处理结果，不是自动退款命令</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery mark &lt;事务UUID&gt; rolled_back 已核对</code></td>
+</tr>
+<tr>
+<td><code>recovery close-empty-ready confirm</code></td>
+<td>confirm 必填</td>
+<td>关闭未扣款的 READY 恢复记录</td>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>玩家/控制台</td>
+<td><code>recovery close-empty-ready confirm</code></td>
+</tr>
+<tr>
+<td><code>payment-test &lt;支付源&gt; &lt;资产&gt; &lt;数量&gt; confirm</code></td>
+<td>正整数数量；支付源和资产须匹配实际配置；无默认</td>
+<td>对执行玩家真实扣款再退款</td>
+<td><code>ooreforge.admin.paymenttest</code></td>
+<td><strong>仅玩家</strong></td>
+<td><code>payment-test &lt;支付源&gt; &lt;资产&gt; 1 confirm</code></td>
+</tr>
+</tbody>
+</table>
+<p>支付测试退款失败时可能留下实际损失；恢复命令可能改变记录状态，必须先备份并核实。开发版保留 <code>/ooreforge</code>、<code>/ooref</code>、<code>/oor</code>、<code>/mythicreforge</code>、<code>/mreforge</code>、<code>/mr</code> 兼容入口，新配置统一使用 <code>/oo reforge</code>。</p>
+<h3 id="_4">权限与继承<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以下为 descriptor 默认值与实际命令处理检查的对应关系。权限管理插件的显式配置可改变最终授权；没有定义 <code>ooreforge.*</code> 通配符。</p>
+<table>
+<thead>
+<tr>
+<th>精确权限</th>
+<th>功能 / 实际继承</th>
+<th>声明默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ooreforge.player</code></td>
+<td>授予 help、open、inspect、ticket 四个完整节点</td>
+<td>普通玩家与 OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.use</code></td>
+<td>旧普通权限组，同样授予上述四项</td>
+<td>普通玩家与 OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.help</code></td>
+<td>帮助</td>
+<td>普通玩家与 OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.open</code></td>
+<td>打开工作台</td>
+<td>默认无直接授权，由普通权限组继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.inspect</code></td>
+<td>查看主手装备</td>
+<td>默认无直接授权，由普通权限组继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.ticket</code></td>
+<td>等级券界面</td>
+<td>默认无直接授权，由普通权限组继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin</code></td>
+<td>授予下面全部十个 admin 子节点</td>
+<td>OP</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.status</code></td>
+<td>状态</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.reload</code></td>
+<td>重载</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.providers</code></td>
+<td>属性适配查询</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.editor</code></td>
+<td>游戏内布局编辑</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.giveticket</code></td>
+<td>发券</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.setlevel</code></td>
+<td>管理员改等级</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.setdimensional</code></td>
+<td>管理员改属性</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.audit</code></td>
+<td>审计查询</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.recovery</code></td>
+<td>恢复管理</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+<tr>
+<td><code>ooreforge.admin.paymenttest</code></td>
+<td>真实支付测试</td>
+<td>默认无直接授权；由 admin 继承</td>
+</tr>
+</tbody>
+</table>
+<p>兼容权限均默认不授予；每个节点仅把对应的新节点设为 true，不是通配符：</p>
+<table>
+<thead>
+<tr>
+<th>旧节点</th>
+<th>授予的新节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mythicreforge.player</code></td>
+<td><code>ooreforge.player</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.use</code></td>
+<td><code>ooreforge.use</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.help</code></td>
+<td><code>ooreforge.help</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.open</code></td>
+<td><code>ooreforge.open</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.inspect</code></td>
+<td><code>ooreforge.inspect</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.ticket</code></td>
+<td><code>ooreforge.ticket</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin</code></td>
+<td><code>ooreforge.admin</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.status</code></td>
+<td><code>ooreforge.admin.status</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.reload</code></td>
+<td><code>ooreforge.admin.reload</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.providers</code></td>
+<td><code>ooreforge.admin.providers</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.editor</code></td>
+<td><code>ooreforge.admin.editor</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.giveticket</code></td>
+<td><code>ooreforge.admin.giveticket</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.setlevel</code></td>
+<td><code>ooreforge.admin.setlevel</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.setdimensional</code></td>
+<td><code>ooreforge.admin.setdimensional</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.audit</code></td>
+<td><code>ooreforge.admin.audit</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.recovery</code></td>
+<td><code>ooreforge.admin.recovery</code></td>
+</tr>
+<tr>
+<td><code>mythicreforge.admin.paymenttest</code></td>
+<td><code>ooreforge.admin.paymenttest</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">变量与占位符（开发版参考）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><strong>当前暂无对外 PlaceholderAPI（PAPI）变量/占位符。</strong> 没有供聊天插件、计分板或其他插件调用的 <code>%ooreforge_…%</code> 扩展；安装 PAPI 不会自动提供它。下面是本插件自己的模板和公式，不是 PAPI，也不是 OOConsole 或客户端 UI 绑定。</p>
+<h3 id="_6">工作台确认按钮<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>仅作用于 <code>config.yml</code> 的 <code>stations.&lt;工作台ID&gt;.icons.confirm</code> 中 display-name 和 lore，在有效装备预览生成时替换。不能套用到界面标题、任意物品或其他插件。示例仅表示显示格式，实际由装备和配置决定；无需 PAPI。</p>
+<table>
+<thead>
+<tr>
+<th>精确写法</th>
+<th>含义</th>
+<th>替换示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{success_rate}</code></td>
+<td>当前预览成功率，不自带百分号</td>
+<td><code>50</code>，模板可写 <code>{success_rate}%</code></td>
+</tr>
+<tr>
+<td><code>{cost}</code></td>
+<td>支付展示金额</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td><code>{currency}</code></td>
+<td>支付展示货币标识</td>
+<td>按所选支付方案显示</td>
+</tr>
+<tr>
+<td><code>{materials}</code></td>
+<td>材料需求摘要</td>
+<td>按所选支付方案显示</td>
+</tr>
+<tr>
+<td><code>{payments}</code></td>
+<td>完整支付需求摘要</td>
+<td>按所选支付方案显示</td>
+</tr>
+<tr>
+<td><code>{current_level}</code></td>
+<td>当前打造等级</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>{next_level}</code></td>
+<td>预览目标等级</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>{minimum_level}</code></td>
+<td>模式要求最低玩家等级</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>{craft}</code></td>
+<td>模式显示名称，不是 ID</td>
+<td><code>强化</code></td>
+</tr>
+</tbody>
+</table>
+<p>例如确认按钮 lore 可写 <code>成功率：{success_rate}%</code> 和 <code>支付：{payments}</code>。显示模板不能改变真实支付结果。</p>
+<h3 id="_7">配置表达式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><code>level</code>（无花括号）是等级表达式变量，例如异次元属性 <code>value: "level * 3"</code> 传入增幅等级 2 时得到 6。只在接受等级公式的字段中使用，不是全局文本替换，不支持脚本。支持整数、括号和加减乘除；整数除法截断，非法或超范围结果拒绝。不同字段传入等级的语义不同，不要将它当成通用玩家等级。</p>
+<h3 id="_8">语言消息模板<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>仅作用于 <code>lang/zh_CN.yml</code> 与 <code>lang/en_US.yml</code> 对应消息键。只有触发该消息的操作提供的变量会替换；同名变量在不同消息中可有不同含义，不能跨消息复制后就认定可用。无需 PAPI。</p>
+<p>下表按随包中文模板列出精确写法和上下文；模板原文说明变量含义。例如 <code>common.no_permission</code> 的 <code>{permission}</code> 可显示 <code>ooreforge.admin.reload</code>，<code>status.recovery</code> 的 <code>{count}</code> 可显示 <code>0</code>。表内花括号表示模板，不是已执行输出。</p>
+<table>
+<thead>
+<tr>
+<th>消息键 / 作用域</th>
+<th>精确占位符</th>
+<th>随包显示模板（含义参考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>common.no_permission</code></td>
+<td>{permission}</td>
+<td>你没有权限：{permission}</td>
+</tr>
+<tr>
+<td><code>help.header</code></td>
+<td>{version}</td>
+<td>&amp;dOOReforge {version} &amp;7- 可用命令</td>
+</tr>
+<tr>
+<td><code>status.header</code></td>
+<td>{version}、{configured}、{effective}</td>
+<td>OOReforge {version} | 配置安全模式={configured} | 实际安全模式={effective}</td>
+</tr>
+<tr>
+<td><code>status.recovery</code></td>
+<td>{count}</td>
+<td>未完成恢复记录={count}</td>
+</tr>
+<tr>
+<td><code>status.audit</code></td>
+<td>{count}</td>
+<td>未完成审计事务={count}</td>
+</tr>
+<tr>
+<td><code>status.sources</code></td>
+<td>{sources}</td>
+<td>支付源={sources}</td>
+</tr>
+<tr>
+<td><code>status.refund_safety</code></td>
+<td>{capabilities}</td>
+<td>自动退款安全能力={capabilities}</td>
+</tr>
+<tr>
+<td><code>status.vault</code></td>
+<td>{economy}</td>
+<td>Vault 经济后端={economy}</td>
+</tr>
+<tr>
+<td><code>reload.rejected</code></td>
+<td>{error}</td>
+<td>OOReforge 重载被拒绝，旧运行配置继续生效：{error}</td>
+</tr>
+<tr>
+<td><code>setlevel.target_online</code></td>
+<td>{player}</td>
+<td>目标玩家不在线：{player}</td>
+</tr>
+<tr>
+<td><code>setlevel.quantity</code></td>
+<td>{requested}、{available}</td>
+<td>主手物品数量不足：需要 {requested}，当前 {available}。</td>
+</tr>
+<tr>
+<td><code>setlevel.rejected</code></td>
+<td>{error}</td>
+<td>无法设置打造等级：{error}</td>
+</tr>
+<tr>
+<td><code>setlevel.success</code></td>
+<td>{player}、{amount}、{craft}、{level}</td>
+<td>已将 {player} 主手装备中的 {amount} 件物品设置为 {craft} +{level}。未消耗金币或材料。</td>
+</tr>
+<tr>
+<td><code>setlevel.received</code></td>
+<td>{amount}、{craft}、{level}</td>
+<td>管理员已将你主手装备中的 {amount} 件物品设置为 {craft} +{level}。</td>
+</tr>
+<tr>
+<td><code>setdimensional.target_online</code></td>
+<td>{player}</td>
+<td>目标玩家不在线：{player}</td>
+</tr>
+<tr>
+<td><code>setdimensional.quantity</code></td>
+<td>{requested}、{available}</td>
+<td>主手物品数量不足：需要 {requested}，当前 {available}。</td>
+</tr>
+<tr>
+<td><code>setdimensional.rejected</code></td>
+<td>{error}</td>
+<td>无法设置异次元属性：{error}</td>
+</tr>
+<tr>
+<td><code>setdimensional.success</code></td>
+<td>{player}、{amount}、{attribute}</td>
+<td>已将 {player} 主手装备中的 {amount} 件物品设置为异次元属性 {attribute}。未消耗金币或材料。</td>
+</tr>
+<tr>
+<td><code>setdimensional.received</code></td>
+<td>{amount}、{attribute}</td>
+<td>管理员已将你主手装备中的 {amount} 件物品设置为异次元属性 {attribute}。</td>
+</tr>
+<tr>
+<td><code>editor.usage</code></td>
+<td>{stations}</td>
+<td>用法：/oo reforge editor &lt;工作台ID&gt; | 可用={stations}</td>
+</tr>
+<tr>
+<td><code>editor.unknown</code></td>
+<td>{station}、{stations}</td>
+<td>未知工作台：{station} | 可用={stations}</td>
+</tr>
+<tr>
+<td><code>editor.opened</code></td>
+<td>{station}</td>
+<td>已打开 {station} 可视化布局编辑器。点击一个功能标记，再点击目标槽位；关闭界面后选择保存或放弃。</td>
+</tr>
+<tr>
+<td><code>payment_test.insufficient</code></td>
+<td>{source}、{asset}</td>
+<td>支付测试被拒绝：{source}:{asset} 余额不足。</td>
+</tr>
+<tr>
+<td><code>payment_test.refund_failed</code></td>
+<td>{amount}、{source}、{asset}</td>
+<td>严重错误：扣款成功但退款失败，请检查控制台并手工返还 {amount} {source}:{asset}。</td>
+</tr>
+<tr>
+<td><code>payment_test.passed</code></td>
+<td>{source}、{asset}、{amount}</td>
+<td>支付测试净零通过：{source}:{asset}，数量={amount}</td>
+</tr>
+<tr>
+<td><code>payment_test.failed</code></td>
+<td>{error}</td>
+<td>支付测试在完成扣款/退款前失败：{error}</td>
+</tr>
+<tr>
+<td><code>station.delegated</code></td>
+<td>{provider}</td>
+<td>分解功能已交由 {provider} 处理。</td>
+</tr>
+<tr>
+<td><code>station.unknown</code></td>
+<td>{station}、{available}</td>
+<td>未知工作台：{station} | 可用={available}</td>
+</tr>
+<tr>
+<td><code>station.preview_failed</code></td>
+<td>{error}</td>
+<td>无法预览打造：{error}</td>
+</tr>
+<tr>
+<td><code>station.transaction</code></td>
+<td>{id}、{status}、{message}</td>
+<td>事务 {id} | {status} | {message}</td>
+</tr>
+<tr>
+<td><code>station.rejected</code></td>
+<td>{error}</td>
+<td>打造被拒绝：{error}</td>
+</tr>
+<tr>
+<td><code>ticket.available</code></td>
+<td>{tickets}</td>
+<td>可用等级券：{tickets}</td>
+</tr>
+<tr>
+<td><code>ticket.unknown</code></td>
+<td>{ticket}、{available}</td>
+<td>未知等级券：{ticket} | 可用={available}</td>
+</tr>
+<tr>
+<td><code>ticket.given</code></td>
+<td>{player}、{amount}、{ticket}</td>
+<td>已向 {player} 发放 {amount} 个 {ticket}。</td>
+</tr>
+<tr>
+<td><code>ticket.title</code></td>
+<td>{level}</td>
+<td>+{level} 强化券</td>
+</tr>
+<tr>
+<td><code>ticket.preview_name</code></td>
+<td>{level}、{craft}</td>
+<td craft="craft">+{level}</td>
+</tr>
+<tr>
+<td><code>ticket.cannot_apply</code></td>
+<td>{error}</td>
+<td>等级券无法使用：{error}</td>
+</tr>
+<tr>
+<td><code>ticket.applied</code></td>
+<td>{level}、{craft}</td>
+<td>已100%成功应用 +{level} {craft}。</td>
+</tr>
+<tr>
+<td><code>ticket.rolled_back</code></td>
+<td>{error}</td>
+<td>等级券事务已回滚：{error}</td>
+</tr>
+<tr>
+<td><code>inspect.schema</code></td>
+<td>{schema}、{upgrades}</td>
+<td>数据版本={schema} 打造等级={upgrades}</td>
+</tr>
+<tr>
+<td><code>inspect.invalid</code></td>
+<td>{errors}</td>
+<td errors="errors">状态=无效</td>
+</tr>
+<tr>
+<td><code>inspect.corrupt</code></td>
+<td>{error}</td>
+<td>OOReforge 数据无效：{error}</td>
+</tr>
+<tr>
+<td><code>dimensional.selected</code></td>
+<td>{attribute}</td>
+<td>已选择：{attribute}</td>
+</tr>
+<tr>
+<td><code>dimensional.applied</code></td>
+<td>{attribute}</td>
+<td>已应用异次元属性：{attribute}</td>
+</tr>
+<tr>
+<td><code>dimensional.rejected</code></td>
+<td>{error}</td>
+<td>操作被拒绝：{error}</td>
+</tr>
+<tr>
+<td><code>recovery.list_header</code></td>
+<td>{count}</td>
+<td>未完成恢复记录：{count}</td>
+</tr>
+<tr>
+<td><code>recovery.list_entry</code></td>
+<td>{id}、{status}、{player}、{station}、{craft}、{debits}</td>
+<td>{id} 状态={status} 玩家={player} 工作台={station} 打造={craft} 扣款项={debits}</td>
+</tr>
+<tr>
+<td><code>recovery.unknown</code></td>
+<td>{id}</td>
+<td>未知恢复事务：{id}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_header</code></td>
+<td>{id}、{status}</td>
+<td>恢复事务 {id} 状态={status}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_context</code></td>
+<td>{player}、{station}、{craft}、{slot}</td>
+<td>玩家={player} 工作台={station} 打造={craft} 槽位={slot}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_snapshot</code></td>
+<td>{fingerprint}、{bytes}</td>
+<td>指纹={fingerprint} 快照字节数={bytes}</td>
+</tr>
+<tr>
+<td><code>recovery.debit</code></td>
+<td>{source}、{asset}、{amount}、{account}</td>
+<td>扣款 {source}:{asset} x{amount} 账户={account}</td>
+</tr>
+<tr>
+<td><code>recovery.detail_message</code></td>
+<td>{message}</td>
+<td>消息={message}</td>
+</tr>
+<tr>
+<td><code>recovery.invalid_uuid</code></td>
+<td>{value}</td>
+<td>无效UUID：{value}</td>
+</tr>
+<tr>
+<td><code>recovery.marked</code></td>
+<td>{id}、{status}</td>
+<td>恢复与审计事务 {id} 已标记为 {status}，未修改任何资产。</td>
+</tr>
+<tr>
+<td><code>recovery.closed</code></td>
+<td>{closed}、{skipped}</td>
+<td>已关闭无扣款READY事务：{closed}，跳过：{skipped}</td>
+</tr>
+<tr>
+<td><code>audit.list_header</code></td>
+<td>{count}</td>
+<td>最近审计事务：{count}</td>
+</tr>
+<tr>
+<td><code>audit.history_header</code></td>
+<td>{id}、{count}</td>
+<td>事务 {id} 的完整状态历史：{count} 条</td>
+</tr>
+<tr>
+<td><code>audit.search_header</code></td>
+<td>{query}、{count}</td>
+<td>审计搜索“{query}”：{count} 条</td>
+</tr>
+<tr>
+<td><code>audit.entry</code></td>
+<td>{time}、{id}、{status}、{craft}、{from}、{to}、{cost}、{materials}、{message}</td>
+<td>{time} | {id} | {status} | {craft} {from}→{to} | 费用={cost} 材料={materials} | {message}</td>
+</tr>
+<tr>
+<td><code>audit.unknown</code></td>
+<td>{id}</td>
+<td>未知审计事务：{id}</td>
+</tr>
+<tr>
+<td><code>providers.header</code></td>
+<td>{count}</td>
+<td>属性 Provider：{count}</td>
+</tr>
+<tr>
+<td><code>providers.entry</code></td>
+<td>{id}、{type}、{available}</td>
+<td>{id} | 类型={type} | 可用={available}</td>
+</tr>
+<tr>
+<td><code>providers.dimensional_header</code></td>
+<td>{count}</td>
+<td>异次元属性映射：{count}</td>
+</tr>
+<tr>
+<td><code>providers.dimensional_entry</code></td>
+<td>{id}、{provider}、{attribute}、{supported}</td>
+<td>{id} → {provider}:{attribute} | 支持={supported}</td>
+</tr>
+<tr>
+<td><code>integrations.header</code></td>
+<td>{author}</td>
+<td>&amp;d[OOReforge] &amp;f可选插件自动识别 | 作者：&amp;b{author}</td>
+</tr>
+<tr>
+<td><code>integrations.enabled</code></td>
+<td>{plugin}</td>
+<td>&amp;7- &amp;f{plugin} &amp;a[已启用]</td>
+</tr>
+<tr>
+<td><code>integrations.disabled</code></td>
+<td>{plugin}</td>
+<td>&amp;7- &amp;f{plugin} &amp;e[未启用]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ooconsoleplanned-blocked">OOConsole（planned / blocked）<a class="headerlink" href="#ooconsoleplanned-blocked" title="Permanent link">&para;</a></h2>
+<p><strong>可视化管理不可用。</strong> OOConsole 已归档，且从未交付可供服主启用的锻造工作区；当前也没有已验收的 OOEngine 客户端窗口。不要寻找或自行搭建另一个独立 Web 后台。游戏内工作台布局编辑与网页配置管理是不同功能。</p>
+<h2 id="configuration">配置 / Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>用户配置位于插件自己的 <code>plugins/OOReforge/</code> 目录：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>内容</th>
+<th>生效方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.yml</code></td>
+<td>打造模式、材料、支付组合、属性效果、工作台布局、等级券、安全和审计设置</td>
+<td>受支持字段使用 <code>/oo reforge reload</code>；审计文件位置变更需完整重启</td>
+</tr>
+<tr>
+<td><code>lang/zh_CN.yml</code></td>
+<td>简体中文消息</td>
+<td>修改后重载并检查消息</td>
+</tr>
+<tr>
+<td><code>lang/en_US.yml</code></td>
+<td>英文消息</td>
+<td>修改后重载并检查消息</td>
+</tr>
+</tbody>
+</table>
+<p>这些是开发版随包模板；尚无正式发布包提供下载。文件使用 UTF-8 和 YAML 格式，缩进使用空格。保留消息占位符，勿在配置中填写密码、令牌或任意脚本。<code>plugin.yml</code> 是插件描述文件，不是服主配置文件。</p>
+<p>下面只演示主配置中的四个现有字段，<strong>应合并到完整配置中，不能用这四行覆盖整个文件</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 配置格式版本，请勿自行提高 / Schema version; do not increase manually.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">schema-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 消息语言 / Message locale: zh_CN or en_US.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zh_CN</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 保持安全模式 / Keep safety mode enabled.</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">safe-mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 默认不允许永久损毁 / Permanent destruction is disabled by default.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">allow-destruction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<p>详细规则集中在 <code>crafts</code>（打造模式）、<code>materials</code>（材料）、<code>payment-profiles</code>（支付组合）、<code>failure-policies</code>（失败规则）、<code>attribute-profiles</code>（属性效果）和 <code>stations</code>（工作台）等节点。修改 ID 时应同时检查所有引用，不要随意更改已有装备使用的稳定属性 ID。</p>
+<p>切换 <code>language</code> 不会自动翻译服主自己填写的物品名、描述或工作台文本。语言文件与主配置都包含注释；重载报错时先修复错误，不要反复重启或删除原文件尝试“重置”。</p>
+<h2 id="_9">升级与回滚<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>目前没有正式升级包，不能承诺任意历史版本可直接升级。</li>
+<li>升级前停服并备份插件 JAR、完整数据目录及相关玩家物品、经济数据；配置备份不能替代资产备份。</li>
+<li>开发版具有旧配置迁移与默认值合并逻辑，但这不是生产迁移验收结论；先在副本上检查自定义文本、规则、语言和工作台。</li>
+<li>不手动提高 <code>schema-version</code>，也不把新配置直接交给旧插件。回滚时恢复同一备份点的插件与数据，避免重复扣款、退款或发放装备。</li>
+<li>损坏配置的重载应保留上一次有效配置；首次启动无法安全加载时可能停用插件。发现异常先留存原文件和错误信息。</li>
+</ul>
+<h2 id="_10">验证状态<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>当前为未发布开发版，尚无正式稳定版或完整生产兼容承诺。未完成的可视化接入、正式前置验收以及 Paper/Folia 实际使用验证，不能用编译成功或自动化测试代替。</p>
+<h2 id="_11">已知问题与限制<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>功能开发暂停；本页更新不意味着恢复开发或公布发布日期。</li>
+<li>支付、材料与属性插件的兼容性取决于实际适配器和版本；配置里的示例开关不是兼容保证。</li>
+<li>默认不开放分解；OOConsole 工作区与 OOEngine 窗口尚不可用。</li>
+<li>开启损毁、调整失败规则、执行支付测试或人工恢复前，务必在隔离测试服验证并保留备份。</li>
+<li>未来正式版本采用专有许可；历史已经授予的许可不被追溯撤回，第三方内容仍按其原许可处理。</li>
+</ul>
+<h3 id="java">Java 与服务端兼容目标（尚未验收）<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
+<p>OOReforge 新增 Java 21 兼容目标，同时保留 Java 25 / 26.x 开发方向。<strong>这是未来兼容目标，不是当前版本已支持声明；项目仍未正式发布。</strong></p>
+<table>
+<thead>
+<tr>
+<th>目标服务端</th>
+<th>目标运行 Java</th>
+<th>当前状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paper 1.20.5、1.20.6</td>
+<td>Java 21</td>
+<td>优先兼容目标，尚未验收</td>
+</tr>
+<tr>
+<td>Paper 1.21–1.21.11</td>
+<td>Java 21</td>
+<td>按 API 差异分批验证，尚未验收</td>
+</tr>
+<tr>
+<td>更早的 Paper 1.20.x</td>
+<td>Java 21</td>
+<td>后续核查范围，不承诺已兼容</td>
+</tr>
+<tr>
+<td>Paper 26.1+</td>
+<td>Java 25</td>
+<td>保留现有开发方向，不代表已有稳定交付</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://docs.papermc.io/paper/getting-started/">Paper 官方 Java 推荐表</a>将 1.20–1.21.11 对应 Java 21、26.1+ 对应 Java 25。不能让 26.x 服务端改用 Java 21，也不能仅修改插件配置就获得跨版本兼容。</p>
+<p>兼容工作须先满足 OOCore 必需前置及所选可选插件的兼容条件，再验证装备、材料、支付与数据迁移。Folia 需要独立验收；本计划不增加 Spigot 或所有历史 Minecraft 版本的支持承诺。不建议将新版本服务器的装备数据直接降级到旧版本。</p>
+<p>跨 Minecraft / Paper / Folia 版本的识别、映射与平台适配统一由 <strong>OOCore</strong> 提供；OOReforge 使用其稳定接口，不另建版本兼容层。OOReforge 自身及必要依赖仍需满足 Java 21 的加载要求，并在 OOCore 已支持的平台上验证锻造业务。这不表示仅升级 OOCore 就一定能够解决所有未来变更；尚未验收的兼容范围仍为计划，不是已发布支持。</p>
+<h2 id="contact">联系 / Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<p>反馈时请提供插件版本、服务端类型、重现步骤和经过脱敏的错误信息。不要公开凭据、完整玩家数据或私人配置。</p>
+<ul>
+<li>作者 / Author: zkonikishi</li>
+<li>QQ: 276098266</li>
+<li>Discord: <a href="https://discord.gg/KPq2fZHFK">https://discord.gg/KPq2fZHFK</a></li>
+<li><a href="https://ifdian.net/a/zkonikishi">ifdian</a></li>
+<li>QQ群 / QQ Group: 1063369777</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../oovip/" class="md-footer__link md-footer__link--prev" aria-label="上一页: OOVIP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                OOVIP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../vision/" class="md-footer__link md-footer__link--next" aria-label="下一页: OO 生态愿景">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                OO 生态愿景
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Meowopia
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/plugin-page-layout.js"></script>
+      
+    
+  </body>
+</html>
