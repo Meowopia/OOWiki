@@ -1,6 +1,6 @@
 # OOVIP
 
-<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oovip/banner-1200x630.webp" alt="OOVIP 会员生命周期与权益品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/oovip/logo-256.png" alt="OOVIP 像素黑猫图标" decoding="async">
 
 **分类：独立（Standalone）。状态：开发中，尚未发布正式版本。**
 

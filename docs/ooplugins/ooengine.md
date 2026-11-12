@@ -1,6 +1,6 @@
 # OOEngine 与 OOEngine-Client {#ooengine-ooengine-client}
 
-<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooengine/banner-1200x630.webp" alt="喵托邦 / Meowopia — OOEngine 界面与交互" loading="lazy" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/ooengine/logo-256.png" alt="OOEngine 与 OOEngine-Client {#ooengine-ooengine-client} 像素黑猫图标" decoding="async">
 
 **OOEngine 为 Minecraft 服务器提供可配置的窗口与交互表现，OOEngine-Client 负责在玩家客户端显示和操作这些窗口。**
 

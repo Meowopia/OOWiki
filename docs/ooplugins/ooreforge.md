@@ -1,6 +1,6 @@
 # OOReforge
 
-<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/ooreforge/banner-1200x630.webp" alt="喵托邦 Meowopia · OOReforge 装备锻造与重铸" loading="lazy" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/ooreforge/logo-256.png" alt="OOReforge 像素黑猫图标" decoding="async">
 
 **分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：尚未正式发布，功能开发暂停。**
 

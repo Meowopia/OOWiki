@@ -1,6 +1,6 @@
 # OOCore
 
-<img class="plugin-page-banner" width="1200" height="630" src="../../assets/branding/blackcat-v1/oocore/banner-1200x630.webp" alt="喵托邦 Meowopia · OOCore 平台核心品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/oocore/logo-256.png" alt="OOCore 像素黑猫图标" decoding="async">
 
 **喵托邦 / Meowopia OO 系列的平台前置，归入基础（Core）。** OOCore 统一管理模块身份、运行能力、生命周期与服务端适配，让各个 OO 插件保持独立功能，同时能够安全组合。
 

@@ -1,6 +1,6 @@
 # OOBrowser
 
-<img class="plugin-page-banner" src="../../assets/branding/blackcat-v1/oobrowser/banner-1200x630.webp" width="1200" height="630" alt="OOBrowser 黑猫与地球仪品牌横幅" loading="lazy" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/oobrowser/logo-256.png" alt="OOBrowser 像素黑猫图标" decoding="async">
 
 OOBrowser 是喵托邦（Meowopia）的受控网页表面插件项目，归入**附属（Extensions）**。它计划让服务器在明确的访问策略下提供网页窗口，而不是让玩家任意访问网址或执行浏览器脚本。该分类不改变插件的独立版本与依赖关系。
 

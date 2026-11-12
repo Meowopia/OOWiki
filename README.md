@@ -6,7 +6,7 @@ Meowopia 所有项目的统一中文文档站，使用 MkDocs Material 构建。
 
 站点 favicon 与顶部导航使用 `docs/assets/community/meowopia-logo-8a1163a90df1.png` 作为 Meowopia 品牌标识。`docs/assets/logo.svg` 为 OO 插件系列标识，可供插件页面复用。
 
-九个产品采用 **喵托邦 / Meowopia 黑猫品牌系列**；各自使用不同动作与道具。高清 PNG、网页 WebP 和小尺寸图标位于 [`docs/assets/branding/blackcat-v1/`](docs/assets/branding/blackcat-v1/)。品牌展示不代表规划功能已经上线。
+九个产品采用 **喵托邦 / Meowopia 像素黑猫系列**；各自使用不同动作与道具。透明 PNG 原图与多尺寸图标位于 [`docs/assets/branding/pixelcat-v1/`](docs/assets/branding/pixelcat-v1/)。品牌展示不代表规划功能已经上线。
 
 - 在线地址：<https://wiki.meowopia.com/>
 - 文档源码：[`docs/`](docs/)
@@ -16,10 +16,10 @@ Meowopia 所有项目的统一中文文档站，使用 MkDocs Material 构建。
 
 | 基础（Core） | 附属（Extensions） | 独立（Standalone） |
 | --- | --- | --- |
-| <a href="docs/ooplugins/oocore.md"><img src="docs/assets/branding/blackcat-v1/oocore/logo-128.png" width="96" height="96" alt="OOCore 黑猫品牌图标"><br>OOCore</a> | <a href="docs/ooplugins/oogame.md"><img src="docs/assets/branding/blackcat-v1/oogame/logo-128.png" width="96" height="96" alt="OOGame 黑猫品牌图标"><br>OOGame</a> | <a href="docs/ooplugins/oovip.md"><img src="docs/assets/branding/blackcat-v1/oovip/logo-128.png" width="96" height="96" alt="OOVIP 黑猫品牌图标"><br>OOVIP</a> |
-| <a href="docs/ooplugins/ooengine.md"><img src="docs/assets/branding/blackcat-v1/ooengine/logo-128.png" width="96" height="96" alt="OOEngine 黑猫品牌图标"><br>OOEngine</a> | <a href="docs/ooplugins/oomusic.md"><img src="docs/assets/branding/blackcat-v1/oomusic/logo-128.png" width="96" height="96" alt="OOMusic 黑猫品牌图标"><br>OOMusic</a> | <a href="docs/ooplugins/ooreforge.md"><img src="docs/assets/branding/blackcat-v1/ooreforge/logo-128.png" width="96" height="96" alt="OOReforge 黑猫品牌图标"><br>OOReforge</a> |
-| <a href="docs/ooplugins/ooconsole.md"><img src="docs/assets/branding/blackcat-v1/ooconsole/logo-128.png" width="96" height="96" alt="OOConsole 黑猫品牌图标"><br>OOConsole</a> | <a href="docs/ooplugins/oobrowser.md"><img src="docs/assets/branding/blackcat-v1/oobrowser/logo-128.png" width="96" height="96" alt="OOBrowser 黑猫品牌图标"><br>OOBrowser</a> |  |
-|  | <a href="docs/ooplugins/oochat.md"><img src="docs/assets/branding/blackcat-v1/oochat/logo-128.png" width="96" height="96" alt="OOChat 黑猫品牌图标"><br>OOChat</a> |  |
+| <a href="docs/ooplugins/oocore.md"><img src="docs/assets/branding/pixelcat-v1/oocore/logo-128.png" width="96" height="96" alt="OOCore 像素黑猫图标"><br>OOCore</a> | <a href="docs/ooplugins/oogame.md"><img src="docs/assets/branding/pixelcat-v1/oogame/logo-128.png" width="96" height="96" alt="OOGame 像素黑猫图标"><br>OOGame</a> | <a href="docs/ooplugins/oovip.md"><img src="docs/assets/branding/pixelcat-v1/oovip/logo-128.png" width="96" height="96" alt="OOVIP 像素黑猫图标"><br>OOVIP</a> |
+| <a href="docs/ooplugins/ooengine.md"><img src="docs/assets/branding/pixelcat-v1/ooengine/logo-128.png" width="96" height="96" alt="OOEngine 像素黑猫图标"><br>OOEngine</a> | <a href="docs/ooplugins/oomusic.md"><img src="docs/assets/branding/pixelcat-v1/oomusic/logo-128.png" width="96" height="96" alt="OOMusic 像素黑猫图标"><br>OOMusic</a> | <a href="docs/ooplugins/ooreforge.md"><img src="docs/assets/branding/pixelcat-v1/ooreforge/logo-128.png" width="96" height="96" alt="OOReforge 像素黑猫图标"><br>OOReforge</a> |
+| <a href="docs/ooplugins/ooconsole.md"><img src="docs/assets/branding/pixelcat-v1/ooconsole/logo-128.png" width="96" height="96" alt="OOConsole 像素黑猫图标"><br>OOConsole</a> | <a href="docs/ooplugins/oobrowser.md"><img src="docs/assets/branding/pixelcat-v1/oobrowser/logo-128.png" width="96" height="96" alt="OOBrowser 像素黑猫图标"><br>OOBrowser</a> |  |
+|  | <a href="docs/ooplugins/oochat.md"><img src="docs/assets/branding/pixelcat-v1/oochat/logo-128.png" width="96" height="96" alt="OOChat 像素黑猫图标"><br>OOChat</a> |  |
 
 ## 仓库与许可证 / Repository and licensing
 
