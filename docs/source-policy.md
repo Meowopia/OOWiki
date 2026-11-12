@@ -2,7 +2,7 @@
 
 ## 当前政策
 
-**OOWiki 是 OO 系列中唯一继续开源的项目。** 本 Wiki 的 Markdown、主题和站点资源受仓库根目录 `LICENSE` 约束，外部贡献按 [贡献指南](https://github.com/Meowopia/OOWiki/blob/main/CONTRIBUTING.md) 接收。
+**Meowopia Wiki 是 OO 系列中唯一继续开源的项目。** 本 Wiki 的 Markdown、主题和站点资源受仓库根目录 `LICENSE` 约束，外部贡献按 [贡献指南](https://github.com/Meowopia/OOWiki/blob/main/CONTRIBUTING.md) 接收。
 
 下列产品当前均为 **closed-source / proprietary**：
 

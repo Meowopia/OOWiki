@@ -2,7 +2,7 @@
 
 开发前先阅读 [OO 生态愿景](vision.md)。所有公开 Provider、Contribution 和配置扩展都必须遵守其中的组合、安全、证据与 fallback 原则。
 
-本文只说明闭源 OO 产品的公开 SDK 接入边界。内部源码、构建环境、私有 repository、testkit 和发布脚本不在 OOWiki 提供。
+本文只说明闭源 OO 产品的公开 SDK 接入边界。内部源码、构建环境、私有 repository、testkit 和发布脚本不在 Meowopia Wiki 提供。
 
 ## 开发环境
 
@@ -22,7 +22,7 @@
 | OOEngine `:oomodel` | 模型 Provider facade；BetterModel 仅通过官方 API optional adapter 接入 |
 | OOEngine-Client | Fabric/NeoForge 客户端与公共 renderer core |
 | OOChat / OOGame / OOMusic | 独立业务插件，通过 stable API 接入，不复制 Engine/Core 实现 |
-| OOWiki | 对外可发布文档，必须和实际 descriptor、Capability 与构建产物一致 |
+| Meowopia Wiki | 对外可发布文档，必须和实际 descriptor、Capability 与构建产物一致 |
 
 OOCore 和 OOEngine 版本号不要求一致。兼容性由 ABI、handshake、API version、Capability 和 schema negotiation 决定，不允许通过比较产品版本字符串猜测。
 

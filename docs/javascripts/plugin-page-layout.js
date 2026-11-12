@@ -1,6 +1,6 @@
 (() => {
   const path = window.location.pathname.replace(/\/+$/, '');
-  if (/\/plugins\/[^/]+$/.test(path)) {
+  if (/\/ooplugins\/oo[^/]+$/.test(path)) {
     document.body.classList.add('plugin-wiki-page');
   }
 })();

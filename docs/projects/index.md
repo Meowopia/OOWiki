@@ -4,12 +4,12 @@
 
 | 项目 | 用途 | 从这里开始 |
 | --- | --- | --- |
-| OO 账号与空间 | 账号、个人主页与社区 | [注册与使用](oo.md) |
-| Minecraft 插件 | 服务器框架与玩法扩展 | [插件目录](../plugins/index.md) · [安装](../installation.md) |
-| Amoei | 智能女仆项目 | [项目介绍](amoei.md) |
-| Meowoo | Android / TV 播放器，开发中 | [项目与同步说明](meowoo.md) |
-| Mrad | 游戏项目，开发中 | [官网与公告](mrad.md) |
-| 博客 | 技术记录与生活随笔 | [阅读与写作](blog.md) |
+| OO 账号与空间 | 账号、个人主页与社区 | [注册与使用](../oo/index.md) |
+| Minecraft 插件 | 服务器框架与玩法扩展 | [插件目录](../ooplugins/index.md) · [安装](../ooplugins/installation.md) |
+| Amoei | 智能女仆项目 | [项目介绍](../amoei/index.md) |
+| Meowoo | Android / TV 播放器，开发中 | [项目与同步说明](../meowoo/index.md) |
+| Mrad | 游戏项目，开发中 | [官网与公告](../mrad/index.md) |
+| 博客 | 技术记录与生活随笔 | [阅读与写作](../blog/index.md) |
 
 ## 账号与项目的关系
 
@@ -19,6 +19,6 @@ OO 提供统一账号；具体项目的权限和功能由各项目决定。拥�
 
 “开发中”“暂停”“未发布”和“已归档”分别表示当前状态，不代表可以下载正式版本。插件的版本、依赖和发布情况请阅读对应插件页面。
 
-旧的 Minecraft 插件文档路径继续保留。OOCore、OOEngine 等插件名称保持原名；导航分类统一为 **Minecraft 插件**。
+项目文档按一级路径分类：`/meowoo/`、`/mrad/`、`/amoei/`、`/oo/` 和 `/blog/`；Minecraft 插件及其安装、配置、开发指南统一位于 `/ooplugins/`。旧文档路径自动跳转到新地址。OOCore、OOEngine 等插件名称保持原名；导航分类统一为 **Minecraft 插件**。
 
-需要交流或反馈时，请看[社区与帮助](community.md)。
+需要交流或反馈时，请看[社区与帮助](../community/index.md)。

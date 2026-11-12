@@ -1,4 +1,4 @@
-# OOWiki site configuration / OOWiki 站点配置
+# Meowopia Wiki site configuration / Meowopia Wiki 站点配置
 # Purpose / 用途: MkDocs Material navigation, rendering and search configuration.
 # Reload / 重载: rerun `python -m mkdocs build --clean --strict`; Pages changes require an approved deployment.
 # Risk / 风险: navigation paths must exist; Python/YAML tags below are trusted build input. Never place secrets here.
@@ -11,7 +11,7 @@ site_name: Meowopia Wiki
 site_description: Meowopia 项目文档：OO 空间、Minecraft 插件、Mrad、Meowoo、Amoei 与博客
 site_url: https://wiki.meowopia.com/
 repo_url: https://github.com/Meowopia/OOWiki
-repo_name: Meowopia/OOWiki
+repo_name: Meowopia Wiki
 edit_uri: edit/main/docs/
 
 # Documentation source / 文档源目录 (relative path; default: docs)
@@ -52,28 +52,40 @@ nav:
   - 首页: index.md
   - 项目文档:
       - 项目导航: projects/index.md
-      - OO 账号与空间: projects/oo.md
-      - Amoei 智能女仆: projects/amoei.md
-      - Meowoo 播放器: projects/meowoo.md
-      - Mrad 游戏: projects/mrad.md
-      - 博客与创作: projects/blog.md
-      - 社区与帮助: projects/community.md
-  - Minecraft 插件指南:
-      - OO 生态愿景: vision.md
-      - 安装与升级: installation.md
-      - 架构与依赖: architecture.md
-      - 配置参考: configuration.md
-      - 命令与权限: commands-permissions.md
-      - 集成边界: integration.md
-      - 迁移规则: migration.md
-      - 安全模型: security.md
-  - Minecraft 插件: plugins/index.md
-  - 插件开发:
-      - 开发者接入: development.md
+      - OO 账号与空间: oo/index.md
+      - Amoei 智能女仆: amoei/index.md
+      - Meowoo 播放器: meowoo/index.md
+      - Mrad 游戏: mrad/index.md
+      - 博客与创作: blog/index.md
+      - 社区与帮助: community/index.md
+  - Minecraft 插件:
+      - 插件目录: ooplugins/index.md
+      - 产品文档:
+          - OOCore: ooplugins/oocore.md
+          - OOEngine: ooplugins/ooengine.md
+          - OOConsole: ooplugins/ooconsole.md
+          - OOGame: ooplugins/oogame.md
+          - OOMusic: ooplugins/oomusic.md
+          - OOBrowser: ooplugins/oobrowser.md
+          - OOChat: ooplugins/oochat.md
+          - OOVIP: ooplugins/oovip.md
+          - OOReforge: ooplugins/ooreforge.md
+      - 使用指南:
+          - OO 生态愿景: ooplugins/vision.md
+          - 安装与升级: ooplugins/installation.md
+          - 架构与依赖: ooplugins/architecture.md
+          - 配置参考: ooplugins/configuration.md
+          - 命令与权限: ooplugins/commands-permissions.md
+          - 集成边界: ooplugins/integration.md
+          - 迁移规则: ooplugins/migration.md
+          - 安全模型: ooplugins/security.md
+          - 故障排查: ooplugins/troubleshooting.md
+      - 插件开发:
+          - 开发者接入: ooplugins/development.md
+          - 发布流程: ooplugins/release.md
+          - 验收清单: ooplugins/acceptance.md
+  - Wiki 维护:
       - 开源与仓库边界: source-policy.md
-      - 故障排查: troubleshooting.md
-      - 发布流程: release.md
-      - 验收清单: acceptance.md
       - Pages 预览与回滚: pages-runbook.md
 
 # Markdown features / Markdown 功能 (list; changes affect rendered HTML)
@@ -115,3 +127,7 @@ extra_javascript:
   - javascripts/plugin-page-layout.js
 
 copyright: Copyright &copy; 2026 Meowopia
+
+# Preserve bookmarks when project documentation moves.
+hooks:
+  - hooks/redirects.py

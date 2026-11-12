@@ -31,7 +31,7 @@ async function visit(dir) {
       })).filter(h => h.id);
       const title = article.find('h1').first().clone();
       title.find('.headerlink').remove();
-      pages.push({slug, title: title.text().trim() || 'OO 系列插件', html: article.html(), headings});
+      pages.push({slug, title: title.text().trim() || 'Meowopia Wiki', html: article.html(), headings});
     }
   }
 }
@@ -39,7 +39,7 @@ await visit(source);
 if(process.env.OOWIKI_FIXTURES==='1'){
   pages.push({slug:'preview-tests/tabs',title:'标签页迁移测试',headings:[],html:await readFile('.generated/tabs.html','utf8')});
 }
-if (!pages.some(p => p.slug === 'plugins/oocore')) throw new Error('Run the strict MkDocs build first');
+if (!pages.some(p => p.slug === 'ooplugins/oocore')) throw new Error('Run the strict MkDocs build first');
 await mkdir('.generated', {recursive:true});
 await mkdir('public', {recursive:true});
 await writeFile('.generated/pages.json', JSON.stringify(pages));
@@ -48,3 +48,12 @@ await cp('../docs/javascripts/plugin-hub.js', 'public/plugin-hub.js');
 await writeFile('public/CNAME','wiki.meowopia.com\n');
 await writeFile('public/robots.txt','User-agent: *\nAllow: /\n');
 console.log(`Prepared ${pages.length} document routes; existing anchors retained.`);
+
+// Copy legacy redirects without indexing them as duplicate articles.
+const redirects = JSON.parse(await readFile('../hooks/redirects.json', 'utf8'));
+for (const [oldRoute, newRoute] of Object.entries(redirects)) {
+  const directory = resolve('public', oldRoute);
+  await mkdir(directory, {recursive:true});
+  const target = base + newRoute;
+  await writeFile(resolve(directory, 'index.html'), `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>Meowopia Wiki · 页面已迁移</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${target}"></head><body><script>location.replace(${JSON.stringify(target)} + location.search + location.hash);</script><a href="${target}">前往新的文档地址</a></body></html>`);
+}

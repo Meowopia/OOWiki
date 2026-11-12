@@ -70,7 +70,7 @@ Folia 实机尚未验收。OOCore 支持某个平台，并不自动代表 OOEngi
 
 正式下载与版本说明：[OOEngine Release](https://github.com/Meowopia/OOEngine/releases/tag/v1.2.0)、[OOEngine-Client Release](https://github.com/Meowopia/OOEngine-Client/releases/tag/v1.2.0)。私有仓库下载需要项目授予的访问权限；不要把访问凭据发到群聊或日志中。
 
-[OOCore 安装说明](oocore.md) · [通用安装与升级](../installation.md)
+[OOCore 安装说明](oocore.md) · [通用安装与升级](installation.md)
 
 ## 配置 / Configuration {#configuration}
 
@@ -334,7 +334,7 @@ OOEngine 1.2.0 随包提供 Web Editor。默认地址为服务器本机的 `http
 3. 日后正常登录；程序维护 `web-editor-credentials.yml`。该文件不是手写密码配置。
 4. 编辑前备份窗口文件；保存后检查服务端加载结果，再用实际客户端确认显示和点击。
 
-如需远程管理，先完成本机初始化，再按[安全说明](../security.md)配置可信 HTTPS 反向代理、安全 Cookie 和精确 Host/Origin 白名单。不要仅把监听地址改成 `0.0.0.0` 就开放到公网。
+如需远程管理，先完成本机初始化，再按[安全说明](security.md)配置可信 HTTPS 反向代理、安全 Cookie 和精确 Host/Origin 白名单。不要仅把监听地址改成 `0.0.0.0` 就开放到公网。
 
 [OOConsole](ooconsole.md) 是独立管理产品，**不是安装 OOEngine 的必要前置**。OOEngine-Client 1.2.0 的正式说明没有声明已经验收的 OOConsole 兼容版本；不要把维护分支接线或管理界面演示当作正式兼容承诺。
 
@@ -347,7 +347,7 @@ OOEngine 1.2.0 随包提供 Web Editor。默认地址为服务器本机的 `http
 
 任务、对话、属性等显示依赖实际提供数据的插件。安装 OOEngine 本身不会自动提供任务内容、职业系统、经济或奖励规则。未安装或不兼容的可选提供方，不应被理解成对应玩法已可用。
 
-开发接入说明见[开发者文档](../development.md)。本页不提供私有 SDK 下载地址、内部实现或凭据。
+开发接入说明见[开发者文档](development.md)。本页不提供私有 SDK 下载地址、内部实现或凭据。
 
 ## 资源与备份 {#_7}
 
@@ -426,7 +426,7 @@ OOEngine 1.2.0 随包提供 Web Editor。默认地址为服务器本机的 `http
 | 编辑器打不开 | 服务端本机地址、18081 端口冲突、功能开关及启动日志；远程电脑的 localhost 不是服务器 |
 | 网页/视频/模型无效果 | 先确认真实提供方与运行环境，不仅检查功能开关是否为 true |
 
-提交支持请求时提供服务端/客户端版本、Minecraft 与 loader、相关配置片段和报错；先移除令牌、密码、私钥及玩家隐私。更多帮助见[故障排查](../troubleshooting.md)。
+提交支持请求时提供服务端/客户端版本、Minecraft 与 loader、相关配置片段和报错；先移除令牌、密码、私钥及玩家隐私。更多帮助见[故障排查](troubleshooting.md)。
 
 ## 联系 / Contact {#contact}
 
