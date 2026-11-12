@@ -7,8 +7,8 @@
 # Discord: https://discord.gg/KPq2fZHFK
 # ifdian: https://ifdian.net/a/zkonikishi
 # QQ Group / QQ群: 1063369777
-site_name: OO 系列插件 Wiki
-site_description: Meowopia OO 系列 Minecraft 插件统一中文文档
+site_name: Meowopia Wiki
+site_description: Meowopia 项目文档：OO 空间、Minecraft 插件、Mrad、Meowoo、Amoei 与博客
 site_url: https://wiki.meowopia.com/
 repo_url: https://github.com/Meowopia/OOWiki
 repo_name: Meowopia/OOWiki
@@ -21,8 +21,8 @@ theme:
   name: material
   custom_dir: docs/overrides
   language: zh
-  logo: assets/branding/meowopia-v2/mark-512.png
-  favicon: assets/branding/meowopia-v2/favicon-192.png
+  logo: assets/community/meowopia-logo-8a1163a90df1.png
+  favicon: assets/community/meowopia-logo-8a1163a90df1.png
   features:
     - navigation.tabs
     - navigation.sections
@@ -50,7 +50,15 @@ theme:
 # Navigation tree / 导航树 (ordered mapping; paths must exist under docs_dir)
 nav:
   - 首页: index.md
-  - 文档:
+  - 项目文档:
+      - 项目导航: projects/index.md
+      - OO 账号与空间: projects/oo.md
+      - Amoei 智能女仆: projects/amoei.md
+      - Meowoo 播放器: projects/meowoo.md
+      - Mrad 游戏: projects/mrad.md
+      - 博客与创作: projects/blog.md
+      - 社区与帮助: projects/community.md
+  - Minecraft 插件指南:
       - OO 生态愿景: vision.md
       - 安装与升级: installation.md
       - 架构与依赖: architecture.md
@@ -59,8 +67,8 @@ nav:
       - 集成边界: integration.md
       - 迁移规则: migration.md
       - 安全模型: security.md
-  - 插件: plugins/index.md
-  - 开发:
+  - Minecraft 插件: plugins/index.md
+  - 插件开发:
       - 开发者接入: development.md
       - 开源与仓库边界: source-policy.md
       - 故障排查: troubleshooting.md
@@ -100,6 +108,7 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/redesign.css
   - stylesheets/home.css
+  - stylesheets/community.css
 
 # Client-side layout helpers / 客户端布局辅助脚本
 extra_javascript:

@@ -1,10 +1,10 @@
-# 插件
+# Minecraft 插件
 
 <section class="plugin-hub-hero">
   <div>
-    <span class="plugin-hub-kicker">OO PLUGIN ECOSYSTEM</span>
-    <h1>为你的服务器选择 OO 插件</h1>
-    <p>统一查看产品定位、工程边界和当前证据状态。所有卡牌采用相同尺寸，implemented、planned 与 blocked 不混写。</p>
+    <span class="plugin-hub-kicker">MINECRAFT PLUGINS</span>
+    <h1>为你的服务器选择 Minecraft 插件</h1>
+    <p>按用途、分类和发布状态查找插件。OOCore、OOEngine 等项目保留原名；未发布或已归档的项目会单独标明。</p>
   </div>
   <div class="plugin-hub-count"><strong>9</strong><span>个产品条目</span></div>
 </section>
@@ -19,6 +19,7 @@
     <button type="button" data-plugin-filter="core">基础（Core）</button>
     <button type="button" data-plugin-filter="extensions">附属（Extensions）</button>
     <button type="button" data-plugin-filter="independent">独立（Standalone）</button>
+    <button type="button" data-plugin-filter="archive">历史归档</button>
   </div>
 </div>
 
@@ -33,7 +34,7 @@
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>
-  <a class="plugin-card" href="ooconsole/" data-category="core" data-search="ooconsole 核心 core console editor workspace owner service admin">
+  <a class="plugin-card" href="ooconsole/" data-category="archive" data-search="ooconsole 核心 core console editor workspace owner service admin">
     <div class="plugin-card-top"><img src="../assets/branding/blackcat-v1/ooconsole/logo-256.webp" alt="OOConsole 黑猫品牌图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">已归档 · Archived</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>历史管理与可视化编辑项目；现已归档，停止开发和维护。</p></div>
     <div class="plugin-card-footer"><span>历史产品文档</span><b>查看文档 →</b></div>

@@ -5,18 +5,20 @@ hide:
   - footer
 ---
 
-<div class="wiki-home home-editorial">
-<section class="wiki-hero">
-<div class="wiki-hero-copy"><span class="home-kicker">MEOWOPIA / OO ECOSYSTEM</span><h1>让想法，<br>在 <em>OO</em> 中实现。</h1><p>从服务器的第一个插件，到属于你的独特玩法。<br>在这里了解 OO、找到文档，开始构建自己的喵托邦。</p><div class="wiki-actions"><a class="wiki-primary" href="installation/">开始使用 →</a><a class="wiki-secondary" href="plugins/">探索插件</a></div><span class="home-note">可组合的框架、功能与创作工具 · 面向 Minecraft</span></div>
-<div class="home-hero-art"><img class="wiki-mascot" src="assets/branding/meowopia-v2/mark-512.png" width="480" height="480" alt="Meowopia 猫耳无限星环标志" fetchpriority="high"><span class="home-art-caption">小小灵感，也能搭起一个世界。</span></div>
+<div class="community-home">
+<section class="docs-hero" aria-labelledby="wiki-welcome">
+<img src="assets/community/community-hero-v1.png" alt="书房中的白发猫耳女仆与黑猫" width="1993" height="789" fetchpriority="high">
+<div class="docs-hero-copy"><span class="docs-eyebrow">MEOWOPIA / WIKI</span><h1 id="wiki-welcome">每一份热爱，<br>都有一本说明书。</h1><p>从第一次使用，到深入探索。<br>在这里找到你的项目，开始下一步。</p><a class="docs-button" href="projects/">选择项目 →</a><a class="docs-hero-link" href="https://www.meowopia.com/">回到喵托邦 ↗</a></div>
 </section>
-<section class="home-intro" aria-labelledby="home-about"><div><span class="home-kicker">BUILD YOUR WAY</span><h2 id="home-about">不是一套固定玩法，<br>而是你的创作起点。</h2></div><div><p>OO 为 Minecraft 生态提供可组合的框架、功能与创作工具。通过配置、内容与稳定 API，将不同能力组合成自己的服务器体验。</p><a href="vision/">了解 OO 生态愿景 →</a></div></section>
-<section class="home-paths" aria-labelledby="home-start"><div class="home-section-title"><div><span class="home-kicker">START HERE</span><h2 id="home-start">从你要做的事开始</h2></div><span>不必一次读完整本文档。</span></div><div class="home-path-grid">
-<a class="home-path" href="installation/"><span class="home-step">01 / 服主</span><h3>搭建服务器</h3><p>先确认前置与安装顺序，再找到适合当前服务器的插件。</p><span class="home-path-link">阅读安装指南 →</span></a>
-<a class="home-path" href="configuration/"><span class="home-step">02 / 创作者</span><h3>调整你的体验</h3><p>了解各插件实际可配置的内容、重载方式与升级注意事项。</p><span class="home-path-link">查看配置参考 →</span></a>
-<a class="home-path" href="development/"><span class="home-step">03 / 开发</span><h3>连接新的能力</h3><p>从公开接入边界与扩展约定开始，了解项目之间如何协作。</p><span class="home-path-link">进入开发文档 →</span></a>
+<button class="wiki-search-launch docs-search" type="button" data-open-doc-search><span><strong>想找什么？搜一下文档。</strong><small>项目名称、安装、账号、配置与常见问题</small></span><kbd>Ctrl K</kbd></button>
+<section class="docs-projects"><div class="docs-section-head"><div><span class="docs-eyebrow">FIND YOUR PROJECT</span><h2>从一个项目开始</h2></div><a href="projects/">查看项目导航 →</a></div><div class="docs-project-grid">
+<a class="docs-project" href="projects/oo/"><span class="docs-label">账号与社区</span><h3>OO 账号与空间</h3><p>注册、登录、个人主页，以及通往社区的入口。</p><span class="docs-next">打开使用指南 →</span></a>
+<a class="docs-project" href="plugins/"><span class="docs-label">服务器与玩法</span><h3>Minecraft 插件</h3><p>基础、附属与独立插件。先看发布状态，再阅读安装与配置。</p><span class="docs-next">浏览插件文档 →</span></a>
+<a class="docs-project" href="projects/mrad/"><span class="docs-label">游戏项目 · 开发中</span><h3>Mrad</h3><p>认识这个天空与浮岛世界，查看公告和开放安排。</p><span class="docs-next">了解游戏项目 →</span></a>
+<a class="docs-project docs-project-art" href="projects/amoei/"><img src="assets/community/amoei-card-v1.png" alt="Amoei 喜欢的黑猫" width="720" height="405" loading="lazy"><div><span class="docs-label">智能女仆项目</span><h3>Amoei</h3><p>从项目介绍开始，认识喜欢黑猫的她。</p><span class="docs-next">认识 Amoei →</span></div></a>
+<a class="docs-project docs-project-art" href="projects/meowoo/"><img src="assets/community/meowoo-card-v1.png" alt="电视、手机与陪伴的黑猫" width="720" height="405" loading="lazy"><div><span class="docs-label">Android / TV · 开发中</span><h3>Meowoo</h3><p>播放器项目、OO 账号接入与云同步说明。</p><span class="docs-next">了解 Meowoo →</span></div></a>
+<a class="docs-project docs-writing" href="projects/blog/"><span class="docs-label">记录与创作</span><h3>博客</h3><p>技术记录、生活随笔，以及每个作品背后的过程。</p><span class="docs-next">前往阅读与写作指南 →</span></a>
 </div></section>
-<section class="home-journey" aria-labelledby="home-route"><div><span class="home-kicker">A SIMPLE ROUTE</span><h2 id="home-route">第一次来？照这条路走。</h2><p>版本和可用性以各插件页面为准；开发中项目不等于可安装的正式版本。</p></div><ol><li><a href="plugins/"><b>选择插件</b><span>看用途、状态与依赖</span></a></li><li><a href="installation/"><b>完成安装</b><span>按前置顺序部署</span></a></li><li><a href="configuration/"><b>调整配置</b><span>确认生效与回滚方式</span></a></li><li><a href="commands-permissions/"><b>设置权限</b><span>找到命令与访问边界</span></a></li></ol></section>
-<section class="home-explore"><div><span class="home-kicker">FIND YOUR NEXT PIECE</span><h2>插件各有所长，组合由你决定。</h2><p>完整插件列表、发布状态和使用文档，统一放在插件页。</p></div><a class="home-explore-link" href="plugins/">浏览全部插件 ↗</a></section>
-<section class="home-support" aria-label="帮助入口"><button class="wiki-search-launch" type="button" data-open-doc-search><span><strong>有问题？先搜一下文档</strong><small>安装、配置、命令与常见问题</small></span><kbd>Ctrl K</kbd></button><a href="troubleshooting/">排查问题 →</a><a href="migration/">升级与迁移 →</a></section>
+<section class="docs-paths"><div><span class="docs-eyebrow">YOUR NEXT STEP</span><h2>第一次来？从这里走。</h2><p>每个项目独立维护，功能和发布状态以项目页面为准。</p></div><ol><li><a href="projects/oo/">创建 OO 账号<span>连接空间、博客和项目</span></a></li><li><a href="installation/">安装 Minecraft 插件<span>先看前置，再按顺序安装</span></a></li><li><a href="troubleshooting/">排查插件问题<span>版本、配置、权限与日志</span></a></li><li><a href="projects/community/">找到同好与帮助<span>加入 KOOK，交流项目和作品</span></a></li></ol></section>
+<section class="docs-bottom"><div><h2>文档之外，还有一起折腾的人。</h2><p>来社区分享作品、讨论想法，也欢迎指出文档里不清楚的地方。</p></div><a class="docs-button" href="https://kook.vip/DYfU86">加入 KOOK 社区 ↗</a></section>
 </div>
