@@ -1,6 +1,6 @@
 # OOMusic
 
-<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/oomusic/logo-256.png" alt="OOMusic 像素黑猫图标" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcrest-v1/oomusic/logo-256.png" alt="OOMusic 像素猫头徽章" decoding="async">
 
 OOMusic 是喵托邦 / Meowopia 的音乐项目，分类为**附属（Extensions）**。目标是在游戏中浏览音乐、管理队列、显示歌词，并由服务端协调一起听。
 

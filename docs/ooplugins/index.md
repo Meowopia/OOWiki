@@ -25,48 +25,48 @@
 
 <div class="plugin-card-grid" data-plugin-grid>
   <a class="plugin-card" href="oocore/" data-category="core" data-search="oocore 核心 core 生命周期 命令 capability">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/oocore/logo-128.png" alt="OOCore 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.7.3</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/oocore/logo-128.png" alt="OOCore 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.7.3</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOCore</h2><p>OO 生态的平台前置，统一生命周期、命令、Capability 与可信 owner-service。</p></div>
     <div class="plugin-card-footer"><span>平台核心</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooengine/" data-category="core" data-search="ooengine 核心 core window ui renderplan menu video editor hud">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/ooengine/logo-128.png" alt="OOEngine 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.2.0</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/ooengine/logo-128.png" alt="OOEngine 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 1.2.0</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOEngine</h2><p>提供 owner-bound Window、RenderPlan、资源、协议与客户端渲染能力。</p></div>
     <div class="plugin-card-footer"><span>表现引擎</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooconsole/" data-category="archive" data-search="ooconsole 核心 core console editor workspace owner service admin">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/ooconsole/logo-128.png" alt="OOConsole 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">已归档 · Archived</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/ooconsole/logo-128.png" alt="OOConsole 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">已归档 · Archived</span></div>
     <div class="plugin-card-body"><span class="plugin-category">基础（Core）</span><h2>OOConsole</h2><p>历史管理与可视化编辑项目；现已归档，停止开发和维护。</p></div>
     <div class="plugin-card-footer"><span>历史产品文档</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oogame/" data-category="extensions" data-search="oogame extensions game lobby 斗地主 房间 匹配">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/oogame/logo-128.png" alt="OOGame 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/oogame/logo-128.png" alt="OOGame 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOGame</h2><p>小游戏大厅与牌局项目，尚未发布；约定命令入口与完整玩家窗口仍待验收。</p></div>
     <div class="plugin-card-footer"><span>游戏大厅</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oomusic/" data-category="extensions" data-search="oomusic extensions music lyrics timeline 歌词 音乐 播放">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/oomusic/logo-128.png" alt="OOMusic 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/oomusic/logo-128.png" alt="OOMusic 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOMusic</h2><p>音乐队列与歌词项目，尚未发布；暂无完整可安装的音乐播放体验。</p></div>
     <div class="plugin-card-footer"><span>音乐服务</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oobrowser/" data-category="extensions" data-search="oobrowser extensions browser chromium mcef dns pin web">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/oobrowser/logo-128.png" alt="OOBrowser 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/oobrowser/logo-128.png" alt="OOBrowser 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOBrowser</h2><p>受控网页展示项目，尚未发布；游戏内浏览器与网页窗口仍不可用。</p></div>
     <div class="plugin-card-footer"><span>浏览器表面</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="oochat/" data-category="extensions" data-search="oochat extensions chat social friend mail 聊天 好友 邮件">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/oochat/logo-128.png" alt="OOChat 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/oochat/logo-128.png" alt="OOChat 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-implemented">Stable 0.1.0</span></div>
     <div class="plugin-card-body"><span class="plugin-category">附属（Extensions）</span><h2>OOChat</h2><p>0.1.0 提供基础命令入口；完整聊天、好友与邮件功能尚未正式发布，不包含 Window/UI。</p></div>
     <div class="plugin-card-footer"><span>社交系统</span><b>查看文档 →</b></div>
   </a>
 
   <a class="plugin-card" href="oovip/" data-category="independent" data-search="oovip independent vip membership 会员 权益">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/oovip/logo-128.png" alt="OOVIP 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/oovip/logo-128.png" alt="OOVIP 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOVIP</h2><p>会员生命周期与权益项目，尚未发布；命令和变量仅提供开发版参考。</p></div>
     <div class="plugin-card-footer"><span>会员权益</span><b>查看文档 →</b></div>
   </a>
   <a class="plugin-card" href="ooreforge/" data-category="independent" data-search="ooreforge independent reforge equipment 装备 锻造">
-    <div class="plugin-card-top"><img src="../assets/branding/pixelcat-v1/ooreforge/logo-128.png" alt="OOReforge 像素黑猫图标" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
+    <div class="plugin-card-top"><img src="../assets/branding/pixelcrest-v1/ooreforge/logo-128.png" alt="OOReforge 像素猫头徽章" width="64" height="64" loading="lazy" decoding="async"><span class="plugin-state state-planned">Paused · Unreleased</span></div>
     <div class="plugin-card-body"><span class="plugin-category">独立（Standalone）</span><h2>OOReforge</h2><p>装备、锻造、品质与配方插件，当前暂停且未发布。</p></div>
     <div class="plugin-card-footer"><span>装备锻造</span><b>查看文档 →</b></div>
   </a>

@@ -1,6 +1,6 @@
 # OOChat
 
-<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/oochat/logo-256.png" alt="OOChat 像素黑猫图标" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcrest-v1/oochat/logo-256.png" alt="OOChat 像素猫头徽章" decoding="async">
 
 **分类：附属（Extensions）。**
 

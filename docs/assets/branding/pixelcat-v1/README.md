@@ -1,4 +1,6 @@
-# Meowopia · 像素黑猫图标
+# Meowopia · 像素黑猫图标（历史素材）
+
+此方案已停用。当前 Wiki 采用 [Cat Crests 像素猫头徽章](../pixelcrest-v1/README.md)。
 
 采用经选择的 Pixel Companions 方向：黑猫、蓝眼、蓝项圈、单金铃与卷尾，共九款独立透明图标。产品通过道具、动作和表情区分。
 

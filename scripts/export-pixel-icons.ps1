@@ -1,4 +1,4 @@
-param([string]$AssetRoot = (Join-Path $PSScriptRoot '../docs/assets/branding/pixelcat-v1'))
+param([string]$AssetRoot = (Join-Path $PSScriptRoot '../docs/assets/branding/pixelcrest-v1'))
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $manifest = @()

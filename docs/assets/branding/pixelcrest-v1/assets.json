@@ -1,0 +1,362 @@
+[
+  {
+    "plugin": "oobrowser",
+    "file": "oobrowser/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1093,
+    "sha256": "58c98a62f5f9afabd0e651ccd6f73926e77e1f53bd3cc978d616e05525e87006"
+  },
+  {
+    "plugin": "oobrowser",
+    "file": "oobrowser/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3492,
+    "sha256": "bbb61ad2336d1f073214bd7381bb1a1de5f8e434f6b233f637ad90f90808977c"
+  },
+  {
+    "plugin": "oobrowser",
+    "file": "oobrowser/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 12010,
+    "sha256": "2c6f664d5e7e63dbb9b3791271a9190d7b6df0fd19c220ed0dc01b30e29b8d63"
+  },
+  {
+    "plugin": "oobrowser",
+    "file": "oobrowser/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 44036,
+    "sha256": "d04530869e806772000a519aec8ec4d239b3545633da1772f27fea4a8c4d4107"
+  },
+  {
+    "plugin": "oobrowser",
+    "file": "oobrowser/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 530531,
+    "sha256": "f616e4320b2a9f3f76c2bea46325c619fe773b8b2f81f3c626a50c04c7d6ffb5"
+  },
+  {
+    "plugin": "oochat",
+    "file": "oochat/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1311,
+    "sha256": "51f0288d3a606af86fbfb6dfd99ef149666356049bc52b048cc29542d1b557f2"
+  },
+  {
+    "plugin": "oochat",
+    "file": "oochat/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3893,
+    "sha256": "00b1888d547a548437c7ad04e0923c589f69c7bba9534ff6ec7e79d68da53c95"
+  },
+  {
+    "plugin": "oochat",
+    "file": "oochat/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 13321,
+    "sha256": "d210583d67101f12f937db8b1f483da6b4fc8a4427e4ea015c53c700a258cda2"
+  },
+  {
+    "plugin": "oochat",
+    "file": "oochat/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 46359,
+    "sha256": "a9d037abc2cf057050676ef841dbc899835707678bfa29859f2dded416be3c74"
+  },
+  {
+    "plugin": "oochat",
+    "file": "oochat/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 567928,
+    "sha256": "dc6c1c80464462f46df6145bdf7e0199edef0062244672a94c70b19f19d071a4"
+  },
+  {
+    "plugin": "ooconsole",
+    "file": "ooconsole/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1175,
+    "sha256": "d78ead4b073fa4d00e6411b0fcd0f68c45e64f067d1c7ddb23c81fa865be12ba"
+  },
+  {
+    "plugin": "ooconsole",
+    "file": "ooconsole/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3457,
+    "sha256": "29a8817e5af604a1b0910ff433e61f8dc42c8b351de3f570160a55b99439d490"
+  },
+  {
+    "plugin": "ooconsole",
+    "file": "ooconsole/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 12108,
+    "sha256": "3660fc6e39c186d5e58207aea828a8fdc6068258f01f01adc983bd6e0b4aadb5"
+  },
+  {
+    "plugin": "ooconsole",
+    "file": "ooconsole/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 42669,
+    "sha256": "9ccf2c6309ea67c285502cc9667599c65640aad27093bebc81ee5cbbe5ce9efa"
+  },
+  {
+    "plugin": "ooconsole",
+    "file": "ooconsole/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 521711,
+    "sha256": "2b993daec1357cb414ba9950d742c068ed6ad0b8caab90cd6f4c6853458f800d"
+  },
+  {
+    "plugin": "oocore",
+    "file": "oocore/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1055,
+    "sha256": "86bc5cd4271db0831cc9d85894c98c9e1ce652565d028f0d0328f4649b3db7f5"
+  },
+  {
+    "plugin": "oocore",
+    "file": "oocore/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3229,
+    "sha256": "676200e63dc12331084c7f09be1df06dcbf09afabb78d63600ce62ca7db47a18"
+  },
+  {
+    "plugin": "oocore",
+    "file": "oocore/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 10904,
+    "sha256": "a46a3d13c87ecdc8b536542c7566f52805f582da18553d06bb56ca4644b3e2a4"
+  },
+  {
+    "plugin": "oocore",
+    "file": "oocore/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 39120,
+    "sha256": "479f04fb793653fbffb69aabcb96dc3b664c1ef0e7dfd95a42975b1781cd9429"
+  },
+  {
+    "plugin": "oocore",
+    "file": "oocore/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 483948,
+    "sha256": "b9d8e3e6ca5d082238bcd258a82285a91f666cee9d6e5cdfd44bf07c62612314"
+  },
+  {
+    "plugin": "ooengine",
+    "file": "ooengine/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1025,
+    "sha256": "4879b69423e7fed1d1cd08c6c8bc018fd9b104bcd644417ea5efbc78bee08aeb"
+  },
+  {
+    "plugin": "ooengine",
+    "file": "ooengine/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3341,
+    "sha256": "ec163c042ace807d04e533ffae6b0bd29d3d8a8595fa814a8655d81ee7ef9485"
+  },
+  {
+    "plugin": "ooengine",
+    "file": "ooengine/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 11107,
+    "sha256": "0309830292ff611feb1bd3c6a084ffc19014730098d3bb169af18aea4db72aff"
+  },
+  {
+    "plugin": "ooengine",
+    "file": "ooengine/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 39616,
+    "sha256": "93249daad45d0ca10b0c8cbb67dc24fdaa02ca488d99b2e9fe40506dbc26cf39"
+  },
+  {
+    "plugin": "ooengine",
+    "file": "ooengine/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 496067,
+    "sha256": "d74c65925e038a7e9ca9e83170d9d3589b144d7f20a63a11d7ae7a2d60c13344"
+  },
+  {
+    "plugin": "oogame",
+    "file": "oogame/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1199,
+    "sha256": "419c49908c67056d133e6d4b39a0ed9b1c6bf5c61e4110590b278ea0d8eaed29"
+  },
+  {
+    "plugin": "oogame",
+    "file": "oogame/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3786,
+    "sha256": "3add74fa7c2d1fe5776b5ecb664bab782acdfb02403528eb0824069f6efd9afe"
+  },
+  {
+    "plugin": "oogame",
+    "file": "oogame/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 12838,
+    "sha256": "c972eb176d761fec76e6e9ddbb8ed52af1dc2103eb0e603ca35d2e021fded031"
+  },
+  {
+    "plugin": "oogame",
+    "file": "oogame/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 45520,
+    "sha256": "461946f9c6e08c0afa3c777adff2a890e7f16f67f689f6bf2abcdc9ec710bf32"
+  },
+  {
+    "plugin": "oogame",
+    "file": "oogame/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 575997,
+    "sha256": "28016d7e9db20166ef2a21cece3edeff6d3128e8e3a389b05ce1dc784d893290"
+  },
+  {
+    "plugin": "oomusic",
+    "file": "oomusic/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1153,
+    "sha256": "5802fe388f5129f1b933f1b962c743023a3bfebce88658a0a346f6bdfecb905c"
+  },
+  {
+    "plugin": "oomusic",
+    "file": "oomusic/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3555,
+    "sha256": "89906369b606e5354d750a73aa5018110ac668764ca4eaa673d03699b6c6d19e"
+  },
+  {
+    "plugin": "oomusic",
+    "file": "oomusic/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 11837,
+    "sha256": "0f376c3f776a38361632cff2665171ba717e88badb7158eb203676c7eb92ff81"
+  },
+  {
+    "plugin": "oomusic",
+    "file": "oomusic/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 42814,
+    "sha256": "cebf8f0f022f3db86c06612ad4c367e1a59947c4729ccb9fb50a8570b5d3f0f1"
+  },
+  {
+    "plugin": "oomusic",
+    "file": "oomusic/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 527518,
+    "sha256": "80b939c388778fcbbbd7549c4dfdce2fa83a67b8a670052672df8cbd5be77cb9"
+  },
+  {
+    "plugin": "ooreforge",
+    "file": "ooreforge/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1223,
+    "sha256": "18ad7d045156768d20ee024d67ff7f697da905b3e6bc48adfca7bb52dbad5364"
+  },
+  {
+    "plugin": "ooreforge",
+    "file": "ooreforge/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3620,
+    "sha256": "e851428ed64889337a2b48d6cc4a6926145d1e97f4d4318daac7054e0f4987a7"
+  },
+  {
+    "plugin": "ooreforge",
+    "file": "ooreforge/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 12844,
+    "sha256": "3ab4e809b153fc81c1509562a4a22646a723f8ed75535f6b1a4ec17976b94da4"
+  },
+  {
+    "plugin": "ooreforge",
+    "file": "ooreforge/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 44649,
+    "sha256": "14b830566ae46f28874b63153c1f76475e26ed82e88d05456106ca769e0c1057"
+  },
+  {
+    "plugin": "ooreforge",
+    "file": "ooreforge/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 551140,
+    "sha256": "204d01cf2438c1c2d3f97a4d716503b1d214d80c54a06b979850dfacdd615abc"
+  },
+  {
+    "plugin": "oovip",
+    "file": "oovip/logo-32.png",
+    "width": 32,
+    "height": 32,
+    "bytes": 1098,
+    "sha256": "f342c6b3811011aea1eac3829d2963305863938e35d333bf464821638f2218be"
+  },
+  {
+    "plugin": "oovip",
+    "file": "oovip/logo-64.png",
+    "width": 64,
+    "height": 64,
+    "bytes": 3423,
+    "sha256": "f144ac8786493e99a072d2f5aef2ad7974170a94d81a5efc02e369228e2965fd"
+  },
+  {
+    "plugin": "oovip",
+    "file": "oovip/logo-128.png",
+    "width": 128,
+    "height": 128,
+    "bytes": 11950,
+    "sha256": "b1f3c0bc9b88eaf1c683ac05dbc1ade162076fbd167646e4f54133f3c398c858"
+  },
+  {
+    "plugin": "oovip",
+    "file": "oovip/logo-256.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 42786,
+    "sha256": "4e050c6fd4f31847ea085d4cb5bfbc02c42e9785428689f737a339b3b53e6e40"
+  },
+  {
+    "plugin": "oovip",
+    "file": "oovip/logo-1024.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 519265,
+    "sha256": "3a9dff96295fa9f1a139516c9a8c78f7884cfba2243d58ccbe431457826e911d"
+  }
+]

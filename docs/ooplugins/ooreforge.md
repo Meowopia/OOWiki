@@ -1,6 +1,6 @@
 # OOReforge
 
-<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/ooreforge/logo-256.png" alt="OOReforge 像素黑猫图标" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcrest-v1/ooreforge/logo-256.png" alt="OOReforge 像素猫头徽章" decoding="async">
 
 **分类：独立（Standalone）。项目形态：独立 Paper 插件。状态：尚未正式发布，功能开发暂停。**
 

@@ -1,6 +1,6 @@
 # OOGame
 
-<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcat-v1/oogame/logo-256.png" alt="OOGame 像素黑猫图标" decoding="async">
+<img class="plugin-page-icon" width="160" height="160" src="../../assets/branding/pixelcrest-v1/oogame/logo-256.png" alt="OOGame 像素猫头徽章" decoding="async">
 
 OOGame 是 Meowopia（喵托邦）的小游戏大厅与游戏 Provider 聚合项目，归入**附属（Extensions）**。目标是让玩家从统一大厅发现游戏、排队和进入房间，具体玩法由服务端游戏 Provider 裁决。
 
