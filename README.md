@@ -6,6 +6,8 @@ Meowopia 所有项目的统一中文文档站，使用 MkDocs Material 构建。
 
 站点 favicon 与顶部导航使用 `docs/assets/community/meowopia-logo-8a1163a90df1.png` 作为 Meowopia 品牌标识。`docs/assets/logo.svg` 为 OO 插件系列标识，可供插件页面复用。
 
+Wiki 与 Meowopia 官网共用白色、浅蓝和薄荷绿的社区插画风格。首页及项目页采用 `docs/assets/community/` 中的 `community-hero-blue-v2.png`、`amoei-character-v2.png` 和 `meowoo-banner-chibi-v5.png`；Amoei 的正式形象为白发双马尾猫耳女仆。默认使用浅色阅读主题，也可在导航栏切换深色模式。
+
 九个产品采用 **喵托邦 / Meowopia Cat Crests 像素徽章系列**；使用统一猫头轮廓和不同功能符号。透明 PNG 原图与多尺寸图标位于 [`docs/assets/branding/pixelcrest-v1/`](docs/assets/branding/pixelcrest-v1/)。品牌展示不代表规划功能已经上线。
 
 - 在线地址：<https://wiki.meowopia.com/>

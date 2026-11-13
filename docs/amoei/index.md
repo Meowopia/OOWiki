@@ -1,8 +1,8 @@
 # Amoei · 智能女仆项目
 
-![窗边系着紫色蝴蝶结的黑猫](../assets/community/amoei-card-v1.png)
+![白发双马尾猫耳女仆 Amoei 与黑猫伙伴](../assets/community/amoei-character-v2.png)
 
-Amoei 是 Meowopia 的智能女仆项目。她喜欢黑猫，黑猫也是这个项目的视觉主题。
+Amoei 是 Meowopia 的智能女仆项目。她的正式形象是白发双马尾、猫耳与女仆装；喜欢的黑猫陪伴在她身边。
 
 ## 项目入口
 

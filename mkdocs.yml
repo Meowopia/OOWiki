@@ -16,6 +16,8 @@ edit_uri: edit/main/docs/
 
 # Documentation source / 文档源目录 (relative path; default: docs)
 docs_dir: docs
+exclude_docs: |
+  /overrides/
 
 theme:
   name: material
@@ -32,17 +34,15 @@ theme:
     - search.suggest
     - content.code.copy
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: pink
+    - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: 切换到深色模式
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: pink
+    - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: 切换到浅色模式
@@ -54,7 +54,7 @@ nav:
       - 项目导航: projects/index.md
       - OO 账号与空间: oo/index.md
       - Amoei 智能女仆: amoei/index.md
-      - Meowoo 播放器: meowoo/index.md
+      - Meowoo 个人影音: meowoo/index.md
       - Mrad 游戏: mrad/index.md
       - 博客与创作: blog/index.md
       - 社区与帮助: community/index.md

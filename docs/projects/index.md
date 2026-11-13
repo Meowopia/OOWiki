@@ -2,14 +2,14 @@
 
 这里是 Meowopia 的公共文档入口。按你正在使用的项目选择指南。
 
-| 项目 | 用途 | 从这里开始 |
-| --- | --- | --- |
-| OO 账号与空间 | 账号、个人主页与社区 | [注册与使用](../oo/index.md) |
-| Minecraft 插件 | 服务器框架与玩法扩展 | [插件目录](../ooplugins/index.md) · [安装](../ooplugins/installation.md) |
-| Amoei | 智能女仆项目 | [项目介绍](../amoei/index.md) |
-| Meowoo | Android / TV 播放器，开发中 | [项目与同步说明](../meowoo/index.md) |
-| Mrad | 游戏项目，开发中 | [官网与公告](../mrad/index.md) |
-| 博客 | 技术记录与生活随笔 | [阅读与写作](../blog/index.md) |
+| 项目 | 用途 | 从这里开始 | 项目站点 |
+| --- | --- | --- | --- |
+| OO 账号与空间 | 账号、个人主页与社区 | [注册与使用](../oo/index.md) | [OO](https://oo.meowopia.com/) |
+| Minecraft 插件 | 服务器框架与玩法扩展 | [插件目录](../ooplugins/index.md) · [安装](../ooplugins/installation.md) | [Meowopia](https://www.meowopia.com/) |
+| Amoei | 智能女仆项目 | [项目介绍](../amoei/index.md) | [Amoei 官网](https://www.amoei.com/) |
+| Meowoo | Flutter 跨平台个人影音应用，早期预览 | [项目与同步说明](../meowoo/index.md) | [Meowoo 官网](https://meowoo.meowopia.com/) |
+| Mrad | 游戏项目，开发中 | [官网与公告](../mrad/index.md) | [Mrad 官网](https://mrad.meowopia.com/) |
+| 博客 | 技术记录与生活随笔 | [阅读与写作](../blog/index.md) | [博客](https://blog.meowopia.com/) |
 
 ## 账号与项目的关系
 
