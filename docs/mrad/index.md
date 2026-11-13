@@ -1,9 +1,10 @@
 # Mrad · 游戏项目
 
-Mrad 是 Meowopia 旗下的独立游戏项目，目前处于开发中。
+Mrad 是**喵托邦游戏（Meowopia Game）旗下的一个独立游戏**，目前处于开发中。喵托邦游戏是独立游戏总入口，当前收录的游戏为 Mrad。
 
 ## 从官网开始
 
+- [喵托邦游戏总官网](https://game.meowopia.com/)：查看游戏目录与项目入口。
 - [Mrad 官网](https://mrad.meowopia.com/)：游戏介绍与世界氛围。
 - [项目公告](https://mrad.meowopia.com/news)：查看项目公开消息。
 - [下载与开放安排](https://mrad.meowopia.com/download)：以页面公布的可用状态为准。

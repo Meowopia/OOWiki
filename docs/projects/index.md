@@ -8,7 +8,8 @@
 | Minecraft 插件 | 服务器框架与玩法扩展 | [插件目录](../ooplugins/index.md) · [安装](../ooplugins/installation.md) | [Meowopia](https://www.meowopia.com/) |
 | Amoei | 智能女仆项目 | [项目介绍](../amoei/index.md) | [Amoei 官网](https://www.amoei.com/) |
 | Meowoo | Flutter 跨平台个人影音应用，早期预览 | [项目与同步说明](../meowoo/index.md) | [Meowoo 官网](https://meowoo.meowopia.com/) |
-| Mrad | 游戏项目，开发中 | [官网与公告](../mrad/index.md) | [Mrad 官网](https://mrad.meowopia.com/) |
+| 喵托邦游戏（Game） | 独立游戏总入口，当前收录 Mrad | [Mrad 文档](../mrad/index.md) | [游戏总官网](https://game.meowopia.com/) |
+| Mrad | 喵托邦游戏旗下的独立游戏，开发中 | [官网与公告](../mrad/index.md) | [Mrad 官网](https://mrad.meowopia.com/) |
 | 博客 | 技术记录与生活随笔 | [阅读与写作](../blog/index.md) | [博客](https://blog.meowopia.com/) |
 
 ## 账号与项目的关系
